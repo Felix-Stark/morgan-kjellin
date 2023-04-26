@@ -3,24 +3,24 @@ import React from "react";
 import testP from '../../assets/profile-photo.jpg'
 
 export const About = () => {
-  return <Container sx={{   width: {xs: 310, md: "90vw" },  padding: '0'}}>
+  return <Container sx={{   width: {xs: "80%", md: "100%", textAlign:"center" },  padding: '0'}}>
 
     <Box sx={{ boxShadow: 3 , display: 'flex', marginBottom:"5vh",flexDirection:{ xs: "column-reverse", md: "row"}, justifyContent: 'space-between'}}>
-      <Paper sx={{ borderRadius:'0px', color:"white", bgcolor:"#342C39"}}>
-        <Typography variant="h4" sx={{  marginBottom:"1rem"}}>Morgan Kjellin</Typography>
-        <Typography variant="h6" sx={{ fontSize: '1em', margin: "auto", padding:"1rem"}}>
+      <Paper sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#342C39"}}>
+        <Typography variant="h4" sx={{  marginBottom:"2vh"}}>Morgan Kjellin</Typography>
+        <Typography variant="h6" sx={{ fontSize: '1em', margin: "auto"}}>
           Jag är föreläsare & entreprenör och har sedan 1995 delat med mig av min resa. 
           Med mina egna erfarenheter av att ändra mina tankar och mitt sätt att vara på, 
           så har jag kunnat hjälpa många andra personer.
         </Typography>
       </Paper>
-      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: 310, md: 250 },}} alt="bild"src={testP}/>
+      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 250 },}} alt="bild"src={testP}/>
     </Box>
     <Box sx={{boxShadow: 3 , display: 'flex', marginBottom:"5vh",  flexDirection:{ xs: "column", md: "row"}, justifyContent: 'space-between'}}>
-      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: 310, md: 250 },}}alt="bild"src={testP}/>
-      <Paper  sx={{ borderRadius:'0px', bgcolor:"#342C39", color:"white"}}>
-        <Typography variant="h4" sx={{  marginBottom:"1rem"}}>Före detta missbrukare</Typography>
-        <Typography variant="h6" sx={{ fontSize: '1em', margin: "auto", padding:"1rem"}}>
+      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 250 },}}alt="bild"src={testP}/>
+      <Paper  sx={{padding:"1rem", borderRadius:'0px', bgcolor:"#342C39", color:"white"}}>
+        <Typography variant="h4" sx={{  marginBottom:"2vh"}}>Före detta missbrukare</Typography>
+        <Typography variant="h6" sx={{ fontSize: '1em', margin: "auto"}}>
           Under sina år som narkoman var Morgan med om flera tragiska händelser.
           Han delar med sig av historier från detta liv då han fick se sitt hem stå i lågor, 
           hur han blev avskedad från jobb och om goda relationer som gick förlorade under dessa år.
@@ -41,6 +41,6 @@ export const About = () => {
       </Typography>
     </Paper>
     {/* <Typography variant="body1" color="initial"></Typography>  */}
-    <Link underline="always">BOKA MIG FÖR EN FÖRELÄSNING!</Link>
+    <Link component="button" underline="hover" sx={{color:"black" }}>BOKA MIG FÖR EN FÖRELÄSNING!</Link>
   </Container>
 };
