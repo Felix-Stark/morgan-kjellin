@@ -6,6 +6,7 @@ import { About } from "./Views/About/About";
 import { Contact } from "./Views/Contact/Contact";
 import { Home } from "./Views/Home/Home";
 import { Work } from "./Views/Work/Work";
+import { Blog } from "./Views/Blog/Blog";
 
 function App() {
      
@@ -18,6 +19,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/arbeta-med-mig" element={<Work />} />
+        <Route path="/blog" element={<Blog />} />
       </Routes>
     </div>
   );

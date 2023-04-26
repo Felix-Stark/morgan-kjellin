@@ -19,9 +19,9 @@ const pagesLeft = [
   {label: "ARBETA MED MIG", path: "/arbeta-med-mig"},
   ];
 const pagesRight = [ 
-  // {label: "BLOGG", path: "/blog"},
+  {label: "BLOGG", path: "/blog"},
   {label: "KONTAKT", path: "/contact"},
-  // {label: "BOKA MÖTE", path: "/meeting"},
+  {label: "BOKA MÖTE", path: "/meeting"},
 ];
 
 export const Header = () => {
