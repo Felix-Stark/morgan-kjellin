@@ -1,4 +1,4 @@
-import { Container, Paper, Typography, Box, Grid } from "@mui/material";
+import { Container, Paper, Typography, Box, Grid, Link } from "@mui/material";
 import React from "react";
 import testP from '../../assets/profile-photo.jpg'
 
@@ -29,7 +29,7 @@ export const About = () => {
         </Typography>
       </Paper>
     </Box>
-    <Paper elevation={3} sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#342C39"}}>
+    <Paper elevation={3} sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#342C39", marginBottom:"2.5vh"}}>
       <Typography variant="h4" sx={{  marginBottom:"1rem"}}>Morgans egna ord</Typography>
       <Typography variant="h6" sx={{ fontSize: '1em', margin: "auto"}}>
         “Mina erfarenheter har fått mig att växa som människa. 
@@ -39,6 +39,8 @@ export const About = () => {
         Förändring är möjligt för alla och det jag lärt mig har hjälpt mig att vara fortsatt drogfri även genom de kriser jag upplevt efter att jag blivit drogfri.”
        <Typography variant="h6" sx={{  marginBottom:"1rem", marginTop: "1rem"}}>“FÖRÄNDRING ÄR MÖJLIGT FÖR ALLA!”</Typography>
       </Typography>
-    </Paper> 
+    </Paper>
+    {/* <Typography variant="body1" color="initial"></Typography>  */}
+    <Link underline="always">BOKA MIG FÖR EN FÖRELÄSNING!</Link>
   </Container>
 };
