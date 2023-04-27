@@ -6,18 +6,58 @@ import { About } from "./Views/About/About";
 import { Contact } from "./Views/Contact/Contact";
 import { Home } from "./Views/Home/Home";
 import { Work } from "./Views/Work/Work";
+import { ThemeOptions } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+const themeOptions: ThemeOptions = {
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#342C39",
+    },
+    secondary: {
+      main: "#1E1E1E",
+    },
+  },
+  typography: {
+    fontFamily: "Roboto",
+    h1: {
+      fontSize: "3rem",
+      fontWeight: 700,
+    },
+    h2: {
+      fontSize: "2rem",
+      fontWeight: 700,
+    },
+    h3: {
+      fontSize: "1.5rem",
+      fontWeight: 700,
+    },
+    h4: {
+      fontSize: "1.2rem",
+      fontWeight: 700,
+    },
+    h5: {
+      fontSize: "1rem",
+      fontWeight: 700,
+    },
+  },
+};
+
+const theme = createTheme(themeOptions);
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/arbeta-med-mig" element={<Work />} />
-      </Routes>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/arbeta-med-mig" element={<Work />} />
+        </Routes>
+      </div>
+    </ThemeProvider>
   );
 }
 
