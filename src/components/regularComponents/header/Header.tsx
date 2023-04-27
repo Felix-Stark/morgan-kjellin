@@ -40,7 +40,7 @@ export const Header = () => {
 
   return (
     <AppBar position="static" sx={{ background: "#F6F6F6", width:"100%",}}>
-      <Container disableGutters sx={{bgcolor:"black", display:"flex-inline", justifyContent:"space-between"}} >
+      <Container disableGutters sx={{ display:"flex-inline", justifyContent:"space-between"}} >
         <Toolbar >
         <Box sx={{ display: { xs: "flex", md: "none",  } }}>
             <Tooltip title="Öppna meny">
