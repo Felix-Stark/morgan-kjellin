@@ -8,6 +8,7 @@ import { Home } from "./Views/Home/Home";
 import { Work } from "./Views/Work/Work";
 import { ThemeOptions } from "@mui/material/styles";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Blog } from "./Views/Blog/Blog";
 
 const themeOptions: ThemeOptions = {
   palette: {
@@ -55,6 +56,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/arbeta-med-mig" element={<Work />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
       </div>
     </ThemeProvider>
