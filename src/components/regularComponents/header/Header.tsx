@@ -39,10 +39,10 @@ export const Header = () => {
 
 
   return (
-    <AppBar position="static" sx={{ background: "#F6F6F6"  }}>
-      <Container maxWidth="lg">
-        <Toolbar>
-        <Box sx={{ display: { xs: "flex", md: "none", flexBasis: "" } , marginRight: "auto"}}>
+    <AppBar position="static" sx={{ background: "#F6F6F6", width:"100%",}}>
+      <Container disableGutters sx={{bgcolor:"black", display:"flex-inline", justifyContent:"space-between"}} >
+        <Toolbar >
+        <Box sx={{ display: { xs: "flex", md: "none",  } }}>
             <Tooltip title="Öppna meny">
               <IconButton
                 size="large"
@@ -51,7 +51,7 @@ export const Header = () => {
                 aria-label="Öppna meny"
                 onClick={handleOpenNavMenu}
               >
-                <MenuIcon sx={{color: "#BA1D37" }} />
+                <MenuIcon sx={{color: "#BA1D37"}} />
               </IconButton>
             </Tooltip>
             <Menu
