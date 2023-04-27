@@ -2,8 +2,10 @@ import { Container, Paper, Typography, Box, Grid, Link } from "@mui/material";
 import React from "react";
 import testP from '../../assets/profile-photo.jpg'
 
+
+
 export const About = () => {
-  return <Container sx={{   width: {xs: "80%", md: "100%", textAlign:"center" },  padding: '0'}}>
+  return <Container  sx={{   width: {xs: "80%", md: "100%" },textAlign:"center" ,  padding: '0', }}>
 
     <Box sx={{ boxShadow: 3 , display: 'flex', marginBottom:"5vh",flexDirection:{ xs: "column-reverse", md: "row"}, justifyContent: 'space-between'}}>
       <Paper sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#342C39"}}>
