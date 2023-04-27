@@ -39,7 +39,7 @@ export const Header = () => {
 
 
   return (
-    <AppBar position="static" sx={{ background: "#F6F6F6", width: "100vw"  }}>
+    <AppBar position="static" sx={{ background: "#F6F6F6"  }}>
       <Container maxWidth="lg">
         <Toolbar>
         <Box sx={{ display: { xs: "flex", md: "none", flexBasis: "" } , marginRight: "auto"}}>
