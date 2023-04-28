@@ -9,52 +9,17 @@ import Grid from '@mui/material/Grid'
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const Hero = () => {
-
-	const theme = createTheme();
-	const themeH2 = createTheme({
-	
-    typography: {
-      h1: {
-		marginLeft: 10,
-        fontSize: "2rem",
-        "@media (min-width:600px)": {
-          fontSize: "3rem",
-		  marginLeft: 30,
-        },
-        [theme.breakpoints.up("md")]: {
-          fontSize: "4rem",
-		  marginLeft: 50,
-        },
-        fontWeight: "700",
-        color: "#fff",
-      },
-      h2: {
-        marginLeft: 10,
-        fontSize: "1.6rem",
-        "@media (min-width:600px)": {
-          fontSize: "2.3rem",
-		  marginLeft: 30,
-        },
-        [theme.breakpoints.up("md")]: {
-          fontSize: "3rem",
-		  marginLeft: 50,
-        },
-        fontStyle: "italic",
-        color: "#fff",
-      },
-    },
-  });
 	
   return (
-	<Grid>
+
+	<Grid style={{minHeight: 'calc(100vh - 64px)'}}>
 		<CardMedia
 		component={'img'}
 		image={heroImg}
 		sx={{ position: 'absolute', top: 0,  left: 0, width: '100%', height: '100%', zIndex: -1, }}
 		/>
 
-		<ThemeProvider theme={themeH2}>
-			<Typography variant="h1" mt={10}>
+			<Typography variant="h1">
 			FINN DITT RÄTTA SANNA JAG...
 			</Typography>
 			<Typography variant="h1" component={'h2'} >
@@ -63,9 +28,9 @@ const Hero = () => {
 			<Typography variant="h2" color={'#fff'} fontStyle={'italic'} mt={10}>
 			Tillsammans kan vi utveckla<br/>dig till ditt fulla potential.
 			</Typography>
-		</ThemeProvider>
 
       </Grid>
+
 
   );
 }
