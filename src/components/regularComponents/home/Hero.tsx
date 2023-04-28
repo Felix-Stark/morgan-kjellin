@@ -46,7 +46,7 @@ const Hero = () => {
   });
 	
   return (
-	<Grid minWidth={'100vw'} minHeight={'100vh'} >
+	<Grid>
 		<CardMedia
 		component={'img'}
 		image={heroImg}

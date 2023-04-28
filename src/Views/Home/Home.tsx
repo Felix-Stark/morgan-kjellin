@@ -1,9 +1,14 @@
 import React from "react";
 import Hero from "../../components/regularComponents/home/Hero";
-
+import Container from '@mui/material/Container'
 
 export const Home = () => {
   return (
-    <Hero />
+    <>
+      <Hero />
+      <Container fixed>
+
+      </Container>
+    </>
   )
 };
