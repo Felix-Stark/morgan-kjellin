@@ -16,9 +16,10 @@ export const Footer = () => {
       <Container maxWidth="lg">
         <Grid container spacing={3} sx={{ textAlign: { xs: 'center', sm: 'center' } }}>
           <Grid item xs={12} sm={4} >
-            <Typography variant="h5" sx={{ mb: 2 ,transition: 'color 0.3s ease-in-out',
+            <Typography variant="h5" sx={{ fontSize: 20, mb: 2 ,transition: 'color 0.3s ease-in-out',
                   '&:hover': {
                     color: '#BA1D37',
+                    cursor: 'default',
                   } }}>
               Information
             </Typography>
@@ -43,9 +44,10 @@ export const Footer = () => {
           </Grid>
           <Grid item xs={12} sm={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Box sx={{ mb: 2 }}>
-              <Typography variant="body2" sx={{ fontSize: 20,  marginBottom: 2, fontWeight: "bold", transition: 'color 0.3s ease-in-out',
+              <Typography variant="body2" sx={{ fontSize: 24,  marginBottom: 2, fontWeight: "bold", transition: 'color 0.3s ease-in-out',
                   '&:hover': {
                     color: '#BA1D37',
+                    cursor: 'default',
                   },}}>  
                 Morgan Kjellin
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -93,15 +95,18 @@ export const Footer = () => {
               </IconButton>
             </Box>
               </Typography>
-              <Typography variant="body2">
+              <Typography variant="body2" sx={{'&:hover': {
+                  cursor: 'default',
+                },}}>
                 © {new Date().getFullYear()}, All Rights Reserved
               </Typography>
             </Box>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <Typography variant="h5" sx={{ mb: 2, transition: 'color 0.3s ease-in-out',
+            <Typography variant="h5" sx={{ fontSize: 20, mb: 2, transition: 'color 0.3s ease-in-out',
                 '&:hover': {
-                  color: '#BA1D37'
+                  color: '#BA1D37',
+                  cursor: 'default',
                 }, }}>
               Kontakt
             </Typography>
