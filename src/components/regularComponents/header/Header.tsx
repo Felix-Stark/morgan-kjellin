@@ -39,12 +39,13 @@ export const Header = () => {
 
 
   return (
-    <AppBar position="static" sx={{ background: "#F6F6F6", width:"100%",}}>
-      <Container disableGutters sx={{ display:"flex-inline", justifyContent:"space-between"}} >
-        <Toolbar >
-        <Box sx={{ display: { xs: "flex", md: "none",  } }}>
+    <AppBar position="static" sx={{background: "#F6F6F6" }}>
+      <Container maxWidth="lg" sx={{display:"flex", justifyContent: "space-evenly",  alignItems: "center" }}>
+        <Toolbar>
+        <Box sx={{ display: { xs: "flex", md: "none"} }}>
             <Tooltip title="Öppna meny">
               <IconButton
+                sx={{ m: 0 }}
                 size="large"
                 edge="end"
                 color="inherit"
@@ -87,7 +88,7 @@ export const Header = () => {
               <Button
                 key={pageL.label}
                 color="inherit"
-                sx={{ textTransform: "none", color: "#BA1D37", fontWeight: "bold" }}
+                sx={{ textTransform: "none", color: "#BA1D37", fontWeight: "bold", paddingRight: "1.5rem" }}
                 component={Link}
                 to={pageL.path}
               >
@@ -95,7 +96,8 @@ export const Header = () => {
               </Button>
             ))}
           </Box>
-            <Link to="/" style={{ textDecoration: "none",display: "flex" ,flexDirection: "row"  }}>
+          <Box>
+            <Link to="/" style={{ textDecoration: "none",display: "flex" ,flexDirection: "row" }}>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: "#BA1D37", fontWeight: "700", fontSize: 30 }}>
                 MORGAN&nbsp; 
               </Typography>
@@ -103,7 +105,8 @@ export const Header = () => {
                 KJELLIN
               </Typography>
             </Link>
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          </Box>
+          <Box sx={{ display: { xs: "none", md: "flex" }, paddingLeft:"1.5rem" }}>
             {pagesRight.map((pageR) => (
               <Button
                 key={pageR.label}
