@@ -47,16 +47,17 @@ export const Work = () => {
 
           </Button>
 
-          <Container disableGutters style={{ display: 'flex', minWidth: '100%', margin: "0", position: 'relative'}}>
-            <Box width={'2rem'} height={'2rem'} borderRadius={'50%'} style={{backgroundColor: '#BA1D37', position: 'absolute', right: 'calc(50% - 1rem)', top: '5rem'}}></Box>
+          <Container disableGutters sx={{ display: 'flex', minWidth: '100%', margin: "0", position: 'relative', flexDirection: { xs: 'column', md: 'row' }}}>
+            <Box width={'2rem'} height={'2rem'} borderRadius={'50%'} sx={{opacity: { xs: '0', md: '100%'}, backgroundColor: '#BA1D37', position: 'absolute', right: 'calc(50% - 1rem)', top: '5rem'}}></Box>
 
-            <Box width={'50%'} margin={0} paddingBottom={'4rem'}
+            <Box margin={0} paddingBottom={'4rem'}
               sx={{
+                width: {xs: '100%', md: '50%'},
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'column',
-                borderRight: '1px solid #BA1D37'
+                borderRight: {xs: 'none', md: '1px solid #BA1D37'}
               }}>
                 <Box width={'20rem'}>
                   <CardMedia image={workHands} style={{ width: '20rem', height: '25rem' }}>
@@ -66,13 +67,15 @@ export const Work = () => {
 
             </Box>
 
-            <Box width={'50%'} margin={0} paddingBottom={'4rem'}
+            <Box margin={0} paddingBottom={'4rem'}
               sx={{
+                width: {xs: '100%', md: '50%'},
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'column',
-                borderLeft: '1px solid #BA1D37'
+                borderLeft: {xs: 'none', md: '1px solid #BA1D37'},
+                borderBottom: { xs: '1px solid #BA1D37', md: 'none'}
               }}>
                 <Box width={'20rem'}>
                   <Typography variant="h2" marginTop={'5rem'}>Föreläsningar</Typography>
@@ -91,16 +94,18 @@ export const Work = () => {
 
           </Container>
 
-          <Container disableGutters style={{ display: 'flex', minWidth: '100%', margin: "0", position: 'relative'}}>
-            <Box width={'2rem'} height={'2rem'} borderRadius={'50%'} style={{backgroundColor: '#BA1D37', position: 'absolute', right: 'calc(50% - 1rem)', top: '5rem'}}></Box>
+          <Container disableGutters sx={{ display: 'flex', minWidth: '100%', margin: "0", position: 'relative', flexDirection: { xs: 'column-reverse', md: 'row' }}}>
+            <Box width={'2rem'} height={'2rem'} borderRadius={'50%'} sx={{opacity: { xs: '0', md: '100%'}, backgroundColor: '#BA1D37', position: 'absolute', right: 'calc(50% - 1rem)', top: '5rem'}}></Box>
 
-            <Box width={'50%'} margin={0} paddingBottom={'4rem'}
+            <Box margin={0} paddingBottom={'4rem'}
               sx={{
+                width: {xs: '100%', md: '50%'},
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'column',
-                borderRight: '1px solid #BA1D37'
+                borderRight: {xs: 'none', md: '1px solid #BA1D37'},
+                borderBottom: { xs: '1px solid #BA1D37', md: 'none'}
               }}>
                 <Box width={'20rem'}>
                   <Typography variant="h2" paddingTop={'5rem'}>Relationer</Typography>
@@ -117,16 +122,17 @@ export const Work = () => {
                 </Box>
             </Box>
 
-            <Box width={'50%'} margin={0} paddingBottom={'4rem'}
+            <Box margin={0} paddingBottom={'4rem'}
               sx={{
+                width: {xs: '100%', md: '50%'},
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'column',
-                borderLeft: '1px solid #BA1D37'
+                borderLeft: {xs: 'none', md: '1px solid #BA1D37'}
               }}>
                 <Box width={'20rem'}>
-                  <CardMedia image={workHugging} style={{ width: '20rem', height: '25rem' }}>
+                  <CardMedia image={workHugging} sx={{ width: '20rem', height: '25rem', transform: { xs: 'translate(3rem, 0)'}}}>
                     <CardMedia image={workFamily} style={{ width: '10rem', height: '10rem', transform: 'translate(-8rem, 18rem)' }}></CardMedia>
                   </CardMedia>
                 </Box>
@@ -135,16 +141,17 @@ export const Work = () => {
 
           </Container>
 
-          <Container disableGutters style={{ display: 'flex', minWidth: '100%', margin: "0", position: 'relative'}}>
-            <Box width={'2rem'} height={'2rem'} borderRadius={'50%'} style={{backgroundColor: '#BA1D37', position: 'absolute', right: 'calc(50% - 1rem)', top: '5rem'}}></Box>
+          <Container disableGutters sx={{ display: 'flex', minWidth: '100%', margin: "0", position: 'relative', flexDirection: { xs: 'column', md: 'row' }}}>
+            <Box width={'2rem'} height={'2rem'} borderRadius={'50%'} sx={{opacity: { xs: '0', md: '100%'}, backgroundColor: '#BA1D37', position: 'absolute', right: 'calc(50% - 1rem)', top: '5rem'}}></Box>
 
-            <Box width={'50%'} margin={0} paddingBottom={'4rem'}
+            <Box margin={0} paddingBottom={'4rem'}
               sx={{
+                width: {xs: '100%', md: '50%'},
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'column',
-                borderRight: '1px solid #BA1D37'
+                borderRight: {xs: 'none', md: '1px solid #BA1D37'}
               }}>
                 <Box width={'20rem'}>
                   <CardMedia image={workManyHands} style={{ width: '20rem', height: '25rem' }}></CardMedia>
@@ -152,13 +159,15 @@ export const Work = () => {
 
             </Box>
 
-            <Box width={'50%'} margin={0} paddingBottom={'4rem'}
+            <Box margin={0} paddingBottom={'4rem'}
               sx={{
+                width: {xs: '100%', md: '50%'},
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'column',
-                borderLeft: '1px solid #BA1D37'
+                borderLeft: {xs: 'none', md: '1px solid #BA1D37'},
+                borderBottom: { xs: '1px solid #BA1D37', md: 'none'}
               }}>
                 <Box width={'20rem'}>
                   <Typography variant="h2" paddingTop={'5rem'}>Ledarskaps</Typography>
@@ -178,16 +187,18 @@ export const Work = () => {
 
           </Container>
 
-          <Container disableGutters style={{ display: 'flex', minWidth: '100%', margin: "0", position: 'relative'}}>
-            <Box width={'2rem'} height={'2rem'} borderRadius={'50%'} style={{backgroundColor: '#BA1D37', position: 'absolute', right: 'calc(50% - 1rem)', top: '5rem'}}></Box>
+          <Container disableGutters sx={{ display: 'flex', minWidth: '100%', margin: "0", position: 'relative', flexDirection: { xs: 'column-reverse', md: 'row' }}}>
+            <Box width={'2rem'} height={'2rem'} borderRadius={'50%'} sx={{opacity: { xs: '0', md: '100%'}, backgroundColor: '#BA1D37', position: 'absolute', right: 'calc(50% - 1rem)', top: '5rem'}}></Box>
 
-            <Box width={'50%'} margin={0} paddingBottom={'4rem'}
+            <Box margin={0} paddingBottom={'4rem'}
               sx={{
+                width: {xs: '100%', md: '50%'},
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'column',
-                borderRight: '1px solid #BA1D37'
+                borderRight: {xs: 'none', md: '1px solid #BA1D37'},
+                borderBottom: { xs: '1px solid #BA1D37', md: 'none'}
               }}>
                 <Box width={'20rem'}>
                   <Typography variant="h2" paddingTop={'5rem'}>Personlig</Typography>
@@ -205,13 +216,14 @@ export const Work = () => {
                 </Box>
             </Box>
 
-            <Box width={'50%'} margin={0} paddingBottom={'4rem'}
+            <Box margin={0} paddingBottom={'4rem'}
               sx={{
+                width: {xs: '100%', md: '50%'},
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'column',
-                borderLeft: '1px solid #BA1D37'
+                borderLeft: {xs: 'none', md: '1px solid #BA1D37'}
               }}>
                 <Box width={'20rem'}>
                   <CardMedia image={workHappy} style={{ width: '20rem', height: '25rem' }}></CardMedia>
@@ -222,16 +234,17 @@ export const Work = () => {
 
           </Container>
 
-          <Container disableGutters style={{ display: 'flex', minWidth: '100%', margin: "0", position: 'relative'}}>
-            <Box width={'2rem'} height={'2rem'} borderRadius={'50%'} style={{backgroundColor: '#BA1D37', position: 'absolute', right: 'calc(50% - 1rem)', top: '5rem'}}></Box>
+          <Container disableGutters sx={{ display: 'flex', minWidth: '100%', margin: "0", position: 'relative', flexDirection: { xs: 'column', md: 'row' }}}>
+            <Box width={'2rem'} height={'2rem'} borderRadius={'50%'} sx={{ opacity: { xs: '0', md: '100%'}, backgroundColor: '#BA1D37', position: 'absolute', right: 'calc(50% - 1rem)', top: '5rem'}}></Box>
 
-            <Box width={'50%'} margin={0} paddingBottom={'6rem'}
+            <Box margin={0} paddingBottom={'6rem'}
               sx={{
+                width: {xs: '100%', md: '50%'},
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'column',
-                borderRight: '1px solid #BA1D37'
+                borderRight: {xs: 'none', md: '1px solid #BA1D37'}
               }}>
                 <Box width={'20rem'}>
                   <CardMedia image={workSad} style={{ width: '20rem', height: '25rem' }}></CardMedia>
@@ -239,13 +252,14 @@ export const Work = () => {
 
             </Box>
 
-            <Box width={'50%'} margin={0} paddingBottom={'6rem'}
+            <Box margin={0} paddingBottom={'6rem'}
               sx={{
+                width: {xs: '100%', md: '50%'},
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'column',
-                borderLeft: '1px solid #BA1D37'
+                borderLeft: {xs: 'none', md: '1px solid #BA1D37'}
               }}>
                 <Box width={'20rem'}>
                   <Typography variant="h2" paddingTop={'5rem'}>Sorg</Typography>
