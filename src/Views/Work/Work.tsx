@@ -21,13 +21,13 @@ export const Work = () => {
         <CardMedia image={ workHero } 
         style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", width: "100%", height: "100vh", position: 'relative' }}>
 
-          <Typography variant="h1" sx={{ color: '#FFFFFF', margin: '2rem' }}>Arbeta med mig</Typography>
+          <Typography variant="h1" sx={{ color: '#FFFFFF', margin: '2rem', fontSize: { xs: '4rem', md: '5rem' } }}>Arbeta med mig</Typography>
           <Button variant="contained" sx={{ 
             backgroundColor: '#BA1D37',
-            width: '20rem',
-            height: '5rem',
+            width: {xs: '16rem', md: '20rem'},
+            height: { xs: '4rem', md: '5rem'},
             margin: '2rem',
-            fontSize: '24px',
+            fontSize: {xs: '20px', md: '24px'},
             '&:hover': {backgroundColor: '#BA1D60'}}}>
             Kontakt
           </Button>
@@ -38,11 +38,12 @@ export const Work = () => {
 
         <Container disableGutters style={{ display: 'flex', flexWrap: 'wrap', minWidth: '100%', margin: "0", position: 'relative'}}>
 
-          <Button variant="contained" sx={{ zIndex: '1', width: '5rem', height: '5rem', borderRadius: '50%', backgroundColor: '#BA1D37', position: 'fixed',
+          <Button variant="contained" sx={{ zIndex: '1', width: {xs: '4rem', md: '5rem'}, height: {xs: '4rem', md: '5rem'}, borderRadius: '50%', backgroundColor: '#BA1D37', position: 'fixed',
            margin: '5rem', bottom: '-2rem', right: '-2rem', '&:hover': {backgroundColor: '#BA1D60'} }}>
 
-            <CardMedia image={ scrollArrow } style={{width: '2.5rem', height: '2.5rem', position: 'absolute',
-             top: 'calc(25% - 2.5px)', left: 'calc(25%)', transform: 'rotate(180deg)' }}>
+            <CardMedia image={ scrollArrow } style={{ position: 'absolute', transform: 'rotate(180deg)' }}
+             sx={{ top: { xs: 'calc(25% - 2px)', md: 'calc(25% - 2.5px)'}, left: { xs: 'calc(25% - .5px)', md: 'calc(25%)'},
+            width: {xs: '2rem', md: '2.5rem'}, height: {xs: '2rem', md: '2.5rem'} } } >
              </CardMedia>
 
           </Button>
