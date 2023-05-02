@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Header } from "./components/regularComponents/header/Header";
+import { Footer } from "./components/regularComponents/footer/Footer";
 import { About } from "./Views/About/About";
 import { Contact } from "./Views/Contact/Contact";
 import { Home } from "./Views/Home/Home";
@@ -11,6 +12,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Blog } from "./Views/Blog/Blog";
 import { GlobalStyles } from "@mui/system";
 import "./MUI-Themes/theme.types";
+
 
 const themeOptions: ThemeOptions = {
   palette: {
@@ -53,9 +55,11 @@ const themeOptions: ThemeOptions = {
   },
 };
 
+
 const globalTheme = createTheme(themeOptions);
 function App() {
   return (
+
     <ThemeProvider theme={globalTheme}>
       <GlobalStyles
         styles={{
@@ -74,9 +78,11 @@ function App() {
           <Route path="/arbeta-med-mig" element={<Work />} />
           <Route path="/blog" element={<Blog />} />
         </Routes>
+        <Footer />
       </div>
     </ThemeProvider>
-  );
+
+ )
 }
 
 export default App;
