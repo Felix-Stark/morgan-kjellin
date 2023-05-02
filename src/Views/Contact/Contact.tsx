@@ -94,7 +94,7 @@ export const Contact: React.FC = () => {
   });
 
   return (
-    <Box display="flex" alignItems="center" sx={{ minHeight: "90vh" }}>
+    <Box display="flex" alignItems="center" sx={{ minHeight: "95vh" }}>
       <Box
         display="flex"
         flexDirection={{ xs: "column", md: "row" }}
@@ -117,9 +117,12 @@ export const Contact: React.FC = () => {
             maxWidth: "1100px",
             backgroundColor: "primary.main",
             color: "white",
-            borderRadius: 4,
-            borderTopRightRadius: 0,
-            borderBottomRightRadius: 0,
+            borderRadius: {
+              xs: 0,
+              md: "1rem 0 0 1rem",
+              lg: "1rem 0 0 1rem",
+              xl: "1rem 0 0 1rem",
+            },
             padding: { xs: "16px", md: "32px" },
             width: { md: "40%" },
           }}
@@ -140,12 +143,15 @@ export const Contact: React.FC = () => {
             alignItems="center"
             sx={{
               width: "100%",
-              height: "700px",
+              height: { xs: "100%", sm: "100%", md: "700px" },
               maxWidth: "1100px",
               margin: "0 auto",
-              borderRadius: 4,
-              borderTopLeftRadius: 0,
-              borderBottomLeftRadius: 0,
+              borderRadius: {
+                xs: 0,
+                md: "0 1rem 1rem 0",
+                lg: "0 1rem 1rem 0",
+                xl: "0 1rem 1rem 0",
+              },
             }}
           >
             <Box
@@ -158,21 +164,23 @@ export const Contact: React.FC = () => {
                 height: "100%",
                 maxWidth: "800px",
                 margin: "0 auto",
-                borderRadius: 4,
-                borderTopLeftRadius: 0,
-                borderBottomLeftRadius: 0,
+                borderRadius: {
+                  xs: 0,
+                  md: "0 1rem 1rem 0",
+                  lg: "0 1rem 1rem 0",
+                  xl: "0 1rem 1rem 0",
+                },
                 overflow: "hidden",
               }}
             >
               <Box
                 display="flex"
                 flexDirection={{ xs: "column", md: "row" }}
-                sx={{ height: "80%" }}
+                sx={{ height: "100%" }}
               >
                 <Box
                   display="flex"
                   flexDirection="column"
-                  alignItems="center"
                   justifyContent="center"
                   sx={{
                     backgroundColor: "rgba(52, 52, 52)",
