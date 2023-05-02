@@ -75,12 +75,6 @@ export const Contact: React.FC = () => {
         },
       },
     },
-    "@global": {
-      "input:-webkit-autofill, textarea:-webkit-autofill": {
-        backgroundColor: "white !important", // Desired input background color for autofill
-        WebkitTextFillColor: "rgba(0, 0, 0, 0.87) !important", // Desired input text color for autofill
-      },
-    },
   });
 
   return (
@@ -101,7 +95,7 @@ export const Contact: React.FC = () => {
           <Box
             display="flex"
             flexDirection="column"
-            justifyContent="center"
+            justifyContent="flex-start"
             alignItems="center"
             sx={{
               height: "700px",
@@ -115,11 +109,11 @@ export const Contact: React.FC = () => {
               width: { md: "40%" },
             }}
           >
-            <Typography variant="h2">
+            <Typography variant="h4">
               Vad kul att du vill nå ut till mig!
             </Typography>
             <br></br>
-            <Typography variant="h3">
+            <Typography variant="h5">
               Vänligen fyll i de obligatoriska fälten så svarar jag inom två
               arbetsdagar
             </Typography>
