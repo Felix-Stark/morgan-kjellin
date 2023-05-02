@@ -27,7 +27,11 @@ export const Contact: React.FC = () => {
     message: "",
   });
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     const { name, value } = event.target;
     setFormData({
       ...formData,
@@ -38,7 +42,19 @@ export const Contact: React.FC = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(formData);
+
+    clearForm();
   };
+
+  function clearForm() {
+    setFormData({
+      name: "",
+      email: "",
+      phoneNumber: "",
+      reason: "",
+      message: "",
+    });
+  }
 
   const theme = createTheme({
     components: {
@@ -78,46 +94,46 @@ export const Contact: React.FC = () => {
   });
 
   return (
-    <ThemeProvider theme={theme}>
-      <Box display="flex" alignItems="center" sx={{ minHeight: "90vh" }}>
+    <Box display="flex" alignItems="center" sx={{ minHeight: "90vh" }}>
+      <Box
+        display="flex"
+        flexDirection={{ xs: "column", md: "row" }}
+        alignItems="center"
+        sx={{
+          width: "100%",
+          height: "700px",
+          maxWidth: "1100px",
+          margin: "0 auto",
+          borderRadius: "4px",
+        }}
+      >
         <Box
           display="flex"
-          flexDirection={{ xs: "column", md: "row" }}
+          flexDirection="column"
+          justifyContent="flex-start"
           alignItems="center"
           sx={{
-            width: "100%",
             height: "700px",
             maxWidth: "1100px",
-            margin: "0 auto",
-            borderRadius: "4px",
+            backgroundColor: "primary.main",
+            color: "white",
+            borderRadius: 4,
+            borderTopRightRadius: 0,
+            borderBottomRightRadius: 0,
+            padding: { xs: "16px", md: "32px" },
+            width: { md: "40%" },
           }}
         >
-          <Box
-            display="flex"
-            flexDirection="column"
-            justifyContent="flex-start"
-            alignItems="center"
-            sx={{
-              height: "700px",
-              maxWidth: "1100px",
-              backgroundColor: "primary.main",
-              color: "white",
-              borderRadius: 4,
-              borderTopRightRadius: 0,
-              borderBottomRightRadius: 0,
-              padding: { xs: "16px", md: "32px" },
-              width: { md: "40%" },
-            }}
-          >
-            <Typography variant="h4">
-              Vad kul att du vill nå ut till mig!
-            </Typography>
-            <br></br>
-            <Typography variant="h5">
-              Vänligen fyll i de obligatoriska fälten så svarar jag inom två
-              arbetsdagar
-            </Typography>
-          </Box>
+          <Typography variant="h2" sx={{ padding: { xs: "12px", md: "24px" } }}>
+            Vad kul att du vill nå ut till mig!
+          </Typography>
+
+          <Typography variant="h3" sx={{ padding: { xs: "12px", md: "24px" } }}>
+            Vänligen fyll i de obligatoriska fälten så svarar jag inom två
+            arbetsdagar
+          </Typography>
+        </Box>
+        <ThemeProvider theme={theme}>
           <Box
             display="flex"
             flexDirection={{ xs: "column", md: "row" }}
@@ -264,7 +280,7 @@ export const Contact: React.FC = () => {
                     name="message"
                     value={formData.message}
                     placeholder={"Hej Morgan! ..."}
-                    // onChange={handleChange}
+                    onChange={handleChange}
                     minRows={18}
                     maxLength={480}
                     style={{
@@ -307,8 +323,8 @@ export const Contact: React.FC = () => {
               </Box>
             </Box>
           </Box>
-        </Box>
+        </ThemeProvider>
       </Box>
-    </ThemeProvider>
+    </Box>
   );
 };

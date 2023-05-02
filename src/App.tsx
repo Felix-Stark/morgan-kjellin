@@ -53,10 +53,10 @@ const themeOptions: ThemeOptions = {
   },
 };
 
-const theme = createTheme(themeOptions);
+const globalTheme = createTheme(themeOptions);
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={globalTheme}>
       <GlobalStyles
         styles={{
           "input:-webkit-autofill, textarea:-webkit-autofill": {
