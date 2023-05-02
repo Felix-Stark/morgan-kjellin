@@ -9,21 +9,7 @@ import {
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const theme = createTheme({
-  components: {
-    MuiInput: {
-      styleOverrides: {
-        input: {
-          "&:not(:focus):not(:placeholder-shown)": {
-            WebkitBoxShadow: "0 0 0 100px #38a169 inset", // Change to your desired green color
-          },
-        },
-      },
-    },
-  },
-});
-
-const reasons = ["Boka föreläsning", "Boka möte", "Sammarbete", "Annat"];
+const reasons = ["Boka föreläsning", "Boka möte", "Samarbete", "Annat"];
 
 interface ContactFormData {
   name: string;
@@ -53,6 +39,49 @@ export const Contact: React.FC = () => {
     event.preventDefault();
     console.log(formData);
   };
+
+  const theme = createTheme({
+    components: {
+      MuiInput: {
+        styleOverrides: {
+          root: {
+            backgroundColor: "white", // Desired input background color
+            "&:hover": {
+              backgroundColor: "white", // Desired input background color when hovered
+            },
+            "&.Mui-focused": {
+              backgroundColor: "white", // Desired input background color when focused
+            },
+            "&.Mui-error": {
+              backgroundColor: "white", // Desired input background color when error occurs
+            },
+          },
+        },
+      },
+      MuiFilledInput: {
+        styleOverrides: {
+          root: {
+            backgroundColor: "white", // Desired input background color
+            "&:hover": {
+              backgroundColor: "white", // Desired input background color when hovered
+            },
+            "&.Mui-focused": {
+              backgroundColor: "white", // Desired input background color when focused
+            },
+            "&.Mui-error": {
+              backgroundColor: "white", // Desired input background color when error occurs
+            },
+          },
+        },
+      },
+    },
+    "@global": {
+      "input:-webkit-autofill, textarea:-webkit-autofill": {
+        backgroundColor: "white !important", // Desired input background color for autofill
+        WebkitTextFillColor: "rgba(0, 0, 0, 0.87) !important", // Desired input text color for autofill
+      },
+    },
+  });
 
   return (
     <ThemeProvider theme={theme}>
@@ -144,10 +173,11 @@ export const Contact: React.FC = () => {
                   <TextField
                     name="name"
                     label="Namn"
+                    variant="filled"
                     InputLabelProps={{
                       style: {
                         // Your custom styles for the label tag
-                        color: "white",
+                        color: "black",
                         fontSize: "18px",
                         fontWeight: "bold",
                       },
@@ -162,10 +192,11 @@ export const Contact: React.FC = () => {
                   <TextField
                     name="email"
                     label="E-post"
+                    variant="filled"
                     InputLabelProps={{
                       style: {
                         // Your custom styles for the label tag
-                        color: "white",
+                        color: "black",
                         fontSize: "18px",
                         fontWeight: "bold",
                       },
@@ -181,10 +212,11 @@ export const Contact: React.FC = () => {
                   <TextField
                     name="phoneNumber"
                     label="Telefon"
+                    variant="filled"
                     InputLabelProps={{
                       style: {
                         // Your custom styles for the label tag
-                        color: "white",
+                        color: "black",
                         fontSize: "18px",
                         fontWeight: "bold",
                       },
@@ -197,12 +229,13 @@ export const Contact: React.FC = () => {
                   />
                   <TextField
                     name="reason"
+                    variant="filled"
                     select
                     label="Anledning för kontakt"
                     InputLabelProps={{
                       style: {
                         // Your custom styles for the label tag
-                        color: "white",
+                        color: "black",
                         fontSize: "18px",
                         fontWeight: "bold",
                       },
