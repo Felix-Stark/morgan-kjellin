@@ -1,10 +1,7 @@
-import React from 'react'
-import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import CardMedia from "@mui/material/CardMedia";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import crossRoadsImg from '../../../assets/home-crossroads.png'
 
 

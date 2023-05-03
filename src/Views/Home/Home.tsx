@@ -4,6 +4,7 @@ import FirstBlock from "../../components/regularComponents/home/FirstBlock";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Grid from '@mui/material/Grid'
 import SecondBlock from "../../components/regularComponents/home/SecondBlock";
+import ThirdBlock from "../../components/regularComponents/home/ThirdBlock";
 
 export const Home = () => {
 	let breakTheme = createTheme();
@@ -51,19 +52,7 @@ export const Home = () => {
       },
     },
     components: {
-      MuiGrid: {
-        styleOverrides: {
-          item: {
-            paddingLeft: "5rem",
-            [breakTheme.breakpoints.down("sm")]: {
-              paddingLeft: "0rem",
-            },
-            [breakTheme.breakpoints.up("md")]: {
-              flexDirection: "column",
-            },
-          },
-        },
-      },
+      
     },
   });
   return (
@@ -72,6 +61,7 @@ export const Home = () => {
 			<Hero />
 			<FirstBlock />
 			<SecondBlock />
+			<ThirdBlock />
 		</Grid>
     </ThemeProvider>
   )
