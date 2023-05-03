@@ -53,7 +53,7 @@ export const Work = () => {
 
             <Box margin={0}
               sx={{
-                paddingTop: { xs: '4rem', md: '2rem' },
+                paddingTop: { xs: '4rem', md: '5rem' },
                 paddingBottom: { xs: '0rem', md: '4rem' },
                 width: {xs: '100%', md: '50%'},
                 display: 'flex',
@@ -64,7 +64,7 @@ export const Work = () => {
               }}>
                 <Box sx={{width: {xs: '30rem', md: '20rem'}}}>
                   <CardMedia image={workHands} style={{ width: '20rem', height: '25rem' }}>
-                    <CardMedia image={workThinking} style={{ width: '10rem', height: '10rem', transform: 'translate(8rem, 18rem)' }}></CardMedia>
+                    <CardMedia image={workThinking} style={{ width: '10rem', height: '10rem', transform: 'translate(13rem, 18rem)' }}></CardMedia>
                   </CardMedia>
                 </Box>
 
@@ -81,7 +81,7 @@ export const Work = () => {
                 paddingBottom: { xs: '2rem', md: '4rem' }
               }}>
                 <Box sx={{width: {xs: '30rem', md: '20rem'}}}>
-                  <Typography variant="h2" sx={{marginTop: {xs: '5rem', md: '5rem'}}}>Föreläsningar</Typography>
+                  <Typography variant="h2" sx={{marginTop: {xs: '5rem', md: '3rem'}}}>Föreläsningar</Typography>
                   <Typography variant="h5" color="#BA1D37">ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
                   <Typography variant="h6" paddingTop={'2rem'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex omnis maiores earum est alias laborum eius libero ipsa quos, quae ipsam porro quo eum! Quos eos dolore fugiat repellat delectus?</Typography>
                   <Button variant="contained" sx={{ 
@@ -95,13 +95,13 @@ export const Work = () => {
                 </Box>
             </Box>
 
-            <Box height={'1px'} sx={{ display: { xs: 'block', md: 'none' }, width: '65%', minWidth: '30rem', borderBottom: { xs: '1px solid #BA1D37', md: 'none'} }}></Box>
+            <Box height={'1px'} sx={{ display: { xs: 'block', md: 'none' }, width: '65%', minWidth: '30rem', margin: '0 auto', borderBottom: { xs: '1px solid #BA1D37', md: 'none'} }}></Box>
 
           </Container>
 
           <Container disableGutters sx={{ display: 'flex', minWidth: '100%', margin: "0", position: 'relative', flexDirection: { xs: 'column-reverse', md: 'row' }}}>
             <Box width={'2rem'} height={'2rem'} borderRadius={'50%'} sx={{opacity: { xs: '0', md: '100%'}, backgroundColor: '#BA1D37', position: 'absolute', right: 'calc(50% - 1rem)', top: '5rem'}}></Box>
-            <Box height={'1px'} sx={{ display: { xs: 'block', md: 'none' }, width: '65%', minWidth: '30rem', borderBottom: { xs: '1px solid #BA1D37', md: 'none'} }}></Box>
+            <Box height={'1px'} sx={{ display: { xs: 'block', md: 'none' }, width: '65%', minWidth: '30rem', margin: '0 auto', borderBottom: { xs: '1px solid #BA1D37', md: 'none'} }}></Box>
 
             <Box margin={0}
               sx={{
@@ -114,7 +114,7 @@ export const Work = () => {
                 borderRight: {xs: 'none', md: '1px solid #BA1D37'}
               }}>
                 <Box sx={{width: {xs: '30rem', md: '20rem'}}}>
-                  <Typography variant="h2" sx={{paddingTop: {xs: '5rem', md: '5rem'}}}>Relationer</Typography>
+                  <Typography variant="h2" sx={{paddingTop: {xs: '5rem', md: '3rem'}}}>Relationer</Typography>
                   <Typography variant="h5" color="#BA1D37">ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
                   <Typography variant="h6" paddingTop={'2rem'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex omnis maiores earum est alias laborum eius libero ipsa quos, quae ipsam porro quo eum! Quos eos dolore fugiat repellat delectus?</Typography>
                   <Button variant="contained" sx={{ 
@@ -130,7 +130,7 @@ export const Work = () => {
 
             <Box margin={0}
               sx={{
-                paddingTop: { xs: '4rem', md: '3rem' },
+                paddingTop: { xs: '4rem', md: '5rem' },
                 paddingBottom: { xs: '0rem', md: '4rem' },
                 width: {xs: '100%', md: '50%'},
                 display: 'flex',
@@ -141,7 +141,7 @@ export const Work = () => {
               }}>
                 <Box width={'20rem'}>
                   <CardMedia image={workHugging} sx={{ width: '20rem', height: '25rem', transform: { xs: 'translate(3rem, 0)'}}}>
-                    <CardMedia image={workFamily} style={{ width: '10rem', height: '10rem', transform: 'translate(-8rem, 18rem)' }}></CardMedia>
+                    <CardMedia image={workFamily} style={{ width: '10rem', height: '10rem', transform: 'translate(-3rem, 18rem)' }}></CardMedia>
                   </CardMedia>
                 </Box>
 
@@ -155,7 +155,7 @@ export const Work = () => {
             <Box margin={0}
               sx={{
                 width: {xs: '100%', md: '50%'},
-                paddingTop: { xs: '4rem', md: '0rem' },
+                paddingTop: { xs: '4rem', md: '5rem' },
                 paddingBottom: { xs: '0rem', md: '4rem' },
                 display: 'flex',
                 justifyContent: 'center',
@@ -195,13 +195,13 @@ export const Work = () => {
                 </Box>
             </Box>
 
-            <Box height={'1px'} sx={{ display: { xs: 'block', md: 'none' }, width: '65%', minWidth: '30rem', borderBottom: { xs: '1px solid #BA1D37', md: 'none'} }}></Box>
+            <Box height={'1px'} sx={{ display: { xs: 'block', md: 'none' }, width: '65%', minWidth: '30rem', margin: '0 auto', borderBottom: { xs: '1px solid #BA1D37', md: 'none'} }}></Box>
 
           </Container>
 
           <Container disableGutters sx={{ display: 'flex', minWidth: '100%', margin: "0", position: 'relative', flexDirection: { xs: 'column-reverse', md: 'row' }}}>
             <Box width={'2rem'} height={'2rem'} borderRadius={'50%'} sx={{opacity: { xs: '0', md: '100%'}, backgroundColor: '#BA1D37', position: 'absolute', right: 'calc(50% - 1rem)', top: '5rem'}}></Box>
-            <Box height={'1px'} sx={{ display: { xs: 'block', md: 'none' }, width: '65%', minWidth: '30rem', borderBottom: { xs: '1px solid #BA1D37', md: 'none'} }}></Box>
+            <Box height={'1px'} sx={{ display: { xs: 'block', md: 'none' }, width: '65%', minWidth: '30rem', margin: '0 auto', borderBottom: { xs: '1px solid #BA1D37', md: 'none'} }}></Box>
 
             <Box margin={0}
               sx={{
@@ -232,7 +232,7 @@ export const Work = () => {
             <Box margin={0}
               sx={{
                 width: {xs: '100%', md: '50%'},
-                paddingTop: { xs: '4rem', md: '0rem' },
+                paddingTop: { xs: '4rem', md: '5rem' },
                 paddingBottom: { xs: '0rem', md: '4rem' },
                 display: 'flex',
                 justifyContent: 'center',
@@ -254,7 +254,7 @@ export const Work = () => {
             <Box margin={0}
               sx={{
                 width: {xs: '100%', md: '50%'},
-                paddingTop: { xs: '4rem', md: '3rem' },
+                paddingTop: { xs: '4rem', md: '5rem' },
                 paddingBottom: { xs: '0rem', md: '6rem' },
                 display: 'flex',
                 justifyContent: 'center',
@@ -271,7 +271,7 @@ export const Work = () => {
             <Box margin={0}
               sx={{
                 width: {xs: '100%', md: '50%'},
-                paddingBottom: { xs: '2rem', md: '6rem' },
+                paddingBottom: { xs: '2rem', md: '8rem' },
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
