@@ -296,9 +296,6 @@ export const Work = () => {
           </Container>
 
         </Container>
-
-        <Box style={{ margin: '4rem calc(50% - 90px)', fontSize: '3rem' }}>FOOTER</Box>
-
       </Container>
 
     )
