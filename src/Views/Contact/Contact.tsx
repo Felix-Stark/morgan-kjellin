@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Modal from "../../components/regularComponents/modal/Modal";
 
 const reasons = ["Boka föreläsning", "Boka möte", "Samarbete", "Annat"];
 
@@ -18,7 +19,16 @@ interface ContactFormData {
   reason: string;
   message: string;
 }
-export const Contact: React.FC = () => {
+
+interface ContactProps {
+  handleModalOpen: () => void;
+  handleModalClose: () => void;
+}
+
+export const Contact: React.FC<ContactProps> = ({
+  handleModalOpen,
+  handleModalClose,
+}) => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",

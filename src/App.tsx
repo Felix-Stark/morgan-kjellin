@@ -13,7 +13,6 @@ import { Blog } from "./Views/Blog/Blog";
 import { GlobalStyles } from "@mui/system";
 import "./MUI-Themes/theme.types";
 
-
 const themeOptions: ThemeOptions = {
   palette: {
     mode: "dark",
@@ -55,11 +54,19 @@ const themeOptions: ThemeOptions = {
   },
 };
 
-
 const globalTheme = createTheme(themeOptions);
-function App() {
-  return (
 
+function App() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleModalOpen = () => {
+    setModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+  return (
     <ThemeProvider theme={globalTheme}>
       <GlobalStyles
         styles={{
@@ -74,15 +81,22 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/contact"
+            element={
+              <Contact
+                handleModalOpen={handleModalOpen}
+                handleModalClose={handleModalClose}
+              />
+            }
+          />
           <Route path="/arbeta-med-mig" element={<Work />} />
           <Route path="/blog" element={<Blog />} />
         </Routes>
         <Footer />
       </div>
     </ThemeProvider>
-
- )
+  );
 }
 
 export default App;
