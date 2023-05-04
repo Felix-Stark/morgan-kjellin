@@ -1,4 +1,4 @@
-import heroImg from '../../../assets/hero-img.png';
+import heroImg from '../../../assets/hero-morgan.jpg';
 import heroImgMobile from '../../../assets/hero-img-mobile.png'
 import Box from '@mui/material/Box'
 import CardMedia from '@mui/material/CardMedia'
@@ -9,29 +9,53 @@ import Grid from '@mui/material/Grid'
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const Hero = () => {
+
+	let imagePosition = {
+		components: {
+			MuiCardMedia: {
+
+			}
+		}
+	}
 	
   return (
+    <Grid container style={{ minHeight: "calc(100vh - 64px)" }}>
+      <CardMedia
+        component={"img"}
+        image={heroImg}
+        sx={{
+          position: "absolute",
+          top: '58px',
+		  left: 0,
+		  minHeight: {xs: '80%'},
+          zIndex: -1,
+        }}
+      />
+      <Grid
+        item
+        display={"flex"}
+        flexDirection={"column"}
+        justifyContent={"center"}
+      >
+        <Typography
+          variant="h1"
+          color={"#342C39"}
+          sx={{ margin: { xs: "1rem", md: "3rem" }, maxWidth: {md: '60%'} }}
+        >
+          Möjligheten till förändring finns inom oss alla
+        </Typography>
 
-	<Grid style={{minHeight: 'calc(100vh - 64px)'}}>
-		<CardMedia
-		component={'img'}
-		image={heroImg}
-		sx={{ position: 'absolute', top: 0,  left: 0, width: '100%', height: '100%', zIndex: -1, }}
-		/>
-
-			<Typography variant="h1">
-			FINN DITT RÄTTA SANNA JAG...
-			</Typography>
-			<Typography variant="h1" component={'h2'} >
-			ÄRLIG , SANN , STARK
-			</Typography>
-			<Typography variant="h2" color={'#fff'} fontStyle={'italic'} mt={10}>
-			Tillsammans kan vi utveckla<br/>dig till ditt fulla potential.
-			</Typography>
-
+        {/* <Typography
+          variant="h2"
+          fontStyle={"italic"}
+          color={"#342C39"}
+          sx={{ margin: { xs: "1rem", md: "3rem" }, maxWidth: "50%" }}
+        >
+          Med 17 år av tungt missbruk bakom sig har han själv bevisat hur
+          verktygen för att vända sitt liv finns inom oss.
+        </Typography> */}
       </Grid>
-
-
+    </Grid>
   );
 }
 
