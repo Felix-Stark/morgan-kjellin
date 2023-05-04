@@ -49,7 +49,9 @@ export const Work = () => {
             Kontakt
           </Button>
 
-          <CardMedia image={ scrollArrow } onClick={scrollToElement} style={{width: '4rem', height: '4rem', position: 'absolute', bottom: '5rem'}}></CardMedia>
+          <CardMedia image={ scrollArrow } onClick={scrollToElement} style={{width: '4rem', height: '4rem', position: 'absolute', bottom: '5rem'}}
+          sx={{ '&:hover': { cursor: 'pointer' } }}
+          ></CardMedia>
 
         </CardMedia>
 
