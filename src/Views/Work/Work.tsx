@@ -9,10 +9,29 @@ import workHappy from '../../assets/work-happy.svg';
 import workSad from '../../assets/work-sad.svg';
 import { Container, Paper, Box, Typography, Button } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
+import { useNavigate } from 'react-router-dom';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
 
 export const Work = () => {
 
+  const navigate = useNavigate();
 
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 100,
+  });
+
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    const anchor = (
+      (event.target as HTMLDivElement).ownerDocument || document
+    ).querySelector('#back-to-top-anchor');
+
+    if (anchor) {
+      anchor.scrollIntoView({
+        block: 'center',
+      });
+    }
+  };
 
   return (
 
@@ -22,7 +41,9 @@ export const Work = () => {
         style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", width: "100%", height: "100vh", position: 'relative' }}>
 
           <Typography variant="h1" sx={{ color: '#FFFFFF', margin: '2rem', fontSize: { xs: '4rem', md: '5rem' } }}>Arbeta med mig</Typography>
-          <Button variant="contained" sx={{ 
+          <Button variant="contained"
+          onClick={ () => navigate('/contact') }
+          sx={{ 
             backgroundColor: '#BA1D37',
             width: {xs: '16rem', md: '20rem'},
             height: { xs: '4rem', md: '5rem'},
@@ -38,10 +59,10 @@ export const Work = () => {
 
         <Container disableGutters style={{ display: 'flex', flexWrap: 'wrap', minWidth: '100%', margin: "0", position: 'relative'}}>
 
-          <Button variant="contained" sx={{ zIndex: '1', width: {xs: '4rem', md: '5rem'}, height: {xs: '4rem', md: '5rem'}, borderRadius: '50%', backgroundColor: '#BA1D37', position: 'fixed',
+          <Button variant="contained" id='#back-to-top-anchor' onClick={() => handleClick} sx={{ zIndex: '1', width: {xs: '4rem', md: '5rem'}, height: {xs: '4rem', md: '5rem'}, borderRadius: '50%', backgroundColor: '#BA1D37', position: 'fixed',
            margin: '5rem', bottom: '-2rem', right: '-2rem', '&:hover': {backgroundColor: '#BA1D60'} }}>
 
-            <CardMedia image={ scrollArrow } style={{ position: 'absolute', transform: 'rotate(180deg)' }}
+            <CardMedia image={ scrollArrow } id='#back-to-top-anchor' onClick={() => handleClick} style={{ position: 'absolute', transform: 'rotate(180deg)' }}
              sx={{ top: { xs: 'calc(25% - 2px)', md: 'calc(25% - 2.5px)'}, left: { xs: 'calc(25% - .5px)', md: 'calc(25%)'},
             width: {xs: '2rem', md: '2.5rem'}, height: {xs: '2rem', md: '2.5rem'} } } >
              </CardMedia>
@@ -84,7 +105,8 @@ export const Work = () => {
                   <Typography variant="h2" sx={{marginTop: {xs: '5rem', md: '3rem'}}}>Föreläsningar</Typography>
                   <Typography variant="h5" color="#BA1D37">ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
                   <Typography variant="h6" paddingTop={'2rem'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex omnis maiores earum est alias laborum eius libero ipsa quos, quae ipsam porro quo eum! Quos eos dolore fugiat repellat delectus?</Typography>
-                  <Button variant="contained" sx={{ 
+                  <Button variant="contained" onClick={ () => navigate('/contact') }
+                  sx={{ 
                     backgroundColor: '#BA1D37',
                     width: '10rem',
                     height: '3rem',
@@ -117,7 +139,8 @@ export const Work = () => {
                   <Typography variant="h2" sx={{paddingTop: {xs: '5rem', md: '3rem'}}}>Relationer</Typography>
                   <Typography variant="h5" color="#BA1D37">ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
                   <Typography variant="h6" paddingTop={'2rem'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex omnis maiores earum est alias laborum eius libero ipsa quos, quae ipsam porro quo eum! Quos eos dolore fugiat repellat delectus?</Typography>
-                  <Button variant="contained" sx={{ 
+                  <Button variant="contained" onClick={ () => navigate('/contact') }
+                  sx={{ 
                     backgroundColor: '#BA1D37',
                     width: '10rem',
                     height: '3rem',
@@ -139,7 +162,7 @@ export const Work = () => {
                 flexDirection: 'column',
                 borderLeft: {xs: 'none', md: '1px solid #BA1D37'}
               }}>
-                <Box width={'20rem'}>
+                <Box sx={{width: {xs: '30rem', md: '20rem'}}}>
                   <CardMedia image={workHugging} sx={{ width: '20rem', height: '25rem', transform: { xs: 'translate(3rem, 0)'}}}>
                     <CardMedia image={workFamily} style={{ width: '10rem', height: '10rem', transform: 'translate(-3rem, 18rem)' }}></CardMedia>
                   </CardMedia>
@@ -163,7 +186,7 @@ export const Work = () => {
                 flexDirection: 'column',
                 borderRight: {xs: 'none', md: '1px solid #BA1D37'}
               }}>
-                <Box width={'20rem'}>
+                <Box sx={{width: {xs: '30rem', md: '20rem'}}}>
                   <CardMedia image={workManyHands} style={{ width: '20rem', height: '25rem' }}></CardMedia>
                 </Box>
 
@@ -184,7 +207,8 @@ export const Work = () => {
                   <Typography variant="h2">Utbildningar</Typography>
                   <Typography variant="h5" color="#BA1D37">ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
                   <Typography variant="h6" paddingTop={'2rem'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex omnis maiores earum est alias laborum eius libero ipsa quos, quae ipsam porro quo eum! Quos eos dolore fugiat repellat delectus?</Typography>
-                  <Button variant="contained" sx={{ 
+                  <Button variant="contained" onClick={ () => navigate('/contact') }
+                  sx={{ 
                     backgroundColor: '#BA1D37',
                     width: '10rem',
                     height: '3rem',
@@ -218,7 +242,8 @@ export const Work = () => {
                   <Typography variant="h2">Utveckling</Typography>
                   <Typography variant="h5" color="#BA1D37">ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
                   <Typography variant="h6" paddingTop={'2rem'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex omnis maiores earum est alias laborum eius libero ipsa quos, quae ipsam porro quo eum! Quos eos dolore fugiat repellat delectus?</Typography>
-                  <Button variant="contained" sx={{ 
+                  <Button variant="contained" onClick={ () => navigate('/contact') }
+                  sx={{ 
                     backgroundColor: '#BA1D37',
                     width: '10rem',
                     height: '3rem',
@@ -240,7 +265,7 @@ export const Work = () => {
                 flexDirection: 'column',
                 borderLeft: {xs: 'none', md: '1px solid #BA1D37'}
               }}>
-                <Box width={'20rem'}>
+                <Box sx={{width: {xs: '30rem', md: '20rem'}}}>
                   <CardMedia image={workHappy} style={{ width: '20rem', height: '25rem' }}></CardMedia>
                 </Box>
 
@@ -262,7 +287,7 @@ export const Work = () => {
                 flexDirection: 'column',
                 borderRight: {xs: 'none', md: '1px solid #BA1D37'}
               }}>
-                <Box width={'20rem'}>
+                <Box sx={{width: {xs: '30rem', md: '20rem'}}}>
                   <CardMedia image={workSad} style={{ width: '20rem', height: '25rem' }}></CardMedia>
                 </Box>
 
@@ -282,7 +307,8 @@ export const Work = () => {
                   <Typography variant="h2" sx={{paddingTop: {xs: '2.5rem', md: '5rem'}}}>Sorg</Typography>
                   <Typography variant="h5" color="#BA1D37">ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
                   <Typography variant="h6" paddingTop={'2rem'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex omnis maiores earum est alias laborum eius libero ipsa quos, quae ipsam porro quo eum! Quos eos dolore fugiat repellat delectus?</Typography>
-                  <Button variant="contained" sx={{ 
+                  <Button variant="contained" onClick={ () => navigate('/contact') }
+                  sx={{ 
                     backgroundColor: '#BA1D37',
                     width: '10rem',
                     height: '3rem',
