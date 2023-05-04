@@ -26,8 +26,8 @@ const Hero = () => {
         sx={{
           position: "absolute",
           top: '58px',
-		  left: 0,
-		  minHeight: {xs: '80%'},
+          left: 0,
+          minHeight: {xs: '80%'},
           zIndex: -1,
         }}
       />

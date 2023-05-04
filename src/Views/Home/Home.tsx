@@ -58,7 +58,7 @@ export const Home = () => {
   });
   return (
     <ThemeProvider theme={theme}>
-		<Grid rowGap={'4rem'} style={{ background: 'background.default' }}>
+		<Grid rowGap={'4rem'} style={{ background: 'background.default' }} display={'flex'} flexDirection={'column'}>
 			<Hero />
 			<FirstBlock />
 			<SecondBlock />

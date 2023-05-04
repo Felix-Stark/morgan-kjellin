@@ -17,7 +17,7 @@ const FourthBlock = () => {
       bgcolor={"background.paper"}
       justifyContent={"center"}
       spacing={8}
-      marginTop={"3rem"}
+
       display={"flex"}
     >
       <Grid item md={5}>
@@ -39,17 +39,37 @@ const FourthBlock = () => {
             display: "flex",
             flexDirection: "column",
             borderRadius: "10px",
+			maxWidth: '80%',
+			justifyContent: 'center'
           }}
         >
-          <Typography color={"background.default"} variant="h4">
+          <Typography color={"background.default"} variant="h4" lineHeight={'5rem'}>
             Möt Morgan
           </Typography>
           <Typography color={"background.default"}>
-            Kort info om Morgans liv och erfarenhet.
+            "Möjligheten till förändring finns inom oss alla", och det är aldrig
+            för sent att ge upp, det är något som Morgan Kjellin är fullkomligt
+            övertygad om.
+			</Typography>
+			<br/>
+			<Typography color={'background.default'}>
+			Med 17 år av tungt missbruk bakom sig har han själv
+            bevisat hur verktygen för att vända sitt liv finns inom oss.
+			Morgan har övervunnit svårigheter som de flesta av oss aldrig kan föreställa oss, från ett tungt
+            narkotikamissbruk till att se sitt hem brinna ner och hitta sin
+            hustru hängd.
+			</Typography>
+			<br/>
+			<Typography color={'background.default'}>
+			Trots allt detta har han lyckats vara drogfri och
+            skapat en ny, frisk och framgångsrik tillvaro. Nu vill
+            han inspirera andra att göra samma resa genom att dela med sig av
+            sin egen historia och träna de verktyg som hjälpt honom på vägen,
+            oavsett vad som händer. 
           </Typography>
           <Button
             variant="contained"
-            style={{ background: "#BA1D37", borderRadius: "10px" }}
+            style={{ background: "#BA1D37", borderRadius: "10px", minWidth: '60%', alignSelf: 'center', marginTop: '1rem'}}
           >
             Läs mer...
           </Button>
