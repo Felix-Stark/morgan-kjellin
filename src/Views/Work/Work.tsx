@@ -10,34 +10,30 @@ import workSad from '../../assets/work-sad.svg';
 import { Container, Paper, Box, Typography, Button } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import { useNavigate } from 'react-router-dom';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
+import { useRef } from 'react';
 
 export const Work = () => {
 
   const navigate = useNavigate();
 
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 100,
-  });
+  const heroRef: any = useRef();
 
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    const anchor = (
-      (event.target as HTMLDivElement).ownerDocument || document
-    ).querySelector('#back-to-top-anchor');
-
-    if (anchor) {
-      anchor.scrollIntoView({
-        block: 'center',
-      });
+  const scrollToTop = () => {
+    if (window.scrollY > 100) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  };
+  }
+
+  const scrollToElement = () => {
+    const heroHeight = heroRef.current.offsetHeight;
+    window.scrollTo({ top: heroHeight, behavior: 'smooth' })
+  }
 
   return (
 
       <Container disableGutters style={{ maxWidth: '100vw', width: '100%', margin: "0" }}>
 
-        <CardMedia image={ workHero } 
+        <CardMedia ref={heroRef} image={ workHero } 
         style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", width: "100%", height: "100vh", position: 'relative' }}>
 
           <Typography variant="h1" sx={{ color: '#FFFFFF', margin: '2rem', fontSize: { xs: '4rem', md: '5rem' } }}>Arbeta med mig</Typography>
@@ -53,16 +49,17 @@ export const Work = () => {
             Kontakt
           </Button>
 
-          <CardMedia image={ scrollArrow } style={{width: '4rem', height: '4rem', position: 'absolute', bottom: '5rem'}}></CardMedia>
+          <CardMedia image={ scrollArrow } onClick={scrollToElement} style={{width: '4rem', height: '4rem', position: 'absolute', bottom: '5rem'}}></CardMedia>
 
         </CardMedia>
 
         <Container disableGutters style={{ display: 'flex', flexWrap: 'wrap', minWidth: '100%', margin: "0", position: 'relative'}}>
 
-          <Button variant="contained" id='#back-to-top-anchor' onClick={() => handleClick} sx={{ zIndex: '1', width: {xs: '4rem', md: '5rem'}, height: {xs: '4rem', md: '5rem'}, borderRadius: '50%', backgroundColor: '#BA1D37', position: 'fixed',
+          <Button variant="contained" onClick={ scrollToTop } 
+           sx={{ zIndex: '1', width: {xs: '4rem', md: '5rem'}, height: {xs: '4rem', md: '5rem'}, borderRadius: '50%', backgroundColor: '#BA1D37', position: 'fixed',
            margin: '5rem', bottom: '-2rem', right: '-2rem', '&:hover': {backgroundColor: '#BA1D60'} }}>
 
-            <CardMedia image={ scrollArrow } id='#back-to-top-anchor' onClick={() => handleClick} style={{ position: 'absolute', transform: 'rotate(180deg)' }}
+            <CardMedia image={ scrollArrow } style={{ position: 'absolute', transform: 'rotate(180deg)' }}
              sx={{ top: { xs: 'calc(25% - 2px)', md: 'calc(25% - 2.5px)'}, left: { xs: 'calc(25% - .5px)', md: 'calc(25%)'},
             width: {xs: '2rem', md: '2.5rem'}, height: {xs: '2rem', md: '2.5rem'} } } >
              </CardMedia>
