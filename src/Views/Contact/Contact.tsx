@@ -8,7 +8,6 @@ import {
   Typography,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Modal from "../../components/regularComponents/modal/Modal";
 
 const reasons = ["Boka föreläsning", "Boka möte", "Samarbete", "Annat"];
 
@@ -22,12 +21,14 @@ interface ContactFormData {
 
 interface ContactProps {
   handleModalOpen: () => void;
-  handleModalClose: () => void;
+  setTitle: React.Dispatch<React.SetStateAction<string>>;
+  setContent: React.Dispatch<React.SetStateAction<React.ReactNode>>;
 }
 
 export const Contact: React.FC<ContactProps> = ({
   handleModalOpen,
-  handleModalClose,
+  setTitle,
+  setContent,
 }) => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
@@ -52,7 +53,14 @@ export const Contact: React.FC<ContactProps> = ({
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(formData);
-
+    setTitle("Tack för att du kontaktar mig!");
+    setContent(
+      <Typography variant="h6">
+        Jag har mottagit ditt meddelande och jag lovar att svara så snart jag
+        kan. Ha en fantastisk dag!"
+      </Typography>
+    );
+    handleModalOpen();
     clearForm();
   };
 
@@ -104,7 +112,11 @@ export const Contact: React.FC<ContactProps> = ({
   });
 
   return (
-    <Box display="flex" alignItems="center" sx={{ minHeight: "95vh" }}>
+    <Box
+      display="flex"
+      alignItems="center"
+      sx={{ minHeight: "95vh", height: "100%" }}
+    >
       <Box
         display="flex"
         flexDirection={{ xs: "column", md: "row" }}
@@ -137,11 +149,11 @@ export const Contact: React.FC<ContactProps> = ({
             width: { md: "40%" },
           }}
         >
-          <Typography variant="h2" sx={{ padding: { xs: "12px", md: "24px" } }}>
+          <Typography variant="h2" sx={{ padding: { xs: "6px", md: "12px" } }}>
             Vad kul att du vill nå ut till mig!
           </Typography>
 
-          <Typography variant="h3" sx={{ padding: { xs: "12px", md: "24px" } }}>
+          <Typography variant="h3" sx={{ padding: { xs: "6px", md: "12px" } }}>
             Vänligen fyll i de obligatoriska fälten så svarar jag inom två
             arbetsdagar
           </Typography>
@@ -330,6 +342,7 @@ export const Contact: React.FC<ContactProps> = ({
                   variant="contained"
                   sx={{
                     backgroundColor: "#BA1D37",
+                    color: "#FAFAFA",
                     fontWeight: 700,
                     borderRadius: 2,
                     py: 2,

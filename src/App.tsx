@@ -12,10 +12,10 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Blog } from "./Views/Blog/Blog";
 import { GlobalStyles } from "@mui/system";
 import "./MUI-Themes/theme.types";
+import Modal from "./components/regularComponents/modal/Modal";
 
 const themeOptions: ThemeOptions = {
   palette: {
-    mode: "dark",
     primary: {
       main: "#342C39",
     },
@@ -26,11 +26,10 @@ const themeOptions: ThemeOptions = {
       main: "#BA1D37",
     },
     bgWhite: {
-      main: "#F6F6F6",
+      main: "#FAFAFA",
     },
   },
   typography: {
-    fontFamily: "Roboto",
     h1: {
       fontSize: "3rem",
       fontWeight: 700,
@@ -57,14 +56,16 @@ const themeOptions: ThemeOptions = {
 const globalTheme = createTheme(themeOptions);
 
 function App() {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [title, setTitle] = useState<string>("");
+  const [content, setContent] = useState<React.ReactNode>(<></>);
 
   const handleModalOpen = () => {
-    setModalOpen(true);
+    setOpen(true);
   };
 
   const handleModalClose = () => {
-    setModalOpen(false);
+    setOpen(false);
   };
   return (
     <ThemeProvider theme={globalTheme}>
@@ -78,6 +79,12 @@ function App() {
       />
       <div className="App">
         <Header />
+        <Modal
+          open={open}
+          handleModalClose={handleModalClose}
+          content={content}
+          title={title}
+        />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -86,7 +93,8 @@ function App() {
             element={
               <Contact
                 handleModalOpen={handleModalOpen}
-                handleModalClose={handleModalClose}
+                setTitle={setTitle}
+                setContent={setContent}
               />
             }
           />

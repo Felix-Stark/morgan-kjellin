@@ -4,14 +4,14 @@ import { SxProps, Theme } from "@mui/system";
 
 interface CustomModalProps {
   open: boolean;
-  handleClose: () => void;
+  handleModalClose: () => void;
   title?: string;
   content: React.ReactNode;
 }
 
 const CustomModal: React.FC<CustomModalProps> = ({
   open,
-  handleClose,
+  handleModalClose,
   title,
   content,
 }) => {
@@ -20,7 +20,7 @@ const CustomModal: React.FC<CustomModalProps> = ({
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    bgcolor: "background.paper",
+    bgcolor: "#e0f7fa",
     boxShadow: 24,
     p: 4,
     minWidth: "50%",
@@ -28,17 +28,17 @@ const CustomModal: React.FC<CustomModalProps> = ({
   };
 
   return (
-    <Modal open={open} onClose={handleClose}>
+    <Modal open={open} onClose={handleModalClose}>
       <Box sx={modalStyle}>
         {title && (
           <Typography variant="h6" component="h2">
             {title}
           </Typography>
         )}
-        {content}
+        <Box>{content}</Box>
       </Box>
     </Modal>
   );
 };
 
-export default Modal;
+export default CustomModal;

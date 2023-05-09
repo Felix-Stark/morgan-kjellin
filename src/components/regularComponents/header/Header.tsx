@@ -37,7 +37,10 @@ export const Header = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ background: "#F6F6F6", minHeight: "5vh" }}>
+    <AppBar
+      position="static"
+      sx={{ backgroundColor: "bgWhite.main", minHeight: "5vh" }}
+    >
       <Container
         maxWidth="lg"
         sx={{
