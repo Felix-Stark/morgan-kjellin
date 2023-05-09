@@ -11,20 +11,41 @@ const FirstBlock = () => {
 
 
   return (
-    <Grid container minHeight={"100vh"} justifyContent={"center"} style={{ overflow: 'hidden'}} spacing={8} >
-      <Grid item  md={5} sx={{ position: 'relative' }}>
-        <CardMedia component={"img"} image={crossRoadsImg} style={{ marginTop: '-2rem'}} />
+    <Grid
+      container
+      minHeight={"100vh"}
+      justifyContent={"center"}
+      style={{ overflow: "hidden" }}
+      spacing={8}
+    >
+      <Grid item md={5} sx={{ position: "relative", maxHeight: "100vh" }}>
+        <CardMedia
+          component={"img"}
+          image={crossRoadsImg}
+          style={{ marginTop: "-2rem" }}
+        />
       </Grid>
-      <Grid item md={5} display={'flex'} alignItems={'center'} justifyContent={'center'}>
-        <Box height={'50%'} display={'flex'} flexDirection={'column'} justifyContent={'center'} padding={'1rem'}>
-			<Typography variant='h3'>
-				Världen är vid en Vändpunkt
-			</Typography>
-			<Typography variant='subtitle1'>
-				Vi ser oftare och oftare att saker vi gjort tidigare inte fungerat.
-				Om världen ska ändra får du sluta agera som du inte är av betydelse...
-			</Typography>
-		</Box>
+      <Grid
+        item
+        md={5}
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        height={'inherit'}
+      >
+        <Box
+          height={"50%"}
+          display={"flex"}
+          flexDirection={"column"}
+          justifyContent={"center"}
+          padding={"1rem"}
+        >
+          <Typography variant="h3">Du står vid en vändpunkt</Typography>
+          <Typography variant="subtitle1">
+            Du kanske inte behöver vända upp och ner på dig men ut och in är att
+            rekommendera.
+          </Typography>
+        </Box>
       </Grid>
     </Grid>
   );

@@ -15,8 +15,8 @@ const SecondBlock = () => {
       bgcolor={"background.paper"}
       justifyContent={"center"}
       spacing={8}
-      marginTop={"3rem"}
-	  display={'flex'}
+
+      display={"flex"}
     >
       <Grid
         item
@@ -33,21 +33,23 @@ const SecondBlock = () => {
           padding={"1rem"}
         >
           <Typography color={"#fff"} variant="h3">
-            Världen är vid en Vändpunkt
+            Vill du ta kontroll över ditt liv och uppnå dina mål?
           </Typography>
           <Typography color={"#fff"} variant="subtitle1">
-            Vi ser oftare och oftare att saker vi gjort tidigare inte fungerat.
-            Om världen ska ändra får du sluta agera som du inte är av
-            betydelse...
+            Självförbättring och personlig utveckling är en ständigt pågående
+            process som kräver engagemang och medvetenhet från oss själva.
+            Oavsett vilka beroenden eller negativa vanor vi vill bryta, kan det
+            vara svårt att ta itu med dem utan att först lära oss mer om oss
+            själva.
           </Typography>
         </Box>
       </Grid>
-      <Grid
-        item
-        md={5}
-
-      >
-        <CardMedia component={"img"} image={portrait} sx={{ marginTop: '-6rem'}} />
+      <Grid item md={5}>
+        <CardMedia
+          component={"img"}
+          image={portrait}
+          sx={{ marginTop: "-6rem" }}
+        />
       </Grid>
     </Grid>
   );

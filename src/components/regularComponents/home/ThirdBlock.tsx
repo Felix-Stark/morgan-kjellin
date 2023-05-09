@@ -18,7 +18,7 @@ const ThirdBlock = () => {
       flexDirection={"column"}
       alignItems={"center"}
       justifyContent={"center"}
-	  rowGap={6}
+      rowGap={6}
     >
       <Typography variant="h3">Här kan vi starta...</Typography>
       <Grid
@@ -26,35 +26,20 @@ const ThirdBlock = () => {
         minHeight={"50vh"}
         justifyContent={"space-evenly"}
         alignItems={"center"}
-		sx={{flexDirection: {sm: 'column', md: 'row'}}}
-		rowGap={5}
-		marginBottom={10}
+        sx={{ flexDirection: { sm: "column", md: "row" } }}
+        rowGap={5}
+        marginBottom={10}
       >
-        <Grid item xs={8} sm={6} md={3} xl={2} >
-          <Card sx={{ display: "flex", flexDirection: "column", borderRadius: '10px' }}>
-			<CardMedia style={{height: '10rem'}} />
-			<CardContent>
-              <Typography color={"background.default"} variant="h4">
-                Bild med text
-              </Typography>
-              <Typography color={"background.default"}>
-                Gratis 7-dagars program: Tillbaka till mig själv
-              </Typography>
-            </CardContent>
-            <CardActions sx={{ alignSelf: "center" }}>
-              <Button
-                variant="contained"
-                style={{ background: "#BA1D37", borderRadius: "10px" }}
-              >
-                Läs mer...
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-        <Grid item xs={8} sm={6} md={3} xl={2} >
-          <Card sx={{ display: "flex", flexDirection: "column", borderRadius: '10px' }}>
-			<CardMedia style={{height: '10rem'}} />
-			<CardContent>
+        <Grid item xs={8} sm={6} md={3} xl={2}>
+          <Card
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              borderRadius: "10px",
+            }}
+          >
+            <CardMedia component={"img"} style={{ height: "10rem" }} />
+            <CardContent>
               <Typography color={"background.default"} variant="h4">
                 Bild med text
               </Typography>
@@ -73,9 +58,42 @@ const ThirdBlock = () => {
           </Card>
         </Grid>
         <Grid item xs={8} sm={6} md={3} xl={2}>
-          <Card sx={{ display: "flex", flexDirection: "column", borderRadius: '10px' }}>
-			<CardMedia style={{height: '10rem'}} />
-			<CardContent>
+          <Card
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              borderRadius: "10px",
+            }}
+          >
+            <CardMedia component={"img"} style={{ height: "10rem" }} />
+            <CardContent>
+              <Typography color={"background.default"} variant="h4">
+                Bild med text
+              </Typography>
+              <Typography color={"background.default"}>
+                Gratis 7-dagars program: Tillbaka till mig själv
+              </Typography>
+            </CardContent>
+            <CardActions sx={{ alignSelf: "center" }}>
+              <Button
+                variant="contained"
+                style={{ background: "#BA1D37", borderRadius: "10px" }}
+              >
+                Läs mer...
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+        <Grid item xs={8} sm={6} md={3} xl={2}>
+          <Card
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              borderRadius: "10px",
+            }}
+          >
+            <CardMedia component={"img"} style={{ height: "10rem" }} />
+            <CardContent>
               <Typography color={"background.default"} variant="h4">
                 Bild med text
               </Typography>

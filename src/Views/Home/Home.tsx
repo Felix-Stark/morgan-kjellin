@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Grid from '@mui/material/Grid'
 import SecondBlock from "../../components/regularComponents/home/SecondBlock";
 import ThirdBlock from "../../components/regularComponents/home/ThirdBlock";
+import FourthBlock from "../../components/regularComponents/home/FourthBlock";
 
 export const Home = () => {
 	let breakTheme = createTheme();
@@ -57,11 +58,12 @@ export const Home = () => {
   });
   return (
     <ThemeProvider theme={theme}>
-		<Grid rowGap={'4rem'} style={{ background: 'background.default' }}>
+		<Grid rowGap={'4rem'} style={{ background: 'background.default' }} display={'flex'} flexDirection={'column'}>
 			<Hero />
 			<FirstBlock />
 			<SecondBlock />
 			<ThirdBlock />
+			<FourthBlock />
 		</Grid>
     </ThemeProvider>
   )
