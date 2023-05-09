@@ -12,6 +12,9 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Blog } from "./Views/Blog/Blog";
 import { GlobalStyles } from "@mui/system";
 import "./MUI-Themes/theme.types";
+import Admin from "./Views/Admin/Admin";
+import AdminLogin from "./components/adminComponents/login/AdminLogin";
+import AdminDash from "./Views/Admin/AdminDash";
 
 
 const themeOptions: ThemeOptions = {
@@ -77,6 +80,9 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/arbeta-med-mig" element={<Work />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/admin" element={<Admin />}>
+            <Route path="dashboard" element={ <AdminDash /> } />
+          </Route>
         </Routes>
         <Footer />
       </div>
