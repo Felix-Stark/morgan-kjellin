@@ -44,14 +44,14 @@ export const Footer = () => {
           </Grid>
           <Grid item xs={12} sm={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Stack sx={{ mb: 2 }}>
-              <Typography variant="body2" sx={{ fontSize: 24,  marginBottom: 2, fontWeight: "bold", transition: 'color 0.3s ease-in-out',
+              <Typography variant="body2" sx={{ fontSize: 26,  marginBottom: 1, fontWeight: "bold", transition: 'color 0.3s ease-in-out',
                   '&:hover': {
                     color: '#BA1D37',
                     cursor: 'default',
                   },}}>  
                 Morgan Kjellin
               </Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: 2 }}>
               <IconButton
                 component="a"
                 href="https://www.facebook.com/"

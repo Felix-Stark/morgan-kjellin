@@ -6,6 +6,7 @@ import {
   Button,
   TextareaAutosize,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -19,6 +20,8 @@ interface ContactFormData {
   message: string;
 }
 export const Contact: React.FC = () => {
+
+  const width = useMediaQuery("(max-width:600px)") ? "xs" : "md";
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -105,6 +108,8 @@ export const Contact: React.FC = () => {
           maxWidth: "1100px",
           margin: "0 auto",
           borderRadius: "4px",
+          marginTop: { xs: "1rem", md: "0" },
+          marginBottom: { xs: "18rem", md: "0" },
         }}
       >
         <Box
@@ -117,11 +122,11 @@ export const Contact: React.FC = () => {
             maxWidth: "1100px",
             backgroundColor: "primary.main",
             color: "white",
-            borderRadius: 4,
+            borderRadius: width === "xs" ? 0 : 4,
             borderTopRightRadius: 0,
             borderBottomRightRadius: 0,
             padding: { xs: "16px", md: "32px" },
-            width: { md: "40%" },
+            width: { xs:"90%" ,md: "40%" },
           }}
         >
           <Typography variant="h2" sx={{ padding: { xs: "12px", md: "24px" } }}>
@@ -139,13 +144,13 @@ export const Contact: React.FC = () => {
             flexDirection={{ xs: "column", md: "row" }}
             alignItems="center"
             sx={{
-              width: "100%",
               height: "700px",
               maxWidth: "1100px",
               margin: "0 auto",
-              borderRadius: 4,
+              borderRadius: width === "xs" ? 0 : 4,
               borderTopLeftRadius: 0,
               borderBottomLeftRadius: 0,
+              width: { xs:"90%" ,md: "80%" },
             }}
           >
             <Box
@@ -158,7 +163,8 @@ export const Contact: React.FC = () => {
                 height: "100%",
                 maxWidth: "800px",
                 margin: "0 auto",
-                borderRadius: 4,
+                borderRadius: width === "xs" ? 0 : 4,
+
                 borderTopLeftRadius: 0,
                 borderBottomLeftRadius: 0,
                 overflow: "hidden",
