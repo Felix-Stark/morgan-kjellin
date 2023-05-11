@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Header } from "./components/regularComponents/header/Header";
@@ -15,7 +15,7 @@ import "./MUI-Themes/theme.types";
 import Admin from "./Views/Admin/Admin";
 import AdminLogin from "./components/adminComponents/login/AdminLogin";
 import AdminDash from "./Views/Admin/AdminDash";
-
+import { useLocation } from 'react-router'
 
 const themeOptions: ThemeOptions = {
   palette: {
@@ -61,6 +61,15 @@ const themeOptions: ThemeOptions = {
 
 const globalTheme = createTheme(themeOptions);
 function App() {
+  const [adminView, setAdminView] = useState(false);
+  const location = useLocation();
+  useEffect(() => {
+    if( location.pathname.includes('/admin')) {
+      setAdminView(true);
+    } else {
+      setAdminView(false)
+    }
+  }, [location])
   return (
 
     <ThemeProvider theme={globalTheme}>
@@ -84,7 +93,7 @@ function App() {
             <Route path="dashboard" element={ <AdminDash /> } />
           </Route>
         </Routes>
-        <Footer />
+        { adminView ? '' : <Footer />}
       </div>
     </ThemeProvider>
 
