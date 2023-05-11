@@ -23,15 +23,15 @@ export const Footer = () => {
                   } }}>
               Information
             </Typography>
-            <Typography variant="body1" sx={{ mb: 2, transition: 'color 0.3s ease-in-out',
-                  '&:hover': {
-                    color: '#FFFFFF',
-                    fontSize: '1.1rem',
-                  }, }}>
-              <Link to="/about" style={{ color: '#CFCFCF', textDecoration: 'none' }}>
-                Om mig
+            <Link to="/about" style={{ color: '#CFCFCF', textDecoration: 'none' }}>
+              <Typography variant="body1" sx={{ mb: 2, transition: 'color 0.3s ease-in-out',
+                    '&:hover': {
+                      color: '#FFFFFF',
+                      fontSize: '1.1rem',
+                    }, }}>
+                  Om mig
+              </Typography>
               </Link>
-            </Typography>
             <Typography variant="body1" sx={{ mb: 4 , transition: 'color 0.3s ease-in-out',
                   '&:hover': {
                     color: '#FFFFFF',
