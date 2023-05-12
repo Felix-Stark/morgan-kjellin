@@ -1,10 +1,13 @@
-import { Container, Paper, Typography, Box, Grid, Link } from "@mui/material";
+import { Container, Paper, Typography, Box, Grid, Link, Button } from "@mui/material";
 import React from "react";
 import testP from '../../assets/profile-photo.jpg'
-
+import { useNavigate } from 'react-router-dom';
 
 
 export const About = () => {
+  const navigate = useNavigate();
+
+
   return <Container  sx={{   width: {xs: "80%", md: "100%" },textAlign:"center" ,  paddingTop: '25px', }}>
 
     <Box sx={{ boxShadow: 3 , display: 'flex', marginBottom:"5vh",flexDirection:{ xs: "column-reverse", md: "row"}, justifyContent: 'space-between'}}>
@@ -43,6 +46,14 @@ export const About = () => {
        <Typography variant="h6" sx={{  marginBottom:"1rem", marginTop: "1rem"}}>“FÖRÄNDRING ÄR MÖJLIGT FÖR ALLA!”</Typography>
     </Paper>
     {/* <Typography variant="body1" color="initial"></Typography>  */}
-    <Link component="button" underline="hover" sx={{color:"black" }}>BOKA MIG FÖR EN FÖRELÄSNING!</Link>
+    <Button variant="contained" onClick={ () => navigate('/contact') }
+                  sx={{ 
+                    backgroundColor: '#BA1D37',
+                    width: '16rem',
+                    height: '5rem',
+                    margin: '2rem 0',
+                    fontWeight: 'bold',
+                    '&:hover': {backgroundColor: '#161616'}}}>
+                    BOKA MIG FÖR EN FÖRELÄSNING!</Button>
   </Container>
 };
