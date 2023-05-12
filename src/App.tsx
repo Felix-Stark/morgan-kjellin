@@ -15,6 +15,7 @@ import "./MUI-Themes/theme.types";
 import Admin from "./Views/Admin/Admin";
 import AdminLogin from "./components/adminComponents/login/AdminLogin";
 import AdminDash from "./Views/Admin/AdminDash";
+import UpdateText from "./Views/Admin/UpdateText";
 
 
 const themeOptions: ThemeOptions = {
@@ -82,6 +83,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/admin" element={<Admin />}>
             <Route path="dashboard" element={ <AdminDash /> } />
+            <Route path="updatetext" element={ <UpdateText/>} />
           </Route>
         </Routes>
         <Footer />
