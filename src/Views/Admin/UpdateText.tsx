@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Paper, Typography, Box, Grid, Link } from "@mui/material";
+import { Container, Paper, Typography, Box, Grid, Link, IconButton } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
 
 
@@ -39,7 +39,9 @@ const  UpdateText=() => {
             <Typography variant="body1" color="white">Arbeta med mig</Typography>
           </Grid>
           <Grid item xs={3}>
-            <EditIcon />
+            <IconButton >
+              <EditIcon fontSize="large" sx={{color:'white'}}/>
+            </IconButton>
           </Grid>
         </Grid>
         <Grid xs={10} sx={{display:"flex",justifyContent:"center",alignItems:"center",textAlign:"center" ,bgcolor:"gray", marginBottom:"1rem"}}>
@@ -53,7 +55,9 @@ const  UpdateText=() => {
             <Typography variant="body1" color="white">Arbeta med mig</Typography>
           </Grid>
           <Grid item xs={3}>
-            
+            <IconButton >
+              <EditIcon fontSize="large" sx={{color:'white'}}/>
+            </IconButton>  
           </Grid>
         </Grid>
         <Grid xs={10} sx={{display:"flex",justifyContent:"center",alignItems:"center",textAlign:"center" ,bgcolor:"gray", marginBottom:"1rem"}}>
@@ -67,7 +71,9 @@ const  UpdateText=() => {
             <Typography variant="body1" color="white">Arbeta med mig</Typography>
           </Grid>
           <Grid item xs={3}>
-            
+            <IconButton >
+              <EditIcon fontSize="large" sx={{color:'white'}}/>
+            </IconButton>  
           </Grid>
         </Grid>   
       </Grid>
