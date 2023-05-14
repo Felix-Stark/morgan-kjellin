@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Paper, Typography, Box, Grid, Link } from "@mui/material";
-import editIcon from"../../assets/edit-pen.svg"
+import EditIcon from '@mui/icons-material/Edit';
+
 
 
 const  UpdateText=() => {
@@ -38,7 +39,7 @@ const  UpdateText=() => {
             <Typography variant="body1" color="white">Arbeta med mig</Typography>
           </Grid>
           <Grid item xs={3}>
-            <Box component="img" alt="bild"src={editIcon} sx={{'&:hover': { cursor:"pointer", width:"1.5vw"}}}/>
+            <EditIcon />
           </Grid>
         </Grid>
         <Grid xs={10} sx={{display:"flex",justifyContent:"center",alignItems:"center",textAlign:"center" ,bgcolor:"gray", marginBottom:"1rem"}}>
@@ -52,7 +53,21 @@ const  UpdateText=() => {
             <Typography variant="body1" color="white">Arbeta med mig</Typography>
           </Grid>
           <Grid item xs={3}>
-            <Box component="img" alt="bild"src={editIcon} sx={{'&:hover': { cursor:"pointer", width:"1.5vw"}}}/>
+            
+          </Grid>
+        </Grid>
+        <Grid xs={10} sx={{display:"flex",justifyContent:"center",alignItems:"center",textAlign:"center" ,bgcolor:"gray", marginBottom:"1rem"}}>
+          <Grid item xs={3}>
+            <Typography  variant="body1" color="white">Relationer</Typography>  
+          </Grid>
+          <Grid item xs={3}>
+            <Typography variant="body1" color="white">Lorem ipsum dolor sit amet magna aliqua.</Typography>
+          </Grid>
+          <Grid item xs={3}>
+            <Typography variant="body1" color="white">Arbeta med mig</Typography>
+          </Grid>
+          <Grid item xs={3}>
+            
           </Grid>
         </Grid>   
       </Grid>
