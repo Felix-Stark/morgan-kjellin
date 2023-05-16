@@ -17,6 +17,7 @@ import AdminLogin from "./components/adminComponents/login/AdminLogin";
 import AdminDash from "./Views/Admin/AdminDash";
 import AdminCalendar from "./Views/Admin/AdminCalendar";
 import AdminActivities from "./Views/Admin/AdminActivities";
+import AdminCreateActivity from "./Views/Admin/AdminCreateActivity";
 
 
 const themeOptions: ThemeOptions = {
@@ -86,6 +87,7 @@ function App() {
             <Route path="dashboard" element={ <AdminDash /> } />
             <Route path="kalender" element={ <AdminCalendar /> } />
             <Route path="kalender/aktiviteter" element={ <AdminActivities/> } />
+            <Route path="kalender/skapa-aktivitet" element={ <AdminCreateActivity/> } />
           </Route>
         </Routes>
         <Footer />
