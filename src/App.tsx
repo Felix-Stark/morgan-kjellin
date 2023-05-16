@@ -18,6 +18,8 @@ import AdminDash from "./Views/Admin/AdminDash";
 import AdminCalendar from "./Views/Admin/AdminCalendar";
 import AdminActivities from "./Views/Admin/AdminActivities";
 import AdminCreateActivity from "./Views/Admin/AdminCreateActivity";
+import UpdateText from "./Views/Admin/UpdateText";
+
 
 
 const themeOptions: ThemeOptions = {
@@ -88,6 +90,7 @@ function App() {
             <Route path="kalender" element={ <AdminCalendar /> } />
             <Route path="kalender/aktiviteter" element={ <AdminActivities/> } />
             <Route path="kalender/skapa-aktivitet" element={ <AdminCreateActivity/> } />
+            <Route path="updatetext" element={ <UpdateText/>} />
           </Route>
         </Routes>
         <Footer />
