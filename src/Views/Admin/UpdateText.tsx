@@ -10,7 +10,7 @@ const  UpdateText=() => {
       <Grid xs={3} sx={{bgcolor:"#332341"}}>
         <Typography variant="h3" color="white" sx={{textAlign:"center"}}>Menu</Typography>
       </Grid>
-      <Grid container  xs={8} sx={{bgcolor:"#333333", justifyContent:"center"}}>
+      <Grid container  xs={8} sx={{bgcolor:"#333333", justifyContent:"center", borderRadius:"10px",marginLeft:"25px"}}>
         <Grid item xs={12} sx={{display:"flex", justifyContent:"center", borderBottom:"1px solid white", padding:"2rem"}}>
           <Typography variant="h3" color="white">Välj en text att uppdatera</Typography>
         </Grid>
