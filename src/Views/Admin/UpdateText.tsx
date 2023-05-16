@@ -24,9 +24,7 @@ const  UpdateText=() => {
           <Grid item xs={3}>
             <Typography variant="h4" color="white" sx={{border:"1px solid white"}}>Plats</Typography>  
           </Grid>
-          <Grid item xs={3}>
-             
-          </Grid>
+          <Grid item xs={3}></Grid>
         </Grid>
         <Grid xs={10} sx={{display:"flex",justifyContent:"center",alignItems:"center",textAlign:"center" ,bgcolor:"gray", marginBottom:"1rem"}}>
           <Grid item xs={3}>
