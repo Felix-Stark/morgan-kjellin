@@ -81,6 +81,22 @@ const AdminCalendar = () => {
         setSelectedYear(Number(event.target.value));
     }
 
+    const backMonth = () => {
+        const month = new Date();
+        const pastMonth = month.getMonth() - 1;
+
+        console.log(pastMonth);
+        setCurrentMonth(pastMonth.toLocaleString());
+    }
+
+    const nextMonth = () => {
+        const month = new Date();
+        const pastMonth = month.getMonth() + 1;
+
+        console.log(pastMonth);
+        setCurrentMonth(pastMonth.toLocaleString());
+    }
+
     return(
         <Container disableGutters style={{ maxWidth: '100vw', width: '100%' }}>
 
@@ -109,9 +125,9 @@ const AdminCalendar = () => {
 
             <Box height={'5rem'} sx={{ display: 'flex', position: 'relative', alignItems: 'center', justifyContent: 'center', width: '50rem', marginLeft: '2rem', backgroundColor: 'grey' }}>
 
-                <TrendingFlatRoundedIcon sx={{ position: 'absolute', width: '5rem', backgroundColor: 'grey', color: '#FFFFFF', fontSize: '3rem', left: '10%', rotate: '180deg' }}></TrendingFlatRoundedIcon>
+                <TrendingFlatRoundedIcon onClick={ backMonth } sx={{ position: 'absolute', width: '5rem', backgroundColor: 'grey', color: '#FFFFFF', fontSize: '3rem', left: '10%', rotate: '180deg' }}></TrendingFlatRoundedIcon>
                 <Typography variant='h2' color='#FFFFFF' zIndex='1'> { currentMonth.toUpperCase() } </Typography>
-                <TrendingFlatRoundedIcon sx={{ position: 'absolute', width: '5rem', backgroundColor: 'grey', color: '#FFFFFF', fontSize: '3rem', right: '10%'}}></TrendingFlatRoundedIcon>
+                <TrendingFlatRoundedIcon onClick={ nextMonth } sx={{ position: 'absolute', width: '5rem', backgroundColor: 'grey', color: '#FFFFFF', fontSize: '3rem', right: '10%'}}></TrendingFlatRoundedIcon>
 
             </Box>
 
