@@ -39,8 +39,8 @@ export const About = () => {
         Jag borde många gånger ha tänkt först och gjort sen, men det gjorde jag inte då. Idag lever jag med eftertänksamhet och reflektion. 
         Jag tar hand om mig själv och för mig handlade det om att förändra sina vanor. Det är väldigt färdefulla erfarenheter och metoder jag vill dela med mig av.
         Förändring är möjligt för alla och det jag lärt mig har hjälpt mig att vara fortsatt drogfri även genom de kriser jag upplevt efter att jag blivit drogfri.”
-       <Typography variant="h6" sx={{  marginBottom:"1rem", marginTop: "1rem"}}>“FÖRÄNDRING ÄR MÖJLIGT FÖR ALLA!”</Typography>
       </Typography>
+       <Typography variant="h6" sx={{  marginBottom:"1rem", marginTop: "1rem"}}>“FÖRÄNDRING ÄR MÖJLIGT FÖR ALLA!”</Typography>
     </Paper>
     {/* <Typography variant="body1" color="initial"></Typography>  */}
     <Link component="button" underline="hover" sx={{color:"black" }}>BOKA MIG FÖR EN FÖRELÄSNING!</Link>

@@ -23,15 +23,15 @@ export const Footer = () => {
                   } }}>
               Information
             </Typography>
-            <Typography variant="body1" sx={{ mb: 2, transition: 'color 0.3s ease-in-out',
-                  '&:hover': {
-                    color: '#FFFFFF',
-                    fontSize: '1.1rem',
-                  }, }}>
-              <Link to="/about" style={{ color: '#CFCFCF', textDecoration: 'none' }}>
-                Om mig
+            <Link to="/about" style={{ color: '#CFCFCF', textDecoration: 'none' }}>
+              <Typography variant="body1" sx={{ mb: 2, transition: 'color 0.3s ease-in-out',
+                    '&:hover': {
+                      color: '#FFFFFF',
+                      fontSize: '1.1rem',
+                    }, }}>
+                  Om mig
+              </Typography>
               </Link>
-            </Typography>
             <Typography variant="body1" sx={{ mb: 4 , transition: 'color 0.3s ease-in-out',
                   '&:hover': {
                     color: '#FFFFFF',
@@ -44,14 +44,14 @@ export const Footer = () => {
           </Grid>
           <Grid item xs={12} sm={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Stack sx={{ mb: 2 }}>
-              <Typography variant="body2" sx={{ fontSize: 24,  marginBottom: 2, fontWeight: "bold", transition: 'color 0.3s ease-in-out',
+              <Typography variant="body2" sx={{ fontSize: 26,  marginBottom: 1, fontWeight: "bold", transition: 'color 0.3s ease-in-out',
                   '&:hover': {
                     color: '#BA1D37',
                     cursor: 'default',
                   },}}>  
                 Morgan Kjellin
               </Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: 2 }}>
               <IconButton
                 component="a"
                 href="https://www.facebook.com/"
