@@ -82,7 +82,7 @@ function App() {
         }}
       />
       <div className="App">
-        <Header />
+        { adminView ? '' : <Header />}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
