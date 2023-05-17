@@ -44,16 +44,6 @@ const Hero = () => {
         >
           Möjligheten till förändring finns inom oss alla
         </Typography>
-
-        {/* <Typography
-          variant="h2"
-          fontStyle={"italic"}
-          color={"#342C39"}
-          sx={{ margin: { xs: "1rem", md: "3rem" }, maxWidth: "50%" }}
-        >
-          Med 17 år av tungt missbruk bakom sig har han själv bevisat hur
-          verktygen för att vända sitt liv finns inom oss.
-        </Typography> */}
       </Grid>
     </Grid>
   );
