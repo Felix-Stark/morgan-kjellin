@@ -16,12 +16,12 @@ import { Link } from "react-router-dom";
 const pagesLeft = [ 
   {label: "STARTSIDA", path: "/"},
   {label: "OM MIG", path: "/about"},
-  {label: "ARBETA MED MIG", path: "/arbeta-med-mig"},
-  ];
+];
 const pagesRight = [ 
-  {label: "BLOGG", path: "/blog"},
+  {label: "ARBETA MED MIG", path: "/arbeta-med-mig"},
+  // {label: "BLOGG", path: "/blog"},
   {label: "KONTAKT", path: "/contact"},
-  {label: "BOKA MÖTE", path: "/meeting"},
+  // {label: "BOKA MÖTE", path: "/meeting"},
 ];
 
 export const Header = () => {
@@ -40,7 +40,7 @@ export const Header = () => {
 
   return (
     <AppBar position="static" sx={{background: "#F6F6F6" }}>
-      <Container maxWidth="lg" sx={{display:"flex", justifyContent: "space-evenly",  alignItems: "center" }}>
+      <Container maxWidth="lg" sx={{display:"flex", justifyContent: "center", alignContent: "center" }}>
         <Toolbar>
         <Box sx={{ display: { xs: "flex", md: "none"} }}>
             <Tooltip title="Öppna meny">
@@ -83,12 +83,12 @@ export const Header = () => {
               ))}
             </Menu>
             </Box>
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ display: { xs: "none", md: "flex" }, paddingRight: "1.5rem" }}>
             {pagesLeft.map((pageL) => (
               <Button
                 key={pageL.label}
                 color="inherit"
-                sx={{ textTransform: "none", color: "#BA1D37", fontWeight: "bold", paddingRight: "1.5rem" }}
+                sx={{ textTransform: "none", color: "#BA1D37", fontWeight: "bold" }}
                 component={Link}
                 to={pageL.path}
               >
