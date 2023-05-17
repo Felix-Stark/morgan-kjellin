@@ -8,8 +8,12 @@ import portrait from "../../../assets/home-block2.png";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
+import { useNavigate } from "react-router-dom";
+
 
 const FourthBlock = () => {
+  const navigate = useNavigate();
+
   return (
     <Grid
       container
@@ -69,7 +73,9 @@ const FourthBlock = () => {
           </Typography>
           <Button
             variant="contained"
-            style={{ background: "#BA1D37", borderRadius: "10px", minWidth: '60%', alignSelf: 'center', marginTop: '1rem'}}
+            style={{ background: "#BA1D37", borderRadius: "10px", minWidth: '60%', alignSelf: 'center', marginTop: '1rem'}} onClick={() => {
+              navigate('/about')
+            }}
           >
             Läs mer...
           </Button>
