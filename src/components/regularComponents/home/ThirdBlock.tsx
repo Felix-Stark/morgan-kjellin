@@ -81,7 +81,7 @@ const ThirdBlock = () => {
               <Button
                 variant="contained"
                 style={{ background: "#BA1D37", borderRadius: "10px" }} onClick={() => {
-                  navigate('/about')
+                  navigate('/arbeta-med-mig')
                 }}
               >
                 Läs mer...

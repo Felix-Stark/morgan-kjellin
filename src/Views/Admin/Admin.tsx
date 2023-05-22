@@ -10,7 +10,7 @@ import { auth } from '../../../firebase/firebase-config'
 
 const Admin = () => {
 	const navigate = useNavigate();
-	const [signedIn, setSignedIn] = useState(false);
+	const [signedIn, setSignedIn] = useState(true);
 	
   return (
     <Grid
