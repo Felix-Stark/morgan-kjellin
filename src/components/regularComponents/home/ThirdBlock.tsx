@@ -7,6 +7,10 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import CardMedia from '@mui/material/CardMedia'
 import { useNavigate } from 'react-router-dom';
+import firstCard from '../../../assets/handshake.svg'
+import secondCard from '../../../assets/lecture.svg'
+import thirdCard from '../../../assets/beachhandsout.svg'
+
 
 const ThirdBlock = () => {
   const navigate = useNavigate();
@@ -21,13 +25,14 @@ const ThirdBlock = () => {
       justifyContent={"center"}
       rowGap={6}
     >
-      <Typography variant="h3">Ta kontakt...</Typography>
+      <Typography variant="h3">Välj ett alternativ...</Typography>
       <Grid
         container
         minHeight={"50vh"}
+        display={"flex"}
         justifyContent={"space-evenly"}
         alignItems={"center"}
-        sx={{ flexDirection: { sm: "column", md: "row" } }}
+        sx={{ flexDirection: { sm: "column" , md: "row" } }}
         rowGap={5}
         marginBottom={10}
       >
@@ -37,9 +42,10 @@ const ThirdBlock = () => {
               display: "flex",
               flexDirection: "column",
               borderRadius: "10px",
+              maxWidth: { xs: "30rem", sm:"35rem ", md: "40rem", lg: "45rem" },
             }}
           >
-            <CardMedia component={"img"} style={{ height: "10rem" }} />
+            <CardMedia component={"img"} style={{ height: "20rem" }} src={firstCard} />
             <CardContent>
               <Typography color={"background.default"} variant="h4">
                 Första kontakt
@@ -51,7 +57,7 @@ const ThirdBlock = () => {
             <CardActions sx={{ alignSelf: "center" }}>
               <Button
                 variant="contained"
-                style={{ background: "#BA1D37", borderRadius: "10px" }} onClick={() => {
+                style={{ background: "#BA1D37", borderRadius: "10px", margin: "1rem" }} onClick={() => {
                   navigate('/contact')
                 }}
               >
@@ -66,9 +72,10 @@ const ThirdBlock = () => {
               display: "flex",
               flexDirection: "column",
               borderRadius: "10px",
+              maxWidth: { xs: "25rem", md: "30rem", lg: "35rem" },  
             }}
           >
-            <CardMedia component={"img"} style={{ height: "10rem" }} />
+            <CardMedia component={"img"} style={{ height: "20rem" }} src={secondCard}/>
             <CardContent>
               <Typography color={"background.default"} variant="h4">
                 Föreläsningar
@@ -80,7 +87,7 @@ const ThirdBlock = () => {
             <CardActions sx={{ alignSelf: "center" }}>
               <Button
                 variant="contained"
-                style={{ background: "#BA1D37", borderRadius: "10px" }} onClick={() => {
+                style={{ background: "#BA1D37", borderRadius: "10px", margin: "1rem" }} onClick={() => {
                   navigate('/arbeta-med-mig')
                 }}
               >
@@ -95,9 +102,10 @@ const ThirdBlock = () => {
               display: "flex",
               flexDirection: "column",
               borderRadius: "10px",
+              maxWidth: { xs: "25rem", md: "30rem", lg: "35rem" },
             }}
           >
-            <CardMedia component={"img"} style={{ height: "10rem" }} />
+            <CardMedia component={"img"} style={{ height: "20rem" }} src={thirdCard} />
             <CardContent>
               <Typography color={"background.default"} variant="h4">
                 Kurser
@@ -109,8 +117,8 @@ const ThirdBlock = () => {
             <CardActions sx={{ alignSelf: "center" }}>
               <Button
                 variant="contained"
-                style={{ background: "#BA1D37", borderRadius: "10px" }} onClick={() => {
-                  navigate('/contact')
+                style={{ background: "#BA1D37", borderRadius: "10px", margin: "1rem" }} onClick={() => {
+                  navigate('/arbeta-med-mig')
                 }}
               >
                 Läs mer...

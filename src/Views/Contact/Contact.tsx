@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   TextField,
@@ -20,6 +20,11 @@ interface ContactFormData {
   message: string;
 }
 export const Contact: React.FC = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
 
   const width = useMediaQuery("(max-width:600px)") ? "xs" : "md";
   const [formData, setFormData] = useState<ContactFormData>({

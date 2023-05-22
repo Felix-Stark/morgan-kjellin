@@ -52,20 +52,7 @@ export const Footer = () => {
                 Morgan Kjellin
               </Typography>
             <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: 2 }}>
-              <IconButton
-                component="a"
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noopener"
-                aria-label="facebook"
-                sx={{ color: '#CFCFCF', transition: 'color 0.3s ease-in-out',
-                '&:hover': {
-                  color: '#FFFFFF',
-                  fontSize: '1.1rem',
-                }, }}
-              >
-                <FacebookIcon />
-              </IconButton>
+              
               <IconButton
                 component="a"
                 href="https://www.linkedin.com/"
@@ -115,7 +102,7 @@ export const Footer = () => {
                   color: '#FFFFFF',
                   fontSize: '1.1rem',
                 }, }}>
-              <Link to="/contact" style={{ color: '#CFCFCF', textDecoration: 'none' }}>
+              <Link to="mailto:kontakt@morgankjellin.com" style={{ color: '#CFCFCF', textDecoration: 'none' }}>
                 Email: kontakt@morgankjellin.com
               </Link>
             </Typography>
@@ -125,7 +112,7 @@ export const Footer = () => {
                   fontSize: '1.1rem',
                 }, }}>
               <Link to="/contact" style={{ color: '#CFCFCF', textDecoration: 'none' }}>
-                Telefon: +46 123 456 789
+                Telefon: 0702595483
               </Link>
             </Typography>
           </Grid>

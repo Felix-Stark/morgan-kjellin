@@ -6,8 +6,18 @@ import Grid from '@mui/material/Grid'
 import SecondBlock from "../../components/regularComponents/home/SecondBlock";
 import ThirdBlock from "../../components/regularComponents/home/ThirdBlock";
 import FourthBlock from "../../components/regularComponents/home/FourthBlock";
+import { Button, CardMedia } from "@mui/material";
+import scrollArrow from '../../assets/work-scrollArrow.svg';
+
 
 export const Home = () => {
+
+  const scrollToTop = () => {
+    if (window.scrollY > 100) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
 	let breakTheme = createTheme();
 	let theme = createTheme({
     palette: {
@@ -59,7 +69,17 @@ export const Home = () => {
   return (
     <ThemeProvider theme={theme}>
 		<Grid rowGap={'4rem'} style={{ background: 'background.default' }} display={'flex'} flexDirection={'column'}>
-			<Hero />
+			<Button variant="contained" onClick={ scrollToTop } 
+           sx={{ zIndex: '1', width: {xs: '4rem', sm: '4rem', md: '5rem'}, height: {xs: '4rem', sm: '4rem', md: '5rem'}, borderRadius: '50%', backgroundColor: '#BA1D37', position: 'fixed',
+           margin: '5rem', bottom: '-2rem', right: '-2rem', '&:hover': {backgroundColor: '#BA1D60'} }}>
+
+            <CardMedia image={ scrollArrow } style={{ position: 'absolute', transform: 'rotate(180deg)' }}
+             sx={{ top: { xs: 'calc(25% - 2px)', sm: 'calc(25% - 2px)', md: 'calc(25% - 2.5px)'}, left: { xs: 'calc(25% - 2px)', sm: 'calc(25% - .5px)', md: 'calc(25%)'},
+            width: {xs: '2rem', sm: '2rem', md: '2.5rem'}, height: {xs: '2rem', sm: '2rem', md: '2.5rem'} } } >
+            </CardMedia>
+
+          </Button>
+      <Hero />
 			<FirstBlock />
 			<SecondBlock />
 			<ThirdBlock />

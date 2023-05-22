@@ -1,17 +1,24 @@
 import { Container, Paper, Typography, Box, Grid, Link, Button } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import testP from '../../assets/profile-photo.jpg'
 import { useNavigate } from 'react-router-dom';
+import lecturePic from '../../assets/hero-morgan.jpg'
+import addictPic from '../../assets/difficultsign.svg'
 
 
 export const About = () => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
+
 
   return <Container  sx={{   width: {xs: "80%", md: "100%" },textAlign:"center" ,  paddingTop: '25px', }}>
 
     <Box sx={{ boxShadow: 3 , display: 'flex', marginBottom:"5vh",flexDirection:{ xs: "column-reverse", md: "row"}, justifyContent: 'space-between'}}>
-      <Paper sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#342C39"}}>
+      <Paper sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#161616"}}>
         <Typography variant="h4" sx={{  marginBottom:"2vh"}}>Morgan Kjellin</Typography>
         <Typography variant="h6" sx={{ fontSize: '1em', margin: "auto"}}>
           Jag är föreläsare & entreprenör och har sedan 1995 delat med mig av min resa. 
@@ -19,11 +26,11 @@ export const About = () => {
           så har jag kunnat hjälpa många andra personer.
         </Typography>
       </Paper>
-      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 250 },}} alt="bild"src={testP}/>
+      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 400 },}} alt="bild"src={lecturePic}/>
     </Box>
     <Box sx={{boxShadow: 3 , display: 'flex', marginBottom:"5vh",  flexDirection:{ xs: "column", md: "row"}, justifyContent: 'space-between'}}>
-      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 250 },}}alt="bild"src={testP}/>
-      <Paper  sx={{padding:"1rem", borderRadius:'0px', bgcolor:"#342C39", color:"white"}}>
+      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 200 },}}alt="bild"src={addictPic}/>
+      <Paper  sx={{padding:"1rem", borderRadius:'0px', bgcolor:"#161616", color:"white"}}>
         <Typography variant="h4" sx={{  marginBottom:"2vh"}}>Före detta missbrukare</Typography>
         <Typography variant="h6" sx={{ fontSize: '1em', margin: "auto"}}>
           Under sina år som narkoman var Morgan med om flera tragiska händelser.
@@ -34,7 +41,7 @@ export const About = () => {
         </Typography>
       </Paper>
     </Box>
-    <Paper elevation={3} sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#342C39", marginBottom:"2.5vh"}}>
+    <Paper elevation={3} sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#161616", marginBottom:"2.5vh"}}>
       <Typography variant="h4" sx={{  marginBottom:"1rem"}}>Morgans egna ord</Typography>
       <Typography variant="h6" sx={{ fontSize: '1em', margin: "auto"}}>
         “Mina erfarenheter har fått mig att växa som människa. 
@@ -49,11 +56,11 @@ export const About = () => {
     <Button variant="contained" onClick={ () => navigate('/contact') }
                   sx={{ 
                     backgroundColor: '#BA1D37',
-                    width: '16rem',
-                    height: '5rem',
+                    width: '12rem',
+                    height: 'rem',
                     margin: '2rem 0',
                     fontWeight: 'bold',
-                    '&:hover': {backgroundColor: '#161616'}}}>
+                    '&:hover': {backgroundColor: '#BA1D60'}}}>
                     BOKA MIG FÖR EN FÖRELÄSNING!</Button>
   </Container>
 };
