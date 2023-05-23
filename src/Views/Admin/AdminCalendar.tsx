@@ -9,13 +9,6 @@ import TrendingFlatRoundedIcon from '@mui/icons-material/TrendingFlatRounded';
 
 const AdminCalendar = () => {
 
-    //köra new Date()
-    //plocka ut vilket år och vilken månad det är, sätta i states vid sidladdning
-    //detta för att default när man hamnar i kalender ska vara nuvarande månad och år.
-    //statet sätts initialt till nuvarande månad och ändras vid piltrycken enligt calendarMonths, behövs jämför state=obj
-    // loopa då ut så många dagar som objektet innehåller - index + 1 blir dagens nummer.
-    //på¨detta sätt kan år och månader gå, fast default kommer alltid vara rätt år och månad när man går in på kalendern.
-
     const [ currentDate, setCurrentDate ] = useState<any>(new Date());
     const [ currentYear, setCurrentYear ] = useState<number>( currentDate.getFullYear() );
     const [ monthIndex, setMonthIndex ] = useState<number>( currentDate.getMonth() );
@@ -25,17 +18,26 @@ const AdminCalendar = () => {
     const [ dayArray, setDayArray ] = useState<number[]>([]);
     
     useEffect(() => {
+
         const days: number[] = [];
         for (let i=0; i < currentDays; i++) {
             days.push(i + 1);
         }
         setDayArray(days);
-        console.log(monthIndex);
-        console.log(currentMonth);
+
     }, [currentDays]);
+
+    useEffect(() => {
+
+        setCurrentDate(new Date(selectedYear, monthIndex, currentDate.getDate()));
+        setCurrentDays(new Date(selectedYear, currentDate.getMonth()+1, 0).getDate());
+
+    }, [selectedYear]);
     
     const handleYears = (event: SelectChangeEvent) => {
+
         setSelectedYear(Number(event.target.value));
+
     }
 
     const backMonth = () => {
@@ -79,7 +81,7 @@ const AdminCalendar = () => {
                     onChange={ handleYears }
                     sx={{ position: 'absolute', right: '1rem', zIndex: '2', width: '5.5rem', height: '2.5rem', margin: '1.5rem' }}
                     >
-                        <MenuItem value={currentYear - 1}>{currentYear + 1}</MenuItem>
+                        <MenuItem value={currentYear + 1}>{currentYear + 1}</MenuItem>
                         <MenuItem value={currentYear}>{currentYear}</MenuItem>
                         <MenuItem value={currentYear - 1}>{currentYear - 1}</MenuItem>
 
@@ -101,7 +103,7 @@ const AdminCalendar = () => {
                 {
                     dayArray.map((date, i) => {
 
-                        return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentYear}/>
+                        return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentDate.getFullYear()}/>
 
                     })
                 }
