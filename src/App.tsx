@@ -19,6 +19,7 @@ import AdminCalendar from "./Views/Admin/AdminCalendar";
 import AdminActivities from "./Views/Admin/AdminActivities";
 import AdminCreateActivity from "./Views/Admin/AdminCreateActivity";
 import UpdateText from "./Views/Admin/UpdateText";
+import DashBoard from "./Views/Admin/AdminDashBoard";
 
 import { useLocation } from 'react-router'
 
@@ -96,11 +97,11 @@ function App() {
           <Route path="/arbeta-med-mig" element={<Work />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/admin" element={<Admin />}>
-            <Route path="dashboard" element={ <AdminDash /> } />
             <Route path="kalender" element={ <AdminCalendar /> } />
             <Route path="kalender/aktiviteter" element={ <AdminActivities/> } />
             <Route path="kalender/skapa-aktivitet" element={ <AdminCreateActivity/> } />
             <Route path="updatetext" element={ <UpdateText/>} />
+            <Route path="dashboard" element={ <DashBoard/>} />
           </Route>
         </Routes>
         { adminView ? '' : <Footer />}
