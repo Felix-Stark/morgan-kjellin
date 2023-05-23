@@ -16,86 +16,54 @@ const AdminCalendar = () => {
     // loopa då ut så många dagar som objektet innehåller - index + 1 blir dagens nummer.
     //på¨detta sätt kan år och månader gå, fast default kommer alltid vara rätt år och månad när man går in på kalendern.
 
+    const [ currentDate, setCurrentDate ] = useState<any>(new Date());
+    const [ currentYear, setCurrentYear ] = useState<number>( currentDate.getFullYear() );
+    const [ monthIndex, setMonthIndex ] = useState<number>( currentDate.getMonth() );
+    const [ currentMonth, setCurrentMonth ] = useState<string>( currentDate.toLocaleString('default', { month: 'long' }) );
+    const [ selectedYear, setSelectedYear ] = useState<number>( currentDate.getFullYear() );
+    const [ currentDays, setCurrentDays ] = useState<any>( new Date(currentDate.getFullYear(), currentDate.getMonth()+1, 0).getDate() );
+    const [ dayArray, setDayArray ] = useState<number[]>([]);
+    
     useEffect(() => {
-        const getDate = new Date();
-        setCurrentYear(getDate.getFullYear());
-        setCurrentMonth(getDate.toLocaleString('default', { month: 'long' }));
-    }, []);
-
-    const [ currentYear, setCurrentYear ] = useState<number>( new Date().getFullYear());
-    const [ currentMonth, setCurrentMonth ] = useState<string>( new Date().toLocaleString('default', { month: 'long' }) );
-    const [ selectedYear, setSelectedYear ] = useState<number>(currentYear);
-
-    const calendarMonths = [
-        {
-            month: 'januari',
-            days: 31
-        },
-        {
-            month: 'februari',
-            days: 28
-        },
-        {
-            month: 'mars',
-            days: 31
-        },
-        {
-            month: 'april',
-            days: 30
-        },
-        {
-            month: 'maj',
-            days: 31
-        },
-        {
-            month: 'juni',
-            days: 30
-        },
-        {
-            month: 'juli',
-            days: 31
-        },
-        {
-            month: 'augusti',
-            days: 31
-        },
-        {
-            month: 'september',
-            days: 30
-        },
-        {
-            month: 'oktober',
-            days: 31
-        },
-        {
-            month: 'november',
-            days: 30
-        },
-        {
-            month: 'december',
-            days: 31
+        const days: number[] = [];
+        for (let i=0; i < currentDays; i++) {
+            days.push(i + 1);
         }
-    ]
-
+        setDayArray(days);
+        console.log(monthIndex);
+        console.log(currentMonth);
+    }, [currentDays]);
+    
     const handleYears = (event: SelectChangeEvent) => {
         setSelectedYear(Number(event.target.value));
     }
 
     const backMonth = () => {
-        const month = new Date();
-        const pastMonth = month.getMonth() - 1;
 
-        console.log(pastMonth);
-        setCurrentMonth(pastMonth.toLocaleString());
+        if (monthIndex != 0) {
+
+            currentDate.setMonth(monthIndex - 1);
+            setMonthIndex(currentDate.getMonth());
+            setCurrentMonth(currentDate.toLocaleString('default', { month: 'long' }));
+            setCurrentDays(new Date(currentDate.getFullYear(), monthIndex, 0).getDate());
+
+        } 
+
     }
 
     const nextMonth = () => {
-        const month = new Date();
-        const pastMonth = month.getMonth() + 1;
 
-        console.log(pastMonth);
-        setCurrentMonth(pastMonth.toLocaleString());
+        if (monthIndex != 11) {
+
+            currentDate.setMonth(monthIndex + 1);
+            setMonthIndex(currentDate.getMonth());
+            setCurrentMonth(currentDate.toLocaleString('default', { month: 'long' }));
+            setCurrentDays(new Date(currentDate.getFullYear(), monthIndex+2, 0).getDate());
+
+        }
+
     }
+
 
     return(
         <Container disableGutters style={{ maxWidth: '100vw', width: '100%' }}>
@@ -111,11 +79,9 @@ const AdminCalendar = () => {
                     onChange={ handleYears }
                     sx={{ position: 'absolute', right: '1rem', zIndex: '2', width: '5.5rem', height: '2.5rem', margin: '1.5rem' }}
                     >
+                        <MenuItem value={currentYear - 1}>{currentYear + 1}</MenuItem>
                         <MenuItem value={currentYear}>{currentYear}</MenuItem>
                         <MenuItem value={currentYear - 1}>{currentYear - 1}</MenuItem>
-                        <MenuItem value={currentYear - 2}>{currentYear - 2}</MenuItem>
-                        <MenuItem value={currentYear - 3}>{currentYear - 3}</MenuItem>
-                        <MenuItem value={currentYear - 4}>{currentYear - 4}</MenuItem>
 
                 </Select>
 
@@ -133,18 +99,10 @@ const AdminCalendar = () => {
 
             <Box sx={{ backgroundColor: 'grey', width: { md: '50rem' }, height: '40rem', display: 'flex', flexWrap: 'wrap', margin: '0 2rem 2rem 2rem', paddingTop: '1rem' }}>
                 {
-                    calendarMonths.map((date) => {
+                    dayArray.map((date, i) => {
 
-                        if (date.month == currentMonth) {
+                        return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentYear}/>
 
-                            const tempArray: JSX.Element[] = [];
-
-                            for(let i=0; i < date.days; i++) {
-                                tempArray.push(<CalendarDate key={i} index={i + 1} />)
-                            }
-
-                            return tempArray;
-                        }
                     })
                 }
             </Box>

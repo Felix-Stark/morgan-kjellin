@@ -3,12 +3,16 @@ import { useNavigate } from 'react-router-dom';
 
 type Props = {
     index: number;
+    monthIndex: number;
+    currentYear: number;
 }
 
-const CalendarDate = ({ index }: Props) => {
+const CalendarDate = ({ index, monthIndex, currentYear }: Props) => {
 
     const navigate = useNavigate();
     const getDay = new Date().getDate();
+    const getMonth = new Date().getMonth();
+    const getYear = new Date().getFullYear();
 
     const gotoActivities = () => {
         navigate('aktiviteter');
@@ -17,7 +21,7 @@ const CalendarDate = ({ index }: Props) => {
     return(
         <Box onClick={gotoActivities} sx={{ backgroundColor: '#FFFFFF', width: '5.5rem', height: '5.5rem', margin: '.1rem' }}>
             {
-                index == getDay ? <Typography sx={{fontSize: '2rem', color: 'blue'}}>{index}</Typography> : <Typography>{index}</Typography>
+                index == getDay && getMonth == monthIndex && getYear == currentYear ? <Typography sx={{fontSize: '2rem', color: 'blue'}}>{index}</Typography> : <Typography>{index}</Typography>
             }
         </Box>
     )
