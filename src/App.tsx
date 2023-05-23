@@ -66,7 +66,7 @@ const themeOptions: ThemeOptions = {
 
 const globalTheme = createTheme(themeOptions);
 function App() {
-  const [adminView, setAdminView] = useState(false);
+  const [adminView, setAdminView] = useState(true);
   const location = useLocation();
   useEffect(() => {
     if( location.pathname.includes('/admin')) {
@@ -87,7 +87,8 @@ function App() {
         }}
       />
       <div className="App">
-        { adminView ? '' : <Header />}
+        {/* { adminView ? '' : <Header />} */}  // Behåller header i admin view
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

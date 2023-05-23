@@ -56,8 +56,8 @@ export const About = () => {
     <Button variant="contained" onClick={ () => navigate('/contact') }
                   sx={{ 
                     backgroundColor: '#BA1D37',
-                    width: '12rem',
-                    height: 'rem',
+                    width: '20rem',
+                    height: '5rem',
                     margin: '2rem 0',
                     fontWeight: 'bold',
                     '&:hover': {backgroundColor: '#BA1D60'}}}>

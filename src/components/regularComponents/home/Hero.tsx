@@ -37,13 +37,7 @@ const Hero = () => {
         flexDirection={"column"}
         justifyContent={"center"}
       >
-        <Typography
-          variant="h1"
-          color={"#342C39"}
-          sx={{ margin: { xs: "1rem", md: "3rem" }, maxWidth: {md: '60%'} }}
-        >
-          Möjligheten till förändring finns inom oss alla
-        </Typography>
+        
       </Grid>
     </Grid>
   );

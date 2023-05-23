@@ -169,7 +169,6 @@ export const Contact: React.FC = () => {
                 maxWidth: "800px",
                 margin: "0 auto",
                 borderRadius: width === "xs" ? 0 : 4,
-
                 borderTopLeftRadius: 0,
                 borderBottomLeftRadius: 0,
                 overflow: "hidden",
