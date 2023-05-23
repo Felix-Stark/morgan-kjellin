@@ -14,6 +14,8 @@ const CalendarDate = ({ index, monthIndex, currentYear }: Props) => {
     const getMonth = new Date().getMonth();
     const getYear = new Date().getFullYear();
 
+    const activities = [{ date: '2022-11-11', title: 'Föreläsning', text: 'Rensa Krabba' }, { date: '2023-08-08', title: 'Te-party', text: 'odla saker' }];
+
     const gotoActivities = () => {
         navigate('aktiviteter');
     }
