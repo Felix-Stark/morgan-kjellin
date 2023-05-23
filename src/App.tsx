@@ -20,6 +20,8 @@ import AdminActivities from "./Views/Admin/AdminActivities";
 import AdminCreateActivity from "./Views/Admin/AdminCreateActivity";
 import UpdateText from "./Views/Admin/UpdateText";
 import DashBoard from "./Views/Admin/AdminDashBoard";
+import { db } from '../firebase/firebase-config';
+import { collection, doc, getDoc, setDoc } from "firebase/firestore"; 
 
 import { useLocation } from 'react-router'
 
@@ -68,7 +70,32 @@ const themeOptions: ThemeOptions = {
 const globalTheme = createTheme(themeOptions);
 function App() {
   const [adminView, setAdminView] = useState(true);
+  const [testText, setTestText] = useState<string>('');
   const location = useLocation();
+
+  useEffect(() => {
+
+    async function getPosts() {
+      const postsRef = doc(db, 'posts', 'post');
+  
+      const docSnap = await getDoc(postsRef);
+  
+      if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        const data = docSnap.data();
+
+        console.log('data', data.post.title )
+
+        setTestText(data.post.title);
+
+      } else {
+        console.log("No such document!");
+      }
+    }
+    getPosts();
+    
+  }, []);
+
   useEffect(() => {
     if( location.pathname.includes('/admin')) {
       setAdminView(true);
@@ -91,7 +118,7 @@ function App() {
         {/* { adminView ? '' : <Header />} */} 
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home testText={testText}/>} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/arbeta-med-mig" element={<Work />} />
