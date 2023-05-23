@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
+import { Drawer } from "@mui/material";
 
 
 const pagesLeft = [ 
@@ -39,9 +40,9 @@ export const Header = () => {
 
 
   return (
-    <AppBar position="static" sx={{background: "#F6F6F6" }}>
-      <Container maxWidth="lg" sx={{display:"flex", justifyContent: "center", alignContent: "center" }}>
-        <Toolbar>
+    <AppBar  position="static" sx={{background: "#F6F6F6", width:"100%" }}>
+      <Container  maxWidth="lg" sx={{display:"flex", justifyContent: "center", alignContent: "center" }}>
+        <Toolbar disableGutters={true}>
         <Box sx={{ display: { xs: "flex", md: "none"} }}>
             <Tooltip title="Öppna meny">
               <IconButton
@@ -55,14 +56,15 @@ export const Header = () => {
                 <MenuIcon sx={{color: "#BA1D37"}} />
               </IconButton>
             </Tooltip>
-            <Menu
+            <Drawer
               id="nav-menu"
-              anchorEl={anchorElNav}
+              PaperProps={{ sx:{display:"flex",alignItems:"center",paddingTop:"5vh", width:"50vw",}}}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
             >
               {pagesLeft.map((pageL) => (
                 <MenuItem
+                  sx={{marginBottom:"2vh"}}
                   key={pageL.label}
                   onClick={handleCloseNavMenu}
                   component={Link}
@@ -73,6 +75,7 @@ export const Header = () => {
               ))}
               {pagesRight.map((pageR) => (
                 <MenuItem
+                  sx={{marginBottom:"2vh"}}
                   key={pageR.label}
                   onClick={handleCloseNavMenu}
                   component={Link}
@@ -81,7 +84,7 @@ export const Header = () => {
                   {pageR.label}
                 </MenuItem>
               ))}
-            </Menu>
+            </Drawer>
             </Box>
           <Box sx={{ display: { xs: "none", md: "flex" }, paddingRight: "1.5rem" }}>
             {pagesLeft.map((pageL) => (
