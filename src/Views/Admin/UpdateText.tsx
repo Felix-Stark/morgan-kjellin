@@ -6,11 +6,12 @@ import EditIcon from '@mui/icons-material/Edit';
 
 const  UpdateText=() => {
   return (
-    <Grid container  sx={{display:"flex", justifyContent:"center"}}>
-      <Grid container  xs={8} sx={{bgcolor:"#333333", justifyContent:"center", borderRadius:"10px",marginLeft:"25px"}}>
+    <Grid container  sx={{display:"flex", alignItems:"center", minWidth:"100%"}}>
+      <Grid container  xs={12} sx={{width:"100%",bgcolor:"#333333", justifyContent:"center", borderRadius:"10px",marginLeft:"25px"}}>
         <Grid item xs={12} sx={{display:"flex", justifyContent:"center", borderBottom:"1px solid white", padding:"2rem"}}>
           <Typography variant="h3" color="white">Välj en text att uppdatera</Typography>
         </Grid>
+
         <Grid xs={10} sx={{display:"flex", justifyContent:"space-between",textAlign:"center", marginBottom:"1vh"}}>
           <Grid item xs={3}>
             <Typography variant="h4" color="white"  sx={{border:"1px solid white"}}>Titel </Typography>  
@@ -23,6 +24,7 @@ const  UpdateText=() => {
           </Grid>
           <Grid item xs={3}></Grid>
         </Grid>
+
         <Grid xs={10} sx={{display:"flex",justifyContent:"center",alignItems:"center",textAlign:"center" ,bgcolor:"gray", marginBottom:"1rem"}}>
           <Grid item xs={3}>
             <Typography  variant="body1" color="white">Relationer</Typography>  
@@ -39,38 +41,8 @@ const  UpdateText=() => {
             </IconButton>
           </Grid>
         </Grid>
-        <Grid xs={10} sx={{display:"flex",justifyContent:"center",alignItems:"center",textAlign:"center" ,bgcolor:"gray", marginBottom:"1rem"}}>
-          <Grid item xs={3}>
-            <Typography  variant="body1" color="white">Relationer</Typography>  
-          </Grid>
-          <Grid item xs={3}>
-            <Typography variant="body1" color="white">Lorem ipsum dolor sit amet magna aliqua.</Typography>
-          </Grid>
-          <Grid item xs={3}>
-            <Typography variant="body1" color="white">Arbeta med mig</Typography>
-          </Grid>
-          <Grid item xs={3}>
-            <IconButton >
-              <EditIcon fontSize="large" sx={{color:'white'}}/>
-            </IconButton>  
-          </Grid>
-        </Grid>
-        <Grid xs={10} sx={{display:"flex",justifyContent:"center",alignItems:"center",textAlign:"center" ,bgcolor:"gray", marginBottom:"1rem"}}>
-          <Grid item xs={3}>
-            <Typography  variant="body1" color="white">Relationer</Typography>  
-          </Grid>
-          <Grid item xs={3}>
-            <Typography variant="body1" color="white">Lorem ipsum dolor sit amet magna aliqua.</Typography>
-          </Grid>
-          <Grid item xs={3}>
-            <Typography variant="body1" color="white">Arbeta med mig</Typography>
-          </Grid>
-          <Grid item xs={3}>
-            <IconButton >
-              <EditIcon fontSize="large" sx={{color:'white'}}/>
-            </IconButton>  
-          </Grid>
-        </Grid>   
+        
+           
       </Grid>
       
         

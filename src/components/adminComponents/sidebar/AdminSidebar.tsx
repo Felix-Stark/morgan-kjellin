@@ -31,17 +31,8 @@ const AdminSidebar = ({signedIn, setSignedIn }: HandleSignedIn) => {
   }
 
   return (
-    <Drawer
-      sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        "& .MuiDrawer-paper": {
-          width: drawerWidth,
-          boxSizing: "border-box",
-        },
-      }}
-      variant="permanent"
-      anchor="left"
+    <Box
+      
     >
       <Button onClick={handleSignout}>
         Logga ut
@@ -67,7 +58,7 @@ const AdminSidebar = ({signedIn, setSignedIn }: HandleSignedIn) => {
         </ListItem>
       </List>
       <Divider />
-    </Drawer>
+    </Box>
   );
 }
 
