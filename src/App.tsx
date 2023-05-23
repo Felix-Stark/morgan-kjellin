@@ -66,7 +66,7 @@ const themeOptions: ThemeOptions = {
 
 const globalTheme = createTheme(themeOptions);
 function App() {
-  const [adminView, setAdminView] = useState(true);
+  const [adminView, setAdminView] = useState(false);
   const location = useLocation();
   useEffect(() => {
     if( location.pathname.includes('/admin')) {

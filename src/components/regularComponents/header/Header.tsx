@@ -58,12 +58,13 @@ export const Header = () => {
             </Tooltip>
             <Drawer
               id="nav-menu"
-              PaperProps={{ sx:{display:"flex",paddingTop:"5vh", width:"50vw",}}}
+              PaperProps={{ sx:{display:"flex",alignItems:"center",paddingTop:"5vh", width:"50vw",}}}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
             >
               {pagesLeft.map((pageL) => (
                 <MenuItem
+                  sx={{marginBottom:"2vh"}}
                   key={pageL.label}
                   onClick={handleCloseNavMenu}
                   component={Link}
@@ -74,6 +75,7 @@ export const Header = () => {
               ))}
               {pagesRight.map((pageR) => (
                 <MenuItem
+                  sx={{marginBottom:"2vh"}}
                   key={pageR.label}
                   onClick={handleCloseNavMenu}
                   component={Link}
