@@ -87,7 +87,7 @@ function App() {
         }}
       />
       <div className="App">
-        {/* { adminView ? '' : <Header />} */}  // Behåller header i admin view
+        {/* { adminView ? '' : <Header />} */} 
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
