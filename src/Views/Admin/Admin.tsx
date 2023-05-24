@@ -16,17 +16,17 @@ const Admin = () => {
     <Grid
       container
       xs={12}
-      sx={{display:"flex", width:"100vw",}}
+      sx={{display:"flex", width:"100vw",marginTop:"15vh"}}
       
     >
       {!signedIn && <AdminLogin />}
       {/* <AdminSidebar /> kontrollerad import av AdminSidebar när man är inloggad */}
       {signedIn && (
-        <Grid container xs={11.5} sx={{display:"flex", justifyContent:"space-between"}}   >
-          <Grid item xs={3} sx={{bgcolor:"gray"}}>
+        <Grid container xs={11.5} sx={{}}   >
+          <Grid item xs={3} sx={{bgcolor:"#333333"}}>
             <AdminSidebar signedIn={signedIn} setSignedIn={setSignedIn} /> 
           </Grid>   
-          <Grid item xs={9} sx={{display:"flex",justifyContent:"center"}}>
+          <Grid item xs={9} sx={{}}>
             <Outlet />
           </Grid>
           

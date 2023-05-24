@@ -34,26 +34,26 @@ const AdminSidebar = ({signedIn, setSignedIn }: HandleSignedIn) => {
     <Box
       
     >
-      <Button onClick={handleSignout}>
+      <Button onClick={handleSignout} sx={{color:"red"}}>
         Logga ut
       </Button>
       <Divider />
       <List>
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemText primary={"Uppdatera texter"} />
+            <ListItemText primary={"Uppdatera texter"} sx={{color:"white"}} />
           </ListItemButton>
         </ListItem>
         <Divider />
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemText primary={"Uppdatera bilder"} />
+            <ListItemText primary={"Uppdatera bilder"} sx={{color:"white"}} />
           </ListItemButton>
         </ListItem>
         <Divider />
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemText primary={"Kalender"} />
+            <ListItemText primary={"Kalender"} sx={{color:"white"}} />
           </ListItemButton>
         </ListItem>
       </List>
