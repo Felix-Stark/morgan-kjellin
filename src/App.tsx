@@ -14,7 +14,6 @@ import { GlobalStyles } from "@mui/system";
 import "./MUI-Themes/theme.types";
 import Admin from "./Views/Admin/Admin";
 import AdminLogin from "./components/adminComponents/login/AdminLogin";
-import AdminDash from "./Views/Admin/AdminDash";
 import AdminCalendar from "./Views/Admin/AdminCalendar";
 import AdminActivities from "./Views/Admin/AdminActivities";
 import AdminCreateActivity from "./Views/Admin/AdminCreateActivity";
