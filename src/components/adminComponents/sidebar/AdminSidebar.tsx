@@ -43,9 +43,6 @@ const AdminSidebar = ({signedIn, setSignedIn }: HandleSignedIn) => {
       variant="permanent"
       anchor="left"
     >
-      <Button onClick={handleSignout}>
-        Logga ut
-      </Button>
       <Divider />
       <List>
         <ListItem disablePadding>
@@ -67,6 +64,9 @@ const AdminSidebar = ({signedIn, setSignedIn }: HandleSignedIn) => {
         </ListItem>
       </List>
       <Divider />
+      <Button onClick={handleSignout}>
+        Logga ut
+      </Button>
     </Drawer>
   );
 }
