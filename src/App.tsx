@@ -101,6 +101,17 @@ function App() {
       setAdminView(false)
     }
   }, [location])
+
+  const [itemdata, setItemData] = useState<any>()
+ 
+  console.log("from app.tsx= ",itemdata)
+
+  const  getTextProps = (itemTitle:any,itemContent:any,itemLocation:any) => {
+    console.log("titeln här = ",itemTitle)
+    setItemData({title: itemTitle, content: itemContent, location: itemLocation })
+    
+    
+  }
   return (
 
     <ThemeProvider theme={globalTheme}>
@@ -125,8 +136,8 @@ function App() {
             <Route path="kalender" element={ <AdminCalendar /> } />
             <Route path="kalender/aktiviteter" element={ <AdminActivities/> } />
             <Route path="kalender/skapa-aktivitet" element={ <AdminCreateActivity/> } />
-            <Route path="updatetext" element={ <UpdateText  firebaseText={testText}/>} />
-            <Route path="dashboard" element={ <DashBoard/>} />
+            <Route path="updatetext" element={ <UpdateText getTextProps={getTextProps} firebaseText={testText}/>} />
+            <Route path="dashboard" element={ <DashBoard itemdata={itemdata} firebaseText={testText}/>} />
           </Route>
         </Routes>
         { adminView ? '' : <Footer />}
