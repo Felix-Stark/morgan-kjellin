@@ -32,7 +32,7 @@ const AdminSidebar = ({signedIn, setSignedIn }: HandleSignedIn) => {
 
   return (
     <Box
-      
+      sx={{height: "60vh"}}  
     >
       <Button onClick={handleSignout} sx={{color:"red"}}>
         Logga ut

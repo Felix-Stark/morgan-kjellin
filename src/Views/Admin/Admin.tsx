@@ -16,7 +16,7 @@ const Admin = () => {
     <Grid
       container
       xs={12}
-      sx={{display:"flex", width:"100vw",marginTop:"15vh"}}
+      sx={{display:"flex", width:"100vw",marginTop:"15vh", justifyContent:"center",  padding:"1rem", boxShadow:" 4px 4px 10px gray"}}
       
     >
       {!signedIn && <AdminLogin />}
