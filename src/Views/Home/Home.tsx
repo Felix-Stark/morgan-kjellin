@@ -9,8 +9,12 @@ import FourthBlock from "../../components/regularComponents/home/FourthBlock";
 import { Button, CardMedia } from "@mui/material";
 import scrollArrow from '../../assets/work-scrollArrow.svg';
 
+type Props = {
+  testText: string;
+}
 
-export const Home = () => {
+
+export const Home = ({testText}: Props) => {
 
   const scrollToTop = () => {
     if (window.scrollY > 100) {
@@ -80,7 +84,7 @@ export const Home = () => {
 
           </Button>
       <Hero />
-			<FirstBlock />
+			<FirstBlock testText={testText}/>
 			<SecondBlock />
 			<ThirdBlock />
 			<FourthBlock />
