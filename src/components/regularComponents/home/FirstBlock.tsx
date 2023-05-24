@@ -10,7 +10,7 @@ type Props = {
 
 
 const FirstBlock = ({testText}: Props) => {
-
+  console.log("firstblock",testText);
 
   return (
     <Grid
@@ -42,9 +42,9 @@ const FirstBlock = ({testText}: Props) => {
           justifyContent={"center"}
           padding={"1rem"}
         >
-          <Typography variant="h3">{ testText[1].title }</Typography>
+          <Typography variant="h3">{ testText.length > 0 ? testText[1].title : ''}</Typography>
           <Typography variant="subtitle1">
-            { testText[1].content}
+          { testText.length > 0 ? testText[1].content : ''}  
           </Typography>
         </Box>
       </Grid>
