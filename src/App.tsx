@@ -69,7 +69,7 @@ const themeOptions: ThemeOptions = {
 const globalTheme = createTheme(themeOptions);
 function App() {
   const [adminView, setAdminView] = useState(true);
-  const [testText, setTestText] = useState<string>('');
+  const [testText, setTestText] = useState<any>('');
   const location = useLocation();
 
   useEffect(() => {
@@ -80,12 +80,11 @@ function App() {
       const docSnap = await getDoc(postsRef);
   
       if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
+        console.log("Document data:", docSnap.data().posts);
         const data = docSnap.data();
 
-        console.log('data', data.post.title )
-
-        setTestText(data.post.title);
+       
+        setTestText(data.posts);
 
       } else {
         console.log("No such document!");
@@ -126,7 +125,7 @@ function App() {
             <Route path="kalender" element={ <AdminCalendar /> } />
             <Route path="kalender/aktiviteter" element={ <AdminActivities/> } />
             <Route path="kalender/skapa-aktivitet" element={ <AdminCreateActivity/> } />
-            <Route path="updatetext" element={ <UpdateText/>} />
+            <Route path="updatetext" element={ <UpdateText  firebaseText={testText}/>} />
             <Route path="dashboard" element={ <DashBoard/>} />
           </Route>
         </Routes>

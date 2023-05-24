@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import crossRoadsImg from '../../../assets/home-crossroads.png'
 
 type Props = {
-  testText: string;
+  testText: any;
 }
 
 
@@ -42,10 +42,9 @@ const FirstBlock = ({testText}: Props) => {
           justifyContent={"center"}
           padding={"1rem"}
         >
-          <Typography variant="h3">{ testText }</Typography>
+          <Typography variant="h3">{ testText[1].title }</Typography>
           <Typography variant="subtitle1">
-            Du kanske inte behöver vända upp och ner på dig men ut och in är att
-            rekommendera.
+            { testText[1].content}
           </Typography>
         </Box>
       </Grid>
