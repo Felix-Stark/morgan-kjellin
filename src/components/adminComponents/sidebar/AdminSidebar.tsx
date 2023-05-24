@@ -1,4 +1,4 @@
-import { Drawer, Divider, List, ListItem, ListItemButton, ListItemText, Button } from '@mui/material';
+import { Drawer, Divider, List, ListItem, ListItemButton, ListItemText, Button, Box } from '@mui/material';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../../../firebase/firebase-config';
@@ -27,36 +27,35 @@ const AdminSidebar = ({ signedIn, setSignedIn }: HandleSignedIn) => {
   };
 
   return (
-    <Drawer
-      sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        '& .MuiDrawer-paper': {
-          width: drawerWidth,
-          boxSizing: 'border-box',
-        },
-      }}
-      variant="permanent"
-      anchor="left"
+    <Box
+      sx={{height: "60vh"}}  
     >
+      <Button onClick={handleSignout} sx={{color:"red"}}>
+        Logga ut
+      </Button>
       <Divider />
       <List>
         <ListItem disablePadding>
-          <ListItemButton onClick={handleUpdateTextsClick}>
-            <ListItemText primary={'Uppdatera texter'} />
+          <ListItemButton>
+            <ListItemText primary={"Uppdatera texter"} sx={{color:"white"}} />
           </ListItemButton>
         </ListItem>
         
         <Divider />
         <ListItem disablePadding>
-          <ListItemButton onClick={handleCalender}>
-            <ListItemText primary={'Kalender'} />
+          <ListItemButton>
+            <ListItemText primary={"Uppdatera bilder"} sx={{color:"white"}} />
+          </ListItemButton>
+        </ListItem>
+        <Divider />
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemText primary={"Kalender"} sx={{color:"white"}} />
           </ListItemButton>
         </ListItem>
       </List>
       <Divider />
-      <Button onClick={handleSignout}>Logga ut</Button>
-    </Drawer>
+    </Box>
   );
 };
 
