@@ -1,10 +1,17 @@
 import React from 'react'
 import { Container, Paper, Typography, Box, Grid, Link, IconButton } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const  UpdateText=() => {
+  const navigate = useNavigate();
+
+  const editText = () => {
+    navigate('/admin/dashboard');
+  };
+
   return (
     <Grid container  sx={{display:"flex", justifyContent:"center"}}>
       <Grid container  xs={8} sx={{bgcolor:"#333333", justifyContent:"center", borderRadius:"10px",marginLeft:"25px"}}>
@@ -34,7 +41,7 @@ const  UpdateText=() => {
             <Typography variant="body1" color="white">Arbeta med mig</Typography>
           </Grid>
           <Grid item xs={3}>
-            <IconButton >
+            <IconButton onClick={editText} >
               <EditIcon fontSize="large" sx={{color:'white'}}/>
             </IconButton>
           </Grid>
@@ -50,7 +57,7 @@ const  UpdateText=() => {
             <Typography variant="body1" color="white">Arbeta med mig</Typography>
           </Grid>
           <Grid item xs={3}>
-            <IconButton >
+            <IconButton onClick={editText} >
               <EditIcon fontSize="large" sx={{color:'white'}}/>
             </IconButton>  
           </Grid>
@@ -66,7 +73,7 @@ const  UpdateText=() => {
             <Typography variant="body1" color="white">Arbeta med mig</Typography>
           </Grid>
           <Grid item xs={3}>
-            <IconButton >
+            <IconButton onClick={editText}>
               <EditIcon fontSize="large" sx={{color:'white'}}/>
             </IconButton>  
           </Grid>
