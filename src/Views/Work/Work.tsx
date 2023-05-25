@@ -10,9 +10,14 @@ import workSad from '../../assets/work-sad.svg';
 import { Container, Paper, Box, Typography, Button } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import { useNavigate } from 'react-router-dom';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 export const Work = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
 
   const navigate = useNavigate();
 

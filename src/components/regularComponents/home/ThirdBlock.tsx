@@ -6,9 +6,14 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import CardMedia from '@mui/material/CardMedia'
+import { useNavigate } from 'react-router-dom';
+import firstCard from '../../../assets/handshake.svg'
+import secondCard from '../../../assets/lecture.svg'
+import thirdCard from '../../../assets/beachhandsout.svg'
 
 
 const ThirdBlock = () => {
+  const navigate = useNavigate();
 
   return (
     <Grid
@@ -20,13 +25,14 @@ const ThirdBlock = () => {
       justifyContent={"center"}
       rowGap={6}
     >
-      <Typography variant="h3">Här kan vi starta...</Typography>
+      <Typography variant="h3">Välj ett alternativ...</Typography>
       <Grid
         container
         minHeight={"50vh"}
+        display={"flex"}
         justifyContent={"space-evenly"}
         alignItems={"center"}
-        sx={{ flexDirection: { sm: "column", md: "row" } }}
+        sx={{ flexDirection: { sm: "column" , md: "row" } }}
         rowGap={5}
         marginBottom={10}
       >
@@ -36,21 +42,24 @@ const ThirdBlock = () => {
               display: "flex",
               flexDirection: "column",
               borderRadius: "10px",
+              maxWidth: { xs: "30rem", sm:"35rem ", md: "40rem", lg: "45rem" },
             }}
           >
-            <CardMedia component={"img"} style={{ height: "10rem" }} />
+            <CardMedia component={"img"} style={{ height: "20rem" }} src={firstCard} />
             <CardContent>
               <Typography color={"background.default"} variant="h4">
-                Bild med text
+                Första kontakt
               </Typography>
               <Typography color={"background.default"}>
-                Gratis 7-dagars program: Tillbaka till mig själv
+                Online möte med mig via Zoom , Teams eller telefon
               </Typography>
             </CardContent>
             <CardActions sx={{ alignSelf: "center" }}>
               <Button
                 variant="contained"
-                style={{ background: "#BA1D37", borderRadius: "10px" }}
+                style={{ background: "#BA1D37", borderRadius: "10px", margin: "1rem" }} onClick={() => {
+                  navigate('/contact')
+                }}
               >
                 Läs mer...
               </Button>
@@ -63,21 +72,24 @@ const ThirdBlock = () => {
               display: "flex",
               flexDirection: "column",
               borderRadius: "10px",
+              maxWidth: { xs: "25rem", md: "30rem", lg: "35rem" },  
             }}
           >
-            <CardMedia component={"img"} style={{ height: "10rem" }} />
+            <CardMedia component={"img"} style={{ height: "20rem" }} src={secondCard}/>
             <CardContent>
               <Typography color={"background.default"} variant="h4">
-                Bild med text
+                Föreläsningar
               </Typography>
               <Typography color={"background.default"}>
-                Gratis 7-dagars program: Tillbaka till mig själv
+                Föreläsningar om stress, utmattning, återhämtning, livet
               </Typography>
             </CardContent>
             <CardActions sx={{ alignSelf: "center" }}>
               <Button
                 variant="contained"
-                style={{ background: "#BA1D37", borderRadius: "10px" }}
+                style={{ background: "#BA1D37", borderRadius: "10px", margin: "1rem" }} onClick={() => {
+                  navigate('/arbeta-med-mig')
+                }}
               >
                 Läs mer...
               </Button>
@@ -90,21 +102,24 @@ const ThirdBlock = () => {
               display: "flex",
               flexDirection: "column",
               borderRadius: "10px",
+              maxWidth: { xs: "25rem", md: "30rem", lg: "35rem" },
             }}
           >
-            <CardMedia component={"img"} style={{ height: "10rem" }} />
+            <CardMedia component={"img"} style={{ height: "20rem" }} src={thirdCard} />
             <CardContent>
               <Typography color={"background.default"} variant="h4">
-                Bild med text
+                Kurser
               </Typography>
               <Typography color={"background.default"}>
-                Gratis 7-dagars program: Tillbaka till mig själv
+                Anpassade kurser för företag och organisationer
               </Typography>
             </CardContent>
             <CardActions sx={{ alignSelf: "center" }}>
               <Button
                 variant="contained"
-                style={{ background: "#BA1D37", borderRadius: "10px" }}
+                style={{ background: "#BA1D37", borderRadius: "10px", margin: "1rem" }} onClick={() => {
+                  navigate('/arbeta-med-mig')
+                }}
               >
                 Läs mer...
               </Button>

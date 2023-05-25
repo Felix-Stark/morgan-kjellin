@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Header } from "./components/regularComponents/header/Header";
@@ -14,11 +14,15 @@ import { GlobalStyles } from "@mui/system";
 import "./MUI-Themes/theme.types";
 import Admin from "./Views/Admin/Admin";
 import AdminLogin from "./components/adminComponents/login/AdminLogin";
-import AdminDash from "./Views/Admin/AdminDash";
 import AdminCalendar from "./Views/Admin/AdminCalendar";
 import AdminActivities from "./Views/Admin/AdminActivities";
 import AdminCreateActivity from "./Views/Admin/AdminCreateActivity";
+import UpdateText from "./Views/Admin/UpdateText";
+import DashBoard from "./Views/Admin/AdminDashBoard";
+import { db } from '../firebase/firebase-config';
+import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore"; 
 
+import { useLocation } from 'react-router'
 
 const themeOptions: ThemeOptions = {
   palette: {
@@ -64,6 +68,41 @@ const themeOptions: ThemeOptions = {
 
 const globalTheme = createTheme(themeOptions);
 function App() {
+  const [adminView, setAdminView] = useState(true);
+  const [testText, setTestText] = useState<any>('');
+  const [itemdata, setItemData] = useState<any>();
+  const location = useLocation();
+
+  useEffect(() => {
+
+    (async () => {
+      const querySnapshot = await getDocs(collection(db, 'posts'))
+      const tempArray: any[] = []
+      querySnapshot.forEach((doc: any) => {
+          tempArray.push(doc.data())
+      })
+
+      setTestText(tempArray);
+  })()
+    
+  }, []);
+
+  useEffect(() => {
+    if( location.pathname.includes('/admin')) {
+      setAdminView(true);
+    } else {
+      setAdminView(false)
+    }
+  }, [location])
+
+
+  const  getTextProps = (itemTitle:any,itemContent:any,itemLocation:any, itemId: any) => {
+
+    setItemData({title: itemTitle, content: itemContent, location: itemLocation, id: itemId })
+    
+  }
+
+
   return (
 
     <ThemeProvider theme={globalTheme}>
@@ -76,21 +115,23 @@ function App() {
         }}
       />
       <div className="App">
+        {/* { adminView ? '' : <Header />} */} 
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home testText={testText}/>} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/arbeta-med-mig" element={<Work />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/admin" element={<Admin />}>
-            <Route path="dashboard" element={ <AdminDash /> } />
             <Route path="kalender" element={ <AdminCalendar /> } />
             <Route path="kalender/aktiviteter" element={ <AdminActivities/> } />
             <Route path="kalender/skapa-aktivitet" element={ <AdminCreateActivity/> } />
+            <Route path="updatetext" element={ <UpdateText getTextProps={getTextProps} firebaseText={testText}/>} />
+            <Route path="dashboard" element={ <DashBoard itemdata={itemdata} setTestText={setTestText}/>} />
           </Route>
         </Routes>
-        <Footer />
+        { adminView ? '' : <Footer />}
       </div>
     </ThemeProvider>
 

@@ -4,11 +4,12 @@ import Grid from "@mui/material/Grid";
 import CardMedia from "@mui/material/CardMedia";
 import crossRoadsImg from '../../../assets/home-crossroads.png'
 
+type Props = {
+  testText: any;
+}
 
 
-
-const FirstBlock = () => {
-
+const FirstBlock = ({testText}: Props) => {
 
   return (
     <Grid
@@ -40,10 +41,9 @@ const FirstBlock = () => {
           justifyContent={"center"}
           padding={"1rem"}
         >
-          <Typography variant="h3">Du står vid en vändpunkt</Typography>
+          <Typography variant="h3">{ testText.length > 0 ? testText[1].title : ''}</Typography>
           <Typography variant="subtitle1">
-            Du kanske inte behöver vända upp och ner på dig men ut och in är att
-            rekommendera.
+          { testText.length > 0 ? testText[1].content : ''}  
           </Typography>
         </Box>
       </Grid>
