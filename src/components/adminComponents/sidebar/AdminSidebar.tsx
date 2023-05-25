@@ -45,7 +45,7 @@ const AdminSidebar = ({ signedIn, setSignedIn }: HandleSignedIn) => {
         </ListItem>
       </List>
       <Divider />
-      <Button onClick={handleSignout} sx={{color:"red", paddingLeft: "6rem", paddingTop: "1rem"}}>
+      <Button onClick={handleSignout} sx={{color:"red", paddingLeft: "1rem", paddingTop: "1rem"}}>
         Logga ut
       </Button>
     </Box>
