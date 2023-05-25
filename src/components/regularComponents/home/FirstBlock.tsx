@@ -12,11 +12,7 @@ type Props = {
 }
 
 
-
-
-
-const FirstBlock = () => {
-
+const FirstBlock = ({testText}: Props) => {
 
 
   return (
@@ -35,6 +31,7 @@ const FirstBlock = () => {
           url={video}
           controls
           playing
+
         />
       </Grid>
       <Grid
