@@ -5,8 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import lecturePic from '../../assets/hero-morgan.jpg'
 import addictPic from '../../assets/difficultsign.svg'
 
+type Props = {
+  firebaseArray: any;
+}
 
-export const About = () => {
+
+export const About = ({firebaseArray}: Props) => {
   const navigate = useNavigate();
 
   useEffect(() => {

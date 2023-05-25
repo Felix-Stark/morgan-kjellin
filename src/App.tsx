@@ -119,7 +119,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home firebaseArray={firebaseArray}/>} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<About firebaseArray={firebaseArray} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/arbeta-med-mig" element={<Work />} />
           <Route path="/blog" element={<Blog />} />
