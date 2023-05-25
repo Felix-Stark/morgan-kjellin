@@ -10,7 +10,6 @@ type Props = {
 
 
 const FirstBlock = ({testText}: Props) => {
-  console.log("firstblock",testText);
 
   return (
     <Grid

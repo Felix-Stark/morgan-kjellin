@@ -3,14 +3,14 @@ import { useEffect, useState } from 'react';
 import { Container, Paper, Typography, Box, Grid, Link, IconButton, Button, TextField } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
 import { db } from '../../../firebase/firebase-config';
-import { doc, updateDoc } from 'firebase/firestore';
+import { FieldValue, collection, doc, getDocs, updateDoc } from 'firebase/firestore';
 
 type Props = {
-  firebaseText: any;
   itemdata: any;
+  setTestText: any;
 }
 
-const DashBoard = ({firebaseText, itemdata}: Props) => {
+const DashBoard = ({itemdata, setTestText}: Props) => {
 
   const [ inputTitle, setInputTitle ] = useState<string>('');
   const [ inputContent, setInputContent ] = useState<String>('');
@@ -30,18 +30,27 @@ const DashBoard = ({firebaseText, itemdata}: Props) => {
 
   const handleUpdate = () => {
 
-    const textRef = doc(db, 'posts', `post`);
+    const textRef = doc(db, 'posts', `${ itemdata.id }`);
 
-    console.log('hej');
-    /*
     (
       async () => {
         await updateDoc(textRef, {
-          posts: 
+          content: `${ inputContent }`,
+          title: `${ inputTitle }`
         })
       }
-    )()
-    */
+    )();
+
+    (async () => {
+      const querySnapshot = await getDocs(collection(db, 'posts'))
+      const tempArray: any[] = []
+      querySnapshot.forEach((doc: any) => {
+          tempArray.push(doc.data())
+      })
+
+      setTestText(tempArray);
+  })();
+
   }
 
 

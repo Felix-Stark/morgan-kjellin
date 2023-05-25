@@ -9,18 +9,20 @@ interface Props {
     title: string;
     content: string;
     location: string;
+    id: string;
     getTextProps: any;
   }
 
 
-function TextSection({title,content,location, getTextProps}: Props) {
+function TextSection({title,content,location, id, getTextProps}: Props) {
     const navigate = useNavigate();
 
 
-    const editText = (title: string,content: string,location: string) => {
-        console.log("clicked", title)
-        getTextProps(title,content,location)
+    const editText = (title: string,content: string,location: string, id: string) => {
+
+        getTextProps(title,content,location, id)
         navigate('/admin/dashboard');
+        
     };
   return (
     <div>
@@ -36,7 +38,7 @@ function TextSection({title,content,location, getTextProps}: Props) {
             <Typography variant="body1" color="white">{location}</Typography>
             </Grid>
             <Grid item xs={3}>
-            <IconButton onClick={() =>editText(title,content,location)}>
+            <IconButton onClick={() =>editText(title,content,location, id)}>
                 <EditIcon fontSize="large" sx={{ color: 'white' }} />
             </IconButton>
             </Grid>

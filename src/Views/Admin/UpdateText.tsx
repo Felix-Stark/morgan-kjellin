@@ -6,11 +6,6 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../firebase/firebase-config';
 import TextSection from '../../components/adminComponents/updateText/TextSection';
 
-interface TextItem {
-  title: string;
-  content: string;
-  location: string;
-}
 
 type Props = {
   firebaseText: any;
@@ -18,28 +13,6 @@ type Props = {
 }
 
 const UpdateText = ({firebaseText, getTextProps}: Props) => {
-  const navigate = useNavigate();
-
-  const editText = () => {
-    navigate('/admin/dashboard');
-  };
-
-  const [textItems, setTextItems] = useState<TextItem[]>([]);
-
-  useEffect(() => {
-    const fetchTextItems = async () => {
-      const querySnapshot = await getDocs(collection(db, 'posts'));   // Hämtar alla dokument från collectionen 'posts' i firestore
-      const fetchedTextItems = querySnapshot.docs.map((doc) => doc.data() as TextItem);
-      setTextItems(fetchedTextItems);
-    };
-
-    // console.log(testText.map((item:any) => item.title));
-    fetchTextItems();
-  }, []);
-
-  if (firebaseText.length > 0) {
-    console.log(firebaseText.map((item: any) => item.title));
-  }
 
 
   return (
@@ -62,7 +35,7 @@ const UpdateText = ({firebaseText, getTextProps}: Props) => {
         </Grid>
         <Grid item xs={10}>
           { firebaseText.length > 0 ? firebaseText.map((item: any, index: any) => (
-            <TextSection key={index} title={item.title} location={item.location} content={item.content} getTextProps={getTextProps}/>
+            <TextSection key={index} title={item.title} location={item.location} content={item.content} id={item.id} getTextProps={getTextProps}/>
             
           )): ''}
           
