@@ -5,11 +5,11 @@ import CardMedia from "@mui/material/CardMedia";
 import crossRoadsImg from '../../../assets/home-crossroads.png'
 
 type Props = {
-  testText: any;
+  firebaseArray: any;
 }
 
 
-const FirstBlock = ({testText}: Props) => {
+const FirstBlock = ({firebaseArray}: Props) => {
 
   return (
     <Grid
@@ -41,9 +41,9 @@ const FirstBlock = ({testText}: Props) => {
           justifyContent={"center"}
           padding={"1rem"}
         >
-          <Typography variant="h3">{ testText.length > 0 ? testText[1].title : ''}</Typography>
+          <Typography variant="h3">{ firebaseArray.length > 0 ? firebaseArray[0].title : ''}</Typography>
           <Typography variant="subtitle1">
-          { testText.length > 0 ? testText[1].content : ''}  
+          { firebaseArray.length > 0 ? firebaseArray[0].content : ''}  
           </Typography>
         </Box>
       </Grid>

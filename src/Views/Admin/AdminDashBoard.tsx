@@ -7,10 +7,10 @@ import { FieldValue, collection, doc, getDocs, updateDoc } from 'firebase/firest
 
 type Props = {
   itemdata: any;
-  setTestText: any;
+  setfirebaseArray: any;
 }
 
-const DashBoard = ({itemdata, setTestText}: Props) => {
+const DashBoard = ({itemdata, setfirebaseArray}: Props) => {
 
   const [ inputTitle, setInputTitle ] = useState<string>('');
   const [ inputContent, setInputContent ] = useState<String>('');
@@ -48,7 +48,7 @@ const DashBoard = ({itemdata, setTestText}: Props) => {
           tempArray.push(doc.data())
       })
 
-      setTestText(tempArray);
+      setfirebaseArray(tempArray);
   })();
 
   }
