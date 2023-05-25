@@ -7,6 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import CardMedia from '@mui/material/CardMedia';
 import TrendingFlatRoundedIcon from '@mui/icons-material/TrendingFlatRounded';
 
+
 const AdminCalendar = () => {
 
     const [ currentDate, setCurrentDate ] = useState<any>(new Date());
@@ -17,12 +18,13 @@ const AdminCalendar = () => {
     const [ currentDays, setCurrentDays ] = useState<any>( new Date(currentDate.getFullYear(), currentDate.getMonth()+1, 0).getDate() );
     const [ dayArray, setDayArray ] = useState<number[]>([]);
 
-    
+    const activities = [{ date: '2022-11-11', title: 'Föreläsning', text: 'Rensa Krabba' }, { date: '2023-08-08', title: 'Te-party', text: 'odla saker' }];
+
     useEffect(() => {
 
         const days: number[] = [];
         for (let i=0; i < currentDays; i++) {
-            days.push(i + 1);
+            days.push( i + 1 );
         }
         setDayArray(days);
 
@@ -103,8 +105,29 @@ const AdminCalendar = () => {
             <Box sx={{ backgroundColor: 'grey', width: { md: '50rem' }, height: '40rem', display: 'flex', flexWrap: 'wrap', margin: '0 2rem 2rem 2rem', paddingTop: '1rem' }}>
                 {
                     dayArray.map((date, i) => {
+                        console.log(selectedYear);
+                        const tempArray: string[] = [];
 
-                        return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentDate.getFullYear()}/>
+                        activities.forEach((activity) => {
+
+                            if (activity.date == `${ selectedYear }-`+`${ monthIndex + 1 }-`+`${ date }`) {
+                                console.log('hittad')
+                                tempArray.push(activity.date);
+                            }
+
+                        });
+
+                        if (tempArray.includes(`${ selectedYear }-`+`${ monthIndex + 1 }-`+`${ date }`)) {
+
+                            const found = true;
+                            return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentDate.getFullYear()} found={found} />
+
+                        } else {
+
+                            const found = false;
+                            return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentDate.getFullYear()} found={found} />
+
+                        }
 
                     })
                 }
