@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 
 import { Container, Paper, Typography, Box, Grid, Link, IconButton, Button, TextField } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
+import { db } from '../../../firebase/firebase-config';
+import { doc, updateDoc } from 'firebase/firestore';
 
 type Props = {
   firebaseText: any;
@@ -9,12 +11,43 @@ type Props = {
 }
 
 const DashBoard = ({firebaseText, itemdata}: Props) => {
-  const [newitemdata, setNewItemData] = useState<any>("");
+
+  const [ inputTitle, setInputTitle ] = useState<string>('');
+  const [ inputContent, setInputContent ] = useState<String>('');
+
   useEffect(() => {
-    setNewItemData(itemdata);
-    
-  }, [itemdata]);
-  console.log("daaash",newitemdata)
+    setInputTitle(itemdata.title);
+    setInputContent(itemdata.content);
+  }, []);
+
+  const handleTitleInput = (e: any) => {
+    setInputTitle(e.target.value);
+  }
+
+  const handleContentInput = (e: any) => {
+    setInputContent(e.target.value);
+  }
+
+  const handleUpdate = () => {
+
+    const textRef = doc(db, 'posts', `post`);
+
+    console.log('hej');
+    /*
+    (
+      async () => {
+        await updateDoc(textRef, {
+          posts: 
+        })
+      }
+    )()
+    */
+  }
+
+
+  console.log('inputTitle:', inputTitle);
+  console.log('inputContent:', inputContent);
+
   return (
     <Grid item container sx={{ display: "flex", justifyContent: "center" }}>
       
@@ -30,7 +63,8 @@ const DashBoard = ({firebaseText, itemdata}: Props) => {
             { itemdata  ?<TextField
               variant="filled"
               fullWidth
-              value={itemdata.location}
+              value={ inputTitle }
+              onChange={ (e: any) => handleTitleInput(e) }
               inputProps={{ style: {color: "black"}}}
               sx={{ bgcolor: "white"}}
               InputLabelProps={{
@@ -48,7 +82,8 @@ const DashBoard = ({firebaseText, itemdata}: Props) => {
             {itemdata ?<TextField
               variant="filled"
               fullWidth
-              value={itemdata.content}
+              value={ inputContent }
+              onChange={ (e: any) => handleContentInput(e) }
               multiline
               rows={6}
               inputProps={{ style: {color: "black"}}}
@@ -66,7 +101,7 @@ const DashBoard = ({firebaseText, itemdata}: Props) => {
         </Grid>
         <Grid item container xs={10} sx={{ display: "flex", justifyContent: "center", alignItems: "center", textAlign: "center",  marginBottom: "1rem" }}>
           <Grid item xs={12}>
-            <Button variant="contained" sx={{ bgcolor: "red", color: "white" }}>Uppdatera</Button>
+            <Button onClick={ handleUpdate } variant="contained" sx={{ bgcolor: "red", color: "white" }}>Uppdatera</Button>
           </Grid>
         </Grid>
       </Grid>
