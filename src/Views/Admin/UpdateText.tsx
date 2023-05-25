@@ -1,90 +1,48 @@
-import React from 'react'
+import { useEffect, useState } from 'react';
 import { Container, Paper, Typography, Box, Grid, Link, IconButton } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
 import { useNavigate } from 'react-router-dom';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../../firebase/firebase-config';
+import TextSection from '../../components/adminComponents/updateText/TextSection';
 
 
+type Props = {
+  firebaseText: any;
+  getTextProps: any;
+}
 
-const  UpdateText=() => {
-  const navigate = useNavigate();
+const UpdateText = ({firebaseText, getTextProps}: Props) => {
 
-  const editText = () => {
-    navigate('/admin/dashboard');
-  };
 
   return (
-    <Grid container  sx={{display:"flex", alignItems:"center", minWidth:"100%"}}>
-      <Grid container  xs={12} sx={{width:"100%",bgcolor:"#333333", justifyContent:"center", borderRadius:"10px",marginLeft:"25px"}}>
-        <Grid item xs={12} sx={{display:"flex", justifyContent:"center", borderBottom:"1px solid white", padding:"2rem"}}>
+    <Grid container sx={{ display: "flex", justifyContent: "center" }}>
+      <Grid container item xs={8} sx={{ bgcolor: "#333333", justifyContent: "center", borderRadius: "10px", marginLeft: "25px" }}>
+        <Grid item xs={12} sx={{ display: "flex", justifyContent: "center", borderBottom: "1px solid white", padding: "2rem" }}>
           <Typography variant="h3" color="white">Välj en text att uppdatera</Typography>
         </Grid>
-
-        <Grid xs={10} sx={{display:"flex", justifyContent:"space-between",textAlign:"center", marginBottom:"1vh"}}>
+        <Grid item xs={10} sx={{ display: "flex", justifyContent: "space-between", textAlign: "center", marginBottom: "1vh" }}>
           <Grid item xs={3}>
-            <Typography variant="h4" color="white"  sx={{border:"1px solid white"}}>Titel </Typography>  
+            <Typography variant="h4" color="white" sx={{ border: "1px solid white" }}>Titel </Typography>
           </Grid>
           <Grid item xs={3}>
-            <Typography variant="h4" color="white" sx={{border:"1px solid white"}}>Innehåll</Typography>  
+            <Typography variant="h4" color="white" sx={{ border: "1px solid white" }}>Innehåll</Typography>
           </Grid>
           <Grid item xs={3}>
-            <Typography variant="h4" color="white" sx={{border:"1px solid white"}}>Plats</Typography>  
+            <Typography variant="h4" color="white" sx={{ border: "1px solid white" }}>Plats</Typography>
           </Grid>
           <Grid item xs={3}></Grid>
         </Grid>
-
-        <Grid xs={10} sx={{display:"flex",justifyContent:"center",alignItems:"center",textAlign:"center" ,bgcolor:"gray", marginBottom:"1rem"}}>
-          <Grid item xs={3}>
-            <Typography  variant="body1" color="white">Relationer</Typography>  
-          </Grid>
-          <Grid item xs={3}>
-            <Typography variant="body1" color="white">Lorem ipsum dolor sit amet magna aliqua.</Typography>
-          </Grid>
-          <Grid item xs={3}>
-            <Typography variant="body1" color="white">Arbeta med mig</Typography>
-          </Grid>
-          <Grid item xs={3}>
-            <IconButton onClick={editText} >
-              <EditIcon fontSize="large" sx={{color:'white'}}/>
-            </IconButton>
-          </Grid>
+        <Grid item xs={10}>
+          { firebaseText.length > 0 ? firebaseText.map((item: any, index: any) => (
+            <TextSection key={index} title={item.title} location={item.location} content={item.content} id={item.id} getTextProps={getTextProps}/>
+            
+          )): ''}
+          
         </Grid>
-        <Grid xs={10} sx={{display:"flex",justifyContent:"center",alignItems:"center",textAlign:"center" ,bgcolor:"gray", marginBottom:"1rem"}}>
-          <Grid item xs={3}>
-            <Typography  variant="body1" color="white">Relationer</Typography>  
-          </Grid>
-          <Grid item xs={3}>
-            <Typography variant="body1" color="white">Lorem ipsum dolor sit amet magna aliqua.</Typography>
-          </Grid>
-          <Grid item xs={3}>
-            <Typography variant="body1" color="white">Arbeta med mig</Typography>
-          </Grid>
-          <Grid item xs={3}>
-            <IconButton onClick={editText} >
-              <EditIcon fontSize="large" sx={{color:'white'}}/>
-            </IconButton>  
-          </Grid>
-        </Grid>
-        <Grid xs={10} sx={{display:"flex",justifyContent:"center",alignItems:"center",textAlign:"center" ,bgcolor:"gray", marginBottom:"1rem"}}>
-          <Grid item xs={3}>
-            <Typography  variant="body1" color="white">Relationer</Typography>  
-          </Grid>
-          <Grid item xs={3}>
-            <Typography variant="body1" color="white">Lorem ipsum dolor sit amet magna aliqua.</Typography>
-          </Grid>
-          <Grid item xs={3}>
-            <Typography variant="body1" color="white">Arbeta med mig</Typography>
-          </Grid>
-          <Grid item xs={3}>
-            <IconButton onClick={editText}>
-              <EditIcon fontSize="large" sx={{color:'white'}}/>
-            </IconButton>  
-          </Grid>
-        </Grid>   
       </Grid>
-      
-        
     </Grid>
   )
 }
 
-export default UpdateText
+export default UpdateText;

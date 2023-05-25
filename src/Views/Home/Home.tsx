@@ -10,8 +10,10 @@ import { Button, CardMedia } from "@mui/material";
 import scrollArrow from '../../assets/work-scrollArrow.svg';
 
 type Props = {
-  testText: string;
+  testText: any;
 }
+
+
 
 
 export const Home = ({testText}: Props) => {

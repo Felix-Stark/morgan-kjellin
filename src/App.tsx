@@ -20,7 +20,7 @@ import AdminCreateActivity from "./Views/Admin/AdminCreateActivity";
 import UpdateText from "./Views/Admin/UpdateText";
 import DashBoard from "./Views/Admin/AdminDashBoard";
 import { db } from '../firebase/firebase-config';
-import { collection, doc, getDoc, setDoc } from "firebase/firestore"; 
+import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore"; 
 
 import { useLocation } from 'react-router'
 
@@ -69,29 +69,21 @@ const themeOptions: ThemeOptions = {
 const globalTheme = createTheme(themeOptions);
 function App() {
   const [adminView, setAdminView] = useState(true);
-  const [testText, setTestText] = useState<string>('');
+  const [testText, setTestText] = useState<any>('');
+  const [itemdata, setItemData] = useState<any>();
   const location = useLocation();
 
   useEffect(() => {
 
-    async function getPosts() {
-      const postsRef = doc(db, 'posts', 'post');
-  
-      const docSnap = await getDoc(postsRef);
-  
-      if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
-        const data = docSnap.data();
+    (async () => {
+      const querySnapshot = await getDocs(collection(db, 'posts'))
+      const tempArray: any[] = []
+      querySnapshot.forEach((doc: any) => {
+          tempArray.push(doc.data())
+      })
 
-        console.log('data', data.post.title )
-
-        setTestText(data.post.title);
-
-      } else {
-        console.log("No such document!");
-      }
-    }
-    getPosts();
+      setTestText(tempArray);
+  })()
     
   }, []);
 
@@ -102,6 +94,15 @@ function App() {
       setAdminView(false)
     }
   }, [location])
+
+
+  const  getTextProps = (itemTitle:any,itemContent:any,itemLocation:any, itemId: any) => {
+
+    setItemData({title: itemTitle, content: itemContent, location: itemLocation, id: itemId })
+    
+  }
+
+
   return (
 
     <ThemeProvider theme={globalTheme}>
@@ -126,8 +127,8 @@ function App() {
             <Route path="kalender" element={ <AdminCalendar /> } />
             <Route path="kalender/aktiviteter" element={ <AdminActivities/> } />
             <Route path="kalender/skapa-aktivitet" element={ <AdminCreateActivity/> } />
-            <Route path="updatetext" element={ <UpdateText/>} />
-            <Route path="dashboard" element={ <DashBoard/>} />
+            <Route path="updatetext" element={ <UpdateText getTextProps={getTextProps} firebaseText={testText}/>} />
+            <Route path="dashboard" element={ <DashBoard itemdata={itemdata} setTestText={setTestText}/>} />
           </Route>
         </Routes>
         { adminView ? '' : <Footer />}
