@@ -3,11 +3,13 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import CardMedia from "@mui/material/CardMedia";
 import crossRoadsImg from '../../../assets/home-crossroads.png'
-
-
+import ReactPlayer from "react-player";
+import video from '../../../assets/MORGAN-website-video.mp4'
+import { useState } from "react";
 
 
 const FirstBlock = () => {
+  const [playing, setPlaying] = useState(false);
 
 
   return (
@@ -15,14 +17,18 @@ const FirstBlock = () => {
       container
       minHeight={"100vh"}
       justifyContent={"center"}
-      style={{ overflow: "hidden" }}
+
       spacing={8}
     >
-      <Grid item md={5} sx={{ position: "relative", maxHeight: "100vh" }}>
-        <CardMedia
-          component={"img"}
-          image={crossRoadsImg}
-          style={{ marginTop: "-2rem" }}
+      <Grid item md={5} height={'inherit'}>
+        <ReactPlayer
+          light={true}
+          width={'25rem'}
+          height={'40rem'}
+          url={video}
+          controls
+          playing
+          onClickPreview={() => setPlaying(true)}
         />
       </Grid>
       <Grid
@@ -31,7 +37,7 @@ const FirstBlock = () => {
         display={"flex"}
         alignItems={"center"}
         justifyContent={"center"}
-        height={'inherit'}
+        height={"inherit"}
       >
         <Box
           height={"50%"}
