@@ -8,11 +8,11 @@ import video from '../../../assets/MORGAN-website-video.mp4'
 import { useState } from "react";
 
 type Props = {
-  testText: any;
+  firebaseArray: any;
 }
 
 
-const FirstBlock = ({testText}: Props) => {
+const FirstBlock = ({firebaseArray}: Props) => {
 
 
   return (
@@ -49,9 +49,9 @@ const FirstBlock = ({testText}: Props) => {
           justifyContent={"center"}
           padding={"1rem"}
         >
-          <Typography variant="h3">{ testText.length > 0 ? testText[1].title : ''}</Typography>
+          <Typography variant="h3">{ firebaseArray.length > 0 ? firebaseArray[3].title : ''}</Typography>
           <Typography variant="subtitle1">
-          { testText.length > 0 ? testText[1].content : ''}  
+          { firebaseArray.length > 0 ? firebaseArray[3].content : ''}  
           </Typography>
         </Box>
       </Grid>

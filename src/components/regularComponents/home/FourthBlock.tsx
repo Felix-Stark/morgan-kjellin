@@ -11,7 +11,13 @@ import CardContent from "@mui/material/CardContent";
 import { useNavigate } from "react-router-dom";
 
 
-const FourthBlock = () => {
+type Props = {
+  firebaseArray: any;
+}
+
+
+
+const FourthBlock = ({firebaseArray}: Props) => {
   const navigate = useNavigate();
 
   return (
@@ -48,29 +54,11 @@ const FourthBlock = () => {
           }}
         >
           <Typography color={"background.default"} variant="h4" lineHeight={'5rem'}>
-            Möt Morgan
+          { firebaseArray.length > 1 ? firebaseArray[4].title : ''}
           </Typography>
-          <Typography color={"background.default"}>
-            "Möjligheten till förändring finns inom oss alla", och det är aldrig
-            för sent att ge upp, det är något som Morgan Kjellin är fullkomligt
-            övertygad om.
-			</Typography>
-			<br/>
-			<Typography color={'background.default'}>
-			Med 17 år av tungt missbruk bakom sig har han själv
-            bevisat hur verktygen för att vända sitt liv finns inom oss.
-			Morgan har övervunnit svårigheter som de flesta av oss aldrig kan föreställa oss, från ett tungt
-            narkotikamissbruk till att se sitt hem brinna ner och hitta sin
-            hustru hängd.
-			</Typography>
-			<br/>
-			<Typography color={'background.default'}>
-			Trots allt detta har han lyckats vara drogfri och
-            skapat en ny, frisk och framgångsrik tillvaro. Nu vill
-            han inspirera andra att göra samma resa genom att dela med sig av
-            sin egen historia och träna de verktyg som hjälpt honom på vägen,
-            oavsett vad som händer. 
-          </Typography>
+          <Typography color={"background.default"}>{ firebaseArray.length > 0 ? firebaseArray[4].content : ''}
+           
+			    </Typography>
           <Button
             variant="contained"
              onClick={() => 
