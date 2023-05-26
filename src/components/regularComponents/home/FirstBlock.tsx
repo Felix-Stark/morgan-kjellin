@@ -41,9 +41,9 @@ const FirstBlock = ({firebaseArray}: Props) => {
           justifyContent={"center"}
           padding={"1rem"}
         >
-          <Typography variant="h3">{ firebaseArray.length > 0 ? firebaseArray[0].title : ''}</Typography>
+          <Typography variant="h3">{ firebaseArray.length > 0 ? firebaseArray[3].title : ''}</Typography>
           <Typography variant="subtitle1">
-          { firebaseArray.length > 0 ? firebaseArray[0].content : ''}  
+          { firebaseArray.length > 0 ? firebaseArray[3].content : ''}  
           </Typography>
         </Box>
       </Grid>

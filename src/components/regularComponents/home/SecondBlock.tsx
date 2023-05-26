@@ -36,9 +36,9 @@ const SecondBlock = ({firebaseArray}: Props) => {
           padding={"1rem"}
         >
           <Typography color={"#fff"} variant="h3">
-          { firebaseArray.length > 1 ? firebaseArray[2].title : ''}
+          { firebaseArray.length > 0 ? firebaseArray[5].title : ''}
           </Typography>
-          <Typography color={"#fff"} variant="subtitle1">{ firebaseArray.length > 2 ? firebaseArray[2].content : ''}
+          <Typography color={"#fff"} variant="subtitle1">{ firebaseArray.length > 0 ? firebaseArray[5].content : ''}
           </Typography>
         </Box>
       </Grid>
