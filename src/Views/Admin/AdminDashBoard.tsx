@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-
-import { Container, Paper, Typography, Box, Grid, Link, IconButton, Button, TextField } from "@mui/material";
+import { Container, Paper, Typography, Box, Grid, Link, IconButton, Button, TextField, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
 import { db } from '../../../firebase/firebase-config';
 import { FieldValue, collection, doc, getDocs, updateDoc } from 'firebase/firestore';
@@ -14,6 +13,7 @@ const DashBoard = ({itemdata, setfirebaseArray}: Props) => {
 
   const [ inputTitle, setInputTitle ] = useState<string>('');
   const [ inputContent, setInputContent ] = useState<String>('');
+  const [ open, setOpen ] = useState<boolean>(false);
 
   useEffect(() => {
     setInputTitle(itemdata.title);
@@ -49,13 +49,14 @@ const DashBoard = ({itemdata, setfirebaseArray}: Props) => {
       })
 
       setfirebaseArray(tempArray);
-  })();
+      setOpen(true);
+    })();
 
   }
 
-
-  console.log('inputTitle:', inputTitle);
-  console.log('inputContent:', inputContent);
+  const handleClose = () => {
+    setOpen(false);
+  }
 
   return (
     <Grid item container sx={{ display: "flex", justifyContent: "center" }}>
@@ -114,6 +115,14 @@ const DashBoard = ({itemdata, setfirebaseArray}: Props) => {
           </Grid>
         </Grid>
       </Grid>
+
+      <Dialog open={ open } onClose={ handleClose }>
+        <DialogTitle>Din data har uppdaterats</DialogTitle>
+        <DialogActions sx={{ display:"flex" , justifyContent:"center"}}>
+          <Button onClick={ handleClose } sx={{ bgcolor: "red", color: "white" }}>Stäng</Button>
+        </DialogActions>
+      </Dialog>
+
     </Grid>
   )
 }

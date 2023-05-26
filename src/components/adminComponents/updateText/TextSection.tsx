@@ -29,16 +29,16 @@ function TextSection({title,content,location, id, getTextProps}: Props) {
         
         <Grid  sx={{ display: "flex", justifyContent: "center", flexDirection:"row" ,alignItems: "center", textAlign: "center", bgcolor: "gray", marginBottom: "1rem" }}>
             <Grid item xs={3}>
-            <Typography variant="body1" color="white">{title}</Typography>
+            <Typography variant="body1" color="white">{title.substring(0,50) }</Typography>
             </Grid>
             <Grid item xs={3}>
-            <Typography variant="body1" color="white">{content}</Typography>
+            <Typography variant="body1" color="white">{content.substring(0,50) + "..." }</Typography>
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body1" color="white">{location}</Typography>
             </Grid>
             <Grid item xs={3}>
-            <IconButton onClick={() =>editText(title,content,location, id)}>
+            <IconButton onClick={() =>editText(title,content,location,id)}>
                 <EditIcon fontSize="large" sx={{ color: 'white' }} />
             </IconButton>
             </Grid>
