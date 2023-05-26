@@ -2,16 +2,18 @@ import { Container, Paper, Box, Typography, Button } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 type Props = {
 
     index: number;
     monthIndex: number;
     currentYear: number;
     found: boolean;
+    tempTitleArray: string[];
 
 }
 
-const CalendarDate = ({ index, monthIndex, currentYear, found }: Props) => {
+const CalendarDate = ({ index, monthIndex, currentYear, found, tempTitleArray }: Props) => {
 
     const [ dateColor, setDateColor ] = useState<string>();
 
@@ -33,6 +35,12 @@ const CalendarDate = ({ index, monthIndex, currentYear, found }: Props) => {
         <Box onClick={gotoActivities} sx={{ backgroundColor: `${ dateColor }`, width: '5.5rem', height: '5.5rem', margin: '.1rem' }}>
             {
                 index == getDay && getMonth == monthIndex && getYear == currentYear ? <Typography sx={{fontSize: '2rem', color: 'blue'}}>{index}</Typography> : <Typography>{index}</Typography>
+            }
+            {
+                found ?
+                <Typography>{tempTitleArray[0]}</Typography>
+                :
+                ''
             }
         </Box>
 

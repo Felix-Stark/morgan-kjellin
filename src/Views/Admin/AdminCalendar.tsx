@@ -18,7 +18,10 @@ const AdminCalendar = () => {
     const [ currentDays, setCurrentDays ] = useState<any>( new Date(currentDate.getFullYear(), currentDate.getMonth()+1, 0).getDate() );
     const [ dayArray, setDayArray ] = useState<number[]>([]);
 
-    const activities = [{ date: '2022-11-11', title: 'Föreläsning', text: 'Rensa Krabba' }, { date: '2023-08-08', title: 'Te-party', text: 'odla saker' }];
+    const activities = [
+        { date: '2022-11-11', title: 'Föreläsning', text: 'Rensa Krabba' }, 
+        { date: '2023-8-8', title: 'Te-party', text: 'odla saker' },
+        { date: '2023-2-24', title: 'spela spel', text: 'vi ska spela saker' }];
 
     useEffect(() => {
 
@@ -105,27 +108,28 @@ const AdminCalendar = () => {
             <Box sx={{ backgroundColor: 'grey', width: { md: '50rem' }, height: '40rem', display: 'flex', flexWrap: 'wrap', margin: '0 2rem 2rem 2rem', paddingTop: '1rem' }}>
                 {
                     dayArray.map((date, i) => {
-                        console.log(selectedYear);
-                        const tempArray: string[] = [];
+
+                        const tempFoundArray: string[] = [];
+                        const tempTitleArray: string[] = [];
 
                         activities.forEach((activity) => {
 
                             if (activity.date == `${ selectedYear }-`+`${ monthIndex + 1 }-`+`${ date }`) {
-                                console.log('hittad')
-                                tempArray.push(activity.date);
+                                tempFoundArray.push(activity.date);
+                                tempTitleArray.push(activity.title);
                             }
 
                         });
 
-                        if (tempArray.includes(`${ selectedYear }-`+`${ monthIndex + 1 }-`+`${ date }`)) {
+                        if (tempFoundArray.includes(`${ selectedYear }-`+`${ monthIndex + 1 }-`+`${ date }`)) {
 
                             const found = true;
-                            return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentDate.getFullYear()} found={found} />
+                            return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentDate.getFullYear()} found={found} tempTitleArray={tempTitleArray}/>
 
                         } else {
 
                             const found = false;
-                            return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentDate.getFullYear()} found={found} />
+                            return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentDate.getFullYear()} found={found} tempTitleArray={tempTitleArray}/>
 
                         }
 
