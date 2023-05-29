@@ -45,7 +45,7 @@ const ThirdBlock = () => {
               maxWidth: { xs: "30rem", sm:"35rem ", md: "40rem", lg: "45rem" },
             }}
           >
-            <CardMedia component={"img"} style={{ height: "20rem" }} src={firstCard} />
+            <CardMedia component={"img"} sx={{ maxHeight: {xs: "10rem", sm: '20rem'} }} src={firstCard} />
             <CardContent>
               <Typography color={"background.default"} variant="h4">
                 Första kontakt
@@ -75,7 +75,7 @@ const ThirdBlock = () => {
               maxWidth: { xs: "25rem", md: "30rem", lg: "35rem" },  
             }}
           >
-            <CardMedia component={"img"} style={{ height: "20rem" }} src={secondCard}/>
+            <CardMedia component={"img"} sx={{ maxHeight: {xs: "10rem", sm: '20rem'} }} src={secondCard}/>
             <CardContent>
               <Typography color={"background.default"} variant="h4">
                 Föreläsningar
@@ -105,7 +105,7 @@ const ThirdBlock = () => {
               maxWidth: { xs: "25rem", md: "30rem", lg: "35rem" },
             }}
           >
-            <CardMedia component={"img"} style={{ height: "20rem" }} src={thirdCard} />
+            <CardMedia component={"img"} sx={{ maxHeight: {xs: "10rem", sm: '20rem'} }} src={thirdCard} />
             <CardContent>
               <Typography color={"background.default"} variant="h4">
                 Kurser

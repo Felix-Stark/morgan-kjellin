@@ -62,10 +62,7 @@ export const Home = ({firebaseArray}: Props) => {
       subtitle1: {
         fontWeight: 600,
         fontSize: "1.2rem",
-		margin: '1.5rem 1rem 3rem 1rem',
-		[breakTheme.breakpoints.up('md')]: {
-			lineHeight: '3rem',
-		}
+		margin: '1.5rem 1rem 3rem 1rem'
       },
     },
     components: {
