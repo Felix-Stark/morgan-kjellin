@@ -46,11 +46,12 @@ export const About = ({firebaseArray}: Props) => {
       </Typography>
        <Typography variant="h6" sx={{  marginBottom:"1rem", marginTop: "1rem"}}>“FÖRÄNDRING ÄR MÖJLIGT FÖR ALLA!”</Typography>
     </Paper>
-    {/* <Typography variant="body1" color="initial"></Typography>  */}
+    
     <Button variant="contained" onClick={ () => navigate('/contact') }
                   sx={{ 
                     backgroundColor: '#BA1D37',
-                    width: '20rem',
+                    width: '100%',
+                    maxWidth:"20rem",
                     height: '5rem',
                     margin: '2rem 0',
                     fontWeight: 'bold',
