@@ -10,13 +10,13 @@ import { Button, CardMedia } from "@mui/material";
 import scrollArrow from '../../assets/work-scrollArrow.svg';
 
 type Props = {
-  testText: any;
+  firebaseArray: any;
 }
 
 
 
 
-export const Home = ({testText}: Props) => {
+export const Home = ({firebaseArray}: Props) => {
 
   const scrollToTop = () => {
     if (window.scrollY > 100) {
@@ -86,10 +86,10 @@ export const Home = ({testText}: Props) => {
 
           </Button>
       <Hero />
-			<FirstBlock testText={testText}/>
-			<SecondBlock />
+			<FirstBlock firebaseArray={firebaseArray}/>
+			<SecondBlock firebaseArray={firebaseArray}/>
 			<ThirdBlock />
-			<FourthBlock />
+			<FourthBlock firebaseArray={firebaseArray}/>
 		</Grid>
     </ThemeProvider>
   )

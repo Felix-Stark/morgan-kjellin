@@ -5,8 +5,11 @@ import Typography from '@mui/material/Typography'
 import { useTheme } from '@mui/material/styles'
 import portrait from '../../../assets/home-block2.png'
 
+type Props = {
+  firebaseArray: any;
+}
 
-const SecondBlock = () => {
+const SecondBlock = ({firebaseArray}: Props) => {
 	const theme = useTheme();
   return (
     <Grid
@@ -33,14 +36,9 @@ const SecondBlock = () => {
           padding={"1rem"}
         >
           <Typography color={"#fff"} variant="h3">
-            Vill du ta kontroll över ditt liv och uppnå dina mål?
+          { firebaseArray.length > 0 ? firebaseArray[5].title : ''}
           </Typography>
-          <Typography color={"#fff"} variant="subtitle1">
-            Självförbättring och personlig utveckling är en ständigt pågående
-            process som kräver engagemang och medvetenhet från oss själva.
-            Oavsett vilka beroenden eller negativa vanor vi vill bryta, kan det
-            vara svårt att ta itu med dem utan att först lära oss mer om oss
-            själva.
+          <Typography color={"#fff"} variant="subtitle1">{ firebaseArray.length > 0 ? firebaseArray[5].content : ''}
           </Typography>
         </Box>
       </Grid>

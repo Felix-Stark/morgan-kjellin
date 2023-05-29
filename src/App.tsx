@@ -69,7 +69,7 @@ const themeOptions: ThemeOptions = {
 const globalTheme = createTheme(themeOptions);
 function App() {
   const [adminView, setAdminView] = useState(true);
-  const [testText, setTestText] = useState<any>('');
+  const [firebaseArray, setfirebaseArray] = useState<any>('');
   const [itemdata, setItemData] = useState<any>();
   const location = useLocation();
 
@@ -82,7 +82,7 @@ function App() {
           tempArray.push(doc.data())
       })
 
-      setTestText(tempArray);
+      setfirebaseArray(tempArray);
   })()
     
   }, []);
@@ -118,17 +118,17 @@ function App() {
         {/* { adminView ? '' : <Header />} */} 
         <Header />
         <Routes>
-          <Route path="/" element={<Home testText={testText}/>} />
-          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Home firebaseArray={firebaseArray}/>} />
+          <Route path="/about" element={<About firebaseArray={firebaseArray} />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/arbeta-med-mig" element={<Work />} />
+          <Route path="/arbeta-med-mig" element={<Work firebaseArray={firebaseArray} />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/admin" element={<Admin />}>
             <Route path="kalender" element={ <AdminCalendar /> } />
             <Route path="kalender/aktiviteter" element={ <AdminActivities/> } />
             <Route path="kalender/skapa-aktivitet" element={ <AdminCreateActivity/> } />
-            <Route path="updatetext" element={ <UpdateText getTextProps={getTextProps} firebaseText={testText}/>} />
-            <Route path="dashboard" element={ <DashBoard itemdata={itemdata} setTestText={setTestText}/>} />
+            <Route path="updatetext" element={ <UpdateText getTextProps={getTextProps} firebaseText={firebaseArray}/>} />
+            <Route path="dashboard" element={ <DashBoard itemdata={itemdata} setfirebaseArray={setfirebaseArray}/>} />
           </Route>
         </Routes>
         { adminView ? '' : <Footer />}
