@@ -1,12 +1,23 @@
 import { Container, Paper, Box, Typography, Button } from '@mui/material';
 import CalendarDate from '../../components/adminComponents/calendarDate/CalendarDate';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ContextType } from 'react';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import CardMedia from '@mui/material/CardMedia';
+import { useOutletContext } from 'react-router-dom';
 import TrendingFlatRoundedIcon from '@mui/icons-material/TrendingFlatRounded';
 
+type Activities = {
+    date: string;
+    title: string;
+    text: string;
+    time: string;
+}
+
+type OutletProps = {
+    activities: Activities[];
+    activityProps: (currentYear: number, monthIndex: number, index: number) => void;
+}
 
 const AdminCalendar = () => {
 
@@ -18,10 +29,7 @@ const AdminCalendar = () => {
     const [ currentDays, setCurrentDays ] = useState<any>( new Date(currentDate.getFullYear(), currentDate.getMonth()+1, 0).getDate() );
     const [ dayArray, setDayArray ] = useState<number[]>([]);
 
-    const activities = [
-        { date: '2022-11-11', title: 'Föreläsning', text: 'Rensa Krabba' }, 
-        { date: '2023-8-8', title: 'Te-party', text: 'odla saker' },
-        { date: '2023-2-24', title: 'spela spel', text: 'vi ska spela saker' }];
+    const {activities}: OutletProps = useOutletContext<OutletProps>();
 
     useEffect(() => {
 
@@ -124,12 +132,12 @@ const AdminCalendar = () => {
                         if (tempFoundArray.includes(`${ selectedYear }-`+`${ monthIndex + 1 }-`+`${ date }`)) {
 
                             const found = true;
-                            return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentDate.getFullYear()} found={found} tempTitleArray={tempTitleArray}/>
+                            return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentDate.getFullYear()} found={found} />
 
                         } else {
 
                             const found = false;
-                            return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentDate.getFullYear()} found={found} tempTitleArray={tempTitleArray}/>
+                            return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentDate.getFullYear()} found={found} />
 
                         }
 

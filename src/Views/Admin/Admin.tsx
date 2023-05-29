@@ -7,9 +7,27 @@ import Grid from '@mui/material/Grid'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../../../firebase/firebase-config'
 
+type ClickedDate = {
+  currentYear: number;
+  monthIndex: number;
+  index: number;
+}
+
 const Admin = () => {
   const navigate = useNavigate()
   const [signedIn, setSignedIn] = useState(true)
+  const [ clickedDate, setClickedDate ] = useState<ClickedDate>();
+
+  const activities = [
+    { date: '2022-11-11', title: 'Föreläsning', text: 'Rensa Krabba', time: '10:00' }, 
+    { date: '2023-8-8', title: 'Te-party', text: 'odla saker', time: '09:30' },
+    { date: '2023-2-24', title: 'spela spel', text: 'vi ska spela saker', time: '14:00' },
+    { date: '2023-2-24', title: 'karate', text: 'jackie chan', time: '13:30' },
+    { date: '2023-5-12', title: 'äta', text: 'mat', time: '12:00' }];
+
+    const activityProps = (currentYear: number, monthIndex: number, index: number) => {
+      setClickedDate({ currentYear: currentYear, monthIndex: monthIndex, index: index })
+    }
 
   return (
     <Grid
@@ -31,7 +49,7 @@ const Admin = () => {
             <AdminSidebar signedIn={signedIn} setSignedIn={setSignedIn} />
           </Grid>
           <Grid item xs={9} sx={{}}>
-            <Outlet />
+            <Outlet context={{activities, activityProps, clickedDate}}/>
           </Grid>
         </Grid>
       )}

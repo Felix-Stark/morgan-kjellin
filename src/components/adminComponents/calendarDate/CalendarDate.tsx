@@ -1,4 +1,5 @@
 import { Container, Paper, Box, Typography, Button } from '@mui/material';
+import { useOutletContext } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,11 +10,22 @@ type Props = {
     monthIndex: number;
     currentYear: number;
     found: boolean;
-    tempTitleArray: string[];
 
 }
 
-const CalendarDate = ({ index, monthIndex, currentYear, found, tempTitleArray }: Props) => {
+type Activities = {
+    date: string;
+    title: string;
+    text: string;
+    time: string;
+}
+
+type OutletProps = {
+    activities: Activities[];
+    activityProps: (currentYear: number, monthIndex: number, index: number) => void;
+}
+
+const CalendarDate = ({ index, monthIndex, currentYear, found }: Props) => {
 
     const [ dateColor, setDateColor ] = useState<string>();
 
@@ -22,9 +34,13 @@ const CalendarDate = ({ index, monthIndex, currentYear, found, tempTitleArray }:
     const getMonth = new Date().getMonth();
     const getYear = new Date().getFullYear();
 
-    const gotoActivities = () => {
+    const {activityProps}: OutletProps = useOutletContext<OutletProps>();
+
+    const gotoActivities = (currentYear: number, monthIndex: number, index: number) => {
+        activityProps(currentYear, monthIndex, index);
         navigate('aktiviteter');
     }
+
 
     useEffect(() => {
         found ? setDateColor('red') : setDateColor('#FFFFFF');
@@ -32,13 +48,13 @@ const CalendarDate = ({ index, monthIndex, currentYear, found, tempTitleArray }:
 
     return(
         
-        <Box onClick={gotoActivities} sx={{ backgroundColor: `${ dateColor }`, width: '5.5rem', height: '5.5rem', margin: '.1rem' }}>
+        <Box onClick={() => gotoActivities(currentYear, monthIndex, index)} sx={{ backgroundColor: `${ dateColor }`, width: '5.5rem', height: '5.5rem', margin: '.1rem' }}>
             {
                 index == getDay && getMonth == monthIndex && getYear == currentYear ? <Typography sx={{fontSize: '2rem', color: 'blue'}}>{index}</Typography> : <Typography>{index}</Typography>
             }
             {
                 found ?
-                <Typography>{tempTitleArray[0]}</Typography>
+                <Typography>Aktiviteter</Typography>
                 :
                 ''
             }

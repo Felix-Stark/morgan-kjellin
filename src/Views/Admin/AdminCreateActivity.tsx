@@ -1,8 +1,31 @@
 import { Container, Paper, Box, Typography, Button } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useOutletContext } from 'react-router-dom';
+
+type Activities = {
+  date: string;
+  title: string;
+  text: string;
+  time: string;
+}
+
+type ClickedDate = {
+  currentYear: number;
+  monthIndex: number;
+  index: number;
+}
+
+type OutletProps = {
+activities: Activities[];
+activityProps: (currentYear: number, monthIndex: number, index: number) => void;
+clickedDate: ClickedDate;
+}
+
 
 const AdminCreateActivity = () => {
+
+  const { clickedDate }: OutletProps = useOutletContext<OutletProps>();
 
     const theme = createTheme({
         components: {
@@ -55,7 +78,7 @@ const AdminCreateActivity = () => {
                 </Box>
                 <ThemeProvider theme={theme}>
                     <Box height={'20rem'} sx={{ display: 'flex', position: 'relative', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', width: '50rem', marginLeft: '2rem', backgroundColor: 'grey' }}>
-                        <Typography variant='h2' marginTop='2rem' color='#FFFFFF'>Valt datum</Typography>
+                        <Typography variant='h3' marginTop='2rem' color='#FFFFFF'>{`${ clickedDate.currentYear }-`+`${ clickedDate.monthIndex + 1 }-`+`${ clickedDate.index }`}</Typography>
                         <TextField variant='filled' size='small'></TextField>
                     </Box>
                 </ThemeProvider>
