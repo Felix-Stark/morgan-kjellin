@@ -3,8 +3,6 @@ import EditIcon from '@mui/icons-material/Edit';
 import { useNavigate } from 'react-router-dom';
 
 
-import React from 'react'
-
 interface Props {
     title: string;
     content: string;

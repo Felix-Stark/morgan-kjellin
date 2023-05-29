@@ -16,7 +16,7 @@ import Admin from "./Views/Admin/Admin";
 import AdminLogin from "./components/adminComponents/login/AdminLogin";
 import AdminCalendar from "./Views/Admin/AdminCalendar";
 import AdminActivities from "./Views/Admin/AdminActivities";
-import AdminCreateActivity from "./Views/Admin/AdminCreateActivity";
+import AdminHandleActivity from "./Views/Admin/AdminHandleActivity";
 import UpdateText from "./Views/Admin/UpdateText";
 import DashBoard from "./Views/Admin/AdminDashBoard";
 import { db } from '../firebase/firebase-config';
@@ -126,7 +126,7 @@ function App() {
           <Route path="/admin" element={<Admin />}>
             <Route path="kalender" element={ <AdminCalendar /> } />
             <Route path="kalender/aktiviteter" element={ <AdminActivities/> } />
-            <Route path="kalender/skapa-aktivitet" element={ <AdminCreateActivity/> } />
+            <Route path="kalender/skapa-aktivitet" element={ <AdminHandleActivity/> } />
             <Route path="updatetext" element={ <UpdateText getTextProps={getTextProps} firebaseText={firebaseArray}/>} />
             <Route path="dashboard" element={ <DashBoard itemdata={itemdata} setfirebaseArray={setfirebaseArray}/>} />
           </Route>

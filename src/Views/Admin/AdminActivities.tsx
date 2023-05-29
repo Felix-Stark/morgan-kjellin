@@ -45,11 +45,11 @@ const AdminActivities = () => {
             <Box height={'20rem'} sx={{ display: 'flex', position: 'relative', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', width: '50rem', marginLeft: '2rem', backgroundColor: 'grey' }}>
                 <Typography variant='h2' marginTop='2rem' color='#FFFFFF'>{`${ clickedDate.currentYear }-`+`${ clickedDate.monthIndex + 1 }-`+`${ clickedDate.index }`}</Typography>
                 {
-                    activities.map((activity: Activities) => {
+                    activities.map((activity: Activities, i) => {
 
                         if (activity.date == `${ clickedDate.currentYear }-`+`${ clickedDate.monthIndex + 1 }-`+`${ clickedDate.index }`) {
 
-                            return <Box onClick={ gotoActivity } width={'80%'} height={'3rem'} textAlign={'center'} margin={'1rem'} sx={{backgroundColor: '#FFFFFF'}}> {activity.time} { activity.title } </Box>
+                            return <Box key={i} onClick={ gotoActivity } width={'80%'} height={'3rem'} textAlign={'center'} margin={'1rem'} sx={{backgroundColor: '#FFFFFF'}}> {activity.time} { activity.title } </Box>
 
                         }
 
