@@ -7,8 +7,10 @@ import {
   TextareaAutosize,
   Typography,
   useMediaQuery,
+  Dialog, DialogTitle, DialogActions
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import emailjs from "emailjs-com";
 
 const reasons = ["Boka föreläsning", "Boka möte", "Samarbete", "Annat"];
 
@@ -19,12 +21,14 @@ interface ContactFormData {
   reason: string;
   message: string;
 }
+
 export const Contact: React.FC = () => {
+  const [ open, setOpen ] = useState<boolean>(false);
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
 
   const width = useMediaQuery("(max-width:600px)") ? "xs" : "md";
   const [formData, setFormData] = useState<ContactFormData>({
@@ -51,7 +55,29 @@ export const Contact: React.FC = () => {
     event.preventDefault();
     console.log(formData);
 
-    clearForm();
+    // Sänd email.js request
+    emailjs
+      .send(
+        "service_auwdql8",
+        "template_17rbltb",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone_number: formData.phoneNumber,
+          reason: formData.reason,
+          message: formData.message,
+        },
+        "hbA17LMwp8EWGpDL2"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          clearForm();
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   function clearForm() {
@@ -101,6 +127,10 @@ export const Contact: React.FC = () => {
     },
   });
 
+  const handleClose = () => {
+    setOpen(false);
+  }
+
   return (
     <Box display="flex" alignItems="center" sx={{ minHeight: "90vh" }}>
       <Box
@@ -131,7 +161,7 @@ export const Contact: React.FC = () => {
             borderTopRightRadius: 0,
             borderBottomRightRadius: 0,
             padding: { xs: "16px", md: "32px" },
-            width: { xs:"90%" ,md: "40%" },
+            width: { xs: "90%", md: "40%" },
           }}
         >
           <Typography variant="h2" sx={{ padding: { xs: "12px", md: "24px" } }}>
@@ -139,8 +169,7 @@ export const Contact: React.FC = () => {
           </Typography>
 
           <Typography variant="h3" sx={{ padding: { xs: "12px", md: "24px" } }}>
-            Vänligen fyll i de obligatoriska fälten så svarar jag inom två
-            arbetsdagar
+            Vänligen fyll i de obligatoriska fälten så svarar jag inom två arbetsdagar
           </Typography>
         </Box>
         <ThemeProvider theme={theme}>
@@ -155,7 +184,7 @@ export const Contact: React.FC = () => {
               borderRadius: width === "xs" ? 0 : 4,
               borderTopLeftRadius: 0,
               borderBottomLeftRadius: 0,
-              width: { xs:"90%" ,md: "80%" },
+              width: { xs: "90%", md: "80%" },
             }}
           >
             <Box
@@ -196,7 +225,6 @@ export const Contact: React.FC = () => {
                     variant="filled"
                     InputLabelProps={{
                       style: {
-                        // Your custom styles for the label tag
                         color: "black",
                         fontSize: "18px",
                         fontWeight: "bold",
@@ -215,7 +243,6 @@ export const Contact: React.FC = () => {
                     variant="filled"
                     InputLabelProps={{
                       style: {
-                        // Your custom styles for the label tag
                         color: "black",
                         fontSize: "18px",
                         fontWeight: "bold",
@@ -235,7 +262,6 @@ export const Contact: React.FC = () => {
                     variant="filled"
                     InputLabelProps={{
                       style: {
-                        // Your custom styles for the label tag
                         color: "black",
                         fontSize: "18px",
                         fontWeight: "bold",
@@ -254,7 +280,6 @@ export const Contact: React.FC = () => {
                     label="Anledning för kontakt"
                     InputLabelProps={{
                       style: {
-                        // Your custom styles for the label tag
                         color: "black",
                         fontSize: "18px",
                         fontWeight: "bold",
@@ -327,14 +352,21 @@ export const Contact: React.FC = () => {
                     py: 2,
                     px: 8,
                   }}
+                  onClick={ () => setOpen(true)}
                 >
-                  Submit
+                  Sänd
                 </Button>
               </Box>
             </Box>
           </Box>
         </ThemeProvider>
       </Box>
+      <Dialog open={ open } onClose={ handleClose }>
+        <DialogTitle>Din kontakt förfrågan har skickats</DialogTitle>
+        <DialogActions sx={{ display:"flex" , justifyContent:"center"}}>
+          <Button onClick={ handleClose } sx={{ bgcolor: "red", color: "white" }}>Stäng</Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };

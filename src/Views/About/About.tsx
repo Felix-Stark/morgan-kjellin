@@ -22,7 +22,7 @@ export const About = ({firebaseArray}: Props) => {
   return <Container  sx={{   width: {xs: "80%", md: "100%" },textAlign:"center" ,  paddingTop: '25px', }}>
 
     <Box sx={{ boxShadow: 3 , display: 'flex', marginBottom:"5vh",flexDirection:{ xs: "column-reverse", md: "row"}, justifyContent: 'space-between'}}>
-      <Paper sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#161616"}}>
+      <Paper sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#342C39"}}>
         <Typography variant="h4" sx={{  marginBottom:"2vh"}}>{ firebaseArray.length > 0 ? firebaseArray[0].title : ''}</Typography>
         <Typography variant="h6" sx={{ fontSize: '1em', margin: "auto"}}>
         { firebaseArray.length > 0 ? firebaseArray[0].content : ''}
@@ -32,14 +32,14 @@ export const About = ({firebaseArray}: Props) => {
     </Box>
     <Box sx={{boxShadow: 3 , display: 'flex', marginBottom:"5vh",  flexDirection:{ xs: "column", md: "row"}, justifyContent: 'space-between'}}>
       <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 200 },}}alt="bild"src={addictPic}/>
-      <Paper  sx={{padding:"1rem", borderRadius:'0px', bgcolor:"#161616", color:"white"}}>
+      <Paper  sx={{padding:"1rem", borderRadius:'0px', bgcolor:"#342C39", color:"white"}}>
         <Typography variant="h4" sx={{  marginBottom:"2vh"}}>{ firebaseArray.length > 0 ? firebaseArray[1].title : ''}</Typography>
         <Typography variant="h6" sx={{ fontSize: '1em', margin: "auto"}}>{ firebaseArray.length > 0 ? firebaseArray[1].content : ''}
           
         </Typography>
       </Paper>
     </Box>
-    <Paper elevation={3} sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#161616", marginBottom:"2.5vh"}}>
+    <Paper elevation={3} sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#342C39", marginBottom:"2.5vh"}}>
       <Typography variant="h4" sx={{  marginBottom:"1rem"}}>{ firebaseArray.length > 0 ? firebaseArray[2].title : ''}</Typography>
       <Typography variant="h6" sx={{ fontSize: '1em', margin: "auto"}}>
       { firebaseArray.length > 0 ? firebaseArray[2].content : ''}
