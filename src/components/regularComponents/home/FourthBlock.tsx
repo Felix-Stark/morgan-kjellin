@@ -56,7 +56,7 @@ const FourthBlock = ({firebaseArray}: Props) => {
           <Typography color={"background.default"} variant="h4" lineHeight={'5rem'}>
           { firebaseArray.length > 1 ? firebaseArray[4].title : ''}
           </Typography>
-          <Typography color={"background.default"}>{ firebaseArray.length > 0 ? firebaseArray[4].content : ''}
+          <Typography variant="subtitle1" color={"background.default"}>{ firebaseArray.length > 0 ? firebaseArray[4].content : ''}
            
 			    </Typography>
           <Button
