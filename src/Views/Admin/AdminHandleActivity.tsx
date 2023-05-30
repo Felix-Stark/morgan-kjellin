@@ -14,6 +14,12 @@ type Activities = {
   time: string;
 }
 
+type EditActivity = {
+  title: string;
+  time: string;
+  text: string;
+}
+
 type ClickedDate = {
   currentYear: number;
   monthIndex: number;
@@ -21,9 +27,10 @@ type ClickedDate = {
 }
 
 type OutletProps = {
-activities: Activities[];
-activityProps: (currentYear: number, monthIndex: number, index: number) => void;
-clickedDate: ClickedDate;
+  activities: Activities[];
+  activityProps: (currentYear: number, monthIndex: number, index: number) => void;
+  clickedDate: ClickedDate;
+  editActivity: EditActivity;
 }
 
 
@@ -33,7 +40,9 @@ const AdminHandleActivity = () => {
   const [ selectedMinute, setSelectedMinute ] = useState<string>('');
   const [ hourArray, setHourArray ] = useState<number[]>([]);
   const [ minuteArray, setMinuteArray ] = useState<number[]>([]);
-  const { clickedDate }: OutletProps = useOutletContext<OutletProps>();
+  const [ hourStamp, setHourStamp ] = useState<string>('');
+  const [ minuteStamp, setMinuteStamp ] = useState<string>('');
+  const { clickedDate, editActivity }: OutletProps = useOutletContext<OutletProps>();
 
   useEffect(() => {
 
@@ -49,6 +58,9 @@ const AdminHandleActivity = () => {
 
     setHourArray(tempHourArray);
     setMinuteArray(tempMinArray);
+
+    setHourStamp(editActivity.time.substring(0, 2));
+    setMinuteStamp(editActivity.time.substring(3, 5));
 
   }, []);
 
@@ -120,66 +132,76 @@ const AdminHandleActivity = () => {
                         <Typography variant='h4' marginTop='2rem' color='#FFFFFF'>{`${ clickedDate.currentYear }-`+`${ clickedDate.monthIndex + 1 }-`+`${ clickedDate.index }`}</Typography>
 
                         <Typography variant='h5' color='#FFFFFF' textAlign='start'>Namn på aktivitet:</Typography>
-                        <TextField variant='filled' size='small'></TextField>
+                        <TextField variant='filled' size='small' value={ editActivity.title }></TextField>
 
-                        <InputLabel id='time_label' sx={{ position: 'absolute', right: '9rem', top: '2rem' }}>Tid:</InputLabel>
+                        <Typography variant='h5' color='#FFFFFF' textAlign='start'>Tid:</Typography>
 
-                        <Select
-                          labelId='time_label'
-                          value={selectedHour}
-                          onChange={ handleHours }
-                          sx={{ width: '5.5rem', height: '2.5rem', margin: '1.5rem' }}
-                          >
-                            {
-                              hourArray.length > 0 ?
-                              hourArray.map((item, i) => {
-                                console.log('ey')
-                                  if (i < 10) {
+                        <Box sx={{ display: 'flex' }}>
 
-                                    return <MenuItem key={i} value={`0${item}`}>{`0${item}`}</MenuItem>
+                          <Select
+                            labelId='time_label'
+                            value={ hourStamp }
+                            onChange={ handleHours }
+                            sx={{ width: '5.5rem', height: '2.5rem', margin: '1.5rem' }}
+                            MenuProps={{
+                              PaperProps: { sx: { maxHeight: '10rem' } }
+                            }}
+                            >
+                              {
+                                hourArray.length > 0 ?
+                                hourArray.map((item, i) => {
+
+                                    if (i < 10) {
+
+                                      return <MenuItem key={i} value={`0${item}`}>{`0${item}`}</MenuItem>
+
+                                    } else {
+
+                                      return <MenuItem key={i} value={item}>{item}</MenuItem>
+
+                                    }
+
+                                  })
+                                :
+                                ''
+                              }
+
+                          </Select>
+
+                          <Select
+                            labelId='time_label'
+                            value={ minuteStamp }
+                            onChange={ handleMinutes }
+                            sx={{ width: '5.5rem', height: '2.5rem', margin: '1.5rem' }}
+                            MenuProps={{
+                              PaperProps: { sx: { maxHeight: '10rem' } }
+                            }}
+                            >
+                              {
+                                minuteArray.length > 0 ?
+                                minuteArray.map((item, i) => {
+                                  if (item*5 < 10) {
+
+                                    return <MenuItem key={i} value={`0${item*5}`}>{`0${item*5}`}</MenuItem>
 
                                   } else {
-
-                                    return <MenuItem key={i} value={item}>{item}</MenuItem>
+                                    
+                                    return <MenuItem key={i} value={item*5}>{item*5}</MenuItem>
 
                                   }
 
                                 })
-                              :
-                              ''
-                            }
+                                :
+                                ''
+                              }
 
-                        </Select>
+                          </Select>
 
-                        <Select
-                          labelId='time_label'
-                          value={selectedMinute}
-                          onChange={ handleMinutes }
-                          sx={{ width: '5.5rem', height: '2.5rem', margin: '1.5rem' }}
-                          >
-                            {
-                              minuteArray.length > 0 ?
-                              minuteArray.map((item, i) => {
-                                if (item*5 < 10) {
-                                  console.log('e')
+                        </Box>
 
-                                  return <MenuItem key={i} value={`0${item*5}`}>{`0${item*5}`}</MenuItem>
-
-                                } else {
-                                  console.log('a')
-                                  return <MenuItem key={i} value={item*5}>{item*5}</MenuItem>
-
-                                }
-
-                              })
-                              :
-                              ''
-                            }
-
-                        </Select>
 
                         <Typography variant='h5' color='#FFFFFF'>Beskrivning:</Typography>
-                        <TextField variant='filled' size='small'></TextField>
+                        <TextField variant='filled' size='small' value={ editActivity.text }></TextField>
 
                     </Box>
                 </ThemeProvider>

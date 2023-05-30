@@ -13,10 +13,17 @@ type ClickedDate = {
   index: number;
 }
 
+type EditActivity = {
+  title: string;
+  time: string;
+  text: string;
+}
+
 const Admin = () => {
   const navigate = useNavigate()
   const [signedIn, setSignedIn] = useState(true)
   const [ clickedDate, setClickedDate ] = useState<ClickedDate>();
+  const [ editActivity, setEditActivity ] = useState<EditActivity>();
 
   const activities = [
     { date: '2022-11-11', title: 'Föreläsning', text: 'Rensa Krabba', time: '10:00' }, 
@@ -28,6 +35,11 @@ const Admin = () => {
     const activityProps = (currentYear: number, monthIndex: number, index: number) => {
       setClickedDate({ currentYear: currentYear, monthIndex: monthIndex, index: index })
     }
+
+    const editActivityProps = (activityTitle: string, activityTime: string, activityText: string) => {
+      setEditActivity({ title: activityTitle, time: activityTime, text: activityText });
+    }
+
 
   return (
     <Grid
@@ -49,7 +61,7 @@ const Admin = () => {
             <AdminSidebar signedIn={signedIn} setSignedIn={setSignedIn} />
           </Grid>
           <Grid item xs={9} sx={{}}>
-            <Outlet context={{activities, activityProps, clickedDate}}/>
+            <Outlet context={{activities, activityProps, clickedDate, editActivityProps, editActivity}}/>
           </Grid>
         </Grid>
       )}

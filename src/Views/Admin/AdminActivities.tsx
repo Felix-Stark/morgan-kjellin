@@ -18,16 +18,20 @@ type OutletProps = {
     activities: Activities[];
     activityProps: (currentYear: number, monthIndex: number, index: number) => void;
     clickedDate: ClickedDate;
+    editActivityProps: (activityTitle: string, activityTime: string, activityText: string) => void;
 }
 
 const AdminActivities = () => {
 
     const navigate = useNavigate();
 
-    const {activities, clickedDate}: OutletProps = useOutletContext<OutletProps>();
+    const {activities, clickedDate, editActivityProps}: OutletProps = useOutletContext<OutletProps>();
     console.log(clickedDate);
 
-    const gotoActivity = () => {
+    const gotoActivity = (activityTitle: string, activityTime: string, activityText: string) => {
+        
+        editActivityProps(activityTitle, activityTime, activityText);
+
         navigate('/admin/kalender/skapa-aktivitet');
     }
 
@@ -49,13 +53,13 @@ const AdminActivities = () => {
 
                         if (activity.date == `${ clickedDate.currentYear }-`+`${ clickedDate.monthIndex + 1 }-`+`${ clickedDate.index }`) {
 
-                            return <Box key={i} onClick={ gotoActivity } width={'80%'} height={'3rem'} textAlign={'center'} margin={'1rem'} sx={{backgroundColor: '#FFFFFF'}}> {activity.time} { activity.title } </Box>
+                            return <Box key={i} onClick={ () => gotoActivity(activity.title, activity.time, activity.text) } width={'80%'} height={'3rem'} textAlign={'center'} margin={'1rem'} sx={{backgroundColor: '#FFFFFF'}}> {activity.time} { activity.title } </Box>
 
                         }
 
                     })
                 }
-                <Button variant="contained" onClick={gotoActivity}
+                <Button variant="contained" onClick={() => gotoActivity}
                     sx={{ 
                         backgroundColor: '#BA1D37',
                         width: '12rem',
