@@ -3,7 +3,7 @@ import CardMedia from '@mui/material/CardMedia'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import { useTheme } from '@mui/material/styles'
-import portrait from '../../../assets/home-block2.png'
+import crossroads from '../../../assets/home-crossroads.png'
 
 type Props = {
   firebaseArray: any;
@@ -45,7 +45,7 @@ const SecondBlock = ({firebaseArray}: Props) => {
       <Grid item md={5}>
         <CardMedia
           component={"img"}
-          image={portrait}
+          image={crossroads}
           sx={{ marginTop: "-6rem" }}
         />
       </Grid>
