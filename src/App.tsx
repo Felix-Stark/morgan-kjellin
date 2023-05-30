@@ -70,6 +70,7 @@ const globalTheme = createTheme(themeOptions);
 function App() {
   const [adminView, setAdminView] = useState(true);
   const [firebaseArray, setfirebaseArray] = useState<any>('');
+  const [ calendarArray, setCalendarArray ] = useState<any>([]);
   const [itemdata, setItemData] = useState<any>();
   const location = useLocation();
 
@@ -83,7 +84,7 @@ function App() {
       })
 
       setfirebaseArray(tempArray);
-  })()
+    })();
     
   }, []);
 

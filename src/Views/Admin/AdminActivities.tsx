@@ -59,7 +59,7 @@ const AdminActivities = () => {
 
                     })
                 }
-                <Button variant="contained" onClick={() => gotoActivity}
+                <Button variant="contained" onClick={() => gotoActivity('', '', '')}
                     sx={{ 
                         backgroundColor: '#BA1D37',
                         width: '12rem',

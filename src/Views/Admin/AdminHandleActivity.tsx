@@ -6,6 +6,8 @@ import TextField from '@mui/material/TextField';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useEffect, useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
+import { doc, updateDoc } from 'firebase/firestore';
+import { db } from '../../../firebase/firebase-config';
 
 type Activities = {
   date: string;
@@ -36,13 +38,13 @@ type OutletProps = {
 
 const AdminHandleActivity = () => {
 
-  const [ selectedHour, setSelectedHour ] = useState<string>('');
-  const [ selectedMinute, setSelectedMinute ] = useState<string>('');
   const [ hourArray, setHourArray ] = useState<number[]>([]);
   const [ minuteArray, setMinuteArray ] = useState<number[]>([]);
+  const { clickedDate, editActivity }: OutletProps = useOutletContext<OutletProps>();
   const [ hourStamp, setHourStamp ] = useState<string>('');
   const [ minuteStamp, setMinuteStamp ] = useState<string>('');
-  const { clickedDate, editActivity }: OutletProps = useOutletContext<OutletProps>();
+  const [ title, setTitle ] = useState<string>('');
+  const [ text, setText ] = useState<string>('');
 
   useEffect(() => {
 
@@ -61,19 +63,44 @@ const AdminHandleActivity = () => {
 
     setHourStamp(editActivity.time.substring(0, 2));
     setMinuteStamp(editActivity.time.substring(3, 5));
+    setTitle(editActivity.title);
+    setText(editActivity.text);
 
   }, []);
+
+  const changeActivity = () => {
+    const textRef = doc(db, 'calendar', `${ editActivity.title }`);
+
+    (
+      async () => {
+        await updateDoc(textRef, {
+          date: `${ clickedDate.currentYear }-`+`${ clickedDate.monthIndex + 1 }-`+`${ clickedDate.index }`,
+          title: `${ text }`,
+          text: `${ title }`,
+          time: `${hourStamp}:${minuteStamp}`
+        })
+      }
+    )();
+  }
+
+  const updateTitle = (e: any) => {
+    setTitle(e.target.value)
+  }
+
+  const updateText = (e: any) => {
+    setText(e.target.value)
+  }
 
 
   const handleHours = (event: SelectChangeEvent) => {
 
-    setSelectedHour((event.target.value));
+    setHourStamp((event.target.value));
 
   }
 
   const handleMinutes = (event: SelectChangeEvent) => {
 
-    setSelectedMinute((event.target.value));
+    setMinuteStamp((event.target.value));
 
   }
 
@@ -132,7 +159,7 @@ const AdminHandleActivity = () => {
                         <Typography variant='h4' marginTop='2rem' color='#FFFFFF'>{`${ clickedDate.currentYear }-`+`${ clickedDate.monthIndex + 1 }-`+`${ clickedDate.index }`}</Typography>
 
                         <Typography variant='h5' color='#FFFFFF' textAlign='start'>Namn på aktivitet:</Typography>
-                        <TextField variant='filled' size='small' value={ editActivity.title }></TextField>
+                        <TextField variant='filled' size='small' value={ title } onChange={(e) => updateTitle(e)}></TextField>
 
                         <Typography variant='h5' color='#FFFFFF' textAlign='start'>Tid:</Typography>
 
@@ -201,7 +228,19 @@ const AdminHandleActivity = () => {
 
 
                         <Typography variant='h5' color='#FFFFFF'>Beskrivning:</Typography>
-                        <TextField variant='filled' size='small' value={ editActivity.text }></TextField>
+                        <TextField variant='filled' size='small' value={ text } onChange={ (e) => updateText(e) }></TextField>
+
+                        {
+                          editActivity.text.length > 0 ?
+                          <Box sx={{ display: 'flex', justifyContent: 'space-evenly', width: '100%' }}>
+                            <Button>Ta bort</Button>
+                            <Button onClick={ changeActivity }>Ändra</Button>
+                          </Box>
+                          :
+                          <Box sx={{ display: 'flex', justifyContent: 'space-evenly', width: '100%' }}>
+                            <Button>Skapa</Button>
+                          </Box>
+                        }
 
                     </Box>
                 </ThemeProvider>

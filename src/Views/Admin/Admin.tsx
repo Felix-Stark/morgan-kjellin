@@ -5,7 +5,15 @@ import { useEffect, useState } from 'react'
 
 import Grid from '@mui/material/Grid'
 import { onAuthStateChanged } from 'firebase/auth'
-import { auth } from '../../../firebase/firebase-config'
+import { auth, db } from '../../../firebase/firebase-config'
+import { collection, getDocs } from 'firebase/firestore'
+
+type Activities = {
+  date: string;
+  title: string;
+  text: string;
+  time: string;
+}
 
 type ClickedDate = {
   currentYear: number;
@@ -24,13 +32,23 @@ const Admin = () => {
   const [signedIn, setSignedIn] = useState(true)
   const [ clickedDate, setClickedDate ] = useState<ClickedDate>();
   const [ editActivity, setEditActivity ] = useState<EditActivity>();
+  const [ activities, setActivities ] = useState<Activities[]>();
 
-  const activities = [
-    { date: '2022-11-11', title: 'Föreläsning', text: 'Rensa Krabba', time: '10:00' }, 
-    { date: '2023-8-8', title: 'Te-party', text: 'odla saker', time: '09:30' },
-    { date: '2023-2-24', title: 'spela spel', text: 'vi ska spela saker', time: '14:00' },
-    { date: '2023-2-24', title: 'karate', text: 'jackie chan', time: '13:30' },
-    { date: '2023-5-12', title: 'äta', text: 'mat', time: '12:00' }];
+  useEffect(() => {
+
+    (async () => {
+      const querySnapshot = await getDocs(collection(db, 'calendar'))
+      const tempArray: any[] = []
+      querySnapshot.forEach((doc: any) => {
+          tempArray.push(doc.data())
+      })
+
+      setActivities(tempArray);
+    })();
+
+  }, []);
+
+
 
     const activityProps = (currentYear: number, monthIndex: number, index: number) => {
       setClickedDate({ currentYear: currentYear, monthIndex: monthIndex, index: index })
