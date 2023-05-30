@@ -354,7 +354,7 @@ export const Contact: React.FC = () => {
                   }}
                   onClick={ () => setOpen(true)}
                 >
-                  Sänd
+                  Skicka
                 </Button>
               </Box>
             </Box>

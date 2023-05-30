@@ -103,7 +103,7 @@ export const Footer = () => {
                   fontSize: '1.1rem',
                 }, }}>
               <Link to="mailto:kontakt@morgankjellin.com" style={{ color: '#CFCFCF', textDecoration: 'none' }}>
-                Email: kontakt@morgankjellin.com
+                kontaktmorgankjellin@gmail.com
               </Link>
             </Typography>
             <Typography variant="body1" sx={{ mb: 2, transition: 'color 0.3s ease-in-out',
