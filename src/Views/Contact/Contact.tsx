@@ -55,7 +55,7 @@ export const Contact: React.FC = () => {
     event.preventDefault();
     console.log(formData);
 
-    // Sänd email.js request
+   
     emailjs
       .send(
         "service_auwdql8",
