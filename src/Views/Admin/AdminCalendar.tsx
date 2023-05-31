@@ -31,6 +31,7 @@ const AdminCalendar = () => {
     const [ dayArray, setDayArray ] = useState<number[]>([]);
 
     const {activities}: OutletProps = useOutletContext<OutletProps>();
+    console.log(monthIndex, currentMonth)
 
     useEffect(() => {
 
@@ -44,7 +45,7 @@ const AdminCalendar = () => {
 
     useEffect(() => {
 
-        setCurrentDate(new Date(selectedYear, monthIndex, currentDate.getDate()));
+        setCurrentDate(new Date(selectedYear, monthIndex - 1, currentDate.getDate()));
         setCurrentDays(new Date(selectedYear, currentDate.getMonth()+1, 0).getDate());
 
     }, [selectedYear]);
