@@ -92,20 +92,28 @@ const AdminHandleActivity = () => {
 
   const createActivity = () => {
 
-    const activityId = `${Math.random() * 1000 ** 100}`;
+    if ( text.length != 0 && title.length != 0 && `${hourStamp}:${minuteStamp}`.length == 5 ) {
 
-    (async () => {
+      const activityId = `${Math.random() * 1000 ** 100}`;
+  
+      (async () => {
+  
+          await setDoc(doc(db, 'calendar', `${activityId}`), {
+              date: `${ clickedDate.currentYear }-`+`${ clickedDate.monthIndex + 1 }-`+`${ clickedDate.index }`,
+              text: `${ text }`,
+              time: `${hourStamp}:${minuteStamp}`,
+              title: `${ title }`,
+              id: `${ activityId }`
+          })
+  
+          rerenderCalendar()
+      })()
 
-        await setDoc(doc(db, 'calendar', `${activityId}`), {
-            date: `${ clickedDate.currentYear }-`+`${ clickedDate.monthIndex + 1 }-`+`${ clickedDate.index }`,
-            text: `${ text }`,
-            time: `${hourStamp}:${minuteStamp}`,
-            title: `${ title }`,
-            id: `${ activityId }`
-        })
+    } else {
 
-        rerenderCalendar()
-    })()
+      console.log('fyll i alla uppgifter');
+      
+    }
 
   }
 
