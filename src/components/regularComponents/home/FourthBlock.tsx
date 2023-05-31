@@ -49,15 +49,25 @@ const FourthBlock = ({firebaseArray}: Props) => {
             display: "flex",
             flexDirection: "column",
             borderRadius: "10px",
-			maxWidth: '80%',
-			justifyContent: 'center'
+			      maxWidth: '80%',
+			      justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
-          <Typography color={"background.default"} variant="h4" lineHeight={'5rem'}>
-          { firebaseArray.length > 1 ? firebaseArray[4].title : ''}
+          <Typography color={"background.default"} variant="h4" lineHeight={'5rem'} sx={{
+            textAlign: "center",
+            width: "100%",
+            maxWidth: "50rem",
+            margin: "0 auto",
+            }}>
+          { firebaseArray.length > 0 ? firebaseArray[4].title : ''}
           </Typography>
-          <Typography variant="subtitle1" color={"background.default"}>{ firebaseArray.length > 0 ? firebaseArray[4].content : ''}
-           
+          <Typography variant="subtitle1" color={"background.default"} sx={{
+              textAlign: "center",
+              width: "100%",
+              maxWidth: "50rem",
+              margin: "0 auto",
+              }}>{ firebaseArray.length > 0 ? firebaseArray[4].content : ''}
 			    </Typography>
           <Button
             variant="contained"
