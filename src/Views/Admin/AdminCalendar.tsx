@@ -46,6 +46,7 @@ const AdminCalendar = () => {
 
     useEffect(() => {
 
+        currentDate.setMonth(monthIndex);
         setCurrentDate(new Date(selectedYear, monthIndex - 1, currentDate.getDate()));
         setCurrentDays(new Date(selectedYear, currentDate.getMonth()+1, 0).getDate());
 
