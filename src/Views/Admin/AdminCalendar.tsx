@@ -31,7 +31,6 @@ const AdminCalendar = () => {
     const [ dayArray, setDayArray ] = useState<number[]>([]);
 
     const {activities}: OutletProps = useOutletContext<OutletProps>();
-    console.log(monthIndex, currentMonth)
 
     useEffect(() => {
 
@@ -116,12 +115,12 @@ const AdminCalendar = () => {
             </Box>
 
             <Box sx={{ backgroundColor: 'grey', width: { md: '50rem' }, height: '40rem', display: 'flex', flexWrap: 'wrap', margin: '0 2rem 2rem 2rem', paddingTop: '1rem' }}>
-                {
+                { activities ?
                     dayArray.map((date, i) => {
 
                         const tempFoundArray: string[] = [];
                         const tempTitleArray: string[] = [];
-
+                        
                         activities.forEach((activity) => {
 
                             if (activity.date == `${ selectedYear }-`+`${ monthIndex + 1 }-`+`${ date }`) {
@@ -144,6 +143,8 @@ const AdminCalendar = () => {
                         }
 
                     })
+                    :
+                    ''
                 }
             </Box>
         </Container>

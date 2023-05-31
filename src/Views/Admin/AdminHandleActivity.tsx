@@ -1,13 +1,14 @@
-import { Container, Paper, Box, Typography, Button } from '@mui/material';
+import { Container, Paper, Box, Typography, Button, Dialog, DialogTitle, DialogActions } from '@mui/material';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import TextField from '@mui/material/TextField';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useEffect, useState } from 'react';
-import { useOutletContext } from 'react-router-dom';
+import { useOutletContext, useNavigate } from 'react-router-dom';
 import { collection, deleteDoc, doc, getDocs, setDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../firebase/firebase-config';
+
 
 type Activities = {
   date: string;
@@ -48,6 +49,10 @@ const AdminHandleActivity = () => {
   const [ minuteStamp, setMinuteStamp ] = useState<string>('');
   const [ title, setTitle ] = useState<string>('');
   const [ text, setText ] = useState<string>('');
+  const [ open, setOpen ] = useState<boolean>(false);
+  const [ dialogText, setDialogText ] = useState<string>('');
+
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -73,20 +78,33 @@ const AdminHandleActivity = () => {
   }, []);
 
   const changeActivity = () => {
-    const textRef = doc(db, 'calendar', `${ editActivity.id }`);
 
-    (async () => {
+    if ( text.length != 0 && title.length != 0 && `${hourStamp}:${minuteStamp}`.length == 5 ) {
 
-        await updateDoc(textRef, {
-          date: `${ clickedDate.currentYear }-`+`${ clickedDate.monthIndex + 1 }-`+`${ clickedDate.index }`,
-          text: `${ text }`,
-          time: `${hourStamp}:${minuteStamp}`,
-          title: `${ title }`
-        })
+        const textRef = doc(db, 'calendar', `${ editActivity.id }`);
+    
+        (async () => {
+    
+            await updateDoc(textRef, {
+              date: `${ clickedDate.currentYear }-`+`${ clickedDate.monthIndex + 1 }-`+`${ clickedDate.index }`,
+              text: `${ text }`,
+              time: `${hourStamp}:${minuteStamp}`,
+              title: `${ title }`
+            })
+    
+            rerenderCalendar();
+          }
+          )();
 
-        rerenderCalendar();
-      }
-      )();
+        setDialogText('Din aktivitet är uppdaterad');
+        setOpen(true);
+
+    } else {
+
+      setDialogText('Vänligen fyll i alla fält');
+      setOpen(true);
+
+    }
 
   }
 
@@ -109,10 +127,14 @@ const AdminHandleActivity = () => {
           rerenderCalendar()
       })()
 
+      setDialogText('Din aktivitet är skapad');
+      setOpen(true);
+
     } else {
 
-      console.log('fyll i alla uppgifter');
-      
+      setDialogText('Vänligen fyll i alla fält');
+      setOpen(true);
+
     }
 
   }
@@ -125,6 +147,9 @@ const AdminHandleActivity = () => {
       rerenderCalendar()
 
     })()
+
+    setDialogText('Din aktivitet är borttagen');
+    setOpen(true);
 
   }
 
@@ -160,6 +185,18 @@ const AdminHandleActivity = () => {
   const handleMinutes = (event: SelectChangeEvent) => {
 
     setMinuteStamp((event.target.value));
+
+  }
+
+  const handleClose = () => {
+
+    setOpen(false);
+
+    if ( dialogText !== 'Vänligen fyll i alla fält' ) {
+
+      navigate('/admin/kalender');
+
+    }
 
   }
 
@@ -303,6 +340,13 @@ const AdminHandleActivity = () => {
 
                     </Box>
                 </ThemeProvider>
+
+                <Dialog open={ open } onClose={ handleClose }>
+                  <DialogTitle>{ dialogText }</DialogTitle>
+                  <DialogActions sx={{ display:"flex" , justifyContent:"center"}}>
+                    <Button onClick={ handleClose } sx={{ bgcolor: "red", color: "white" }}>Stäng</Button>
+                  </DialogActions>
+                </Dialog>
         </Container>
     )
 }
