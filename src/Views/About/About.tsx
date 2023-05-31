@@ -22,9 +22,9 @@ export const About = ({firebaseArray}: Props) => {
   return <Container  sx={{   width: {xs: "80%", md: "100%" },textAlign:"center" ,  paddingTop: '25px', }}>
 
     <Box sx={{ boxShadow: 3 , display: 'flex', marginBottom:"5vh",flexDirection:{ xs: "column-reverse", md: "row"}, justifyContent: 'space-between'}}>
-      <Paper sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#161616"}}>
-        <Typography variant="h4" sx={{  marginBottom:"2vh"}}>{ firebaseArray.length > 0 ? firebaseArray[0].title : ''}</Typography>
-        <Typography variant="h6" sx={{ fontSize: '1em', margin: "auto"}}>
+      <Paper sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#342C39"}}>
+        <Typography variant="h2" sx={{  marginBottom:"2vh"}}>{ firebaseArray.length > 0 ? firebaseArray[0].title : ''}</Typography>
+        <Typography variant="h5" sx={{ fontSize: '1.1em', margin: "auto"}}>
         { firebaseArray.length > 0 ? firebaseArray[0].content : ''}
         </Typography>
       </Paper>
@@ -32,25 +32,26 @@ export const About = ({firebaseArray}: Props) => {
     </Box>
     <Box sx={{boxShadow: 3 , display: 'flex', marginBottom:"5vh",  flexDirection:{ xs: "column", md: "row"}, justifyContent: 'space-between'}}>
       <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 200 },}}alt="bild"src={addictPic}/>
-      <Paper  sx={{padding:"1rem", borderRadius:'0px', bgcolor:"#161616", color:"white"}}>
-        <Typography variant="h4" sx={{  marginBottom:"2vh"}}>{ firebaseArray.length > 0 ? firebaseArray[1].title : ''}</Typography>
-        <Typography variant="h6" sx={{ fontSize: '1em', margin: "auto"}}>{ firebaseArray.length > 0 ? firebaseArray[1].content : ''}
+      <Paper  sx={{padding:"1rem", borderRadius:'0px', bgcolor:"#342C39", color:"white"}}>
+        <Typography variant="h2" sx={{  marginBottom:"2vh"}}>{ firebaseArray.length > 0 ? firebaseArray[1].title : ''}</Typography>
+        <Typography variant="h5" sx={{ fontSize: '1.1em', margin: "auto"}}>{ firebaseArray.length > 0 ? firebaseArray[1].content : ''}
           
         </Typography>
       </Paper>
     </Box>
-    <Paper elevation={3} sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#161616", marginBottom:"2.5vh"}}>
-      <Typography variant="h4" sx={{  marginBottom:"1rem"}}>{ firebaseArray.length > 0 ? firebaseArray[2].title : ''}</Typography>
-      <Typography variant="h6" sx={{ fontSize: '1em', margin: "auto"}}>
+    <Paper elevation={3} sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#342C39", marginBottom:"2.5vh"}}>
+      <Typography variant="h2" sx={{  marginBottom:"1rem"}}>{ firebaseArray.length > 0 ? firebaseArray[2].title : ''}</Typography>
+      <Typography variant="h5" sx={{ fontSize: '1.1em', margin: "auto"}}>
       { firebaseArray.length > 0 ? firebaseArray[2].content : ''}
       </Typography>
-       <Typography variant="h6" sx={{  marginBottom:"1rem", marginTop: "1rem"}}>“FÖRÄNDRING ÄR MÖJLIGT FÖR ALLA!”</Typography>
+       <Typography variant="h4" sx={{  marginBottom:"1rem", marginTop: "1rem", fontStyle:"italic"}}>“FÖRÄNDRING ÄR MÖJLIGT FÖR ALLA!”</Typography>
     </Paper>
-    {/* <Typography variant="body1" color="initial"></Typography>  */}
+    
     <Button variant="contained" onClick={ () => navigate('/contact') }
                   sx={{ 
                     backgroundColor: '#BA1D37',
-                    width: '20rem',
+                    width: '100%',
+                    maxWidth:"20rem",
                     height: '5rem',
                     margin: '2rem 0',
                     fontWeight: 'bold',
