@@ -32,6 +32,7 @@ const AdminCalendar = () => {
 
     const {activities}: OutletProps = useOutletContext<OutletProps>();
 
+
     useEffect(() => {
 
         const days: number[] = [];
@@ -41,6 +42,7 @@ const AdminCalendar = () => {
         setDayArray(days);
 
     }, [currentDays]);
+
 
     useEffect(() => {
 
@@ -75,26 +77,27 @@ const AdminCalendar = () => {
             currentDate.setMonth(monthIndex + 1);
             setMonthIndex(currentDate.getMonth());
             setCurrentMonth(currentDate.toLocaleString('default', { month: 'long' }));
-            setCurrentDays(new Date(currentDate.getFullYear(), monthIndex+2, 0).getDate());
+            setCurrentDays(new Date(currentDate.getFullYear(), monthIndex + 2, 0).getDate());
 
         }
 
     }
 
+    console.log('nya datumet efter bytt år blir:', currentDate, 'månaden är fortf: ', monthIndex, currentMonth, 'nya dagar:', currentDays)
 
     return(
-        <Container disableGutters style={{ maxWidth: '100vw', width: '100%' }}>
+        <Container disableGutters style={{ maxWidth: '100vw', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-            <Box sx={{ backgroundColor: 'grey', width: { md: '50rem' }, height: '5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', marginLeft: '2rem' }}>
+            <Box sx={{ backgroundColor: '#342C39', width: { md: '50rem' }, height: '5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
 
-                <Typography variant='h1' color='#FFFFFF' margin='1rem'> Kalender </Typography>
-                <InputLabel id='year_label' sx={{ position: 'absolute', right: '9rem', top: '2rem' }}>År</InputLabel>
+                <Typography variant='h1' color='#FFFFFF' marginTop='2rem'> Kalender </Typography>
+                <InputLabel id='year_label' sx={{ position: 'absolute', right: '8.5rem', top: '3.5rem' }}>År</InputLabel>
 
                 <Select
                     labelId='year_label'
                     value={`${selectedYear}`}
                     onChange={ handleYears }
-                    sx={{ position: 'absolute', right: '1rem', zIndex: '2', width: '5.5rem', height: '2.5rem', margin: '1.5rem' }}
+                    sx={{ position: 'absolute', right: '.5rem', top: '1rem', zIndex: '2', width: '5.5rem', height: '2.5rem', margin: '1.5rem' }}
                     >
                         <MenuItem value={currentYear + 1}>{currentYear + 1}</MenuItem>
                         <MenuItem value={currentYear}>{currentYear}</MenuItem>
@@ -102,50 +105,53 @@ const AdminCalendar = () => {
 
                 </Select>
 
-                <Box sx={{ width: '80%', height: '.1rem', position: 'absolute', bottom: '0', backgroundColor: '#FFFFFF' }}></Box>
+                <Box sx={{ width: '46rem', height: '.1rem', position: 'absolute', bottom: '-.5rem', zIndex: '5', backgroundColor: '#FFFFFF' }}></Box>
 
             </Box>
 
-            <Box height={'5rem'} sx={{ display: 'flex', position: 'relative', alignItems: 'center', justifyContent: 'center', width: '50rem', marginLeft: '2rem', backgroundColor: 'grey' }}>
+            <Box height={'5rem'} sx={{ display: 'flex', position: 'relative', alignItems: 'center', justifyContent: 'center', width: '50rem', backgroundColor: '#342C39', paddingTop: '3rem' }}>
 
-                <TrendingFlatRoundedIcon onClick={ backMonth } sx={{ position: 'absolute', width: '5rem', backgroundColor: 'grey', color: '#FFFFFF', fontSize: '3rem', left: '10%', rotate: '180deg' }}></TrendingFlatRoundedIcon>
+                <TrendingFlatRoundedIcon onClick={ backMonth } sx={{ position: 'absolute', width: '5rem', backgroundColor: '#342C39', color: '#FFFFFF', fontSize: '4rem', left: '1rem', rotate: '180deg', '&:hover': { cursor: 'pointer'} }}></TrendingFlatRoundedIcon>
                 <Typography variant='h2' color='#FFFFFF' zIndex='1'> { currentMonth.toUpperCase() } </Typography>
-                <TrendingFlatRoundedIcon onClick={ nextMonth } sx={{ position: 'absolute', width: '5rem', backgroundColor: 'grey', color: '#FFFFFF', fontSize: '3rem', right: '10%'}}></TrendingFlatRoundedIcon>
+                <TrendingFlatRoundedIcon onClick={ nextMonth } sx={{ position: 'absolute', width: '5rem', backgroundColor: '#342C39', color: '#FFFFFF', fontSize: '4rem', right: '1rem', '&:hover': { cursor: 'pointer'}}}></TrendingFlatRoundedIcon>
 
             </Box>
+            <Box sx={{ backgroundColor: '#342C39', width: { md: '50rem' }, minHeight: '40rem', display: 'flex', justifyContent: 'center' }}>
 
-            <Box sx={{ backgroundColor: 'grey', width: { md: '50rem' }, height: '40rem', display: 'flex', flexWrap: 'wrap', margin: '0 2rem 2rem 2rem', paddingTop: '1rem' }}>
-                { activities ?
-                    dayArray.map((date, i) => {
+                <Box sx={{ backgroundColor: '#342C39', width: { md: '47.2rem' }, height: '30rem', display: 'flex', flexWrap: 'wrap', paddingTop: '3rem' }}>
+                    { activities ?
+                        dayArray.map((date, i) => {
 
-                        const tempFoundArray: string[] = [];
-                        const tempTitleArray: string[] = [];
-                        
-                        activities.forEach((activity) => {
+                            const tempFoundArray: string[] = [];
+                            const tempTitleArray: string[] = [];
+                            
+                            activities.forEach((activity) => {
 
-                            if (activity.date == `${ selectedYear }-`+`${ monthIndex + 1 }-`+`${ date }`) {
-                                tempFoundArray.push(activity.date);
-                                tempTitleArray.push(activity.title);
+                                if (activity.date == `${ selectedYear }-`+`${ monthIndex + 1 }-`+`${ date }`) {
+                                    tempFoundArray.push(activity.date);
+                                    tempTitleArray.push(activity.title);
+                                }
+
+                            });
+
+                            if (tempFoundArray.includes(`${ selectedYear }-`+`${ monthIndex + 1 }-`+`${ date }`)) {
+
+                                const found = true;
+                                return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentDate.getFullYear()} found={found} />
+
+                            } else {
+
+                                const found = false;
+                                return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentDate.getFullYear()} found={found} />
+
                             }
 
-                        });
+                        })
+                        :
+                        ''
+                    }
+                </Box>
 
-                        if (tempFoundArray.includes(`${ selectedYear }-`+`${ monthIndex + 1 }-`+`${ date }`)) {
-
-                            const found = true;
-                            return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentDate.getFullYear()} found={found} />
-
-                        } else {
-
-                            const found = false;
-                            return <CalendarDate key={i} index={i + 1} monthIndex={monthIndex} currentYear={currentDate.getFullYear()} found={found} />
-
-                        }
-
-                    })
-                    :
-                    ''
-                }
             </Box>
         </Container>
     )

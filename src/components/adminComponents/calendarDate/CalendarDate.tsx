@@ -44,18 +44,18 @@ const CalendarDate = ({ index, monthIndex, currentYear, found }: Props) => {
 
 
     useEffect(() => {
-        found ? setDateColor('red') : setDateColor('#FFFFFF');
+        found ? setDateColor('red') : setDateColor('#F6F6F6');
     }, [found]);
 
     return(
         
-        <Box onClick={() => gotoActivities(currentYear, monthIndex, index)} sx={{ backgroundColor: `${ dateColor }`, width: '5.5rem', height: '5.5rem', margin: '.1rem' }}>
+        <Box onClick={() => gotoActivities(currentYear, monthIndex, index)} sx={{ backgroundColor: `${ dateColor }`, width: '5.5rem', height: '5.5rem', margin: '.2rem', borderRadius: '.3rem', '&:hover': { cursor: 'pointer'} }}>
             {
-                index == getDay && getMonth == monthIndex && getYear == currentYear ? <Typography sx={{fontSize: '2rem', color: 'blue'}}>{index}</Typography> : <Typography>{index}</Typography>
+                index == getDay && getMonth == monthIndex && getYear == currentYear ? <Typography sx={{fontSize: '1.8rem', margin: '0 .4rem', color: found ? '#F6F6F6' : '#1E1E1E'}}>{index}</Typography> : <Typography sx={{ color: found ? '#F6F6F6' : '#1E1E1E', fontWeight: '600', fontSize: '1.2rem', margin: '0 .4rem'}}>{index}</Typography>
             }
             {
                 found ?
-                <Typography>Aktiviteter</Typography>
+                <Typography sx={{color: '#F6F6F6', fontWeight: '600', fontSize: '1rem', textAlign: 'center'}}>Aktiviteter</Typography>
                 :
                 ''
             }

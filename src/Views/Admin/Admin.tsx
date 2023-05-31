@@ -66,7 +66,7 @@ const Admin = () => {
       container
       sx={{
         display: 'flex',
-        width: '100vw',
+        width: '100%',
         marginTop: '15vh',
         justifyContent: 'center',
         padding: '1rem',

@@ -221,8 +221,7 @@ const AdminHandleActivity = () => {
           MuiFilledInput: {
             styleOverrides: {
               root: {
-                height: '2.5rem',
-                padding: 0,
+                paddingTop: '4px',
                 backgroundColor: "white", // Desired input background color
                 "&:hover": {
                   backgroundColor: "white", // Desired input background color when hovered
@@ -236,36 +235,45 @@ const AdminHandleActivity = () => {
               },
             },
           },
+          MuiSelect: {
+            styleOverrides: {
+              icon: {
+                color: '#FFFFFF',
+              },
+            },
+          },
         },
       });
 
     return(
-        <Container disableGutters style={{ maxWidth: '100vw', width: '100%' }}>
+        <Container disableGutters style={{ maxWidth: '100vw', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-                <Box sx={{ backgroundColor: 'grey', width: { md: '50rem' }, height: '5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', marginLeft: '2rem' }}>
+                <Box sx={{ backgroundColor: '#342C39', width: { md: '50rem' }, height: '5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
 
-                    <Typography variant='h1' color='#FFFFFF' margin='1rem'> Kalender </Typography>
+                    <Typography variant='h1' color='#FFFFFF' marginTop='2rem'> Kalender </Typography>
 
-                    <Box sx={{ width: '80%', height: '.1rem', position: 'absolute', bottom: '0', backgroundColor: '#FFFFFF' }}></Box>
+                    <Box sx={{ width: '46rem', height: '.1rem', position: 'absolute', bottom: '-.5rem', zIndex: '5', backgroundColor: '#FFFFFF' }}></Box>
 
                 </Box>
                 <ThemeProvider theme={theme}>
-                    <Box height={'20rem'} sx={{ display: 'flex', position: 'relative', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', width: '50rem', marginLeft: '2rem', backgroundColor: 'grey' }}>
+
+                    <Typography variant='h4' paddingTop='3rem' paddingBottom='1rem' color='#FFFFFF' width='50rem' textAlign='center' sx={{ backgroundColor: '#342C39' }}>{ editActivity.id ? 'Redigera' : 'Skapa aktivitet' }</Typography>
+
+                    <Box minHeight={'40rem'} sx={{ display: 'flex', position: 'relative', alignItems: 'flex-start', flexDirection: 'column', paddingLeft: '4rem', width: '50rem', backgroundColor: '#342C39' }}>
                         
-                        <Typography variant='h4' marginTop='2rem' color='#FFFFFF'>{`${ clickedDate.currentYear }-`+`${ clickedDate.monthIndex + 1 }-`+`${ clickedDate.index }`}</Typography>
 
-                        <Typography variant='h5' color='#FFFFFF' textAlign='start'>Namn på aktivitet:</Typography>
-                        <TextField variant='filled' size='small' value={ title } onChange={(e) => updateTitle(e)}></TextField>
+                        <Typography variant='h6' color='#FFFFFF' textAlign='start'>Namn på aktivitet:</Typography>
+                        <TextField variant='filled' size='small' value={ title } onChange={(e) => updateTitle(e)} sx={{ marginBottom: '1.5rem', width: '30rem', padding: '0', paddingTop: '0' }}></TextField>
 
-                        <Typography variant='h5' color='#FFFFFF' textAlign='start'>Tid:</Typography>
+                        <Typography variant='h6' color='#FFFFFF' textAlign='start'>Tid:</Typography>
 
-                        <Box sx={{ display: 'flex' }}>
+                        <Box sx={{ display: 'flex', marginBottom: '1.5rem' }}>
 
                           <Select
                             labelId='time_label'
                             value={ hourStamp }
                             onChange={ handleHours }
-                            sx={{ width: '5.5rem', height: '2.5rem', margin: '1.5rem' }}
+                            sx={{ border: '1px solid #F6F6F6', color: '#F6F6F6', width: '5.5rem', height: '2.5rem', margin: '.5 1.5rem 0 0' }}
                             MenuProps={{
                               PaperProps: { sx: { maxHeight: '10rem' } }
                             }}
@@ -295,7 +303,7 @@ const AdminHandleActivity = () => {
                             labelId='time_label'
                             value={ minuteStamp }
                             onChange={ handleMinutes }
-                            sx={{ width: '5.5rem', height: '2.5rem', margin: '1.5rem' }}
+                            sx={{ border: '1px solid #F6F6F6', color: '#F6F6F6', width: '5.5rem', height: '2.5rem', margin: '0 0 0 1.5rem' }}
                             MenuProps={{
                               PaperProps: { sx: { maxHeight: '10rem' } }
                             }}
@@ -323,18 +331,36 @@ const AdminHandleActivity = () => {
                         </Box>
 
 
-                        <Typography variant='h5' color='#FFFFFF'>Beskrivning:</Typography>
-                        <TextField variant='filled' size='small' value={ text } onChange={ (e) => updateText(e) }></TextField>
+                        <Typography variant='h6' color='#FFFFFF'>Beskrivning:</Typography>
+                        <TextField variant='filled' size='small' multiline rows={ 10 } value={ text } onChange={ (e) => updateText(e) } style={{ width: '40rem' }}></TextField>
 
                         {
                           editActivity.text.length > 0 ?
-                          <Box sx={{ display: 'flex', justifyContent: 'space-evenly', width: '100%' }}>
-                            <Button onClick={ deleteActivity }>Ta bort</Button>
-                            <Button onClick={ changeActivity }>Ändra</Button>
+                          <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                            <Button variant="contained" onClick={ deleteActivity }
+                            sx={{ 
+                              backgroundColor: '#BA1D37',
+                              width: '12rem',
+                              height: '3rem',
+                              margin: '4rem 0',
+                              '&:hover': {backgroundColor: '#BA1D60'}}}>Ta bort</Button>
+                            <Button variant="contained" onClick={ changeActivity }
+                            sx={{ 
+                              backgroundColor: '#BA1D37',
+                              width: '12rem',
+                              height: '3rem',
+                              margin: '4rem 6rem 0 0',
+                              '&:hover': {backgroundColor: '#BA1D60'}}}>Ändra</Button>
                           </Box>
                           :
-                          <Box sx={{ display: 'flex', justifyContent: 'space-evenly', width: '100%' }}>
-                            <Button onClick={ createActivity }>Skapa</Button>
+                          <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: '100%' }}>
+                            <Button variant="contained" onClick={ createActivity }
+                            sx={{ 
+                              backgroundColor: '#BA1D37',
+                              width: '12rem',
+                              height: '3rem',
+                              margin: '4rem 6rem 0 0',
+                              '&:hover': {backgroundColor: '#BA1D60'}}}>Skapa</Button>
                           </Box>
                         }
 
