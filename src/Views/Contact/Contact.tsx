@@ -351,6 +351,7 @@ export const Contact: React.FC = () => {
                     borderRadius: 2,
                     py: 2,
                     px: 8,
+                    '&:hover': {backgroundColor: '#BA1D60'}
                   }}
                   onClick={ () => setOpen(true)}
                 >
