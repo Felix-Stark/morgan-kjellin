@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useEffect, useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
-import { doc, updateDoc } from 'firebase/firestore';
+import { collection, deleteDoc, doc, getDocs, setDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../firebase/firebase-config';
 
 type Activities = {
@@ -14,12 +14,14 @@ type Activities = {
   title: string;
   text: string;
   time: string;
+  id: string;
 }
 
 type EditActivity = {
   title: string;
   time: string;
   text: string;
+  id: string;
 }
 
 type ClickedDate = {
@@ -33,6 +35,7 @@ type OutletProps = {
   activityProps: (currentYear: number, monthIndex: number, index: number) => void;
   clickedDate: ClickedDate;
   editActivity: EditActivity;
+  setActivities: React.Dispatch<React.SetStateAction<Activities[] | undefined>>;
 }
 
 
@@ -40,11 +43,12 @@ const AdminHandleActivity = () => {
 
   const [ hourArray, setHourArray ] = useState<number[]>([]);
   const [ minuteArray, setMinuteArray ] = useState<number[]>([]);
-  const { clickedDate, editActivity }: OutletProps = useOutletContext<OutletProps>();
+  const { clickedDate, editActivity, setActivities }: OutletProps = useOutletContext<OutletProps>();
   const [ hourStamp, setHourStamp ] = useState<string>('');
   const [ minuteStamp, setMinuteStamp ] = useState<string>('');
   const [ title, setTitle ] = useState<string>('');
   const [ text, setText ] = useState<string>('');
+
 
   useEffect(() => {
 
@@ -69,18 +73,65 @@ const AdminHandleActivity = () => {
   }, []);
 
   const changeActivity = () => {
-    const textRef = doc(db, 'calendar', `${ editActivity.title }`);
+    const textRef = doc(db, 'calendar', `${ editActivity.id }`);
 
-    (
-      async () => {
+    (async () => {
+
         await updateDoc(textRef, {
           date: `${ clickedDate.currentYear }-`+`${ clickedDate.monthIndex + 1 }-`+`${ clickedDate.index }`,
-          title: `${ text }`,
-          text: `${ title }`,
-          time: `${hourStamp}:${minuteStamp}`
+          text: `${ text }`,
+          time: `${hourStamp}:${minuteStamp}`,
+          title: `${ title }`
         })
+
+        rerenderCalendar();
       }
-    )();
+      )();
+
+  }
+
+  const createActivity = () => {
+
+    const activityId = `${Math.random() * 1000 ** 100}`;
+
+    (async () => {
+
+        await setDoc(doc(db, 'calendar', `${activityId}`), {
+            date: `${ clickedDate.currentYear }-`+`${ clickedDate.monthIndex + 1 }-`+`${ clickedDate.index }`,
+            text: `${ text }`,
+            time: `${hourStamp}:${minuteStamp}`,
+            title: `${ title }`,
+            id: `${ activityId }`
+        })
+
+        rerenderCalendar()
+    })()
+
+  }
+
+  const deleteActivity = () => {
+
+    (async () => {
+
+      await deleteDoc(doc(db, 'calendar', `${editActivity.id}`))
+      rerenderCalendar()
+
+    })()
+
+  }
+
+  const rerenderCalendar = () => {
+
+    (async () => {
+      const querySnapshot = await getDocs(collection(db, 'calendar'))
+      const tempArray: any[] = []
+      querySnapshot.forEach((doc: any) => {
+          tempArray.push(doc.data())
+      })
+
+      setActivities(tempArray);
+    })();
+
   }
 
   const updateTitle = (e: any) => {
@@ -233,12 +284,12 @@ const AdminHandleActivity = () => {
                         {
                           editActivity.text.length > 0 ?
                           <Box sx={{ display: 'flex', justifyContent: 'space-evenly', width: '100%' }}>
-                            <Button>Ta bort</Button>
+                            <Button onClick={ deleteActivity }>Ta bort</Button>
                             <Button onClick={ changeActivity }>Ändra</Button>
                           </Box>
                           :
                           <Box sx={{ display: 'flex', justifyContent: 'space-evenly', width: '100%' }}>
-                            <Button>Skapa</Button>
+                            <Button onClick={ createActivity }>Skapa</Button>
                           </Box>
                         }
 

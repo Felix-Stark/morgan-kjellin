@@ -32,8 +32,7 @@ const DashBoard = ({itemdata, setfirebaseArray}: Props) => {
 
     const textRef = doc(db, 'posts', `${ itemdata.id }`);
 
-    (
-      async () => {
+    (async () => {
         await updateDoc(textRef, {
           content: `${ inputContent }`,
           title: `${ inputTitle }`

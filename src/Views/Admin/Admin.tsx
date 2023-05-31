@@ -13,6 +13,7 @@ type Activities = {
   title: string;
   text: string;
   time: string;
+  id: string;
 }
 
 type ClickedDate = {
@@ -25,6 +26,7 @@ type EditActivity = {
   title: string;
   time: string;
   text: string;
+  id: string;
 }
 
 const Admin = () => {
@@ -54,8 +56,8 @@ const Admin = () => {
       setClickedDate({ currentYear: currentYear, monthIndex: monthIndex, index: index })
     }
 
-    const editActivityProps = (activityTitle: string, activityTime: string, activityText: string) => {
-      setEditActivity({ title: activityTitle, time: activityTime, text: activityText });
+    const editActivityProps = (activityTitle: string, activityTime: string, activityText: string, activityId: string) => {
+      setEditActivity({ title: activityTitle, time: activityTime, text: activityText, id: activityId });
     }
 
 
@@ -79,7 +81,7 @@ const Admin = () => {
             <AdminSidebar signedIn={signedIn} setSignedIn={setSignedIn} />
           </Grid>
           <Grid item xs={9} sx={{}}>
-            <Outlet context={{activities, activityProps, clickedDate, editActivityProps, editActivity}}/>
+            <Outlet context={{activities, activityProps, clickedDate, editActivityProps, editActivity, setActivities}}/>
           </Grid>
         </Grid>
       )}

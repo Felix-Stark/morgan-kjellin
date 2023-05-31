@@ -18,6 +18,7 @@ type Activities = {
     title: string;
     text: string;
     time: string;
+    id: string;
 }
 
 type OutletProps = {

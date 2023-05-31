@@ -6,6 +6,7 @@ type Activities = {
     title: string;
     text: string;
     time: string;
+    id: string;
 }
 
 type ClickedDate = {
@@ -18,7 +19,7 @@ type OutletProps = {
     activities: Activities[];
     activityProps: (currentYear: number, monthIndex: number, index: number) => void;
     clickedDate: ClickedDate;
-    editActivityProps: (activityTitle: string, activityTime: string, activityText: string) => void;
+    editActivityProps: (activityTitle: string, activityTime: string, activityText: string, activityId: string) => void;
 }
 
 const AdminActivities = () => {
@@ -28,9 +29,9 @@ const AdminActivities = () => {
     const {activities, clickedDate, editActivityProps}: OutletProps = useOutletContext<OutletProps>();
     console.log(clickedDate);
 
-    const gotoActivity = (activityTitle: string, activityTime: string, activityText: string) => {
+    const gotoActivity = (activityTitle: string, activityTime: string, activityText: string, activityId: string) => {
         
-        editActivityProps(activityTitle, activityTime, activityText);
+        editActivityProps(activityTitle, activityTime, activityText, activityId);
 
         navigate('/admin/kalender/skapa-aktivitet');
     }
@@ -53,13 +54,13 @@ const AdminActivities = () => {
 
                         if (activity.date == `${ clickedDate.currentYear }-`+`${ clickedDate.monthIndex + 1 }-`+`${ clickedDate.index }`) {
 
-                            return <Box key={i} onClick={ () => gotoActivity(activity.title, activity.time, activity.text) } width={'80%'} height={'3rem'} textAlign={'center'} margin={'1rem'} sx={{backgroundColor: '#FFFFFF'}}> {activity.time} { activity.title } </Box>
+                            return <Box key={i} onClick={ () => gotoActivity(activity.title, activity.time, activity.text, activity.id) } width={'80%'} height={'3rem'} textAlign={'center'} margin={'1rem'} sx={{backgroundColor: '#FFFFFF'}}> {activity.time} { activity.title } </Box>
 
                         }
 
                     })
                 }
-                <Button variant="contained" onClick={() => gotoActivity('', '', '')}
+                <Button variant="contained" onClick={() => gotoActivity('', '', '', '')}
                     sx={{ 
                         backgroundColor: '#BA1D37',
                         width: '12rem',
