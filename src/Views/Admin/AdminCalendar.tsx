@@ -83,7 +83,6 @@ const AdminCalendar = () => {
 
     }
 
-    console.log('nya datumet efter bytt år blir:', currentDate, 'månaden är fortf: ', monthIndex, currentMonth, 'nya dagar:', currentDays)
 
     return(
         <Container disableGutters style={{ maxWidth: '100vw', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
