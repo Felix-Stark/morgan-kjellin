@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   TextField,
@@ -6,8 +6,11 @@ import {
   Button,
   TextareaAutosize,
   Typography,
+  useMediaQuery,
+  Dialog, DialogTitle, DialogActions
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import emailjs from "emailjs-com";
 
 const reasons = ["Boka föreläsning", "Boka möte", "Samarbete", "Annat"];
 
@@ -25,11 +28,20 @@ interface ContactProps {
   setContent: React.Dispatch<React.SetStateAction<React.ReactNode>>;
 }
 
+
 export const Contact: React.FC<ContactProps> = ({
   handleModalOpen,
   setTitle,
   setContent,
 }) => {
+  const [ open, setOpen ] = useState<boolean>(false);
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const width = useMediaQuery("(max-width:600px)") ? "xs" : "md";
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -61,7 +73,29 @@ export const Contact: React.FC<ContactProps> = ({
       </Typography>
     );
     handleModalOpen();
-    clearForm();
+   
+    emailjs
+      .send(
+        "service_auwdql8",
+        "template_17rbltb",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone_number: formData.phoneNumber,
+          reason: formData.reason,
+          message: formData.message,
+        },
+        "hbA17LMwp8EWGpDL2"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          clearForm();
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   function clearForm() {
@@ -111,12 +145,12 @@ export const Contact: React.FC<ContactProps> = ({
     },
   });
 
+  const handleClose = () => {
+    setOpen(false);
+  }
+
   return (
-    <Box
-      display="flex"
-      alignItems="center"
-      sx={{ minHeight: "95vh", height: "100%" }}
-    >
+    <Box display="flex" alignItems="center" sx={{ minHeight: "90vh" }}>
       <Box
         display="flex"
         flexDirection={{ xs: "column", md: "row" }}
@@ -127,6 +161,8 @@ export const Contact: React.FC<ContactProps> = ({
           maxWidth: "1100px",
           margin: "0 auto",
           borderRadius: "4px",
+          marginTop: { xs: "1rem", md: "0" },
+          marginBottom: { xs: "18rem", md: "0" },
         }}
       >
         <Box
@@ -139,23 +175,19 @@ export const Contact: React.FC<ContactProps> = ({
             maxWidth: "1100px",
             backgroundColor: "primary.main",
             color: "white",
-            borderRadius: {
-              xs: 0,
-              md: "1rem 0 0 1rem",
-              lg: "1rem 0 0 1rem",
-              xl: "1rem 0 0 1rem",
-            },
+            borderRadius: width === "xs" ? 0 : 4,
+            borderTopRightRadius: 0,
+            borderBottomRightRadius: 0,
             padding: { xs: "16px", md: "32px" },
-            width: { md: "40%" },
+            width: { xs: "90%", md: "40%" },
           }}
         >
-          <Typography variant="h2" sx={{ padding: { xs: "6px", md: "12px" } }}>
+          <Typography variant="h2" sx={{ padding: { xs: "12px", md: "24px" } }}>
             Vad kul att du vill nå ut till mig!
           </Typography>
 
-          <Typography variant="h3" sx={{ padding: { xs: "6px", md: "12px" } }}>
-            Vänligen fyll i de obligatoriska fälten så svarar jag inom två
-            arbetsdagar
+          <Typography variant="h3" sx={{ padding: { xs: "12px", md: "24px" } }}>
+            Vänligen fyll i de obligatoriska fälten så svarar jag inom två arbetsdagar
           </Typography>
         </Box>
         <ThemeProvider theme={theme}>
@@ -164,16 +196,16 @@ export const Contact: React.FC<ContactProps> = ({
             flexDirection={{ xs: "column", md: "row" }}
             alignItems="center"
             sx={{
-              width: "100%",
               height: { xs: "100%", sm: "100%", md: "700px" },
               maxWidth: "1100px",
               margin: "0 auto",
-              borderRadius: {
+              borderRadius: width === "xs" ? 0 : {
                 xs: 0,
                 md: "0 1rem 1rem 0",
                 lg: "0 1rem 1rem 0",
                 xl: "0 1rem 1rem 0",
               },
+              width: { xs: "90%", md: "80%" },
             }}
           >
             <Box
@@ -186,7 +218,7 @@ export const Contact: React.FC<ContactProps> = ({
                 height: "100%",
                 maxWidth: "800px",
                 margin: "0 auto",
-                borderRadius: {
+                borderRadius: width === "xs" ? 0 : {
                   xs: 0,
                   md: "0 1rem 1rem 0",
                   lg: "0 1rem 1rem 0",
@@ -198,11 +230,12 @@ export const Contact: React.FC<ContactProps> = ({
               <Box
                 display="flex"
                 flexDirection={{ xs: "column", md: "row" }}
-                sx={{ height: "100%" }}
+                sx={{ height: "80%" }}
               >
                 <Box
                   display="flex"
                   flexDirection="column"
+                  alignItems="center"
                   justifyContent="center"
                   sx={{
                     backgroundColor: "rgba(52, 52, 52)",
@@ -216,7 +249,6 @@ export const Contact: React.FC<ContactProps> = ({
                     variant="filled"
                     InputLabelProps={{
                       style: {
-                        // Your custom styles for the label tag
                         color: "black",
                         fontSize: "18px",
                         fontWeight: "bold",
@@ -235,7 +267,6 @@ export const Contact: React.FC<ContactProps> = ({
                     variant="filled"
                     InputLabelProps={{
                       style: {
-                        // Your custom styles for the label tag
                         color: "black",
                         fontSize: "18px",
                         fontWeight: "bold",
@@ -255,7 +286,6 @@ export const Contact: React.FC<ContactProps> = ({
                     variant="filled"
                     InputLabelProps={{
                       style: {
-                        // Your custom styles for the label tag
                         color: "black",
                         fontSize: "18px",
                         fontWeight: "bold",
@@ -274,7 +304,6 @@ export const Contact: React.FC<ContactProps> = ({
                     label="Anledning för kontakt"
                     InputLabelProps={{
                       style: {
-                        // Your custom styles for the label tag
                         color: "black",
                         fontSize: "18px",
                         fontWeight: "bold",
@@ -342,20 +371,27 @@ export const Contact: React.FC<ContactProps> = ({
                   variant="contained"
                   sx={{
                     backgroundColor: "#BA1D37",
-                    color: "#FAFAFA",
                     fontWeight: 700,
                     borderRadius: 2,
                     py: 2,
                     px: 8,
+                    '&:hover': {backgroundColor: '#BA1D60'}
                   }}
+                  onClick={ () => setOpen(true)}
                 >
-                  Submit
+                  Skicka
                 </Button>
               </Box>
             </Box>
           </Box>
         </ThemeProvider>
       </Box>
+      <Dialog open={ open } onClose={ handleClose }>
+        <DialogTitle>Din kontakt förfrågan har skickats</DialogTitle>
+        <DialogActions sx={{ display:"flex" , justifyContent:"center"}}>
+          <Button onClick={ handleClose } sx={{ bgcolor: "red", color: "white" }}>Stäng</Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };

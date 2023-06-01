@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Header } from "./components/regularComponents/header/Header";
@@ -12,7 +12,21 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Blog } from "./Views/Blog/Blog";
 import { GlobalStyles } from "@mui/system";
 import "./MUI-Themes/theme.types";
+<<<<<<< HEAD
 import Modal from "./components/regularComponents/modal/Modal";
+=======
+import Admin from "./Views/Admin/Admin";
+import AdminLogin from "./components/adminComponents/login/AdminLogin";
+import AdminCalendar from "./Views/Admin/AdminCalendar";
+import AdminActivities from "./Views/Admin/AdminActivities";
+import AdminHandleActivity from "./Views/Admin/AdminHandleActivity";
+import UpdateText from "./Views/Admin/UpdateText";
+import DashBoard from "./Views/Admin/AdminDashBoard";
+import { db } from '../firebase/firebase-config';
+import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore"; 
+
+import { useLocation } from 'react-router'
+>>>>>>> dev
 
 const themeOptions: ThemeOptions = {
   palette: {
@@ -56,9 +70,49 @@ const themeOptions: ThemeOptions = {
 const globalTheme = createTheme(themeOptions);
 
 function App() {
+<<<<<<< HEAD
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<React.ReactNode>(<></>);
+=======
+  const [adminView, setAdminView] = useState(true);
+  const [firebaseArray, setfirebaseArray] = useState<any>('');
+  const [ calendarArray, setCalendarArray ] = useState<any>([]);
+  const [itemdata, setItemData] = useState<any>();
+  const location = useLocation();
+
+  useEffect(() => {
+
+    (async () => {
+      const querySnapshot = await getDocs(collection(db, 'posts'))
+      const tempArray: any[] = []
+      querySnapshot.forEach((doc: any) => {
+          tempArray.push(doc.data())
+      })
+
+      setfirebaseArray(tempArray);
+    })();
+    
+  }, []);
+
+  useEffect(() => {
+    if( location.pathname.includes('/admin')) {
+      setAdminView(true);
+    } else {
+      setAdminView(false)
+    }
+  }, [location])
+
+
+  const  getTextProps = (itemTitle:any,itemContent:any,itemLocation:any, itemId: any) => {
+
+    setItemData({title: itemTitle, content: itemContent, location: itemLocation, id: itemId })
+    
+  }
+
+
+  return (
+>>>>>>> dev
 
   const handleModalOpen = () => {
     setOpen(true);
@@ -78,6 +132,7 @@ function App() {
         }}
       />
       <div className="App">
+        {/* { adminView ? '' : <Header />} */} 
         <Header />
         <Modal
           open={open}
@@ -86,6 +141,7 @@ function App() {
           title={title}
         />
         <Routes>
+<<<<<<< HEAD
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route
@@ -99,9 +155,22 @@ function App() {
             }
           />
           <Route path="/arbeta-med-mig" element={<Work />} />
+=======
+          <Route path="/" element={<Home firebaseArray={firebaseArray}/>} />
+          <Route path="/about" element={<About firebaseArray={firebaseArray} />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/arbeta-med-mig" element={<Work firebaseArray={firebaseArray} />} />
+>>>>>>> dev
           <Route path="/blog" element={<Blog />} />
+          <Route path="/admin" element={<Admin />}>
+            <Route path="kalender" element={ <AdminCalendar /> } />
+            <Route path="kalender/aktiviteter" element={ <AdminActivities/> } />
+            <Route path="kalender/skapa-aktivitet" element={ <AdminHandleActivity/> } />
+            <Route path="updatetext" element={ <UpdateText getTextProps={getTextProps} firebaseText={firebaseArray}/>} />
+            <Route path="dashboard" element={ <DashBoard itemdata={itemdata} setfirebaseArray={setfirebaseArray}/>} />
+          </Route>
         </Routes>
-        <Footer />
+        { adminView ? '' : <Footer />}
       </div>
     </ThemeProvider>
   );

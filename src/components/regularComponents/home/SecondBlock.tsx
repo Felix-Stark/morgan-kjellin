@@ -3,10 +3,13 @@ import CardMedia from '@mui/material/CardMedia'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import { useTheme } from '@mui/material/styles'
-import portrait from '../../../assets/home-block2.png'
+import crossroads from '../../../assets/home-crossroads.png'
 
+type Props = {
+  firebaseArray: any;
+}
 
-const SecondBlock = () => {
+const SecondBlock = ({firebaseArray}: Props) => {
 	const theme = useTheme();
   return (
     <Grid
@@ -15,8 +18,8 @@ const SecondBlock = () => {
       bgcolor={"background.paper"}
       justifyContent={"center"}
       spacing={8}
-      marginTop={"3rem"}
-	  display={'flex'}
+
+      display={"flex"}
     >
       <Grid
         item
@@ -33,21 +36,18 @@ const SecondBlock = () => {
           padding={"1rem"}
         >
           <Typography color={"#fff"} variant="h3">
-            Världen är vid en Vändpunkt
+          { firebaseArray.length > 0 ? firebaseArray[5].title : ''}
           </Typography>
-          <Typography color={"#fff"} variant="subtitle1">
-            Vi ser oftare och oftare att saker vi gjort tidigare inte fungerat.
-            Om världen ska ändra får du sluta agera som du inte är av
-            betydelse...
+          <Typography color={"#fff"} variant="subtitle1">{ firebaseArray.length > 0 ? firebaseArray[5].content : ''}
           </Typography>
         </Box>
       </Grid>
-      <Grid
-        item
-        md={5}
-
-      >
-        <CardMedia component={"img"} image={portrait} sx={{ marginTop: '-6rem'}} />
+      <Grid item md={5}>
+        <CardMedia
+          component={"img"}
+          image={crossroads}
+          sx={{ marginTop: "-6rem" }}
+        />
       </Grid>
     </Grid>
   );

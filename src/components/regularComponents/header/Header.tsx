@@ -11,7 +11,9 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
+import { Drawer } from "@mui/material";
 
+<<<<<<< HEAD
 const pagesLeft = [
   { label: "STARTSIDA", path: "/" },
   { label: "OM MIG", path: "/about" },
@@ -21,6 +23,18 @@ const pagesRight = [
   { label: "BLOGG", path: "/blog" },
   { label: "KONTAKT", path: "/contact" },
   { label: "BOKA MÖTE", path: "/meeting" },
+=======
+
+const pagesLeft = [ 
+  {label: "STARTSIDA", path: "/"},
+  {label: "OM MIG", path: "/about"},
+];
+const pagesRight = [ 
+  {label: "ARBETA MED MIG", path: "/arbeta-med-mig"},
+  // {label: "BLOGG", path: "/blog"},
+  {label: "KONTAKT", path: "/contact"},
+  // {label: "BOKA MÖTE", path: "/meeting"},
+>>>>>>> dev
 ];
 
 export const Header = () => {
@@ -37,6 +51,7 @@ export const Header = () => {
   };
 
   return (
+<<<<<<< HEAD
     <AppBar
       position="static"
       sx={{ backgroundColor: "bgWhite.main", minHeight: "5vh" }}
@@ -51,6 +66,12 @@ export const Header = () => {
       >
         <Toolbar>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
+=======
+    <AppBar  position="static" sx={{background: "#F6F6F6", width:"100%" }}>
+      <Container  maxWidth="lg" sx={{display:"flex", justifyContent: "center", alignContent: "center" }}>
+        <Toolbar disableGutters={true}>
+        <Box sx={{ display: { xs: "flex", md: "none"} }}>
+>>>>>>> dev
             <Tooltip title="Öppna meny">
               <IconButton
                 sx={{ m: 0 }}
@@ -63,14 +84,15 @@ export const Header = () => {
                 <MenuIcon sx={{ color: "#BA1D37" }} />
               </IconButton>
             </Tooltip>
-            <Menu
+            <Drawer
               id="nav-menu"
-              anchorEl={anchorElNav}
+              PaperProps={{ sx:{display:"flex",alignItems:"center",paddingTop:"5vh", width:"50vw",}}}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
             >
               {pagesLeft.map((pageL) => (
                 <MenuItem
+                  sx={{marginBottom:"2vh"}}
                   key={pageL.label}
                   onClick={handleCloseNavMenu}
                   component={Link}
@@ -81,6 +103,7 @@ export const Header = () => {
               ))}
               {pagesRight.map((pageR) => (
                 <MenuItem
+                  sx={{marginBottom:"2vh"}}
                   key={pageR.label}
                   onClick={handleCloseNavMenu}
                   component={Link}
@@ -89,19 +112,29 @@ export const Header = () => {
                   {pageR.label}
                 </MenuItem>
               ))}
+<<<<<<< HEAD
             </Menu>
           </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+=======
+            </Drawer>
+            </Box>
+          <Box sx={{ display: { xs: "none", md: "flex" }, paddingRight: "1.5rem" }}>
+>>>>>>> dev
             {pagesLeft.map((pageL) => (
               <Button
                 key={pageL.label}
                 color="inherit"
+<<<<<<< HEAD
                 sx={{
                   textTransform: "none",
                   color: "#BA1D37",
                   fontWeight: "bold",
                   paddingRight: "1.5rem",
                 }}
+=======
+                sx={{ textTransform: "none", color: "#BA1D37", fontWeight: "bold" }}
+>>>>>>> dev
                 component={Link}
                 to={pageL.path}
               >

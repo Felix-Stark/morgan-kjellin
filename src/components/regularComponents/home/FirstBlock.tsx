@@ -1,33 +1,55 @@
-import React from 'react'
-import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import CardMedia from "@mui/material/CardMedia";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import crossRoadsImg from '../../../assets/home-crossroads.png'
+import ReactPlayer from "react-player";
+import video from '../../../assets/MORGAN-website-video.mp4'
+import { useState } from "react";
+
+type Props = {
+  firebaseArray: any;
+}
 
 
-
-
-const FirstBlock = () => {
+const FirstBlock = ({firebaseArray}: Props) => {
 
 
   return (
-    <Grid container minHeight={"100vh"} justifyContent={"center"} style={{ overflow: 'hidden'}} spacing={8} >
-      <Grid item  md={5} sx={{ position: 'relative' }}>
-        <CardMedia component={"img"} image={crossRoadsImg} style={{ marginTop: '-2rem'}} />
+    <Grid container minHeight={"100vh"} justifyContent={"center"} alignItems={'center'} spacing={8}>
+      <Grid item xs={10} sm={8} md={5}>
+          <ReactPlayer
+            light={true}
+            width={"100%"}
+            height={'90%'}
+            url={video}
+            controls
+            playing
+            style={{ backgroundColor: "#161616", marginBottom: '1.5rem' }}
+          />
       </Grid>
-      <Grid item md={5} display={'flex'} alignItems={'center'} justifyContent={'center'}>
-        <Box height={'50%'} display={'flex'} flexDirection={'column'} justifyContent={'center'} padding={'1rem'}>
-			<Typography variant='h3'>
-				Världen är vid en Vändpunkt
-			</Typography>
-			<Typography variant='subtitle1'>
-				Vi ser oftare och oftare att saker vi gjort tidigare inte fungerat.
-				Om världen ska ändra får du sluta agera som du inte är av betydelse...
-			</Typography>
-		</Box>
+      <Grid
+        item
+        md={5}
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        height={"inherit"}
+      >
+        <Box
+          height={"50%"}
+          display={"flex"}
+          flexDirection={"column"}
+          justifyContent={"center"}
+          padding={"1rem"}
+        >
+          <Typography variant="h3">
+            {firebaseArray.length > 0 ? firebaseArray[3].title : ""}
+          </Typography>
+          <Typography variant="subtitle1" sx={{ fontSize: {xs: '1rem'}}}>
+            {firebaseArray.length > 0 ? firebaseArray[3].content : ""}
+          </Typography>
+        </Box>
       </Grid>
     </Grid>
   );
