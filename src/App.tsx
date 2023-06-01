@@ -12,9 +12,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Blog } from "./Views/Blog/Blog";
 import { GlobalStyles } from "@mui/system";
 import "./MUI-Themes/theme.types";
-<<<<<<< HEAD
 import Modal from "./components/regularComponents/modal/Modal";
-=======
 import Admin from "./Views/Admin/Admin";
 import AdminLogin from "./components/adminComponents/login/AdminLogin";
 import AdminCalendar from "./Views/Admin/AdminCalendar";
@@ -26,7 +24,6 @@ import { db } from '../firebase/firebase-config';
 import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore"; 
 
 import { useLocation } from 'react-router'
->>>>>>> dev
 
 const themeOptions: ThemeOptions = {
   palette: {
@@ -70,11 +67,9 @@ const themeOptions: ThemeOptions = {
 const globalTheme = createTheme(themeOptions);
 
 function App() {
-<<<<<<< HEAD
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<React.ReactNode>(<></>);
-=======
   const [adminView, setAdminView] = useState(true);
   const [firebaseArray, setfirebaseArray] = useState<any>('');
   const [ calendarArray, setCalendarArray ] = useState<any>([]);
@@ -111,9 +106,6 @@ function App() {
   }
 
 
-  return (
->>>>>>> dev
-
   const handleModalOpen = () => {
     setOpen(true);
   };
@@ -141,26 +133,10 @@ function App() {
           title={title}
         />
         <Routes>
-<<<<<<< HEAD
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route
-            path="/contact"
-            element={
-              <Contact
-                handleModalOpen={handleModalOpen}
-                setTitle={setTitle}
-                setContent={setContent}
-              />
-            }
-          />
-          <Route path="/arbeta-med-mig" element={<Work />} />
-=======
           <Route path="/" element={<Home firebaseArray={firebaseArray}/>} />
           <Route path="/about" element={<About firebaseArray={firebaseArray} />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<Contact handleModalOpen={handleModalOpen} setTitle={setTitle} setContent={setContent} />} />
           <Route path="/arbeta-med-mig" element={<Work firebaseArray={firebaseArray} />} />
->>>>>>> dev
           <Route path="/blog" element={<Blog />} />
           <Route path="/admin" element={<Admin />}>
             <Route path="kalender" element={ <AdminCalendar /> } />
