@@ -221,6 +221,7 @@ export const Contact: React.FC = () => {
                 >
                   <TextField
                     name="name"
+                    autoComplete="name"
                     label="Namn"
                     variant="filled"
                     InputLabelProps={{

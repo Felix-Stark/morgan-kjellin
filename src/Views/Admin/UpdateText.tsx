@@ -5,10 +5,11 @@ import { useNavigate } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../firebase/firebase-config';
 import TextSection from '../../components/adminComponents/updateText/TextSection';
+import { ContentObject } from '../../Types/types';
 
 
 type Props = {
-  firebaseText: any;
+  firebaseText: ContentObject[];
   getTextProps: any;
 }
 
@@ -34,7 +35,7 @@ const UpdateText = ({firebaseText, getTextProps}: Props) => {
           <Grid item xs={3}></Grid>
         </Grid>
         <Grid item xs={10}>
-          { firebaseText.length > 0 ? firebaseText.map((item: any, index: any) => (
+          { firebaseText.length > 0 ? firebaseText.map((item, index) => (
             <TextSection key={index} title={item.title} location={item.location} content={item.content} id={item.id} getTextProps={getTextProps}/>
             
           )): ''}

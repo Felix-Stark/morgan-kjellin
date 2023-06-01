@@ -12,7 +12,7 @@ interface Props {
   }
 
 
-function TextSection({title,content,location, id, getTextProps}: Props) {
+function TextSection({title, content, location, id, getTextProps}: Props) {
     const navigate = useNavigate();
 
 

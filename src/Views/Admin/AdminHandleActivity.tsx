@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { useOutletContext, useNavigate } from 'react-router-dom';
 import { collection, deleteDoc, doc, getDocs, setDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../firebase/firebase-config';
+import { ContentObject } from '../../Types/types';
 
 
 type Activities = {
@@ -157,12 +158,12 @@ const AdminHandleActivity = () => {
 
     (async () => {
       const querySnapshot = await getDocs(collection(db, 'calendar'))
-      const tempArray: any[] = []
-      querySnapshot.forEach((doc: any) => {
-          tempArray.push(doc.data())
+      const tempArray: Activities[] = []
+      querySnapshot.forEach((doc) => {
+          tempArray.push(doc.data() as Activities)
       })
 
-      setActivities(tempArray);
+      setActivities(tempArray as Activities[]);
     })();
 
   }

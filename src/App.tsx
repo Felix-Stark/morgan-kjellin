@@ -20,8 +20,8 @@ import AdminHandleActivity from "./Views/Admin/AdminHandleActivity";
 import UpdateText from "./Views/Admin/UpdateText";
 import DashBoard from "./Views/Admin/AdminDashBoard";
 import { db } from '../firebase/firebase-config';
-import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore"; 
-
+import { DocumentData, collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore"; 
+import { ContentObject } from './Types/types'
 import { useLocation } from 'react-router'
 
 const themeOptions: ThemeOptions = {
@@ -67,25 +67,33 @@ const themeOptions: ThemeOptions = {
 
 
 const globalTheme = createTheme(themeOptions);
+
+
+
 function App() {
   const [adminView, setAdminView] = useState(true);
-  const [firebaseArray, setfirebaseArray] = useState<any>('');
+  const [firebaseArray, setfirebaseArray] = useState<ContentObject[]>([]);
   const [ calendarArray, setCalendarArray ] = useState<any>([]);
-  const [itemdata, setItemData] = useState<any>();
+  const [itemdata, setItemData] = useState<ContentObject>({
+    id: '',
+    title: '',
+    content: '',
+    location: ''
+  });
   const location = useLocation();
 
   useEffect(() => {
 
     (async () => {
       const querySnapshot = await getDocs(collection(db, 'posts'))
-      const tempArray: any[] = []
-      querySnapshot.forEach((doc: any) => {
+      const tempArray: DocumentData[] = []
+      querySnapshot.forEach((doc) => {
           tempArray.push(doc.data())
       })
 
-      setfirebaseArray(tempArray);
+      setfirebaseArray(tempArray as ContentObject[]);
     })();
-    
+    console.log(firebaseArray)
   }, []);
 
   useEffect(() => {
@@ -97,7 +105,7 @@ function App() {
   }, [location])
 
 
-  const  getTextProps = (itemTitle:any,itemContent:any,itemLocation:any, itemId: any) => {
+  const  getTextProps = (itemTitle: string, itemContent: string, itemLocation: string, itemId: string) => {
 
     setItemData({title: itemTitle, content: itemContent, location: itemLocation, id: itemId })
     
