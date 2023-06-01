@@ -83,8 +83,8 @@ export const Work = ({firebaseArray}: Props) => {
 
             <Box margin={0}
               sx={{
-                paddingTop: { xs: '4rem', sm: '4rem', md: '5rem' },
-                paddingBottom: { xs: '0rem', sm: '0rem', md: '4rem' },
+                paddingTop: { xs: '4rem', sm: '4rem', md: '0rem' },
+                paddingBottom: { xs: '0rem', sm: '0rem', md: '5rem' },
                 width: {sm: '100%', md: '50%'},
                 display: 'flex',
                 justifyContent: 'center',
@@ -111,7 +111,7 @@ export const Work = ({firebaseArray}: Props) => {
                 paddingBottom: { xs: '2rem', sm: '2rem', md: '4rem' }
               }}>
                 <Box sx={{width: {xs: '18rem', sm: '30rem', md: '20rem'}}}>
-                  <Typography variant="h2" sx={{marginTop: { xs: '5rem', sm: '5rem', md: '3rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[7].title : ''}</Typography>
+                  <Typography variant="h2" sx={{marginTop: { xs: '5rem', sm: '5rem', md: '5rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[7].title : ''}</Typography>
                   <Typography variant="h5" color="#BA1D37" sx={{ paddingTop: '0.5rem'}}>ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
                   <Typography variant="h6" paddingTop={'2rem'} sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}> { firebaseArray.length > 0 ? firebaseArray[7].content : ''} </Typography>
                   <Button variant="contained" onClick={ () => navigate('/contact') }
@@ -145,7 +145,7 @@ export const Work = ({firebaseArray}: Props) => {
                 borderRight: {xs: 'none', sm: 'none', md: '1px solid #BA1D37'}
               }}>
                 <Box sx={{width: {xs: '18rem', sm: '30rem', md: '20rem'}}}>
-                  <Typography variant="h2" sx={{paddingTop: {xs: '5rem', sm: '5rem', md: '3rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[9].title : ''}
+                  <Typography variant="h2" sx={{paddingTop: {xs: '5rem', sm: '5rem', md: '5rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[9].title : ''}
                   </Typography>
                   <Typography variant="h5" color="#BA1D37" sx={{ paddingTop: '0.5rem'}}>ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
                   <Typography variant="h6" paddingTop={'2rem'} sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>{ firebaseArray.length > 0 ? firebaseArray[9].content : ''}</Typography>
@@ -213,7 +213,7 @@ export const Work = ({firebaseArray}: Props) => {
                 borderLeft: {xs: 'none', sm: 'none', md: '1px solid #BA1D37'},
               }}>
                 <Box sx={{width: {xs: '18rem', sm: '30rem', md: '20rem'}}}>
-                  <Typography variant="h2" sx={{paddingTop: {xs: '2.5rem', sm: '2.5rem'}, md: '5rem', fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[10].title : ''}</Typography>
+                  <Typography variant="h2" sx={{paddingTop: {xs: '2.5rem', sm: '2.5rem', md: '5rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[10].title : ''}</Typography>
                   <Typography variant="h5" color="#BA1D37" sx={{ paddingTop: '0.5rem'}}>ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
                   <Typography variant="h6" paddingTop={'2rem'} sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>{ firebaseArray.length > 0 ? firebaseArray[10].content : ''}</Typography>
                   <Button variant="contained" onClick={ () => navigate('/contact') }
@@ -290,7 +290,7 @@ export const Work = ({firebaseArray}: Props) => {
                 paddingTop: { xs: '4rem', sm: '4rem', md: '5rem' },
                 paddingBottom: { xs: '0rem', sm: '0rem', md: '6rem' },
                 display: 'flex',
-                justifyContent: 'center',
+                justifyContent: 'flex-start',
                 alignItems: 'center',
                 flexDirection: 'column',
                 borderRight: {xs: 'none', sm: 'none', md: '1px solid #BA1D37'}
