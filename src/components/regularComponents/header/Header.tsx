@@ -13,17 +13,6 @@ import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import { Drawer } from "@mui/material";
 
-<<<<<<< HEAD
-const pagesLeft = [
-  { label: "STARTSIDA", path: "/" },
-  { label: "OM MIG", path: "/about" },
-  { label: "ARBETA MED MIG", path: "/arbeta-med-mig" },
-];
-const pagesRight = [
-  { label: "BLOGG", path: "/blog" },
-  { label: "KONTAKT", path: "/contact" },
-  { label: "BOKA MÖTE", path: "/meeting" },
-=======
 
 const pagesLeft = [ 
   {label: "STARTSIDA", path: "/"},
@@ -34,7 +23,6 @@ const pagesRight = [
   // {label: "BLOGG", path: "/blog"},
   {label: "KONTAKT", path: "/contact"},
   // {label: "BOKA MÖTE", path: "/meeting"},
->>>>>>> dev
 ];
 
 export const Header = () => {
@@ -51,27 +39,10 @@ export const Header = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <AppBar
-      position="static"
-      sx={{ backgroundColor: "bgWhite.main", minHeight: "5vh" }}
-    >
-      <Container
-        maxWidth="lg"
-        sx={{
-          display: "flex",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-        }}
-      >
-        <Toolbar>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-=======
     <AppBar  position="static" sx={{background: "#F6F6F6", width:"100%" }}>
       <Container  maxWidth="lg" sx={{display:"flex", justifyContent: "center", alignContent: "center" }}>
         <Toolbar disableGutters={true}>
         <Box sx={{ display: { xs: "flex", md: "none"} }}>
->>>>>>> dev
             <Tooltip title="Öppna meny">
               <IconButton
                 sx={{ m: 0 }}
@@ -112,29 +83,14 @@ export const Header = () => {
                   {pageR.label}
                 </MenuItem>
               ))}
-<<<<<<< HEAD
-            </Menu>
-          </Box>
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-=======
             </Drawer>
             </Box>
           <Box sx={{ display: { xs: "none", md: "flex" }, paddingRight: "1.5rem" }}>
->>>>>>> dev
             {pagesLeft.map((pageL) => (
               <Button
                 key={pageL.label}
                 color="inherit"
-<<<<<<< HEAD
-                sx={{
-                  textTransform: "none",
-                  color: "#BA1D37",
-                  fontWeight: "bold",
-                  paddingRight: "1.5rem",
-                }}
-=======
                 sx={{ textTransform: "none", color: "#BA1D37", fontWeight: "bold" }}
->>>>>>> dev
                 component={Link}
                 to={pageL.path}
               >
