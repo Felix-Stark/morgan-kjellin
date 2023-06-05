@@ -123,7 +123,6 @@ function App() {
         }}
       />
       <div className="App">
-        {/* { adminView ? '' : <Header />} */} 
         <Header />
         <Routes>
           <Route path="/" element={<Home firebaseArray={firebaseArray}/>} />

@@ -4,7 +4,7 @@ import { Outlet, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 import Grid from '@mui/material/Grid'
-import { onAuthStateChanged } from 'firebase/auth'
+import { Auth, onAuthStateChanged } from 'firebase/auth'
 import { auth, db } from '../../../firebase/firebase-config'
 import { collection, getDocs } from 'firebase/firestore'
 
@@ -31,11 +31,18 @@ type EditActivity = {
 
 const Admin = () => {
   const navigate = useNavigate()
-  const [signedIn, setSignedIn] = useState(true)
+  const [signedIn, setSignedIn] = useState<boolean>(false)
   const [ clickedDate, setClickedDate ] = useState<ClickedDate>();
   const [ editActivity, setEditActivity ] = useState<EditActivity>();
   const [ activities, setActivities ] = useState<Activities[]>();
-
+ 
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setSignedIn(true)
+    } else {
+      setSignedIn(false)
+    }
+  })
   useEffect(() => {
 
     (async () => {
@@ -49,6 +56,7 @@ const Admin = () => {
     })();
 
   }, []);
+
 
 
 
@@ -74,7 +82,7 @@ const Admin = () => {
       }}
     >
       {!signedIn && <AdminLogin />}
-      {/* <AdminSidebar /> kontrollerad import av AdminSidebar när man är inloggad */}
+
       {signedIn && (
         <Grid container sx={{}}>
           <Grid item xs={3} sx={{ bgcolor: '#333333' }}>
