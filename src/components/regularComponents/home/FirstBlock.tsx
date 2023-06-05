@@ -26,7 +26,7 @@ const FirstBlock = ({firebaseArray}: Props) => {
             url={video}
             controls
             playing
-            style={{ backgroundColor: "#161616", marginBottom: '1.5rem' }}
+            style={{ backgroundColor: "#161616", marginBottom: '1.5rem',marginTop: '1.5rem' }}
           />
       </Grid>
       <Grid
