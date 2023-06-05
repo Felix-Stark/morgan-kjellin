@@ -5,6 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import crossRoadsImg from '../../../assets/home-crossroads.png'
 import ReactPlayer from "react-player";
 import video from '../../../assets/MORGAN-website-video.mp4'
+import snapShot from '../../../assets/morgansnapshot.png'
 import { useState } from "react";
 
 type Props = {
@@ -19,9 +20,9 @@ const FirstBlock = ({firebaseArray}: Props) => {
     <Grid container minHeight={"100vh"} justifyContent={"center"} alignItems={'center'} spacing={8}>
       <Grid item xs={10} sm={8} md={5}>
           <ReactPlayer
-            light={true}
+            light={snapShot}
             width={"100%"}
-            height={'90%'}
+            height={"60vh"}
             url={video}
             controls
             playing
