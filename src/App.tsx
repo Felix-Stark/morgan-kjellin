@@ -73,7 +73,6 @@ const globalTheme = createTheme(themeOptions);
 function App() {
   const [adminView, setAdminView] = useState(true);
   const [firebaseArray, setfirebaseArray] = useState<ContentObject[]>([]);
-  const [ calendarArray, setCalendarArray ] = useState<any>([]);
   const [itemdata, setItemData] = useState<ContentObject>({
     id: '',
     title: '',
