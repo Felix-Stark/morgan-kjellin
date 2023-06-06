@@ -82,6 +82,7 @@ export const Home = ({firebaseArray}: Props) => {
             </CardMedia>
 
           </Button>
+          
       <Hero />
 			<FirstBlock firebaseArray={firebaseArray}/>
 			<SecondBlock firebaseArray={firebaseArray}/>
