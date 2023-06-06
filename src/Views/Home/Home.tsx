@@ -72,7 +72,7 @@ export const Home = ({firebaseArray}: Props) => {
   return (
     <ThemeProvider theme={theme}>
 		<Grid rowGap={'4rem'} style={{ background: 'background.default' }} display={'flex'} flexDirection={'column'}>
-			<Button variant="contained" onClick={ scrollToTop } 
+			  <Button variant="contained" onClick={ scrollToTop } 
            sx={{ zIndex: '1', width: {xs: '4rem', sm: '4rem', md: '5rem'}, height: {xs: '4rem', sm: '4rem', md: '5rem'}, borderRadius: '50%', backgroundColor: '#BA1D37', position: 'fixed',
            margin: '5rem', bottom: '-2rem', right: '-2rem', '&:hover': {backgroundColor: '#BA1D60'} }}>
 
@@ -81,7 +81,7 @@ export const Home = ({firebaseArray}: Props) => {
             width: {xs: '2rem', sm: '2rem', md: '2.5rem'}, height: {xs: '2rem', sm: '2rem', md: '2.5rem'} } } >
             </CardMedia>
 
-          </Button>
+        </Button>
       <Hero />
 			<FirstBlock firebaseArray={firebaseArray}/>
 			<SecondBlock firebaseArray={firebaseArray}/>

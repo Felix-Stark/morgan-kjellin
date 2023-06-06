@@ -46,6 +46,15 @@ export const About = ({firebaseArray}: Props) => {
       </Typography>
        <Typography variant="h4" sx={{  marginBottom:"1rem", marginTop: "1rem", fontStyle:"italic"}}>“FÖRÄNDRING ÄR MÖJLIGT FÖR ALLA!”</Typography>
     </Paper>
+    <Box sx={{ boxShadow: 3 , display: 'flex', marginBottom:"5vh",flexDirection:{ xs: "column-reverse", md: "row"}, justifyContent: 'space-between'}}>
+      <Paper sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#342C39"}}>
+        <Typography variant="h2" sx={{  marginBottom:"2vh"}}>{ firebaseArray.length > 0 ? firebaseArray[0].title : ''}</Typography>
+        <Typography variant="h5" sx={{ fontSize: '1.1em', margin: "auto"}}>
+        { firebaseArray.length > 0 ? firebaseArray[0].content : ''}
+        </Typography>
+      </Paper>
+      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 400 },}} alt="bild"src={lecturePic}/>
+    </Box>
     
     <Button variant="contained" onClick={ () => navigate('/contact') }
                   sx={{ 
@@ -59,3 +68,7 @@ export const About = ({firebaseArray}: Props) => {
                     BOKA MIG FÖR EN FÖRELÄSNING!</Button>
   </Container>
 };
+
+
+
+

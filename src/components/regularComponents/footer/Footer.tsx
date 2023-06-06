@@ -55,7 +55,7 @@ export const Footer = () => {
               
               <IconButton
                 component="a"
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/in/morgan-kjellin-9346667a/?originalSubdomain=se"
                 target="_blank"
                 rel="noopener"
                 aria-label="linkedin"
@@ -102,7 +102,7 @@ export const Footer = () => {
                   color: '#FFFFFF',
                   fontSize: '1.1rem',
                 }, }}>
-              <Link to="mailto:kontakt@morgankjellin.com" style={{ color: '#CFCFCF', textDecoration: 'none' }}>
+              <Link to="mailto:kontaktmorgankjellin@gmail.com" style={{ color: '#CFCFCF', textDecoration: 'none' }}>
                 kontaktmorgankjellin@gmail.com
               </Link>
             </Typography>

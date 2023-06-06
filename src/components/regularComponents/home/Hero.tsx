@@ -11,7 +11,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const Hero = () => {
 	
   return (
-    <Grid container sx={{display: { xs: 'none', sm: 'flex'}}}>
+    <Grid container sx={{ display: { xs: 'none', sm: 'flex'} }}>
       <CardMedia
         component={"img"}
         image={heroImg}
