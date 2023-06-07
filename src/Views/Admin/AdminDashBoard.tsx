@@ -66,8 +66,8 @@ const DashBoard = ({itemdata, setfirebaseArray}: Props) => {
         </Grid>
         <Grid item container xs={10} sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", textAlign: "center", marginBottom: "1vh" }}>
         </Grid>
-        <Grid item container xs={10} sx={{ display: "flex", justifyContent: "center", alignItems: "center", textAlign: "center", bgcolor: "#333333", marginBottom: "1rem" }}>
-          <Grid item xs={4} sx={{ marginRight: "1rem" }}>
+        <Container sx={{ display: "flex", flexDirection: 'column', alignItems: "center", bgcolor: "#333333", marginBottom: "1rem" }}>
+          <Container sx={{ marginRight: "1rem" }}>
             <Typography variant="h4" color="white">Titel</Typography>
             { itemdata  ?<TextField
               variant="filled"
@@ -75,7 +75,7 @@ const DashBoard = ({itemdata, setfirebaseArray}: Props) => {
               value={ inputTitle }
               onChange={ (e: any) => handleTitleInput(e) }
               inputProps={{ style: {color: "black"}}}
-              sx={{ bgcolor: "white"}}
+              sx={{ width: '25rem', bgcolor: "white"}}
               InputLabelProps={{
                 style: {
                   color: "black",
@@ -85,8 +85,8 @@ const DashBoard = ({itemdata, setfirebaseArray}: Props) => {
               }}
             /> : ''}
             
-          </Grid>
-          <Grid item xs={4} sx={{marginTop: "1rem"}}>
+          </Container>
+          <Container sx={{marginTop: "1rem", marginBottom: '1rem'}}>
             <Typography variant="h4" color="white">Text</Typography>
             {itemdata ?<TextField
               variant="filled"
@@ -106,8 +106,8 @@ const DashBoard = ({itemdata, setfirebaseArray}: Props) => {
               }}
             /> : ''}
             
-          </Grid>
-        </Grid>
+          </Container>
+        </Container>
         <Grid item container xs={10} sx={{ display: "flex", justifyContent: "center", alignItems: "center", textAlign: "center",  marginBottom: "1rem" }}>
           <Grid item xs={12}>
             <Button onClick={ handleUpdate } variant="contained" sx={{ bgcolor: "red", color: "white" }}>Uppdatera</Button>
