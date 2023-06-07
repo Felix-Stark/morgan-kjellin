@@ -14,6 +14,7 @@ const AdminSidebar = ({ signedIn, setSignedIn }: HandleSignedIn) => {
 
   const handleSignout = async () => {
     await signOut(auth).then(() => {
+      setSignedIn(false)
       navigate('/admin');
     });
   };

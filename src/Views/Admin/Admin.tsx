@@ -36,14 +36,15 @@ const Admin = () => {
   const [ editActivity, setEditActivity ] = useState<EditActivity>();
   const [ activities, setActivities ] = useState<Activities[]>();
  
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
+  
+  useEffect(() => {
+    const user = auth.currentUser;
+    console.log('user i admin: ', user)
+    if ( user ) {
       setSignedIn(true)
     } else {
       setSignedIn(false)
     }
-  })
-  useEffect(() => {
 
     (async () => {
       const querySnapshot = await getDocs(collection(db, 'calendar'))
@@ -81,7 +82,7 @@ const Admin = () => {
         boxShadow: '4px 4px 10px gray',
       }}
     >
-      {!signedIn && <AdminLogin />}
+      {!signedIn && <AdminLogin setSignedIn={setSignedIn}/>}
 
       {signedIn && (
         <Grid container sx={{}}>
