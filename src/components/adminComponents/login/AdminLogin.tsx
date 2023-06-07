@@ -1,7 +1,8 @@
 import { auth, db } from "../../../../firebase/firebase-config";
 import {
+  setPersistence,
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
+  browserSessionPersistence,
 } from "firebase/auth";
 import {
   collection,
@@ -19,7 +20,11 @@ import Typography from "@mui/material/Typography"
 import TextField from "@mui/material/TextField"
 import { useState } from "react";
 
-const AdminLogin = () => {
+interface SignInProps {
+  setSignedIn: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const AdminLogin = ({setSignedIn}: SignInProps) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -35,7 +40,20 @@ const AdminLogin = () => {
     };
 
     const handleSignIn = async () => {
-      await signInWithEmailAndPassword(auth, email, password);
+      setPersistence(auth, browserSessionPersistence)
+      .then(() => {
+
+        return signInWithEmailAndPassword(auth, email, password);
+      })
+      .then(() => {
+        setSignedIn(true)
+      })
+      .catch((error) => {
+        if(error) {
+          alert(error.message)
+        }
+      });
+      
     };
 
   return (
