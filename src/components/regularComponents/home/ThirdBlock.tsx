@@ -25,7 +25,7 @@ const ThirdBlock = () => {
       justifyContent={"center"}
       rowGap={6}
     >
-      <Typography variant="h3">Välj ett alternativ...</Typography>
+      <Typography sx={{textAlign:"center"}} variant="h3">Välj ett alternativ...</Typography>
       <Grid
         container
         minHeight={"50vh"}
@@ -36,7 +36,7 @@ const ThirdBlock = () => {
         rowGap={5}
         marginBottom={10}
       >
-        <Grid item xs={8} sm={6} md={3} xl={2}>
+        <Grid item xs={10} sm={6} md={3} >
           <Card
             sx={{
               display: "flex",
@@ -66,7 +66,7 @@ const ThirdBlock = () => {
             </CardActions>
           </Card>
         </Grid>
-        <Grid item xs={8} sm={6} md={3} xl={2}>
+        <Grid item xs={10} sm={6} md={3} >
           <Card
             sx={{
               display: "flex",
@@ -96,7 +96,7 @@ const ThirdBlock = () => {
             </CardActions>
           </Card>
         </Grid>
-        <Grid item xs={8} sm={6} md={3} xl={2}>
+        <Grid item xs={10} sm={6} md={3} >
           <Card
             sx={{
               display: "flex",
