@@ -92,7 +92,7 @@ function App() {
 
       setfirebaseArray(tempArray as ContentObject[]);
     })();
-    console.log(firebaseArray)
+
   }, []);
 
   useEffect(() => {
