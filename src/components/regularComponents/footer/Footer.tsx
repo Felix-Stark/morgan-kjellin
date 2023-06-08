@@ -55,7 +55,7 @@ export const Footer = () => {
               
               <IconButton
                 component="a"
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/in/morgan-kjellin-9346667a/?originalSubdomain=se"
                 target="_blank"
                 rel="noopener"
                 aria-label="linkedin"
@@ -67,7 +67,7 @@ export const Footer = () => {
               >
                 <LinkedInIcon />
               </IconButton>
-              <IconButton
+              {/* <IconButton
                 component="a"
                 href="https://www.youtube.com/"
                 target="_blank"
@@ -80,7 +80,7 @@ export const Footer = () => {
                 }, }}
               >
                 <YouTubeIcon />
-              </IconButton>
+              </IconButton> */}
             </Box>
               <Typography variant="body2" sx={{'&:hover': {
                   cursor: 'default',
