@@ -3,6 +3,7 @@ import { Container, Paper, Typography, Box, Grid, Link, IconButton, Button, Text
 import EditIcon from '@mui/icons-material/Edit';
 import { db } from '../../../firebase/firebase-config';
 import { FieldValue, collection, doc, getDocs, updateDoc } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   itemdata: any;
@@ -14,6 +15,9 @@ const DashBoard = ({itemdata, setfirebaseArray}: Props) => {
   const [ inputTitle, setInputTitle ] = useState<string>('');
   const [ inputContent, setInputContent ] = useState<String>('');
   const [ open, setOpen ] = useState<boolean>(false);
+
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setInputTitle(itemdata.title);
@@ -54,7 +58,10 @@ const DashBoard = ({itemdata, setfirebaseArray}: Props) => {
   }
 
   const handleClose = () => {
+
     setOpen(false);
+    navigate('/admin/updatetext');
+
   }
 
   return (
