@@ -39,7 +39,7 @@ const Admin = () => {
   
   useEffect(() => {
     const user = auth.currentUser;
-    console.log('user i admin: ', user)
+
     if ( user ) {
       setSignedIn(true)
     } else {

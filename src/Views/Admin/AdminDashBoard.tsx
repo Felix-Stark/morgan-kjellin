@@ -102,7 +102,6 @@ const DashBoard = ({itemdata, setfirebaseArray}: Props) => {
               onChange={ (e: any) => handleContentInput(e) }
               multiline
               rows={10}
-              maxRows={20}
               inputProps={{ style: {color: "black"}}}
               sx={{ bgcolor: "white"}}
               InputLabelProps={{
