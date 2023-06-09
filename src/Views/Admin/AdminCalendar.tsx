@@ -83,6 +83,7 @@ const AdminCalendar = () => {
         }
 
     }
+    
 
 
     return(
@@ -91,13 +92,15 @@ const AdminCalendar = () => {
             <Box sx={{ backgroundColor: '#342C39', width: { md: '50rem' }, height: '5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
 
                 <Typography variant='h1' color='#FFFFFF' marginTop='2rem'> Kalender </Typography>
-                <InputLabel id='year_label' sx={{ position: 'absolute', right: '8.5rem', top: '3.5rem', color: '#FFFFFF' }}>År</InputLabel>
+                <InputLabel id='year_label' sx={{ position: 'absolute', right: '8.5rem', top: '3.5rem', color: '#F6F6F6' }}>År</InputLabel>
 
                 <Select
                     labelId='year_label'
                     value={`${selectedYear}`}
                     onChange={ handleYears }
-                    sx={{ position: 'absolute', right: '.5rem', top: '1rem', zIndex: '2', width: '5.5rem', height: '2.5rem', margin: '1.5rem', color: '#FFFFFF', border: '1px solid #F6F6F6' }}
+                    sx={{ position: 'absolute', right: '.5rem', top: '1rem', zIndex: '2', width: '5.5rem', height: '2.5rem', margin: '1.5rem', color: '#F6F6F6', border: '1px solid #F6F6F6', '.MuiSvgIcon-root ': {
+                        fill: "white !important",
+                      } }}
                     >
                         <MenuItem value={currentYear + 1}>{currentYear + 1}</MenuItem>
                         <MenuItem value={currentYear}>{currentYear}</MenuItem>

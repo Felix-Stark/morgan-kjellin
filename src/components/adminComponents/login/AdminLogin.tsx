@@ -71,6 +71,7 @@ const AdminLogin = ({setSignedIn}: SignInProps) => {
         type="email"
         onChange={handleEmailChange}
         value={email}
+        InputLabelProps={{ style: {color: '#F6F6F6' }}}
         sx={{ backgroundColor: "rgba(0,0,0,0.10)" }}
       />
       <TextField
@@ -79,9 +80,10 @@ const AdminLogin = ({setSignedIn}: SignInProps) => {
         type="password"
         onChange={handlePasswordChange}
         value={password}
+        InputLabelProps={{ style: {color: '#F6F6F6' }}}
         sx={{ backgroundColor: "rgba(0,0,0,0.10)" }}
       />
-      <Button style={{ backgroundColor: "#BA1D37" }} onClick={handleSignIn}>
+      <Button style={{ backgroundColor: "#BA1D37", color: '#F6F6F6' }} onClick={handleSignIn}>
         Logga in
       </Button>
     </Grid>
