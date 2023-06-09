@@ -27,7 +27,7 @@ const AdminActivities = () => {
     const navigate = useNavigate();
 
     const {activities, clickedDate, editActivityProps}: OutletProps = useOutletContext<OutletProps>();
-    console.log(clickedDate);
+
 
     const gotoActivity = (activityTitle: string, activityTime: string, activityText: string, activityId: string) => {
         
