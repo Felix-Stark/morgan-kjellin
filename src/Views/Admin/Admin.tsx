@@ -4,7 +4,7 @@ import { Outlet, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 import Grid from '@mui/material/Grid'
-import { onAuthStateChanged } from 'firebase/auth'
+import { Auth, onAuthStateChanged } from 'firebase/auth'
 import { auth, db } from '../../../firebase/firebase-config'
 import { collection, getDocs } from 'firebase/firestore'
 
@@ -31,12 +31,20 @@ type EditActivity = {
 
 const Admin = () => {
   const navigate = useNavigate()
-  const [signedIn, setSignedIn] = useState(true)
+  const [signedIn, setSignedIn] = useState<boolean>(false)
   const [ clickedDate, setClickedDate ] = useState<ClickedDate>();
   const [ editActivity, setEditActivity ] = useState<EditActivity>();
   const [ activities, setActivities ] = useState<Activities[]>();
-
+ 
+  
   useEffect(() => {
+    const user = auth.currentUser;
+    console.log('user i admin: ', user)
+    if ( user ) {
+      setSignedIn(true)
+    } else {
+      setSignedIn(false)
+    }
 
     (async () => {
       const querySnapshot = await getDocs(collection(db, 'calendar'))
@@ -49,6 +57,7 @@ const Admin = () => {
     })();
 
   }, []);
+
 
 
 
@@ -73,8 +82,8 @@ const Admin = () => {
         boxShadow: '4px 4px 10px gray',
       }}
     >
-      {!signedIn && <AdminLogin />}
-      {/* <AdminSidebar /> kontrollerad import av AdminSidebar när man är inloggad */}
+      {!signedIn && <AdminLogin setSignedIn={setSignedIn}/>}
+
       {signedIn && (
         <Grid container sx={{}}>
           <Grid item xs={3} sx={{ bgcolor: '#333333' }}>

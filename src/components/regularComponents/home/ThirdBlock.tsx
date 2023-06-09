@@ -25,7 +25,7 @@ const ThirdBlock = () => {
       justifyContent={"center"}
       rowGap={6}
     >
-      <Typography variant="h3">Välj ett alternativ...</Typography>
+      <Typography sx={{textAlign:"center"}} variant="h3">Välj ett alternativ...</Typography>
       <Grid
         container
         minHeight={"50vh"}
@@ -36,28 +36,30 @@ const ThirdBlock = () => {
         rowGap={5}
         marginBottom={10}
       >
-        <Grid item xs={8} sm={6} md={3} xl={2}>
+        <Grid item xs={10} sm={6} md={3} >
           <Card
             sx={{
               display: "flex",
               flexDirection: "column",
               borderRadius: "10px",
-              maxWidth: { xs: "30rem", sm:"35rem ", md: "40rem", lg: "45rem" },
+              minWidth: { md: '17rem' },
+              maxWidth: { xs: "25rem", md: "40rem", lg: "45rem" },
+              height: { md: '35rem', lg: '35rem' }
             }}
           >
-            <CardMedia component={"img"} sx={{ maxHeight: {xs: "10rem", sm: '20rem'} }} src={firstCard} />
+            <CardMedia component={"img"} sx={{ minHeight: '14rem', height: { md: '14rem'}, maxHeight: {xs: "10rem", sm: '20rem'} }} src={firstCard} />
             <CardContent>
-              <Typography color={"background.default"} variant="h4">
-                Första kontakt
+              <Typography color={"background.default"} variant="h4" fontWeight="700" padding="1rem 0">
+                Första mötet
               </Typography>
-              <Typography color={"background.default"}>
-                Online möte med mig via Zoom , Teams eller telefon
+              <Typography color={"background.default"} variant="h6">
+                Boka möte med mig på det sätt som passar dig bäst.
               </Typography>
             </CardContent>
             <CardActions sx={{ alignSelf: "center" }}>
               <Button
                 variant="contained"
-                style={{ background: "#BA1D37", borderRadius: "10px", margin: "1rem" }} onClick={() => {
+                style={{ background: "#BA1D37", borderRadius: "10px", margin: "3rem" }} onClick={() => {
                   navigate('/contact')
                 }}
               >
@@ -66,28 +68,30 @@ const ThirdBlock = () => {
             </CardActions>
           </Card>
         </Grid>
-        <Grid item xs={8} sm={6} md={3} xl={2}>
+        <Grid item xs={10} sm={6} md={3} >
           <Card
             sx={{
               display: "flex",
               flexDirection: "column",
               borderRadius: "10px",
-              maxWidth: { xs: "25rem", md: "30rem", lg: "35rem" },  
+              minWidth: { md: '17rem' },
+              maxWidth: { xs: "25rem", md: "30rem", lg: "35rem" },
+              height: { md: '35rem', lg: '35rem' } 
             }}
           >
-            <CardMedia component={"img"} sx={{ maxHeight: {xs: "10rem", sm: '20rem'} }} src={secondCard}/>
+            <CardMedia component={"img"} sx={{ minHeight: '14rem', height: { md: '14rem'} , maxHeight: {xs: "10rem", sm: '20rem'} }} src={secondCard}/>
             <CardContent>
-              <Typography color={"background.default"} variant="h4">
+              <Typography color={"background.default"} variant="h4" fontWeight="700" padding="1rem 0">
                 Föreläsningar
               </Typography>
-              <Typography color={"background.default"}>
-                Föreläsningar om stress, utmattning, återhämtning, livet
+              <Typography variant="h6" color={"background.default"}>
+                Föreläsningar om stress, utmattning, återhämtning, livet.
               </Typography>
             </CardContent>
             <CardActions sx={{ alignSelf: "center" }}>
               <Button
                 variant="contained"
-                style={{ background: "#BA1D37", borderRadius: "10px", margin: "1rem" }} onClick={() => {
+                style={{ background: "#BA1D37", borderRadius: "10px", margin: "3rem" }} onClick={() => {
                   navigate('/arbeta-med-mig')
                 }}
               >
@@ -96,28 +100,30 @@ const ThirdBlock = () => {
             </CardActions>
           </Card>
         </Grid>
-        <Grid item xs={8} sm={6} md={3} xl={2}>
+        <Grid item xs={10} sm={6} md={3} >
           <Card
             sx={{
               display: "flex",
               flexDirection: "column",
               borderRadius: "10px",
+              minWidth: { md: '17rem' },
               maxWidth: { xs: "25rem", md: "30rem", lg: "35rem" },
+              height: { md: '35rem', lg: '35rem' }
             }}
           >
-            <CardMedia component={"img"} sx={{ maxHeight: {xs: "10rem", sm: '20rem'} }} src={thirdCard} />
+            <CardMedia component={"img"} sx={{ minHeight: '14rem', height: { md: '14rem'}, maxHeight: {xs: "10rem", sm: '20rem'} }} src={thirdCard} />
             <CardContent>
-              <Typography color={"background.default"} variant="h4">
+              <Typography color={"background.default"} variant="h4" fontWeight="700" padding="1rem 0">
                 Kurser
               </Typography>
-              <Typography color={"background.default"}>
-                Anpassade kurser för företag och organisationer
+              <Typography color={"background.default"} variant="h6">
+                Anpassade kurser för företag, organisationer eller privat.
               </Typography>
             </CardContent>
             <CardActions sx={{ alignSelf: "center" }}>
               <Button
                 variant="contained"
-                style={{ background: "#BA1D37", borderRadius: "10px", margin: "1rem" }} onClick={() => {
+                style={{ background: "#BA1D37", borderRadius: "10px", margin: "3rem" }} onClick={() => {
                   navigate('/arbeta-med-mig')
                 }}
               >

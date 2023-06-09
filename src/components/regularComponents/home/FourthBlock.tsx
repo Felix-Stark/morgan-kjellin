@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import Button from "@mui/material/Button";
-import portrait from "../../../assets/home-block2.png";
+import upanddown from "../../../assets/upponer.jpg";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -33,7 +33,7 @@ const FourthBlock = ({firebaseArray}: Props) => {
       <Grid item md={5}>
         <CardMedia
           component={"img"}
-          image={portrait}
+          image={upanddown}
           sx={{ marginTop: "-6rem" }}
         />
       </Grid>
@@ -54,20 +54,20 @@ const FourthBlock = ({firebaseArray}: Props) => {
             alignItems: 'center',
           }}
         >
-          <Typography color={"background.default"} variant="h4" lineHeight={'5rem'} sx={{
+          <Typography color={"background.default"} variant="h3" lineHeight={'5rem'} sx={{
             textAlign: "center",
             width: "100%",
             maxWidth: "50rem",
             margin: "0 auto",
             }}>
-          { firebaseArray.length > 0 ? firebaseArray[4].title : ''}
+          { firebaseArray.length > 0 ? firebaseArray[7].title : ''}
           </Typography>
           <Typography variant="subtitle1" color={"background.default"} sx={{
               textAlign: "center",
               width: "100%",
               maxWidth: "50rem",
               margin: "0 auto",
-              }}>{ firebaseArray.length > 0 ? firebaseArray[4].content : ''}
+              }}>{ firebaseArray.length > 0 ? firebaseArray[7].content : ''}
 			    </Typography>
           <Button
             variant="contained"

@@ -245,6 +245,7 @@ export const Contact: React.FC<ContactProps> = ({
                 >
                   <TextField
                     name="name"
+                    autoComplete="name"
                     label="Namn"
                     variant="filled"
                     InputLabelProps={{

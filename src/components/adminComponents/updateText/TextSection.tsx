@@ -12,7 +12,7 @@ interface Props {
   }
 
 
-function TextSection({title,content,location, id, getTextProps}: Props) {
+function TextSection({title, content, location, id, getTextProps}: Props) {
     const navigate = useNavigate();
 
 
@@ -27,7 +27,7 @@ function TextSection({title,content,location, id, getTextProps}: Props) {
         
         <Grid  sx={{ display: "flex", justifyContent: "center", flexDirection:"row" ,alignItems: "center", textAlign: "center", bgcolor: "gray", marginBottom: "1rem" }}>
             <Grid item xs={3}>
-            <Typography variant="body1" color="white">{title.substring(0,50) }</Typography>
+            <Typography variant="body1" color="white">{title.substring(0,50) + "..." }</Typography>
             </Grid>
             <Grid item xs={3}>
             <Typography variant="body1" color="white">{content.substring(0,50) + "..." }</Typography>
