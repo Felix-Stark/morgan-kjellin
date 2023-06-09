@@ -42,9 +42,9 @@ export const About = ({firebaseArray}: Props) => {
     </Box>
     <Box sx={{ boxShadow: 3 , display: 'flex', marginBottom:"5vh",flexDirection:{ xs: "column-reverse", md: "row"}, justifyContent: 'space-between'}}>
       <Paper sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#342C39"}}>
-        <Typography variant="h2" sx={{  marginBottom:"2vh"}}>{ firebaseArray.length > 0 ? firebaseArray[0].title : ''}</Typography>
+        <Typography variant="h2" sx={{  marginBottom:"2vh"}}>{ firebaseArray.length > 0 ? firebaseArray[4].title : ''}</Typography>
         <Typography variant="h5" sx={{ fontSize: '1.1em', margin: "auto", lineHeight:"1.5"}}>
-        { firebaseArray.length > 0 ? firebaseArray[0].content : ''}
+        { firebaseArray.length > 0 ? firebaseArray[4].content : ''}
         </Typography>
       </Paper>
       <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 200 },}} alt="bild"src={upanddown}/>
@@ -66,9 +66,9 @@ export const About = ({firebaseArray}: Props) => {
     </Paper>
     
     <Paper elevation={3} sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#342C39", marginBottom:"2.5vh"}}>
-      <Typography variant="h2" sx={{  marginBottom:"1rem"}}>{ firebaseArray.length > 0 ? firebaseArray[4].title : ''}</Typography>
+      <Typography variant="h2" sx={{  marginBottom:"1rem"}}>{ firebaseArray.length > 0 ? firebaseArray[0].title : ''}</Typography>
       <Typography variant="h5" sx={{ fontSize: '1.1em', margin: "auto"}}>
-        { firebaseArray.length > 0 ? firebaseArray[4].content : ''}
+        { firebaseArray.length > 0 ? firebaseArray[0].content : ''}
       </Typography>
       <Typography variant="h4" sx={{  marginBottom:"1rem", marginTop: "1rem", fontStyle:"italic"}}>“FÖRÄNDRING ÄR MÖJLIGT FÖR ALLA!”</Typography>
     </Paper>

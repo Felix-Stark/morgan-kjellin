@@ -45,10 +45,10 @@ const FirstBlock = ({firebaseArray}: Props) => {
           padding={"1rem"}
         >
           <Typography variant="h3">
-            {firebaseArray.length > 0 ? firebaseArray[7].title : ""}
+            {firebaseArray.length > 0 ? firebaseArray[5].title : ""}
           </Typography>
           <Typography variant="subtitle1" >
-            {firebaseArray.length > 0 ? firebaseArray[7].content : ""}
+            {firebaseArray.length > 0 ? firebaseArray[5].content : ""}
           </Typography>
         </Box>
       </Grid>

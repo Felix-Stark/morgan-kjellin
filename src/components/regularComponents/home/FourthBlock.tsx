@@ -60,14 +60,14 @@ const FourthBlock = ({firebaseArray}: Props) => {
             maxWidth: "50rem",
             margin: "0 auto",
             }}>
-          { firebaseArray.length > 0 ? firebaseArray[4].title : ''}
+          { firebaseArray.length > 0 ? firebaseArray[7].title : ''}
           </Typography>
           <Typography variant="subtitle1" color={"background.default"} sx={{
               textAlign: "center",
               width: "100%",
               maxWidth: "50rem",
               margin: "0 auto",
-              }}>{ firebaseArray.length > 0 ? firebaseArray[4].content : ''}
+              }}>{ firebaseArray.length > 0 ? firebaseArray[7].content : ''}
 			    </Typography>
           <Button
             variant="contained"
