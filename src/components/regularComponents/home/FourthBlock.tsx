@@ -54,7 +54,7 @@ const FourthBlock = ({firebaseArray}: Props) => {
             alignItems: 'center',
           }}
         >
-          <Typography color={"background.default"} variant="h4" lineHeight={'5rem'} sx={{
+          <Typography color={"background.default"} variant="h3" lineHeight={'5rem'} sx={{
             textAlign: "center",
             width: "100%",
             maxWidth: "50rem",
