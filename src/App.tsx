@@ -12,7 +12,6 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Blog } from "./Views/Blog/Blog";
 import { GlobalStyles } from "@mui/system";
 import "./MUI-Themes/theme.types";
-import Modal from "./components/regularComponents/modal/Modal";
 import Admin from "./Views/Admin/Admin";
 import AdminLogin from "./components/adminComponents/login/AdminLogin";
 import AdminCalendar from "./Views/Admin/AdminCalendar";
@@ -131,16 +130,10 @@ function App() {
       />
       <div className="App">
         <Header />
-        <Modal
-          open={open}
-          handleModalClose={handleModalClose}
-          content={content}
-          title={title}
-        />
         <Routes>
           <Route path="/" element={<Home firebaseArray={firebaseArray}/>} />
           <Route path="/about" element={<About firebaseArray={firebaseArray} />} />
-          <Route path="/contact" element={<Contact handleModalOpen={handleModalOpen} setTitle={setTitle} setContent={setContent} />} />
+          <Route path="/contact" element={<Contact  />} />
           <Route path="/arbeta-med-mig" element={<Work firebaseArray={firebaseArray} />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/admin" element={<Admin />}>

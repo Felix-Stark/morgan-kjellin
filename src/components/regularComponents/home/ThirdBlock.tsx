@@ -85,7 +85,7 @@ const ThirdBlock = () => {
                 Föreläsningar
               </Typography>
               <Typography variant="h6" color={"background.default"}>
-                Föreläsningar om stress, utmattning, återhämtning, livet.
+                Föreläsningar om missbruk, kriser, insikter och förståelse.
               </Typography>
             </CardContent>
             <CardActions sx={{ alignSelf: "center" }}>
