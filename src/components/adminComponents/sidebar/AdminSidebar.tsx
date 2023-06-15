@@ -1,7 +1,7 @@
 import { Drawer, Divider, List, ListItem, ListItemButton, ListItemText, Button, Box } from '@mui/material';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../../../../firebase/firebase-config';
+import { auth } from '../../../../firebase-config';
 
 interface HandleSignedIn {
   signedIn: boolean;

@@ -20,7 +20,7 @@ import AdminActivities from "./Views/Admin/AdminActivities";
 import AdminHandleActivity from "./Views/Admin/AdminHandleActivity";
 import UpdateText from "./Views/Admin/UpdateText";
 import DashBoard from "./Views/Admin/AdminDashBoard";
-import { db } from '../firebase/firebase-config';
+import { db } from '../firebase-config';
 import { DocumentData, collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore"; 
 import { ContentObject } from './Types/types'
 import { useLocation } from 'react-router'

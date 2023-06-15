@@ -1,4 +1,4 @@
-import { auth, db } from "../../../../firebase/firebase-config";
+import { auth, db } from "../../../../firebase-config";
 import {
   setPersistence,
   signInWithEmailAndPassword,

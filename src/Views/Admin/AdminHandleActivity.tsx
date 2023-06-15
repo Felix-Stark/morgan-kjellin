@@ -7,7 +7,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useEffect, useState } from 'react';
 import { useOutletContext, useNavigate } from 'react-router-dom';
 import { collection, deleteDoc, doc, getDocs, setDoc, updateDoc } from 'firebase/firestore';
-import { db } from '../../../firebase/firebase-config';
+import { db } from '../../../firebase-config';
 import { ContentObject } from '../../Types/types';
 
 

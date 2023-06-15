@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 import Grid from '@mui/material/Grid'
 import { Auth, onAuthStateChanged } from 'firebase/auth'
-import { auth, db } from '../../../firebase/firebase-config'
+import { auth, db } from '../../../firebase-config'
 import { collection, getDocs } from 'firebase/firestore'
 
 type Activities = {

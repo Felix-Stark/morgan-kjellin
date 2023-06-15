@@ -3,7 +3,7 @@ import { Container, Paper, Typography, Box, Grid, Link, IconButton } from "@mui/
 import EditIcon from '@mui/icons-material/Edit';
 import { useNavigate } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../../firebase/firebase-config';
+import { db } from '../../../firebase-config';
 import TextSection from '../../components/adminComponents/updateText/TextSection';
 import { ContentObject } from '../../Types/types';
 

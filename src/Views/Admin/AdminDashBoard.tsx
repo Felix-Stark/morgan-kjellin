@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Container, Paper, Typography, Box, Grid, Link, IconButton, Button, TextField, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
-import { db } from '../../../firebase/firebase-config';
+import { db } from '../../../firebase-config';
 import { FieldValue, collection, doc, getDocs, updateDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 

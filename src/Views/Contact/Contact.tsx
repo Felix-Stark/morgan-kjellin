@@ -22,18 +22,10 @@ interface ContactFormData {
   message: string;
 }
 
-interface ContactProps {
-  handleModalOpen: () => void;
-  setTitle: React.Dispatch<React.SetStateAction<string>>;
-  setContent: React.Dispatch<React.SetStateAction<React.ReactNode>>;
-}
 
 
-export const Contact: React.FC<ContactProps> = ({
-  handleModalOpen,
-  setTitle,
-  setContent,
-}) => {
+
+export const Contact = () => {
   const [ open, setOpen ] = useState<boolean>(false);
 
 
@@ -65,15 +57,6 @@ export const Contact: React.FC<ContactProps> = ({
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(formData);
-    setTitle("Tack för att du kontaktar mig!");
-    setContent(
-      <Typography variant="h6">
-        Jag har mottagit ditt meddelande och jag lovar att svara så snart jag
-        kan. Ha en fantastisk dag!"
-      </Typography>
-    );
-    handleModalOpen();
-   
     emailjs
       .send(
         "service_auwdql8",
@@ -90,9 +73,13 @@ export const Contact: React.FC<ContactProps> = ({
       .then(
         (result) => {
           console.log(result.text);
-          clearForm();
+          if( result.text == 'OK') {
+            setOpen(true);
+            clearForm();
+          }
         },
         (error) => {
+          alert(error.text);
           console.log(error.text);
         }
       );
@@ -378,7 +365,6 @@ export const Contact: React.FC<ContactProps> = ({
                     px: 8,
                     '&:hover': {backgroundColor: '#BA1D60'}
                   }}
-                  onClick={ () => setOpen(true)}
                 >
                   Skicka
                 </Button>
