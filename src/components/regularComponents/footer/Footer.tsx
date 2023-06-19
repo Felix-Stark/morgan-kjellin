@@ -111,7 +111,7 @@ export const Footer = () => {
                   color: '#FFFFFF',
                   fontSize: '1.1rem',
                 }, }}>
-              <Link to="/contact" style={{ color: '#CFCFCF', textDecoration: 'none' }}>
+              <Link to="tel:0702595483" style={{ color: '#CFCFCF', textDecoration: 'none' }}>
                 Telefon: 0702595483
               </Link>
             </Typography>

@@ -93,7 +93,7 @@ export const Work = ({firebaseArray}: Props) => {
                 borderRight: {xs: 'none', sm: 'none', md: '1px solid #BA1D37'}
               }}>
                 <Box sx={{width: {xs: '18rem', sm: '30rem', md: '20rem'}}}>
-                  <CardMedia image={workHands} sx={{ width: { xs: '14rem', sm: '20rem'}, height: {xs: '20rem', sm: '25rem'} }}>
+                  <CardMedia  image={workHands} sx={{ width: { xs: '14rem', sm: '20rem'}, height: {xs: '20rem', sm: '25rem'} }}>
                     <CardMedia image={workThinking} sx={{ width: { xs: '7rem', sm: '10rem'}, height: { xs: '7rem', sm: '10rem'}, transform: { xs: 'translate(9rem, 16rem)', sm: 'translate(13rem, 18rem)'} }}></CardMedia>
                   </CardMedia>
                 </Box>

@@ -9,11 +9,9 @@ import { Home } from "./Views/Home/Home";
 import { Work } from "./Views/Work/Work";
 import { ThemeOptions } from "@mui/material/styles";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Blog } from "./Views/Blog/Blog";
 import { GlobalStyles } from "@mui/system";
 import "./MUI-Themes/theme.types";
 import Admin from "./Views/Admin/Admin";
-import AdminLogin from "./components/adminComponents/login/AdminLogin";
 import AdminCalendar from "./Views/Admin/AdminCalendar";
 import AdminActivities from "./Views/Admin/AdminActivities";
 import AdminHandleActivity from "./Views/Admin/AdminHandleActivity";
@@ -23,6 +21,7 @@ import { db } from '../firebase-config';
 import { DocumentData, collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore"; 
 import { ContentObject } from './Types/types'
 import { useLocation } from 'react-router'
+import NotFound from "./NotFound";
 
 const themeOptions: ThemeOptions = {
   palette: {
@@ -135,7 +134,6 @@ function App() {
           <Route path="/about" element={<About firebaseArray={firebaseArray} />} />
           <Route path="/contact" element={<Contact  />} />
           <Route path="/arbeta-med-mig" element={<Work firebaseArray={firebaseArray} />} />
-          <Route path="/blog" element={<Blog />} />
           <Route path="/admin" element={<Admin />}>
             <Route path="kalender" element={ <AdminCalendar /> } />
             <Route path="kalender/aktiviteter" element={ <AdminActivities/> } />
@@ -143,6 +141,7 @@ function App() {
             <Route path="updatetext" element={ <UpdateText getTextProps={getTextProps} firebaseText={firebaseArray}/>} />
             <Route path="dashboard" element={ <DashBoard itemdata={itemdata} setfirebaseArray={setfirebaseArray}/>} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
         { adminView ? '' : <Footer />}
       </div>

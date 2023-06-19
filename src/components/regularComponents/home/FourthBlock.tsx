@@ -2,12 +2,8 @@ import Grid from "@mui/material/Grid";
 import CardMedia from "@mui/material/CardMedia";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { useTheme } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import upanddown from "../../../assets/upponer.jpg";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
 import { useNavigate } from "react-router-dom";
 
 
@@ -33,6 +29,7 @@ const FourthBlock = ({firebaseArray}: Props) => {
       <Grid item md={5}>
         <CardMedia
           component={"img"}
+          alt= "Morgan Kjellin Upp och ner"
           image={upanddown}
           sx={{ marginTop: "-6rem" }}
         />

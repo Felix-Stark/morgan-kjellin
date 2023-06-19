@@ -29,10 +29,10 @@ export const About = ({firebaseArray}: Props) => {
         { firebaseArray.length > 0 ? firebaseArray[1].content : ''}
         </Typography>
       </Paper>
-      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 400 },}} alt="bild"src={lecturePic}/>
+      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 400 },}} alt="Morgan Kjellin föreläsningsbild"src={lecturePic}/>
     </Box>
     <Box sx={{boxShadow: 3 , display: 'flex', marginBottom:"5vh",  flexDirection:{ xs: "column", md: "row"}, justifyContent: 'space-between'}}>
-      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 200 },}}alt="bild"src={addictPic}/>
+      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 200 },}}alt="Morgan Kjellin missbruksbild"src={addictPic}/>
       <Paper  sx={{padding:"1rem", borderRadius:'0px', bgcolor:"#342C39", color:"white"}}>
         <Typography variant="h2" sx={{  marginBottom:"2vh"}}>{ firebaseArray.length > 0 ? firebaseArray[3].title : ''}</Typography>
         <Typography variant="h5" sx={{ fontSize: '1.1em', margin: "auto"}}>{ firebaseArray.length > 0 ? firebaseArray[3].content : ''}
@@ -47,10 +47,10 @@ export const About = ({firebaseArray}: Props) => {
         { firebaseArray.length > 0 ? firebaseArray[4].content : ''}
         </Typography>
       </Paper>
-      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 200 },}} alt="bild"src={upanddown}/>
+      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 200 },}} alt="Morgan Kjellin står på huvudet"src={upanddown}/>
     </Box>
     <Box sx={{boxShadow: 3 , display: 'flex', marginBottom:"5vh",  flexDirection:{ xs: "column", md: "row"}, justifyContent: 'space-between'}}>
-      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 200 },}}alt="bild"src={broom}/>
+      <Box component="img"sx={{bgcolor:'gray',maxWidth: { xs: "100%", md: 200 },}}alt="Morgan Kjellin borsta framför din egen dörr"src={broom}/>
       <Paper  sx={{padding:"1rem", borderRadius:'0px', bgcolor:"#342C39", color:"white"}}>
         <Typography variant="h2" sx={{  marginBottom:"2vh"}}>{ firebaseArray.length > 0 ? firebaseArray[2].title : ''}</Typography>
         <Typography variant="h5" sx={{ fontSize: '1.1em', margin: "auto"}}>{ firebaseArray.length > 0 ? firebaseArray[2].content : ''}

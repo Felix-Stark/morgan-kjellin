@@ -27,6 +27,7 @@ const FirstBlock = ({firebaseArray}: Props) => {
             controls
             playing
             style={{ backgroundColor: "#161616", marginBottom: '1.5rem',marginTop: '1.5rem' }}
+            aria-label="Morgan Kjellin Video"
           />
       </Grid>
       <Grid

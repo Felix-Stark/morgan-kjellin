@@ -47,7 +47,7 @@ const ThirdBlock = () => {
               height: { md: '35rem', lg: '35rem' }
             }}
           >
-            <CardMedia component={"img"} sx={{ minHeight: '14rem', height: { md: '14rem'}, maxHeight: {xs: "10rem", sm: '20rem'} }} src={firstCard} />
+            <CardMedia component={"img"} sx={{ minHeight: '14rem', height: { md: '14rem'}, maxHeight: {xs: "10rem", sm: '20rem'} }} alt="Morgan Kjellin Första mötet" src={firstCard} />
             <CardContent>
               <Typography color={"background.default"} variant="h4" fontWeight="700" padding="1rem 0">
                 Första mötet
@@ -79,7 +79,7 @@ const ThirdBlock = () => {
               height: { md: '35rem', lg: '35rem' } 
             }}
           >
-            <CardMedia component={"img"} sx={{ minHeight: '14rem', height: { md: '14rem'} , maxHeight: {xs: "10rem", sm: '20rem'} }} src={secondCard}/>
+            <CardMedia component={"img"} sx={{ minHeight: '14rem', height: { md: '14rem'} , maxHeight: {xs: "10rem", sm: '20rem'} }} alt="Morgan Kjellin Föreläsningar" src={secondCard}/>
             <CardContent>
               <Typography color={"background.default"} variant="h4" fontWeight="700" padding="1rem 0">
                 Föreläsningar
@@ -111,7 +111,7 @@ const ThirdBlock = () => {
               height: { md: '35rem', lg: '35rem' }
             }}
           >
-            <CardMedia component={"img"} sx={{ minHeight: '14rem', height: { md: '14rem'}, maxHeight: {xs: "10rem", sm: '20rem'} }} src={thirdCard} />
+            <CardMedia component={"img"} sx={{ minHeight: '14rem', height: { md: '14rem'}, maxHeight: {xs: "10rem", sm: '20rem'} }} alt="Morgan Kjellin Kurser" src={thirdCard} />
             <CardContent>
               <Typography color={"background.default"} variant="h4" fontWeight="700" padding="1rem 0">
                 Kurser

@@ -10,7 +10,6 @@ type Props = {
 }
 
 const SecondBlock = ({firebaseArray}: Props) => {
-	const theme = useTheme();
   return (
     <Grid
       container
@@ -18,7 +17,6 @@ const SecondBlock = ({firebaseArray}: Props) => {
       bgcolor={"background.paper"}
       justifyContent={"center"}
       spacing={8}
-
       display={"flex"}
     >
       <Grid
@@ -46,6 +44,7 @@ const SecondBlock = ({firebaseArray}: Props) => {
         <CardMedia
           component={"img"}
           image={crossroads}
+          alt= "Morgan Kjellin Vägskäl"
           sx={{ marginTop: "-6rem" }}
         />
       </Grid>
