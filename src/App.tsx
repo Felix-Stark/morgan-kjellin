@@ -7,6 +7,7 @@ import { About } from "./Views/About/About";
 import { Contact } from "./Views/Contact/Contact";
 import { Home } from "./Views/Home/Home";
 import { Work } from "./Views/Work/Work";
+import { Grief } from "./Views/Grief/Grief";
 import { ThemeOptions } from "@mui/material/styles";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { GlobalStyles } from "@mui/system";
@@ -134,6 +135,7 @@ function App() {
           <Route path="/about" element={<About firebaseArray={firebaseArray} />} />
           <Route path="/contact" element={<Contact  />} />
           <Route path="/arbeta-med-mig" element={<Work firebaseArray={firebaseArray} />} />
+          <Route path ="/sorg" element={<Grief />}/>
           <Route path="/admin" element={<Admin />}>
             <Route path="kalender" element={ <AdminCalendar /> } />
             <Route path="kalender/aktiviteter" element={ <AdminActivities/> } />

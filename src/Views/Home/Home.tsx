@@ -1,4 +1,3 @@
-import React, { Children } from "react";
 import Hero from "../../components/regularComponents/home/Hero";
 import FirstBlock from "../../components/regularComponents/home/FirstBlock";
 import { createTheme, ThemeProvider } from "@mui/material/styles";

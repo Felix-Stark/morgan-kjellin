@@ -20,7 +20,9 @@ export const About = ({firebaseArray}: Props) => {
   
 
 
-  return <Container  sx={{   width: {xs: "80%", md: "100%" },textAlign:"center" ,  paddingTop: '25px', }}>
+  return (
+
+  <Container  sx={{   width: {xs: "80%", md: "100%" },textAlign:"center" ,  paddingTop: '25px', }}>
 
     <Box sx={{ boxShadow: 3 , display: 'flex', marginBottom:"5vh",flexDirection:{ xs: "column-reverse", md: "row"}, justifyContent: 'space-between'}}>
       <Paper sx={{padding: "1rem", borderRadius:'0px', color:"white", bgcolor:"#342C39"}}>
@@ -83,4 +85,5 @@ export const About = ({firebaseArray}: Props) => {
                     '&:hover': {backgroundColor: '#BA1D60'}}}>
                     BOKA MIG FÖR EN FÖRELÄSNING!</Button>
   </Container>
+  );
 };
