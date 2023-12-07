@@ -16,7 +16,7 @@ const Hero = () => {
   }
 	
   return (
-    <Grid container sx={{position:"relative",display: { xs: 'none', sm: 'flex'},justifyContent:"center", }}>
+    <Grid container sx={{position:"relative",display: {  sm: 'flex'},justifyContent:"center", }}>
       <CardMedia
         ref={heroRef}
         sx={{ maxHeight: `calc(100vh - 64px)`,}}

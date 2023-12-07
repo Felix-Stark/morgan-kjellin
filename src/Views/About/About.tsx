@@ -6,6 +6,8 @@ import lecturePic from '../../assets/hero-morgan.jpg'
 import addictPic from '../../assets/difficultsign.svg'
 import upanddown from '../../assets/upponer.jpg'
 import broom from '../../assets/bildkratta.jpg'
+
+
 type Props = {
   firebaseArray: any;
 }
