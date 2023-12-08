@@ -11,14 +11,21 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Place } from '@mui/icons-material';
 import emailjs from "emailjs-com";
 import { useState } from "react";
+import {
+    TextField,
+    MenuItem,
+    TextareaAutosize,
+    useMediaQuery,
+    Dialog, DialogTitle, DialogActions
+  } from "@mui/material";
 
-const reasons = ["Via mail", "Via Telefon"];
+const contactAlt = ["Via mail", "Via Telefon"];
 
 interface CourseFormData {
   name: string;
   email: string;
   phoneNumber: string;
-  reason: string;
+  contactAlt: string;
 //   message: string;
 }
 
@@ -29,19 +36,20 @@ type Props = {
 }
 
 
-export const Grief = ({firebaseArray}: Props) => {
-
+    export const Grief = ({firebaseArray}: Props) => {
+        const [open, setOpen] = useState(false);
     
     useEffect(() => {
         window.scrollTo(0, 0)
     }
     , [])
 
+    const width = useMediaQuery("(max-width:600px)") ? "xs" : "md";
     const [formData, setFormData] = useState<CourseFormData>({
         name: "",
         email: "",
         phoneNumber: "",
-        reason: "",
+        contactAlt: "",
         // message: "",
       });
 
@@ -59,6 +67,7 @@ export const Grief = ({firebaseArray}: Props) => {
 
     const handleSubmit = (event:  React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        console.log(formData);
         emailjs
         .send(
             "service_auwdq18",
@@ -67,7 +76,7 @@ export const Grief = ({firebaseArray}: Props) => {
           from_name: formData.name,
           from_email: formData.email,
           phone_number: formData.phoneNumber,
-          reason: formData.reason,
+          contactAlt: formData.contactAlt,
         //   message: formData.message,
         },
         "hbA17LMwp8EWGpDL2"
@@ -92,12 +101,9 @@ export const Grief = ({firebaseArray}: Props) => {
             name: "",
             email: "",
             phoneNumber: "",
-            reason: "",
+            contactAlt: "",
         })
     }
-
-    // Fortsätt med setOpen 
-    
 
     const navigate = useNavigate();
     const heroRef: any  = useRef();
@@ -112,6 +118,50 @@ export const Grief = ({firebaseArray}: Props) => {
         const heroHeight = heroRef.current.offsetHeight;
         window.scrollTo({ top: heroHeight, behavior: "smooth" });
     }
+
+
+    // Theme för kontaktformulär 
+
+    const theme = createTheme({
+        components: {
+          MuiInput: {
+            styleOverrides: {
+              root: {
+                backgroundColor: "white", // Desired input background color
+                "&:hover": {
+                  backgroundColor: "white", // Desired input background color when hovered
+                },
+                "&.Mui-focused": {
+                  backgroundColor: "white", // Desired input background color when focused
+                },
+                "&.Mui-error": {
+                  backgroundColor: "white", // Desired input background color when error occurs
+                },
+              },
+            },
+          },
+          MuiFilledInput: {
+            styleOverrides: {
+              root: {
+                backgroundColor: "white", // Desired input background color
+                "&:hover": {
+                  backgroundColor: "white", // Desired input background color when hovered
+                },
+                "&.Mui-focused": {
+                  backgroundColor: "white", // Desired input background color when focused
+                },
+                "&.Mui-error": {
+                  backgroundColor: "white", // Desired input background color when error occurs
+                },
+              },
+            },
+          },
+        },
+      });
+    
+      const handleClose = () => {
+        setOpen(false);
+      }
 
 
 
@@ -140,22 +190,22 @@ export const Grief = ({firebaseArray}: Props) => {
         
         <Container disableGutters sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexDirection: 'row', alignItems: 'center', borderBottom: '1px solid black', pb: '2rem' ,mb: '2rem'}}>
             <Box className="length" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' ,alignItems: 'center',pl: '4rem', pr: '4rem', borderRight: { md: '1px solid black', xs: 'none' } }}>
-                <AccessTimeIcon />
+                <AccessTimeIcon  />
                 <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '2rem' }}>Längd</Typography>
                 <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>120min</Typography>
             </Box>
-            <Box className="place" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem' , pr: '4rem' , borderRight: { md: '1px solid black', xs: 'none'} }}>
+            <Box className="place" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem' , pr: '4rem' , pt: '2rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
                 <PlaceIcon />
                 <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '2rem' }}>Plats</Typography>
                 <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>Arvika kommunhus</Typography>
             </Box>
-            <Box className="date" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem', pr: '4rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
+            <Box className="date" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
                 <CalendarMonthIcon />
                 <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '2rem' }}>Datum</Typography>
                 <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>2023-10-11 18:00</Typography>
             </Box>
             <Box className="participants" sx={{ display: 'flex', flexDirection: 
-            'column', alignItems: 'center', pl: '4rem', pr: '4rem' }}>
+            'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem'  }}>
                 <PaidIcon />
                 <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '2rem' }}>Pris / Deltagare</Typography>
                 <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>1500kr</Typography>
@@ -164,21 +214,240 @@ export const Grief = ({firebaseArray}: Props) => {
 
         {/*  Beskrivning av föreläsningen */}
 
-        <Container disableGutters sx={{display: 'flex', flexDirection: 'column', p: '2rem' }} >
+        <Container disableGutters sx={{ display: 'flex', flexDirection: 'column', p: '2rem' }} >
             <Typography variant="h2" sx={{}} >Beskrivning</Typography>
             <Typography variant="h5" sx={{ fontWeight: "normal", mt: '2rem' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nunc quis risus dictum faucibus. Nullam sed mauris et elit lacinia aliquet. Sed in nunc sed ipsum aliquam euismod. Donec in nunc quis risus dictum faucibus. Nullam sed mauris et elit lacinia aliquet. Sed in nunc sed ipsum aliquam euismod.</Typography>
             <Typography variant="h3" sx={{pt: '2rem'}} >Beskrivning</Typography>
             <Typography variant="h5" sx={{ fontWeight: "normal", mt: '2rem' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nunc quis risus dictum faucibus. Nullam sed mauris et elit lacinia aliquet. Sed in nunc sed ipsum aliquam euismod. Donec in nunc quis risus dictum faucibus. Nullam sed mauris et elit lacinia aliquet. Sed in nunc sed ipsum aliquam euismod.</Typography>
         </Container>
-        <Container disableGutters sx={{display: 'flex', flexDirection: 'column', p: '2rem' }} >
-                <Typography variant="h2" sx={{}}>Betalning</Typography>
-                <Typography variant="h5" sx={{ fontWeight: "normal" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nunc quis risus dictum faucibus.</Typography>
-                
-                {/* Kontakt formulär */}
+        <Container disableGutters sx={{ display: 'flex', flexDirection: 'row' }} >
 
-        
+            {/*  Betalnings information start */}
+
+                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                <Typography variant="h2" sx={{ flexDirection: 'start' , pb: '2rem'}}>Betalning</Typography>
+                <Typography variant="h5" sx={{ fontWeight: "normal" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nunc quis risus dictum faucibus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nunc quis risus dictum faucibus</Typography>
+                </Box>
+
+            {/* Betalning slut */ }
+
+            
+                {/*Här startar Kontakt formuläret */}
+                
+            <Box
+                display="flex"
+                flexDirection={{ xs: "column", md: "row" }}
+                alignItems="center"
+                sx={{
+                width: "100%",
+                height: "500px",
+                maxWidth: "700px",
+                margin: "0 auto",
+                borderRadius: "4px",
+                marginTop: { xs: "1rem", md: "0" },
+                marginBottom: { xs: "18rem", md: "0" },
+                }}
+            >
+                <Box
+                display="flex"
+                flexDirection="column"
+                justifyContent="flex-start"
+                alignItems="center"
+                sx={{
+                    height: "500px",
+                    maxWidth: "700px",
+                    backgroundColor: "primary.main",
+                    color: "white",
+                    borderRadius: width === "xs" ? 0 : 4,
+                    borderTopRightRadius: 0,
+                    borderBottomRightRadius: 0,
+                    padding: { xs: "16px", md: "32px" },
+                    width: { xs: "90%", md: "40%" },
+                }}
+                >
+                <Typography variant="h2" sx={{ padding: { xs: "12px", md: "24px" } }}>
+                    Vad kul att du vill nå ut till mig!
+                </Typography>
+
+                <Typography variant="h3" sx={{ padding: { xs: "12px", md: "24px" } }}>
+                    Vänligen fyll i de obligatoriska fälten så svarar jag inom två arbetsdagar
+                </Typography>
+                </Box>
+                <ThemeProvider theme={theme}>
+                <Box
+                    display="flex"
+                    flexDirection={{ xs: "column", md: "row" }}
+                    alignItems="center"
+                    sx={{
+                    height: { xs: "100%", sm: "100%", md: "500px" },
+                    maxWidth: "700px",
+                    margin: "0 auto",
+                    borderRadius: width === "xs" ? 0 : {
+                        xs: 0,
+                        md: "0 1rem 1rem 0",
+                        lg: "0 1rem 1rem 0",
+                        xl: "0 1rem 1rem 0",
+                    },
+                    width: { xs: "90%", md: "80%" },
+                    }}
+                >
+                    <Box
+                    component="form"
+                    onSubmit={handleSubmit}
+                    display="flex"
+                    flexDirection="column"
+                    sx={{
+                        width: "100%",
+                        height: "100%",
+                        maxWidth: "800px",
+                        margin: "0 auto",
+                        borderRadius: width === "xs" ? 0 : {
+                        xs: 0,
+                        md: "0 1rem 1rem 0",
+                        lg: "0 1rem 1rem 0",
+                        xl: "0 1rem 1rem 0",
+                        },
+                        overflow: "hidden",
+                    }}
+                    >
+                    <Box
+                        display="flex"
+                        flexDirection={{ xs: "column", md: "row" }}
+                        sx={{ height: "80%" }}
+                    >
+                        <Box
+                        display="flex"
+                        flexDirection="column"
+                        alignItems="center"
+                        justifyContent="center"
+                        sx={{
+                            backgroundColor: "rgba(52, 52, 52)",
+                            padding: 4,
+                        }}
+                        flexGrow={1}
+                        >
+                        <TextField
+                            name="name"
+                            autoComplete="name"
+                            label="Namn"
+                            variant="filled"
+                            InputLabelProps={{
+                            style: {
+                                color: "black",
+                                fontSize: "18px",
+                                fontWeight: "bold",
+                            },
+                            }}
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                            fullWidth
+                            margin="normal"
+                            sx={{ backgroundColor: "rgba(0,0,0,0.10)" }}
+                        />
+                        <TextField
+                            name="email"
+                            label="E-post"
+                            variant="filled"
+                            InputLabelProps={{
+                            style: {
+                                color: "black",
+                                fontSize: "18px",
+                                fontWeight: "bold",
+                            },
+                            }}
+                            type="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                            fullWidth
+                            margin="normal"
+                            sx={{ backgroundColor: "rgba(0,0,0,0.10)" }}
+                        />
+                        <TextField
+                            name="phoneNumber"
+                            label="Telefon"
+                            variant="filled"
+                            InputLabelProps={{
+                            style: {
+                                color: "black",
+                                fontSize: "18px",
+                                fontWeight: "bold",
+                            },
+                            }}
+                            value={formData.phoneNumber}
+                            onChange={handleChange}
+                            fullWidth
+                            margin="normal"
+                            sx={{ backgroundColor: "rgba(0,0,0,0.10)" }}
+                        />
+                        <TextField
+                            name="contactAlt"
+                            variant="filled"
+                            select
+                            label="Kontaktalternativ"
+                            InputLabelProps={{
+                            style: {
+                                color: "black",
+                                fontSize: "18px",
+                                fontWeight: "bold",
+                            },
+                            }}
+                            value={formData.contactAlt}
+                            onChange={handleChange}
+                            required
+                            fullWidth
+                            margin="normal"
+                            sx={{ backgroundColor: "rgba(0,0,0,0.10)", color: "white" }}
+                        >
+                            {contactAlt.map((contactAlt) => (
+                            <MenuItem key={contactAlt} value={contactAlt}>
+                                {contactAlt}
+                            </MenuItem>
+                            ))}
+                        </TextField>
+                        </Box>
+                    </Box>
+                    <Box
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        sx={{
+                        backgroundColor: "rgba(52, 52, 52)",
+                        padding: 4,
+                        height: "20%",
+                        }}
+                    >
+                        <Button
+                        type="submit"
+                        variant="contained"
+                        sx={{
+                            backgroundColor: "#BA1D37",
+                            fontWeight: 700,
+                            borderRadius: 2,
+                            py: 2,
+                            px: 8,
+                            '&:hover': {backgroundColor: '#BA1D60'}
+                        }}
+                        >
+                        Skicka
+                        </Button>
+                    </Box>
+                    </Box>
+                </Box>
+                </ThemeProvider>
+            </Box>
+            <Dialog open={ open } onClose={ handleClose }>
+                <DialogTitle>Din kontakt förfrågan har skickats</DialogTitle>
+                <DialogActions sx={{ display:"flex" , justifyContent:"center"}}>
+                <Button onClick={ handleClose } sx={{ bgcolor: "red", color: "white" }}>Stäng</Button>
+                </DialogActions>
+            </Dialog>
+            
+            {/* Här slutar kontakt formuläret */}
+                        
         </Container>
 
     </Container>
-    )
-}
+    );
+};
