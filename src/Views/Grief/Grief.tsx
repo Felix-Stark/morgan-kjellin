@@ -3,7 +3,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PlaceIcon from '@mui/icons-material/Place';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PaidIcon from '@mui/icons-material/Paid';
-import { Container, Box, Typography, Button } from "@mui/material"
+import {Card, CardContent, Container, Box, Typography, Button } from "@mui/material"
 import CardMedia from '@mui/material/CardMedia';
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef } from "react";
@@ -189,22 +189,22 @@ type Props = {
        {/*  Info om föreläsningen */}
         
         <Container disableGutters sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexDirection: 'row', alignItems: 'center', borderBottom: '1px solid black', pb: '2rem' ,mb: '2rem'}}>
-            <Box className="length" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' ,alignItems: 'center',pl: '4rem', pr: '4rem', borderRight: { md: '1px solid black', xs: 'none' } }}>
+            <Box className="length" sx={{width: '18rem', display: 'flex', flexDirection: 'column',alignItems: 'center',pl: '4rem', pr: '4rem', pt: '2rem', borderRight: { md: '1px solid black', xs: 'none' } }}>
                 <AccessTimeIcon  />
                 <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '2rem' }}>Längd</Typography>
                 <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>120min</Typography>
             </Box>
-            <Box className="place" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem' , pr: '4rem' , pt: '2rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
+            <Box className="place" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem' , pr: '4rem' , pt: '2rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
                 <PlaceIcon />
                 <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '2rem' }}>Plats</Typography>
-                <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>Arvika kommunhus</Typography>
+                <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>Arvika</Typography>
             </Box>
-            <Box className="date" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
+            <Box className="date" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
                 <CalendarMonthIcon />
                 <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '2rem' }}>Datum</Typography>
-                <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>2023-10-11 18:00</Typography>
+                <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>2023-10-11 Kl. 18</Typography>
             </Box>
-            <Box className="participants" sx={{ display: 'flex', flexDirection: 
+            <Box className="participants" sx={{width: '18rem', display: 'flex', flexDirection: 
             'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem'  }}>
                 <PaidIcon />
                 <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '2rem' }}>Pris / Deltagare</Typography>
@@ -220,19 +220,20 @@ type Props = {
             <Typography variant="h3" sx={{pt: '2rem'}} >Beskrivning</Typography>
             <Typography variant="h5" sx={{ fontWeight: "normal", mt: '2rem' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nunc quis risus dictum faucibus. Nullam sed mauris et elit lacinia aliquet. Sed in nunc sed ipsum aliquam euismod. Donec in nunc quis risus dictum faucibus. Nullam sed mauris et elit lacinia aliquet. Sed in nunc sed ipsum aliquam euismod.</Typography>
         </Container>
-        <Container disableGutters sx={{ display: 'flex', flexDirection: 'row' }} >
+
+        <Container disableGutters sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row', ld: 'row', xl: 'row' } }}>
 
             {/*  Betalnings information start */}
 
-                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                <Typography variant="h2" sx={{ flexDirection: 'start' , pb: '2rem'}}>Betalning</Typography>
+            <Box sx={{ flexWrap: 'wrap', p: '2rem', marginTop: { xs: "1rem", md: "0" } }}>
+                <Typography variant="h2" sx={{ pb: '2rem'}}>Betalning</Typography>
                 <Typography variant="h5" sx={{ fontWeight: "normal" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nunc quis risus dictum faucibus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nunc quis risus dictum faucibus</Typography>
-                </Box>
+            </Box>
 
             {/* Betalning slut */ }
-
+                        
             
-                {/*Här startar Kontakt formuläret */}
+            {/*Här startar Kontakt formuläret */}
                 
             <Box
                 display="flex"
@@ -240,8 +241,8 @@ type Props = {
                 alignItems="center"
                 sx={{
                 width: "100%",
-                height: "500px",
-                maxWidth: "700px",
+                height: "50rem",
+                maxWidth: "40rem",
                 margin: "0 auto",
                 borderRadius: "4px",
                 marginTop: { xs: "1rem", md: "0" },
@@ -266,11 +267,11 @@ type Props = {
                 }}
                 >
                 <Typography variant="h2" sx={{ padding: { xs: "12px", md: "24px" } }}>
-                    Vad kul att du vill nå ut till mig!
+                    Anmälan till kurs!
                 </Typography>
 
                 <Typography variant="h3" sx={{ padding: { xs: "12px", md: "24px" } }}>
-                    Vänligen fyll i de obligatoriska fälten så svarar jag inom två arbetsdagar
+                    Vänligen fyll i de obligatoriska fälten så skickar vi en bekräftelse på din anmälan.
                 </Typography>
                 </Box>
                 <ThemeProvider theme={theme}>
@@ -447,7 +448,44 @@ type Props = {
             {/* Här slutar kontakt formuläret */}
                         
         </Container>
-
+        {/* Här börjar recensionerna */}
+        <Container disableGutters sx={{ display: 'flex', flexDirection: 'row', p: '2rem' }} >
+                        // Här vill jag ha recensionerna i card format
+                        <Container disableGutters sx={{ display: 'flex', flexDirection: 'row', p: '2rem' }}>
+                            {/* BEGIN: ed8c6549bwf9 */}
+                            <Card>
+                                <CardContent>
+                                    <Typography variant="h5" component="div">
+                                        Review 1
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary">
+                                        This is the first review.
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                            <Card>
+                                <CardContent>
+                                    <Typography variant="h5" component="div">
+                                        Review 2
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary">
+                                        This is the second review.
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                            <Card>
+                                <CardContent>
+                                    <Typography variant="h5" component="div">
+                                        Review 3
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary">
+                                        This is the third review.
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                            {/* END: ed8c6549bwf9 */}
+                        </Container>
+        </Container>
     </Container>
     );
 };
