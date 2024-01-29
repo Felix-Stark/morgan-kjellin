@@ -450,7 +450,7 @@ type Props = {
         </Container>
         {/* Här börjar recensionerna */}
         <Container disableGutters sx={{ display: 'flex', flexDirection: 'row', p: '2rem' }} >
-                        // Här vill jag ha recensionerna i card format
+                        {/* // Här vill jag ha recensionerna i card format */}
                         <Container disableGutters sx={{ display: 'flex', flexDirection: 'row', p: '2rem' }}>
                             {/* BEGIN: ed8c6549bwf9 */}
                             <Card>
