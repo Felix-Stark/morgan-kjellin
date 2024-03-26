@@ -3,7 +3,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PlaceIcon from '@mui/icons-material/Place';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PaidIcon from '@mui/icons-material/Paid';
-import {Card, CardContent, Container, Box, Typography, Button } from "@mui/material"
+import {Card, CardContent, Container, Box, Typography, Button, Grid } from "@mui/material"
 import CardMedia from '@mui/material/CardMedia';
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef } from "react";
@@ -449,43 +449,73 @@ type Props = {
                         
         </Container>
         {/* Här börjar recensionerna */}
-        <Container disableGutters sx={{ display: 'flex', flexDirection: 'row', p: '2rem' }} >
-                        {/* // Här vill jag ha recensionerna i card format */}
-                        <Container disableGutters sx={{ display: 'flex', flexDirection: 'row', p: '2rem' }}>
-                            {/* BEGIN: ed8c6549bwf9 */}
-                            <Card>
-                                <CardContent>
-                                    <Typography variant="h5" component="div">
-                                        Review 1
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        This is the first review.
-                                    </Typography>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardContent>
-                                    <Typography variant="h5" component="div">
-                                        Review 2
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        This is the second review.
-                                    </Typography>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardContent>
-                                    <Typography variant="h5" component="div">
-                                        Review 3
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        This is the third review.
-                                    </Typography>
-                                </CardContent>
-                            </Card>
-                            {/* END: ed8c6549bwf9 */}
-                        </Container>
-        </Container>
+        <Container disableGutters sx={{ p: '2rem' }}>
+        <Grid container spacing={3}> {/* Lägger till utrymme mellan varje Card */}
+            <Grid item xs={12} sm={6} md={4}> {/* Justera gridstorleken för olika skärmstorlekar */}
+                <Box width={1} display="flex" flexDirection="column" > {/* Ger Card en fast bredd */}
+                    <Card>
+                        <CardContent>
+                            <Typography variant="h5" component="div">
+                                Review 
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                            "Hej!
+                            Jag deltog i sorgbearbetningskursen hos Morgan för ca 10 år sedan och det var en verklig ögonöppnare för mig. 
+                            Kursen hjälpte mig med många olika saker men något jag uppmärksammade var att skilja mellan ursäkter och förlåtelse, 
+                            något jag tidigare trodde var likvärdigt. Det var en stark och personlig upplevelse som har gett mig en djupare förståelse för detta. 
+                            Med vänliga hälsningar, Ulf, 38 år"
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </Box>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}> {/* Justera gridstorleken för olika skärmstorlekar */}
+                <Box width={1}> {/* Ger Card en fast bredd */}
+                    <Card>
+                        <CardContent>
+                            <Typography variant="h5" component="div">
+                                Review 
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                            Hej!
+ Att gå sorgbearbetningskursen under åtta veckor var en verklig ögonöppnare för mig. En av de mest betydelsefulla förändringarna var att jag upplevde att andra människor hade blivit mer förstående och bättre, tills jag insåg att det egentligen var jag själv som hade förändrats – till det bättre. Det var en djupt personlig upptäckt som har haft en stor positiv inverkan på mitt liv. Med vänliga hälsningar, Carina, 50 år"
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </Box>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}> {/* Justera gridstorleken för olika skärmstorlekar */}
+                <Box width={1}> {/* Ger Card en fast bredd */}
+                    <Card>
+                        <CardContent>
+                            <Typography variant="h5" component="div">
+                                Review 
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                            Hej!
+Att få tillgång till så mycket kunskap under dessa veckor har verkligen förändrat mitt liv. Tidigare trodde jag på intellektuella kommentarer och klichéer från andra, och jag använde dem själv när jag kände mig osäker på vad eller hur jag skulle uttrycka mig. Men idag har jag fått rätt verktyg och är så tacksam. Jag tror att många fler skulle kunna dra nytta av att ha tillgång till bättre verktyg för kommunikation och förståelse. En annan viktig lärdom jag fick var att inte döma andra. Det har varit en viktig insikt som har hjälpt mig att vara mer öppen och förstående gentemot andra människor. Med vänliga hälsningar, Sten, 44 år"
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </Box>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}> {/* Justera gridstorleken för olika skärmstorlekar */}
+                <Box width={1}> {/* Ger Card en fast bredd */}
+                    <Card>
+                        <CardContent>
+                            <Typography variant="h5" component="div">
+                                Review 
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                            Min ursprungliga anledning att gå sorgbearbetningskursen var att kunna stötta en närstående som hade drabbats av sorg. Men redan från början insåg jag att min egen sorg fanns och att det fanns mycket jag kunde lära mig. Ett av de mest betydelsefulla områdena för mig var att lära mig hur man möter någon i sorg utan att känna sig hjälplös eller osäker på vad man ska säga eller göra. Tidigare upplevde jag det som väldigt jobbigt när jag inte visste hur jag skulle bemöta någon som sörjde, så ibland undvek jag situationen genom att gå över gatan och låtsas att jag inte såg den andra personen. Idag har jag lärt mig vad jag kan göra för att stötta och vara närvarande för någon i sorg, men också vad jag bör undvika att göra. Med vänliga hälsningar, Kristina, 54 år"
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </Box>
+            </Grid>
+            {/* Repetera för varje recension */}
+        </Grid>
+    </Container>
     </Container>
     );
 };
