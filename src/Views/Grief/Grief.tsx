@@ -478,7 +478,7 @@ type Props = {
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
                             Hej!
- Att gå sorgbearbetningskursen under åtta veckor var en verklig ögonöppnare för mig. En av de mest betydelsefulla förändringarna var att jag upplevde att andra människor hade blivit mer förstående och bättre, tills jag insåg att det egentligen var jag själv som hade förändrats – till det bättre. Det var en djupt personlig upptäckt som har haft en stor positiv inverkan på mitt liv. Med vänliga hälsningar, Carina, 50 år"
+                            Att gå sorgbearbetningskursen under åtta veckor var en verklig ögonöppnare för mig. En av de mest betydelsefulla förändringarna var att jag upplevde att andra människor hade blivit mer förstående och bättre, tills jag insåg att det egentligen var jag själv som hade förändrats – till det bättre. Det var en djupt personlig upptäckt som har haft en stor positiv inverkan på mitt liv. Med vänliga hälsningar, Carina, 50 år"
                             </Typography>
                         </CardContent>
                     </Card>
