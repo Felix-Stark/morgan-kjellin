@@ -170,8 +170,12 @@ type Props = {
         <Container disableGutters sx={{ display: 'flex', flexDirection: 'row',flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', pt: '2rem', pb: '2rem' }}>
             <CardMedia ref={heroRef} component={"img"} alt="Sorgföreläsningar" image={GriefPic} sx={{ width: '25rem', height: '20rem' }} />
             <Box sx={{ display: 'flex', flexDirection: 'column', marginLeft: '1rem' }}>
-                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left",ml: '2rem', pt: '2rem' }}>Title</Typography>
-                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", ml: '2rem', pt: '2rem' }}>Subtitle</Typography>
+                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left",ml: '2rem', pt: '2rem' }}>
+                    { firebaseArray.length > 0 ? firebaseArray[9].title : ''}
+                </Typography>
+                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", ml: '2rem', pt: '2rem' }}>
+                    { firebaseArray.length > 0 ? firebaseArray[9].content : ''}
+                </Typography>
 
                 <Button variant="contained" onClick={ () => navigate('/contact') }
                     sx={{ 
@@ -182,32 +186,30 @@ type Props = {
                         '&:hover': {backgroundColor: '#BA1D60'}}}>
                     Anmäl dig här
                 </Button>
-                <Typography variant="h5" onClick={ () => navigate('/contact')} sx={{ fontWeight: '200', textAlign: "left", ml: '2rem' }}> 5.0 (Recensioner)</Typography>
             </Box>
         </Container>
 
        {/*  Info om föreläsningen */}
         
-        <Container disableGutters sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexDirection: 'row', alignItems: 'center', borderBottom: '1px solid black', pb: '2rem' ,mb: '2rem'}}>
+        <Container disableGutters sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexDirection: 'row', alignItems: 'center', borderBottom: '1px solid black', pb: '1rem' ,mb: '1rem'}}>
             <Box className="length" sx={{width: '18rem', display: 'flex', flexDirection: 'column',alignItems: 'center',pl: '4rem', pr: '4rem', pt: '2rem', borderRight: { md: '1px solid black', xs: 'none' } }}>
                 <AccessTimeIcon  />
-                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '2rem' }}>Längd</Typography>
+                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>Längd</Typography>
                 <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>120min</Typography>
             </Box>
             <Box className="place" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem' , pr: '4rem' , pt: '2rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
                 <PlaceIcon />
-                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '2rem' }}>Plats</Typography>
+                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>Plats</Typography>
                 <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>Arvika</Typography>
             </Box>
             <Box className="date" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
                 <CalendarMonthIcon />
-                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '2rem' }}>Datum</Typography>
-                <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>2023-10-11 Kl. 18</Typography>
+                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>Datum</Typography>
+                <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>2023-10-11</Typography>
             </Box>
-            <Box className="participants" sx={{width: '18rem', display: 'flex', flexDirection: 
-            'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem'  }}>
+            <Box className="participants" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem'  }}>
                 <PaidIcon />
-                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '2rem' }}>Pris / Deltagare</Typography>
+                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>Pris / Deltagare</Typography>
                 <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>1500kr</Typography>
             </Box>
         </Container>
