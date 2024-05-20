@@ -24,8 +24,8 @@ const Hero = () => {
         alt = "Morgan Kjellin Föreläsningar"
         image={heroImg}
       />
-      <Box sx={{backgroundColor:"#000000", opacity:"0.5",borderRadius:"50%",position: 'absolute', bottom: '2rem', width:"6rem", height:"6rem", display:"flex", justifyContent:"center", alignItems:"center"}}>
-        <CardMedia image={ scrollArrow } onClick={scrollToElement} style={{width: '4rem', height: '4rem'}}
+      <Box sx={{backgroundColor:"#000000", opacity:"0.5",borderRadius:"50%",position: 'absolute', bottom: '2rem', width:"3rem", height:"3rem", display:"flex", justifyContent:"center", alignItems:"center"}}>
+        <CardMedia image={ scrollArrow } onClick={scrollToElement} style={{width: '2rem', height: '2rem'}}
           sx={{marginTop:"0.5rem", '&:hover': { cursor: 'pointer' }}}/>
       </Box>
       

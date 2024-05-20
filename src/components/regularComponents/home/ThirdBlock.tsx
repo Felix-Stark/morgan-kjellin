@@ -42,12 +42,12 @@ const ThirdBlock = () => {
               display: "flex",
               flexDirection: "column",
               borderRadius: "10px",
-              minWidth: { md: '17rem' },
-              maxWidth: { xs: "25rem", md: "40rem", lg: "45rem" },
-              height: { md: '35rem', lg: '35rem' }
+              minWidth: { md: '15rem' },
+              maxWidth: { xs: "20rem", md: "30rem", lg: "35rem" },
+              height: { md: '30rem', lg: '30rem' }
             }}
           >
-            <CardMedia component={"img"} sx={{ minHeight: '14rem', height: { md: '14rem'}, maxHeight: {xs: "10rem", sm: '20rem'} }} alt="Morgan Kjellin Första mötet" src={firstCard} />
+            <CardMedia component={"img"} sx={{ minHeight: '12rem', height: { md: '12rem'}, maxHeight: {xs: "8rem", sm: '18rem'} }} alt="Morgan Kjellin Första mötet" src={firstCard} />
             <CardContent>
               <Typography color={"background.default"} variant="h4" fontWeight="700" padding="1rem 0">
                 Första mötet
@@ -63,7 +63,7 @@ const ThirdBlock = () => {
                   navigate('/contact')
                 }}
               >
-                Läs mer...
+                Kontakta mig
               </Button>
             </CardActions>
           </Card>
@@ -74,12 +74,12 @@ const ThirdBlock = () => {
               display: "flex",
               flexDirection: "column",
               borderRadius: "10px",
-              minWidth: { md: '17rem' },
-              maxWidth: { xs: "25rem", md: "30rem", lg: "35rem" },
-              height: { md: '35rem', lg: '35rem' } 
+              minWidth: { md: '15rem' },
+              maxWidth: { xs: "20rem", md: "25rem", lg: "30rem" },
+              height: { md: '30rem', lg: '30rem' } 
             }}
           >
-            <CardMedia component={"img"} sx={{ minHeight: '14rem', height: { md: '14rem'} , maxHeight: {xs: "10rem", sm: '20rem'} }} alt="Morgan Kjellin Föreläsningar" src={secondCard}/>
+            <CardMedia component={"img"} sx={{ minHeight: '12rem', height: { md: '12rem'} , maxHeight: {xs: "8rem", sm: '18rem'} }} alt="Morgan Kjellin Föreläsningar" src={secondCard}/>
             <CardContent>
               <Typography color={"background.default"} variant="h4" fontWeight="700" padding="1rem 0">
                 Föreläsningar
@@ -106,12 +106,12 @@ const ThirdBlock = () => {
               display: "flex",
               flexDirection: "column",
               borderRadius: "10px",
-              minWidth: { md: '17rem' },
-              maxWidth: { xs: "25rem", md: "30rem", lg: "35rem" },
-              height: { md: '35rem', lg: '35rem' }
+              minWidth: { md: '15rem' },
+              maxWidth: { xs: "20rem", md: "25rem", lg: "30rem" },
+              height: { md: '30rem', lg: '30rem' }
             }}
           >
-            <CardMedia component={"img"} sx={{ minHeight: '14rem', height: { md: '14rem'}, maxHeight: {xs: "10rem", sm: '20rem'} }} alt="Morgan Kjellin Kurser" src={thirdCard} />
+            <CardMedia component={"img"} sx={{ minHeight: '12rem', height: { md: '12rem'}, maxHeight: {xs: "8rem", sm: '18rem'} }} alt="Morgan Kjellin Kurser" src={thirdCard} />
             <CardContent>
               <Typography color={"background.default"} variant="h4" fontWeight="700" padding="1rem 0">
                 Kurser

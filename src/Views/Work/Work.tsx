@@ -68,15 +68,15 @@ export const Work = ({firebaseArray}: Props) => {
         <Container disableGutters style={{ display: 'flex', flexWrap: 'wrap', minWidth: '100%', margin: "0", position: 'relative'}}>
 
           <Button variant="contained" onClick={ scrollToTop } 
-           sx={{ zIndex: '1', width: {xs: '4rem', sm: '4rem', md: '5rem'}, height: {xs: '4rem', sm: '4rem', md: '5rem'}, borderRadius: '50%', backgroundColor: '#BA1D37', position: 'fixed',
+           sx={{ zIndex: '1', width: {xs: '3rem', sm: '3rem', md: '4rem'}, height: {xs: '3rem', sm: '3rem', md: '4rem'}, borderRadius: '50%', backgroundColor: '#BA1D37', position: 'fixed',
            margin: '5rem', bottom: '-2rem', right: '-2rem', '&:hover': {backgroundColor: '#BA1D60'} }}>
 
             <CardMedia image={ scrollArrow } style={{ position: 'absolute', transform: 'rotate(180deg)' }}
-             sx={{ top: { xs: 'calc(25% - 2px)', sm: 'calc(25% - 2px)', md: 'calc(25% - 2.5px)'}, left: { xs: 'calc(25% - 2px)', sm: 'calc(25% - .5px)', md: 'calc(25%)'},
+             sx={{ top: { xs: 'calc(50% - 1rem)', sm: 'calc(50% - 1rem)', md: 'calc(50% - 1.25rem)'}, left: { xs: 'calc(50% - 1rem)', sm: 'calc(50% - 1rem)', md: 'calc(50% - 1.25rem)'},
             width: {xs: '2rem', sm: '2rem', md: '2.5rem'}, height: {xs: '2rem', sm: '2rem', md: '2.5rem'} } } >
-             </CardMedia>
+            </CardMedia>
 
-          </Button>
+        </Button>
 
           <Container disableGutters sx={{ display: 'flex', minWidth: '100%', margin: "0", position: 'relative', flexDirection: { xs: 'column', sm: 'column', md: 'row' }}}>
             <Box width={'2rem'} height={'2rem'} borderRadius={'50%'} sx={{opacity: { xs: '0', sm: '0', md: '100%'}, backgroundColor: '#BA1D37', position: 'absolute', right: 'calc(50% - 1rem)', top: '5rem'}}></Box>
@@ -322,7 +322,7 @@ export const Work = ({firebaseArray}: Props) => {
                     height: '3rem',
                     margin: '2rem 0',
                     '&:hover': {backgroundColor: '#BA1D60'}}}>
-                    Mer info !
+                    Mer info...
                   </Button>
                 </Box>
             </Box>

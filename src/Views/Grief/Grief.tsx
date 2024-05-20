@@ -1,8 +1,3 @@
-import GriefPic from '../../Assets/Grief.svg'
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import PlaceIcon from '@mui/icons-material/Place';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import PaidIcon from '@mui/icons-material/Paid';
 import {Card, CardContent, Container, Box, Typography, Button, Grid } from "@mui/material"
 import CardMedia from '@mui/material/CardMedia';
 import { useNavigate } from "react-router-dom";
@@ -18,6 +13,12 @@ import {
     useMediaQuery,
     Dialog, DialogTitle, DialogActions
   } from "@mui/material";
+import { init } from 'emailjs-com';
+import GriefPic from '../../Assets/Grief.svg'
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import PlaceIcon from '@mui/icons-material/Place';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import PaidIcon from '@mui/icons-material/Paid';
 
 const contactAlt = ["Via mail", "Via Telefon"];
 
@@ -38,6 +39,16 @@ type Props = {
 
     export const Grief = ({firebaseArray}: Props) => {
         const [open, setOpen] = useState(false);
+        const [isFullContent, setIsFullContent] = useState<Record<number, boolean>>({});
+
+        const getContent = (content: any, index: number) => {
+            const words = content.split(' ');
+            if (isFullContent[index] === undefined || !isFullContent[index] && words.length > 61) {
+                return words.slice(0, 61).join(' ') + '...';
+            }
+            return content;
+        };
+
     
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -108,16 +119,13 @@ type Props = {
     const navigate = useNavigate();
     const heroRef: any  = useRef();
 
-    const scrollToTop = () => {
-        if (window.scrollY > 100) {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
+    const scrollToElement = (event: any) => {
+    const targetId = event.currentTarget.getAttribute('data-target');
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
     }
-
-    const scrollToElement = () => {
-        const heroHeight = heroRef.current.offsetHeight;
-        window.scrollTo({ top: heroHeight, behavior: "smooth" });
-    }
+    };
 
 
     // Theme för kontaktformulär 
@@ -170,14 +178,14 @@ type Props = {
         <Container disableGutters sx={{ display: 'flex', flexDirection: 'row',flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', pt: '2rem', pb: '2rem' }}>
             <CardMedia ref={heroRef} component={"img"} alt="Sorgföreläsningar" image={GriefPic} sx={{ width: '25rem', height: '20rem' }} />
             <Box sx={{ display: 'flex', flexDirection: 'column', marginLeft: '1rem' }}>
-                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left",ml: '2rem', pt: '2rem' }}>
+                <Typography variant="h2" sx={{ fontWeight: "bold", textAlign: "left",ml: '2rem', pt: '2rem' }}>
                     { firebaseArray.length > 0 ? firebaseArray[9].title : ''}
                 </Typography>
-                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", ml: '2rem', pt: '2rem' }}>
+                <Typography variant="h3" sx={{ fontWeight: "bold", textAlign: "left", ml: '2rem', pt: '2rem' }}>
                     { firebaseArray.length > 0 ? firebaseArray[9].content : ''}
                 </Typography>
 
-                <Button variant="contained" onClick={ () => navigate('/contact') }
+                <Button variant="contained" onClick={scrollToElement} data-target="scrollTarget"
                     sx={{ 
                         backgroundColor: '#BA1D37',
                         width: '10rem',
@@ -194,33 +202,47 @@ type Props = {
         <Container disableGutters sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', flexDirection: 'row', alignItems: 'center', borderBottom: '1px solid black', pb: '1rem' ,mb: '1rem'}}>
             <Box className="length" sx={{width: '18rem', display: 'flex', flexDirection: 'column',alignItems: 'center',pl: '4rem', pr: '4rem', pt: '2rem', borderRight: { md: '1px solid black', xs: 'none' } }}>
                 <AccessTimeIcon  />
-                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>Längd</Typography>
-                <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>120min</Typography>
+                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>
+                    {firebaseArray.length > 0 ? firebaseArray[12].title : ''}
+                </Typography>
+                <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>
+                    {firebaseArray.length > 0 ? firebaseArray[12].content : ''}
+                </Typography>
             </Box>
             <Box className="place" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem' , pr: '4rem' , pt: '2rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
                 <PlaceIcon />
-                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>Plats</Typography>
-                <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>Arvika</Typography>
+                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>
+                    {firebaseArray.length > 1 ? firebaseArray[13].title : ''}
+                </Typography>
+                <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>
+                    {firebaseArray.length > 1 ? firebaseArray[13].content : ''}
+                </Typography>
             </Box>
             <Box className="date" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
                 <CalendarMonthIcon />
-                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>Datum</Typography>
-                <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>2023-10-11</Typography>
+                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>
+                    {firebaseArray.length > 2 ? firebaseArray[11].title : ''}
+                </Typography>
+                <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>
+                    {firebaseArray.length > 2 ? firebaseArray[11].content : ''}
+                </Typography>
             </Box>
             <Box className="participants" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem'  }}>
                 <PaidIcon />
-                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>Pris / Deltagare</Typography>
-                <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>1500kr</Typography>
+                <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>
+                    {firebaseArray.length > 3 ? firebaseArray[14].title : ''}
+                </Typography>
+                <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>
+                    {firebaseArray.length > 3 ? firebaseArray[14].content : ''}
+                </Typography>
             </Box>
         </Container>
 
         {/*  Beskrivning av föreläsningen */}
 
         <Container disableGutters sx={{ display: 'flex', flexDirection: 'column', p: '2rem' }} >
-            <Typography variant="h2" sx={{}} >Beskrivning</Typography>
-            <Typography variant="h5" sx={{ fontWeight: "normal", mt: '2rem' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nunc quis risus dictum faucibus. Nullam sed mauris et elit lacinia aliquet. Sed in nunc sed ipsum aliquam euismod. Donec in nunc quis risus dictum faucibus. Nullam sed mauris et elit lacinia aliquet. Sed in nunc sed ipsum aliquam euismod.</Typography>
-            <Typography variant="h3" sx={{pt: '2rem'}} >Beskrivning</Typography>
-            <Typography variant="h5" sx={{ fontWeight: "normal", mt: '2rem' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nunc quis risus dictum faucibus. Nullam sed mauris et elit lacinia aliquet. Sed in nunc sed ipsum aliquam euismod. Donec in nunc quis risus dictum faucibus. Nullam sed mauris et elit lacinia aliquet. Sed in nunc sed ipsum aliquam euismod.</Typography>
+            <Typography variant="h2" sx={{}}>{firebaseArray.length > 0 ? firebaseArray[15].title : ''}</Typography>
+            <Typography variant="h5" sx={{ fontWeight: "normal", mt: '2rem' }}>{firebaseArray.length > 0 ? firebaseArray[15].content : ''}</Typography>
         </Container>
 
         <Container disableGutters sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row', ld: 'row', xl: 'row' } }}>
@@ -228,8 +250,8 @@ type Props = {
             {/*  Betalnings information start */}
 
             <Box sx={{ flexWrap: 'wrap', p: '2rem', marginTop: { xs: "1rem", md: "0" } }}>
-                <Typography variant="h2" sx={{ pb: '2rem'}}>Betalning</Typography>
-                <Typography variant="h5" sx={{ fontWeight: "normal" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nunc quis risus dictum faucibus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in nunc quis risus dictum faucibus</Typography>
+                <Typography variant="h2" sx={{ pb: '2rem'}}>{firebaseArray.length > 0 ? firebaseArray[10].title : ''}</Typography>
+                <Typography variant="h5" sx={{ fontWeight: "normal" }}>{firebaseArray.length > 0 ? firebaseArray[10].content : ''}</Typography>
             </Box>
 
             {/* Betalning slut */ }
@@ -238,17 +260,18 @@ type Props = {
             {/*Här startar Kontakt formuläret */}
                 
             <Box
+                id="scrollTarget"
                 display="flex"
                 flexDirection={{ xs: "column", md: "row" }}
                 alignItems="center"
                 sx={{
                 width: "100%",
-                height: "50rem",
+                height: "40rem",
                 maxWidth: "40rem",
                 margin: "0 auto",
                 borderRadius: "4px",
                 marginTop: { xs: "1rem", md: "0" },
-                marginBottom: { xs: "18rem", md: "0" },
+                marginBottom: { xs: "5rem", md: "0" },
                 }}
             >
                 <Box
@@ -272,7 +295,7 @@ type Props = {
                     Anmälan till kurs!
                 </Typography>
 
-                <Typography variant="h3" sx={{ padding: { xs: "12px", md: "24px" } }}>
+                <Typography variant="h4" sx={{ padding: { xs: "12px", md: "24px" } }}>
                     Vänligen fyll i de obligatoriska fälten så skickar vi en bekräftelse på din anmälan.
                 </Typography>
                 </Box>
@@ -451,73 +474,66 @@ type Props = {
                         
         </Container>
         {/* Här börjar recensionerna */}
-        <Container disableGutters sx={{ p: '2rem' }}>
-        <Grid container spacing={3}> {/* Lägger till utrymme mellan varje Card */}
-            <Grid item xs={12} sm={6} md={4}> {/* Justera gridstorleken för olika skärmstorlekar */}
-                <Box width={1} display="flex" flexDirection="column" > {/* Ger Card en fast bredd */}
-                    <Card>
-                        <CardContent>
-                            <Typography variant="h5" component="div">
-                                Review 
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                            "Hej!
-                            Jag deltog i sorgbearbetningskursen hos Morgan för ca 10 år sedan och det var en verklig ögonöppnare för mig. 
-                            Kursen hjälpte mig med många olika saker men något jag uppmärksammade var att skilja mellan ursäkter och förlåtelse, 
-                            något jag tidigare trodde var likvärdigt. Det var en stark och personlig upplevelse som har gett mig en djupare förståelse för detta. 
-                            Med vänliga hälsningar, Ulf, 38 år"
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </Box>
-            </Grid>
-            <Grid item xs={12} sm={6} md={4}> {/* Justera gridstorleken för olika skärmstorlekar */}
-                <Box width={1}> {/* Ger Card en fast bredd */}
-                    <Card>
-                        <CardContent>
-                            <Typography variant="h5" component="div">
-                                Review 
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                            Hej!
-                            Att gå sorgbearbetningskursen under åtta veckor var en verklig ögonöppnare för mig. En av de mest betydelsefulla förändringarna var att jag upplevde att andra människor hade blivit mer förstående och bättre, tills jag insåg att det egentligen var jag själv som hade förändrats – till det bättre. Det var en djupt personlig upptäckt som har haft en stor positiv inverkan på mitt liv. Med vänliga hälsningar, Carina, 50 år"
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </Box>
-            </Grid>
-            <Grid item xs={12} sm={6} md={4}> {/* Justera gridstorleken för olika skärmstorlekar */}
-                <Box width={1}> {/* Ger Card en fast bredd */}
-                    <Card>
-                        <CardContent>
-                            <Typography variant="h5" component="div">
-                                Review 
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                            Hej!
-Att få tillgång till så mycket kunskap under dessa veckor har verkligen förändrat mitt liv. Tidigare trodde jag på intellektuella kommentarer och klichéer från andra, och jag använde dem själv när jag kände mig osäker på vad eller hur jag skulle uttrycka mig. Men idag har jag fått rätt verktyg och är så tacksam. Jag tror att många fler skulle kunna dra nytta av att ha tillgång till bättre verktyg för kommunikation och förståelse. En annan viktig lärdom jag fick var att inte döma andra. Det har varit en viktig insikt som har hjälpt mig att vara mer öppen och förstående gentemot andra människor. Med vänliga hälsningar, Sten, 44 år"
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </Box>
-            </Grid>
-            <Grid item xs={12} sm={6} md={4}> {/* Justera gridstorleken för olika skärmstorlekar */}
-                <Box width={1}> {/* Ger Card en fast bredd */}
-                    <Card>
-                        <CardContent>
-                            <Typography variant="h5" component="div">
-                                Review 
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                            Min ursprungliga anledning att gå sorgbearbetningskursen var att kunna stötta en närstående som hade drabbats av sorg. Men redan från början insåg jag att min egen sorg fanns och att det fanns mycket jag kunde lära mig. Ett av de mest betydelsefulla områdena för mig var att lära mig hur man möter någon i sorg utan att känna sig hjälplös eller osäker på vad man ska säga eller göra. Tidigare upplevde jag det som väldigt jobbigt när jag inte visste hur jag skulle bemöta någon som sörjde, så ibland undvek jag situationen genom att gå över gatan och låtsas att jag inte såg den andra personen. Idag har jag lärt mig vad jag kan göra för att stötta och vara närvarande för någon i sorg, men också vad jag bör undvika att göra. Med vänliga hälsningar, Kristina, 54 år"
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </Box>
-            </Grid>
-            {/* Repetera för varje recension */}
+        <Container disableGutters sx={{ p: '1rem' }}>
+    <Grid container spacing={3}> {/* Lägger till utrymme mellan varje Card */}
+        <Grid item xs={12} sm={6} md={3}>
+            <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
+                <Card elevation={5} style={{flexGrow: 1}}>
+                    <CardContent>
+                        <Typography variant="h5" component="div">
+                            {firebaseArray.length > 0 ? firebaseArray[5].title : ''} 
+                        </Typography>
+                        <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [5]: !prevState[5]}))}>
+                            {firebaseArray.length > 0 ? getContent(firebaseArray[5].content, 5) : ''}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Box>
         </Grid>
-    </Container>
+        <Grid item xs={12} sm={6} md={3}>
+            <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
+                <Card elevation={5} style={{flexGrow: 1}}>
+                    <CardContent>
+                        <Typography variant="h5" component="div">
+                            {firebaseArray.length > 0 ? firebaseArray[6].title : ''} 
+                        </Typography>
+                        <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [6]: !prevState[6]}))}>
+                            {firebaseArray.length > 0 ? getContent(firebaseArray[6].content, 6) : ''}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Box>
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
+            <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
+                <Card elevation={5} style={{flexGrow: 1}}>
+                    <CardContent>
+                        <Typography variant="h5" component="div">
+                            {firebaseArray.length > 0 ? firebaseArray[7].title : ''} 
+                        </Typography>
+                        <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [7]: !prevState[7]}))}>
+                            {firebaseArray.length > 0 ? getContent(firebaseArray[7].content, 7) : ''}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Box>
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
+            <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
+                <Card elevation={5} style={{flexGrow: 1}}>
+                    <CardContent>
+                        <Typography variant="h5" component="div">
+                            {firebaseArray.length > 0 ? firebaseArray[8].title : ''} 
+                        </Typography>
+                        <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [8]: !prevState[8]}))}>
+                            {firebaseArray.length > 0 ? getContent(firebaseArray[8].content, 8) : ''}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Box>
+        </Grid>
+    </Grid>
+</Container>
     </Container>
     );
 };
