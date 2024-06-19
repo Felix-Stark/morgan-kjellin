@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Typography, Container, Box, Grid, IconButton, Stack } from '@mui/material';
-import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import YouTubeIcon from '@mui/icons-material/YouTube';
 
 export const Footer = () => {
   return (
@@ -102,7 +100,7 @@ export const Footer = () => {
                   color: '#FFFFFF',
                   fontSize: '1.1rem',
                 }, }}>
-              <Link to="mailto:kontakt@morgankjellin.com" style={{ color: '#CFCFCF', textDecoration: 'none' }}>
+              <Link to="mailto:kontaktmorgankjellin@gmail.com" style={{ color: '#CFCFCF', textDecoration: 'none' }}>
                 kontaktmorgankjellin@gmail.com
               </Link>
             </Typography>

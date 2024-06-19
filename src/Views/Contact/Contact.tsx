@@ -320,9 +320,6 @@ export const Contact = () => {
                   mt={{ xs: 0, md: 0 }}
                   sx={{ backgroundColor: "rgba(52, 52, 52)", padding: 4 }}
                 >
-                  <Typography variant="h6" mb={1} color="white">
-                    Meddelande (max 480 karaktärer) *
-                  </Typography>
                   <TextareaAutosize
                     name="message"
                     value={formData.message}
@@ -342,6 +339,9 @@ export const Contact = () => {
                     }}
                     required
                   />
+                <Typography variant="h6" mb={1} color="white" style={{ fontSize: '0.8rem' }}>
+                    Meddelande (max 480 karaktärer) *
+                </Typography>
                 </Box>
               </Box>
               <Box

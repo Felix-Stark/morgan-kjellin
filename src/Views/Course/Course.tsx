@@ -14,12 +14,12 @@ import {
     Dialog, DialogTitle, DialogActions
   } from "@mui/material";
 import { init } from 'emailjs-com';
-import GriefPic from '../../Assets/Grief.svg'
+// import GriefPic from '../../Assets/Grief.svg'
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PlaceIcon from '@mui/icons-material/Place';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PaidIcon from '@mui/icons-material/Paid';
-
+import OptimumPic from '../../Assets/optimummind.png'
 const contactAlt = ["Via mail", "Via Telefon"];
 
 interface CourseFormData {
@@ -37,7 +37,7 @@ type Props = {
 }
 
 
-    export const Grief = ({firebaseArray}: Props) => {
+    export const Course = ({firebaseArray}: Props) => {
         const [open, setOpen] = useState(false);
         const [isFullContent, setIsFullContent] = useState<Record<number, boolean>>({});
 
@@ -116,7 +116,7 @@ type Props = {
         })
     }
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const heroRef: any  = useRef();
 
     const scrollToElement = (event: any) => {
@@ -176,13 +176,13 @@ type Props = {
     return (
         <Container disableGutters sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <Container disableGutters sx={{ display: 'flex', flexDirection: 'row',flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', pt: '2rem', pb: '2rem' }}>
-            <CardMedia ref={heroRef} component={"img"} alt="Sorgföreläsningar" image={GriefPic} sx={{ width: '25rem', height: '20rem' }} />
+            <CardMedia ref={heroRef} component={"img"} alt="Optimum Picture" image={OptimumPic} sx={{ width: '25rem', height: '20rem' }} />
             <Box sx={{ display: 'flex', flexDirection: 'column', marginLeft: '1rem' }}>
                 <Typography variant="h2" sx={{ fontWeight: "bold", textAlign: "left",ml: '2rem', pt: '2rem' }}>
-                    { firebaseArray.length > 0 ? firebaseArray[9].title : ''}
+                    { firebaseArray.length > 0 ? firebaseArray[9].title : ''}OPTIMUMMIND®-COACHNING  
                 </Typography>
                 <Typography variant="h3" sx={{ fontWeight: "bold", textAlign: "left", ml: '2rem', pt: '2rem' }}>
-                    { firebaseArray.length > 0 ? firebaseArray[9].content : ''}
+                    { firebaseArray.length > 0 ? firebaseArray[9].content : ''}Med OptimumMind-coachning åtgärdar vi grundorsaken till psykisk ohälsa och hjälper dig att hitta tillbaka till ditt naturliga välmående.
                 </Typography>
 
                 <Button variant="contained" onClick={scrollToElement} data-target="scrollTarget"
@@ -241,8 +241,14 @@ type Props = {
         {/*  Beskrivning av föreläsningen */}
 
         <Container disableGutters sx={{ display: 'flex', flexDirection: 'column', p: '2rem' }} >
-            <Typography variant="h2" sx={{}}>{firebaseArray.length > 0 ? firebaseArray[15].title : ''}</Typography>
-            <Typography variant="h5" sx={{ fontWeight: "normal", mt: '2rem' }}>{firebaseArray.length > 0 ? firebaseArray[15].content : ''}</Typography>
+            <Typography variant="h2" sx={{}}>{firebaseArray.length > 0 ? firebaseArray[15].title : ''} OptimumMind® Coachning </Typography>
+            <Typography variant="h5" sx={{ fontWeight: "normal", mt: '2rem' }}>{firebaseArray.length > 0 ? firebaseArray[15].content : ''} Under OptimumMind®-coachningen använder vi oss av OptimumMind-processen för att komma åt grundorsaken till psykisk ohälsa.
+
+            Oavsett om det handlar om fobier, tidigare händelser som fortfarande skapar mentalt-känslomässigt lidande, PTSD, tvångstankar, ångest av olika slag eller stress och oro över framtiden når vi snabba resultat.
+
+            OptimumMind®-processen bygger på en kombination av effektiva tekniker från energipsykologin – EFT och EmotionCode – samt en egenutvecklad process för att snabbt nå en insikt i hur vårt psyke fungerar vid optimal funktion.
+
+            Detta leder till att man på i snitt 3-4 coachningssessioner åter kan landa i det stressfria välmående som egentligen är allas vårt naturliga tillstånd. Antal sessioner kan variera.</Typography>
         </Container>
 
         <Container disableGutters sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row', ld: 'row', xl: 'row' } }}>
@@ -250,8 +256,10 @@ type Props = {
             {/*  Betalnings information start */}
 
             <Box sx={{ flexWrap: 'wrap', p: '2rem', marginTop: { xs: "1rem", md: "0" } }}>
-                <Typography variant="h2" sx={{ pb: '2rem'}}>{firebaseArray.length > 0 ? firebaseArray[10].title : ''}</Typography>
-                <Typography variant="h5" sx={{ fontWeight: "normal" }}>{firebaseArray.length > 0 ? firebaseArray[10].content : ''}</Typography>
+                <Typography variant="h2" sx={{ pb: '2rem'}}>{firebaseArray.length > 0 ? firebaseArray[10].title : ''} Boka tid för Coachning</Typography>
+                <Typography variant="h5" sx={{ fontWeight: "normal" }}>{firebaseArray.length > 0 ? firebaseArray[10].content : ''} När du kommer till oss första gången rekommenderar vi att du bokar minst två coachningssessioner med 1-2 veckors mellanrum då vi ser bäst resultat när vi kan följa upp processen inom rätt tidsperiod.
+
+                    Inför första besöket kommer du bli uppringd för din historik och nulägessituation så att vi snabbt kan sätta oss in i hur vi ska lägga upp coachningen just för dig för att nå snabbast möjliga resultat.</Typography>
             </Box>
 
             {/* Betalning slut */ }

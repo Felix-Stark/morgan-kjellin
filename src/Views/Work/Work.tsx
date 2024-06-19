@@ -114,14 +114,14 @@ export const Work = ({firebaseArray}: Props) => {
                   <Typography variant="h2" sx={{marginTop: { xs: '5rem', sm: '5rem', md: '5rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[20].title : ''}</Typography>
                   <Typography variant="h5" color="#BA1D37" sx={{ paddingTop: '0.5rem'}}>ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
                   <Typography variant="h6" paddingTop={'2rem'} sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}> { firebaseArray.length > 0 ? firebaseArray[20].content : ''} </Typography>
-                  <Button variant="contained" onClick={ () => navigate('/contact') }
+                  <Button variant="contained" onClick={ () => navigate('/kurs') }
                   sx={{ 
                     backgroundColor: '#BA1D37',
                     width: '10rem',
                     height: '3rem',
                     margin: '2rem 0',
                     '&:hover': {backgroundColor: '#BA1D60'}}}>
-                    Kontakt
+                    Mer info...
                   </Button>
                 </Box>
             </Box>
