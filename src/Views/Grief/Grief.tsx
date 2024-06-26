@@ -1,6 +1,6 @@
 import {Card, CardContent, Container, Box, Typography, Button, Grid } from "@mui/material"
 import CardMedia from '@mui/material/CardMedia';
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Place } from '@mui/icons-material';
@@ -81,8 +81,8 @@ type Props = {
         console.log(formData);
         emailjs
         .send(
-            "service_auwdq18",
-            "template_17rbltb",
+            "service_auwdql8",
+            "template_692fpbo",
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -94,15 +94,15 @@ type Props = {
       )
       .then(
         (result) => {
-          console.log(result.text);
+          console.log('EmailJS result:', result.text);
           if( result.text == 'OK') {
             setOpen(true);
             clearForm();
           }
         },
         (error) => {
+          console.error('EmailJS error:', error.text);
           alert(error.text);
-          console.log(error.text);
         }
       );
     };

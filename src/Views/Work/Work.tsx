@@ -111,9 +111,9 @@ export const Work = ({firebaseArray}: Props) => {
                 paddingBottom: { xs: '2rem', sm: '2rem', md: '4rem' }
               }}>
                 <Box sx={{width: {xs: '18rem', sm: '30rem', md: '20rem'}}}>
-                  <Typography variant="h2" sx={{marginTop: { xs: '5rem', sm: '5rem', md: '5rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[20].title : ''}</Typography>
+                  <Typography variant="h2" sx={{marginTop: { xs: '5rem', sm: '5rem', md: '5rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[31].title : ''}</Typography>
                   <Typography variant="h5" color="#BA1D37" sx={{ paddingTop: '0.5rem'}}>ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
-                  <Typography variant="h6" paddingTop={'2rem'} sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}> { firebaseArray.length > 0 ? firebaseArray[20].content : ''} </Typography>
+                  <Typography variant="h6" paddingTop={'2rem'} sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}> { firebaseArray.length > 0 ? firebaseArray[31].content : ''} </Typography>
                   <Button variant="contained" onClick={ () => navigate('/kurs') }
                   sx={{ 
                     backgroundColor: '#BA1D37',
@@ -145,10 +145,10 @@ export const Work = ({firebaseArray}: Props) => {
                 borderRight: {xs: 'none', sm: 'none', md: '1px solid #BA1D37'}
               }}>
                 <Box sx={{width: {xs: '18rem', sm: '30rem', md: '20rem'}}}>
-                  <Typography variant="h2" sx={{paddingTop: {xs: '5rem', sm: '5rem', md: '5rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[22].title : ''}
+                  <Typography variant="h2" sx={{paddingTop: {xs: '5rem', sm: '5rem', md: '5rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[33].title : ''}
                   </Typography>
                   <Typography variant="h5" color="#BA1D37" sx={{ paddingTop: '0.5rem'}}>ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
-                  <Typography variant="h6" paddingTop={'2rem'} sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>{ firebaseArray.length > 0 ? firebaseArray[22].content : ''}</Typography>
+                  <Typography variant="h6" paddingTop={'2rem'} sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>{ firebaseArray.length > 0 ? firebaseArray[33].content : ''}</Typography>
                   <Button variant="contained" onClick={ () => navigate('/contact') }
                   sx={{ 
                     backgroundColor: '#BA1D37',
@@ -213,9 +213,9 @@ export const Work = ({firebaseArray}: Props) => {
                 borderLeft: {xs: 'none', sm: 'none', md: '1px solid #BA1D37'},
               }}>
                 <Box sx={{width: {xs: '18rem', sm: '30rem', md: '20rem'}}}>
-                  <Typography variant="h2" sx={{paddingTop: {xs: '2.5rem', sm: '2.5rem', md: '5rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[23].title : ''}</Typography>
+                  <Typography variant="h2" sx={{paddingTop: {xs: '2.5rem', sm: '2.5rem', md: '5rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[34].title : ''}</Typography>
                   <Typography variant="h5" color="#BA1D37" sx={{ paddingTop: '0.5rem'}}>ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
-                  <Typography variant="h6" paddingTop={'2rem'} sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>{ firebaseArray.length > 0 ? firebaseArray[23].content : ''}</Typography>
+                  <Typography variant="h6" paddingTop={'2rem'} sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>{ firebaseArray.length > 0 ? firebaseArray[34].content : ''}</Typography>
                   <Button variant="contained" onClick={ () => navigate('/contact') }
                   sx={{ 
                     backgroundColor: '#BA1D37',
@@ -247,9 +247,9 @@ export const Work = ({firebaseArray}: Props) => {
                 borderRight: {xs: 'none', sm: 'none', md: '1px solid #BA1D37'},
               }}>
                 <Box sx={{width: {xs: '18rem', sm: '30rem', md: '20rem'}}}>
-                  <Typography variant="h2" sx={{paddingTop: {xs: '2.5rem', sm: '2.5rem', md: '5rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[21].title : ''}</Typography>
+                  <Typography variant="h2" sx={{paddingTop: {xs: '2.5rem', sm: '2.5rem', md: '5rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[32].title : ''}</Typography>
                   <Typography variant="h5" color="#BA1D37" sx={{ paddingTop: '0.5rem'}}>ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
-                  <Typography variant="h6" paddingTop={'2rem'} sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>{ firebaseArray.length > 0 ? firebaseArray[21].content : ''}</Typography>
+                  <Typography variant="h6" paddingTop={'2rem'} sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>{ firebaseArray.length > 0 ? firebaseArray[32].content : ''}</Typography>
                   <Button variant="contained" onClick={ () => navigate('/contact') }
                   sx={{ 
                     backgroundColor: '#BA1D37',
@@ -312,9 +312,9 @@ export const Work = ({firebaseArray}: Props) => {
                 borderLeft: {xs: 'none', sm: 'none', md: '1px solid #BA1D37'}
               }}>
                 <Box sx={{width: {xs: '18rem', sm: '30rem', md: '20rem'}}}>
-                  <Typography variant="h2" sx={{paddingTop: {xs: '2.5rem', sm: '2.5rem', md: '5rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[19].title : ''}</Typography>
+                  <Typography variant="h2" sx={{paddingTop: {xs: '2.5rem', sm: '2.5rem', md: '5rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[30].title : ''}</Typography>
                   <Typography variant="h5" color="#BA1D37" sx={{ paddingTop: '0.5rem'}}>ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
-                  <Typography variant="h6" paddingTop={'2rem'} sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>{ firebaseArray.length > 0 ? firebaseArray[19].content : ''}</Typography>
+                  <Typography variant="h6" paddingTop={'2rem'} sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>{ firebaseArray.length > 0 ? firebaseArray[30].content : ''}</Typography>
                   <Button variant="contained" onClick={ () => navigate('/sorg') }
                   sx={{ 
                     backgroundColor: '#BA1D37',

@@ -19,7 +19,12 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PlaceIcon from '@mui/icons-material/Place';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PaidIcon from '@mui/icons-material/Paid';
-import OptimumPic from '../../Assets/optimummind.png'
+import OptimumPic from '../../Assets/optimummind.png';
+import OptifirstCard from '../../Assets/firstcardopti.png';
+import OptisecondCard from '../../Assets/secondcardopti.png';
+import OptithirdCard from '../../Assets/thirdcardopti.png';
+import OptifourthCard from '../../Assets/fourthcardopti.png';
+
 const contactAlt = ["Via mail", "Via Telefon"];
 
 interface CourseFormData {
@@ -81,7 +86,7 @@ type Props = {
         console.log(formData);
         emailjs
         .send(
-            "service_auwdq18",
+            "service_auwdql8",
             "template_17rbltb",
         {
           from_name: formData.name,
@@ -179,10 +184,10 @@ type Props = {
             <CardMedia ref={heroRef} component={"img"} alt="Optimum Picture" image={OptimumPic} sx={{ width: '25rem', height: '20rem' }} />
             <Box sx={{ display: 'flex', flexDirection: 'column', marginLeft: '1rem' }}>
                 <Typography variant="h2" sx={{ fontWeight: "bold", textAlign: "left",ml: '2rem', pt: '2rem' }}>
-                    { firebaseArray.length > 0 ? firebaseArray[9].title : ''}OPTIMUMMIND®-COACHNING  
+                    { firebaseArray.length > 0 ? firebaseArray[17].title : ''}  
                 </Typography>
                 <Typography variant="h3" sx={{ fontWeight: "bold", textAlign: "left", ml: '2rem', pt: '2rem' }}>
-                    { firebaseArray.length > 0 ? firebaseArray[9].content : ''}Med OptimumMind-coachning åtgärdar vi grundorsaken till psykisk ohälsa och hjälper dig att hitta tillbaka till ditt naturliga välmående.
+                    { firebaseArray.length > 0 ? firebaseArray[17].content : ''}
                 </Typography>
 
                 <Button variant="contained" onClick={scrollToElement} data-target="scrollTarget"
@@ -203,37 +208,37 @@ type Props = {
             <Box className="length" sx={{width: '18rem', display: 'flex', flexDirection: 'column',alignItems: 'center',pl: '4rem', pr: '4rem', pt: '2rem', borderRight: { md: '1px solid black', xs: 'none' } }}>
                 <AccessTimeIcon  />
                 <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>
-                    {firebaseArray.length > 0 ? firebaseArray[12].title : ''}
+                    {firebaseArray.length > 0 ? firebaseArray[23].title : ''}
                 </Typography>
                 <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>
-                    {firebaseArray.length > 0 ? firebaseArray[12].content : ''}
+                    {firebaseArray.length > 0 ? firebaseArray[23].content : ''}
                 </Typography>
             </Box>
             <Box className="place" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem' , pr: '4rem' , pt: '2rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
                 <PlaceIcon />
                 <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>
-                    {firebaseArray.length > 1 ? firebaseArray[13].title : ''}
+                    {firebaseArray.length > 1 ? firebaseArray[24].title : ''}
                 </Typography>
                 <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>
-                    {firebaseArray.length > 1 ? firebaseArray[13].content : ''}
+                    {firebaseArray.length > 1 ? firebaseArray[24].content : ''}
                 </Typography>
             </Box>
             <Box className="date" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
                 <CalendarMonthIcon />
                 <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>
-                    {firebaseArray.length > 2 ? firebaseArray[11].title : ''}
+                    {firebaseArray.length > 2 ? firebaseArray[22].title : ''}
                 </Typography>
                 <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>
-                    {firebaseArray.length > 2 ? firebaseArray[11].content : ''}
+                    {firebaseArray.length > 2 ? firebaseArray[22].content : ''}
                 </Typography>
             </Box>
             <Box className="participants" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem'  }}>
                 <PaidIcon />
                 <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>
-                    {firebaseArray.length > 3 ? firebaseArray[14].title : ''}
+                    {firebaseArray.length > 3 ? firebaseArray[21].title : ''}
                 </Typography>
                 <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>
-                    {firebaseArray.length > 3 ? firebaseArray[14].content : ''}
+                    {firebaseArray.length > 3 ? firebaseArray[21].content : ''}
                 </Typography>
             </Box>
         </Container>
@@ -241,14 +246,8 @@ type Props = {
         {/*  Beskrivning av föreläsningen */}
 
         <Container disableGutters sx={{ display: 'flex', flexDirection: 'column', p: '2rem' }} >
-            <Typography variant="h2" sx={{}}>{firebaseArray.length > 0 ? firebaseArray[15].title : ''} OptimumMind® Coachning </Typography>
-            <Typography variant="h5" sx={{ fontWeight: "normal", mt: '2rem' }}>{firebaseArray.length > 0 ? firebaseArray[15].content : ''} Under OptimumMind®-coachningen använder vi oss av OptimumMind-processen för att komma åt grundorsaken till psykisk ohälsa.
-
-            Oavsett om det handlar om fobier, tidigare händelser som fortfarande skapar mentalt-känslomässigt lidande, PTSD, tvångstankar, ångest av olika slag eller stress och oro över framtiden når vi snabba resultat.
-
-            OptimumMind®-processen bygger på en kombination av effektiva tekniker från energipsykologin – EFT och EmotionCode – samt en egenutvecklad process för att snabbt nå en insikt i hur vårt psyke fungerar vid optimal funktion.
-
-            Detta leder till att man på i snitt 3-4 coachningssessioner åter kan landa i det stressfria välmående som egentligen är allas vårt naturliga tillstånd. Antal sessioner kan variera.</Typography>
+            <Typography variant="h2" sx={{}}>{firebaseArray.length > 0 ? firebaseArray[26].title : ''}</Typography>
+            <Typography variant="h5" sx={{ fontWeight: "normal", mt: '2rem' }}>{firebaseArray.length > 0 ? firebaseArray[26].content : ''}</Typography>
         </Container>
 
         <Container disableGutters sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row', ld: 'row', xl: 'row' } }}>
@@ -256,10 +255,8 @@ type Props = {
             {/*  Betalnings information start */}
 
             <Box sx={{ flexWrap: 'wrap', p: '2rem', marginTop: { xs: "1rem", md: "0" } }}>
-                <Typography variant="h2" sx={{ pb: '2rem'}}>{firebaseArray.length > 0 ? firebaseArray[10].title : ''} Boka tid för Coachning</Typography>
-                <Typography variant="h5" sx={{ fontWeight: "normal" }}>{firebaseArray.length > 0 ? firebaseArray[10].content : ''} När du kommer till oss första gången rekommenderar vi att du bokar minst två coachningssessioner med 1-2 veckors mellanrum då vi ser bäst resultat när vi kan följa upp processen inom rätt tidsperiod.
-
-                    Inför första besöket kommer du bli uppringd för din historik och nulägessituation så att vi snabbt kan sätta oss in i hur vi ska lägga upp coachningen just för dig för att nå snabbast möjliga resultat.</Typography>
+                <Typography variant="h2" sx={{ pb: '2rem'}}>{firebaseArray.length > 0 ? firebaseArray[19].title : ''}</Typography>
+                <Typography variant="h5" sx={{ fontWeight: "normal" }}>{firebaseArray.length > 0 ? firebaseArray[19].content : ''}</Typography>
             </Box>
 
             {/* Betalning slut */ }
@@ -481,67 +478,71 @@ type Props = {
             {/* Här slutar kontakt formuläret */}
                         
         </Container>
-        {/* Här börjar recensionerna */}
+        {/* Här börjar korten */}
         <Container disableGutters sx={{ p: '1rem' }}>
-    <Grid container spacing={3}> {/* Lägger till utrymme mellan varje Card */}
-        <Grid item xs={12} sm={6} md={3}>
-            <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
-                <Card elevation={5} style={{flexGrow: 1}}>
-                    <CardContent>
-                        <Typography variant="h5" component="div">
-                            {firebaseArray.length > 0 ? firebaseArray[5].title : ''} 
-                        </Typography>
-                        <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [5]: !prevState[5]}))}>
-                            {firebaseArray.length > 0 ? getContent(firebaseArray[5].content, 5) : ''}
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Box>
+        <Grid container spacing={3}> {/* Lägger till utrymme mellan varje Card */}
+            <Grid item xs={12} sm={6} md={3}>
+                <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
+                    <Card elevation={5} style={{flexGrow: 1}}>
+                            <CardMedia ref={heroRef} component="img" alt="Sorgföreläsningar" image={OptifirstCard} sx={{ width: '100%', height: '20rem' }} />
+                        <CardContent>
+                            <Typography variant="h5" component="div">
+                                {firebaseArray.length > 0 ? firebaseArray[16].title : ''} 
+                            </Typography>
+                            <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [16]: !prevState[16]}))}>
+                                {firebaseArray.length > 0 ? getContent(firebaseArray[16].content, 16) : ''}
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </Box>
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+                <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
+                    <Card elevation={5} style={{flexGrow: 1}}>
+                        <CardMedia ref={heroRef} component="img" alt="Opti second card" image={OptisecondCard} sx={{ width: '100%', height: '20rem' }} />
+                        <CardContent>
+                            <Typography variant="h5" component="div">
+                                {firebaseArray.length > 0 ? firebaseArray[20].title : ''} 
+                            </Typography>
+                            <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [20]: !prevState[20]}))}>
+                                {firebaseArray.length > 0 ? getContent(firebaseArray[20].content, 20) : ''}
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </Box>
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+                <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
+                    <Card elevation={5} style={{flexGrow: 1}}>
+                        <CardMedia ref={heroRef} component="img" alt="Opti third card" image={OptithirdCard} sx={{ width: '100%', height: '20rem' }} />
+                        <CardContent>
+                            <Typography variant="h5" component="div">
+                                {firebaseArray.length > 0 ? firebaseArray[25].title : ''} 
+                            </Typography>
+                            <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [25]: !prevState[25]}))}>
+                                {firebaseArray.length > 0 ? getContent(firebaseArray[25].content, 25) : ''}
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </Box>
+            </Grid>
+            <Grid item xs={12} sm={6} md={3}>
+                <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
+                    <Card elevation={5} style={{flexGrow: 1}}>
+                    <CardMedia ref={heroRef} component="img" alt="Opti fourth card" image={OptifourthCard} sx={{ width: '100%', height: '20rem' }} />
+                        <CardContent>
+                            <Typography variant="h5" component="div">
+                                {firebaseArray.length > 0 ? firebaseArray[18].title : ''} 
+                            </Typography>
+                            <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [18]: !prevState[18]}))}>
+                                {firebaseArray.length > 0 ? getContent(firebaseArray[18].content, 18) : ''}
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </Box>
+            </Grid>
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-            <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
-                <Card elevation={5} style={{flexGrow: 1}}>
-                    <CardContent>
-                        <Typography variant="h5" component="div">
-                            {firebaseArray.length > 0 ? firebaseArray[6].title : ''} 
-                        </Typography>
-                        <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [6]: !prevState[6]}))}>
-                            {firebaseArray.length > 0 ? getContent(firebaseArray[6].content, 6) : ''}
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Box>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-            <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
-                <Card elevation={5} style={{flexGrow: 1}}>
-                    <CardContent>
-                        <Typography variant="h5" component="div">
-                            {firebaseArray.length > 0 ? firebaseArray[7].title : ''} 
-                        </Typography>
-                        <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [7]: !prevState[7]}))}>
-                            {firebaseArray.length > 0 ? getContent(firebaseArray[7].content, 7) : ''}
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Box>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-            <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
-                <Card elevation={5} style={{flexGrow: 1}}>
-                    <CardContent>
-                        <Typography variant="h5" component="div">
-                            {firebaseArray.length > 0 ? firebaseArray[8].title : ''} 
-                        </Typography>
-                        <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [8]: !prevState[8]}))}>
-                            {firebaseArray.length > 0 ? getContent(firebaseArray[8].content, 8) : ''}
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Box>
-        </Grid>
-    </Grid>
-</Container>
+    </Container>
     </Container>
     );
 };
