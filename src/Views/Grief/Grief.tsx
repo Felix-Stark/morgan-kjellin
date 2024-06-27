@@ -21,12 +21,14 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PaidIcon from '@mui/icons-material/Paid';
 
 const contactAlt = ["Via mail", "Via Telefon"];
+const courseAlt = ["Sorgbearbetning", "OptimumMind"];
 
 interface CourseFormData {
   name: string;
   email: string;
   phoneNumber: string;
   contactAlt: string;
+  courseAlt?: string;
 //   message: string;
 }
 
@@ -61,6 +63,7 @@ type Props = {
         email: "",
         phoneNumber: "",
         contactAlt: "",
+        courseAlt: "",
         // message: "",
       });
 
@@ -88,6 +91,7 @@ type Props = {
           from_email: formData.email,
           phone_number: formData.phoneNumber,
           contactAlt: formData.contactAlt,
+          courseAlt: formData.courseAlt,
         //   message: formData.message,
         },
         "hbA17LMwp8EWGpDL2"
@@ -113,10 +117,11 @@ type Props = {
             email: "",
             phoneNumber: "",
             contactAlt: "",
+            courseAlt: "",
         })
     }
 
-    // const navigate = useNavigate();
+    
     const heroRef: any  = useRef();
 
     const scrollToElement = (event: any) => {
@@ -175,27 +180,62 @@ type Props = {
 
     return (
         <Container disableGutters sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-        <Container disableGutters sx={{ display: 'flex', flexDirection: 'row',flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', pt: '2rem', pb: '2rem' }}>
-            <CardMedia ref={heroRef} component={"img"} alt="Sorgföreläsningar" image={GriefPic} sx={{ width: '25rem', height: '20rem' }} />
-            <Box sx={{ display: 'flex', flexDirection: 'column', marginLeft: '1rem' }}>
-                <Typography variant="h2" sx={{ fontWeight: "bold", textAlign: "left",ml: '2rem', pt: '2rem' }}>
-                    { firebaseArray.length > 0 ? firebaseArray[9].title : ''}
-                </Typography>
-                <Typography variant="h3" sx={{ fontWeight: "bold", textAlign: "left", ml: '2rem', pt: '2rem' }}>
-                    { firebaseArray.length > 0 ? firebaseArray[9].content : ''}
-                </Typography>
-
-                <Button variant="contained" onClick={scrollToElement} data-target="scrollTarget"
+        <Container disableGutters sx={{ 
+                display: 'flex', 
+                flexDirection: { xs: 'column', sm: 'row' }, // Staplar elementen vertikalt på små skärmar och horisontellt på större
+                flexWrap: 'wrap', 
+                alignItems: 'center', 
+                justifyContent: 'center', 
+                pt: '2rem', 
+                pb: '2rem' 
+            }}>
+                <CardMedia 
+                    ref={heroRef} 
+                    component={"img"} 
+                    alt="Sorgföreläsningar" 
+                    image={GriefPic} 
                     sx={{ 
-                        backgroundColor: '#BA1D37',
-                        width: '10rem',
-                        height: '3rem',
-                        margin: '2rem ',
-                        '&:hover': {backgroundColor: '#BA1D60'}}}>
-                    Anmäl dig här
-                </Button>
-            </Box>
-        </Container>
+                        width: { xs: '100%', sm: '25rem' }, // Full bredd på små skärmar, fast bredd på större
+                        height: { xs: 'auto', sm: '20rem' } // Auto höjd på små skärmar för att behålla bildförhållandet, fast höjd på större
+                    }} 
+                />
+                <Box sx={{ 
+                    display: 'flex', 
+                    flexDirection: 'column', 
+                    marginLeft: { sm: '1rem', xs: 0 }, // Ingen marginal till vänster på små skärmar
+                    width: { xs: '100%', sm: 'auto' } // Full bredd på små skärmar, auto bredd på större
+                }}>
+                    <Typography variant="h2" sx={{ 
+                        fontWeight: "bold", 
+                        textAlign: "left",
+                        ml: '2rem', 
+                        pt: '2rem',
+                        fontSize: { xs: '1.8rem', sm: '2rem', md: '2rem' } // Anpassar storleken på texten för olika skärmstorlekar
+                    }}>
+                        { firebaseArray.length > 0 ? firebaseArray[9].title : ''}
+                    </Typography>
+                    <Typography variant="h3" sx={{ 
+                        fontWeight: "bold", 
+                        textAlign: "left", 
+                        ml: '2rem', 
+                        pt: '2rem',
+                        fontSize: { xs: '1.25rem', sm: '1.4rem', md: '1.5rem' } // Anpassar storleken på texten för olika skärmstorlekar
+                    }}>
+                        { firebaseArray.length > 0 ? firebaseArray[9].content : ''}
+                    </Typography>
+
+                    <Button variant="contained" onClick={scrollToElement} data-target="scrollTarget"
+                        sx={{ 
+                            backgroundColor: '#BA1D37',
+                            width: '10rem',
+                            height: '3rem',
+                            margin: '2rem ',
+                            '&:hover': {backgroundColor: '#BA1D60'}
+                        }}>
+                        Anmäl dig här
+                    </Button>
+                </Box>
+            </Container>
 
        {/*  Info om föreläsningen */}
         
@@ -295,7 +335,7 @@ type Props = {
                     Anmälan till kurs!
                 </Typography>
 
-                <Typography variant="h4" sx={{ padding: { xs: "12px", md: "24px" } }}>
+                <Typography variant="h4" sx={{fontSize: "16px"}}>
                     Vänligen fyll i de obligatoriska fälten så skickar vi en bekräftelse på din anmälan.
                 </Typography>
                 </Box>
@@ -432,6 +472,31 @@ type Props = {
                             </MenuItem>
                             ))}
                         </TextField>
+                        <TextField
+                            name="courseAlt"
+                            variant="filled"
+                            select
+                            label="Kursalternativ"
+                            InputLabelProps={{
+                                style: {
+                                color: "black",
+                                fontSize: "18px",
+                                fontWeight: "bold",
+                                },
+                            }}
+                            value={formData.courseAlt}
+                            onChange={handleChange}
+                            required
+                            fullWidth
+                            margin="normal"
+                            sx={{ backgroundColor: "rgba(0,0,0,0.10)", color: "white" }}
+                            >
+                            {courseAlt.map((option) => (
+                                <MenuItem key={option} value={option}>
+                                {option}
+                                </MenuItem>
+                            ))}
+                            </TextField>
                         </Box>
                     </Box>
                     <Box

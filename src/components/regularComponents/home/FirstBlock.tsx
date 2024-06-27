@@ -22,7 +22,7 @@ const FirstBlock = ({firebaseArray}: Props) => {
           <ReactPlayer
             light={snapShot}
             width={"100%"}
-            height={"80vh"}
+            height={"60vh"}
             url={video}
             controls
             playing
