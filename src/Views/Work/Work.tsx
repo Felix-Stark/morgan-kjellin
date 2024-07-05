@@ -11,7 +11,10 @@ import { Container, Paper, Box, Typography, Button } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
-
+import OptifirstCard from '../../Assets/firstcardopti.png';
+import OptisecondCard from '../../Assets/secondcardopti.png';
+import OptithirdCard from '../../Assets/thirdcardopti.png';
+import OptifourthCard from '../../Assets/fourthcardopti.png';
 
 type Props = {
   firebaseArray: any;
@@ -67,31 +70,31 @@ export const Work = ({firebaseArray}: Props) => {
 
         <Container disableGutters style={{ display: 'flex', flexWrap: 'wrap', minWidth: '100%', margin: "0", position: 'relative'}}>
 
-        <Button variant="contained" onClick={scrollToTop} 
-       sx={{
-         zIndex: '1', 
-         width: {xs: '3rem', sm: '3rem', md: '4rem'}, 
-         height: {xs: '3rem', sm: '3rem', md: '4rem'}, 
-         borderRadius: '50%', 
-         backgroundColor: '#BA1D37', 
-         position: 'fixed',
-         margin: '5rem', 
-         bottom: '-2rem', 
-         right: '-2rem', 
-         '&:hover': {backgroundColor: '#BA1D60'},
-         display: { xs: 'none', sm: 'none', md: 'flex' } // Döljer knappen på xs och sm skärmar
-       }}>
+            <Button variant="contained" onClick={scrollToTop} 
+          sx={{
+            zIndex: '1', 
+            width: {xs: '3rem', sm: '3rem', md: '4rem'}, 
+            height: {xs: '3rem', sm: '3rem', md: '4rem'}, 
+            borderRadius: '50%', 
+            backgroundColor: '#BA1D37', 
+            position: 'fixed',
+            margin: '5rem', 
+            bottom: '-2rem', 
+            right: '-2rem', 
+            '&:hover': {backgroundColor: '#BA1D60'},
+            display: { xs: 'none', sm: 'none', md: 'flex' } // Döljer knappen på xs och sm skärmar
+          }}>
 
-    <CardMedia image={scrollArrow} style={{ position: 'absolute', transform: 'rotate(180deg)' }}
-         sx={{ 
-           top: { xs: 'calc(50% - 1rem)', sm: 'calc(50% - 1rem)', md: 'calc(50% - 1.25rem)'}, 
-           left: { xs: 'calc(50% - 1rem)', sm: 'calc(50% - 1rem)', md: 'calc(50% - 1.25rem)'},
-           width: {xs: '2rem', sm: '2rem', md: '2.5rem'}, 
-           height: {xs: '2rem', sm: '2rem', md: '2.5rem'} 
-         }} >
-    </CardMedia>
+        <CardMedia image={scrollArrow} style={{ position: 'absolute', transform: 'rotate(180deg)' }}
+            sx={{ 
+              top: { xs: 'calc(50% - 1rem)', sm: 'calc(50% - 1rem)', md: 'calc(50% - 1.25rem)'}, 
+              left: { xs: 'calc(50% - 1rem)', sm: 'calc(50% - 1rem)', md: 'calc(50% - 1.25rem)'},
+              width: {xs: '2rem', sm: '2rem', md: '2.5rem'}, 
+              height: {xs: '2rem', sm: '2rem', md: '2.5rem'} 
+            }} >
+        </CardMedia>
 
-</Button>
+        </Button>
 
           <Container disableGutters sx={{ display: 'flex', minWidth: '100%', margin: "0", position: 'relative', flexDirection: { xs: 'column', sm: 'column', md: 'row' }}}>
             <Box width={'2rem'} height={'2rem'} borderRadius={'50%'} sx={{opacity: { xs: '0', sm: '0', md: '100%'}, backgroundColor: '#BA1D37', position: 'absolute', right: 'calc(50% - 1rem)', top: '5rem'}}></Box>
@@ -129,14 +132,14 @@ export const Work = ({firebaseArray}: Props) => {
                   <Typography variant="h2" sx={{marginTop: { xs: '5rem', sm: '5rem', md: '5rem'}, fontSize: { xs: '1.5rem', sm: '2rem' }}}>{ firebaseArray.length > 0 ? firebaseArray[31].title : ''}</Typography>
                   <Typography variant="h5" color="#BA1D37" sx={{ paddingTop: '0.5rem'}}>ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
                   <Typography variant="h6" paddingTop={'2rem'} sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}> { firebaseArray.length > 0 ? firebaseArray[31].content : ''} </Typography>
-                  <Button variant="contained" onClick={ () => navigate('/kurs') }
+                  <Button variant="contained" onClick={ () => navigate('/contact') }
                   sx={{ 
                     backgroundColor: '#BA1D37',
                     width: '10rem',
                     height: '3rem',
                     margin: '2rem 0',
                     '&:hover': {backgroundColor: '#BA1D60'}}}>
-                    Mer info...
+                    KONTAKT
                   </Button>
                 </Box>
             </Box>
@@ -164,14 +167,14 @@ export const Work = ({firebaseArray}: Props) => {
                   </Typography>
                   <Typography variant="h5" color="#BA1D37" sx={{ paddingTop: '0.5rem'}}>ONLINE - PÅ PLATS, EFTER BEGÄRAN</Typography>
                   <Typography variant="h6" paddingTop={'2rem'} sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>{ firebaseArray.length > 0 ? firebaseArray[33].content : ''}</Typography>
-                  <Button variant="contained" onClick={ () => navigate('/contact') }
+                  <Button variant="contained" onClick={ () => navigate('/optimummind') }
                   sx={{ 
                     backgroundColor: '#BA1D37',
                     width: '10rem',
                     height: '3rem',
                     margin: '2rem 0',
                     '&:hover': {backgroundColor: '#BA1D60'}}}>
-                    Kontakt
+                    Mer info...
                   </Button>
                 </Box>
             </Box>
@@ -188,8 +191,8 @@ export const Work = ({firebaseArray}: Props) => {
                 borderLeft: {xs: 'none', sm: 'none', md: '1px solid #BA1D37'}
               }}>
                 <Box sx={{width: {xs: '18rem', sm: '30rem', md: '20rem'}}}>
-                  <CardMedia image={workHugging} sx={{width: { xs: '14rem', sm: '20rem'}, height: {xs: '20rem', sm: '25rem'}, transform: { xs: 'translate(3rem, 0)', sm: 'translate(3rem, 0)'}}}>
-                    <CardMedia image={workFamily} sx={{ width: { xs: '7rem', sm: '10rem'}, height: { xs: '7rem', sm: '10rem'} , transform: { xs: 'translate(-3rem, 15rem)', sm: 'translate(-3rem, 18rem)'} }}></CardMedia>
+                  <CardMedia image={OptifirstCard} sx={{width: { xs: '14rem', sm: '20rem'}, height: {xs: '20rem', sm: '25rem'}, transform: { xs: 'translate(3rem, 0)', sm: 'translate(3rem, 0)'}}}>
+                    <CardMedia image={OptifourthCard} sx={{ width: { xs: '7rem', sm: '10rem'}, height: { xs: '7rem', sm: '10rem'} , transform: { xs: 'translate(-3rem, 15rem)', sm: 'translate(-3rem, 18rem)'} }}></CardMedia>
                   </CardMedia>
                 </Box>
 

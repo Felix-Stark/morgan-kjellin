@@ -219,6 +219,7 @@ type Props = {
                         textAlign: "left", 
                         ml: '2rem', 
                         pt: '2rem',
+                        pr: { xs: '2rem', sm: 0 },
                         fontSize: { xs: '1.25rem', sm: '1.4rem', md: '1.5rem' } // Anpassar storleken på texten för olika skärmstorlekar
                     }}>
                         { firebaseArray.length > 0 ? firebaseArray[9].content : ''}
@@ -258,7 +259,7 @@ type Props = {
                     {firebaseArray.length > 1 ? firebaseArray[13].content : ''}
                 </Typography>
             </Box>
-            <Box className="date" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
+            {/* <Box className="date" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
                 <CalendarMonthIcon />
                 <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>
                     {firebaseArray.length > 2 ? firebaseArray[11].title : ''}
@@ -266,7 +267,7 @@ type Props = {
                 <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>
                     {firebaseArray.length > 2 ? firebaseArray[11].content : ''}
                 </Typography>
-            </Box>
+            </Box> */}
             <Box className="participants" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem'  }}>
                 <PaidIcon />
                 <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>
@@ -539,66 +540,66 @@ type Props = {
                         
         </Container>
         {/* Här börjar recensionerna */}
-        <Container disableGutters sx={{ p: '1rem' }}>
-    <Grid container spacing={3}> {/* Lägger till utrymme mellan varje Card */}
-        <Grid item xs={12} sm={6} md={3}>
-            <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
-                <Card elevation={5} style={{flexGrow: 1}}>
-                    <CardContent>
-                        <Typography variant="h5" component="div">
-                            {firebaseArray.length > 0 ? firebaseArray[5].title : ''} 
-                        </Typography>
-                        <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [5]: !prevState[5]}))}>
-                            {firebaseArray.length > 0 ? getContent(firebaseArray[5].content, 5) : ''}
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Box>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-            <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
-                <Card elevation={5} style={{flexGrow: 1}}>
-                    <CardContent>
-                        <Typography variant="h5" component="div">
-                            {firebaseArray.length > 0 ? firebaseArray[6].title : ''} 
-                        </Typography>
-                        <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [6]: !prevState[6]}))}>
-                            {firebaseArray.length > 0 ? getContent(firebaseArray[6].content, 6) : ''}
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Box>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-            <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
-                <Card elevation={5} style={{flexGrow: 1}}>
-                    <CardContent>
-                        <Typography variant="h5" component="div">
-                            {firebaseArray.length > 0 ? firebaseArray[7].title : ''} 
-                        </Typography>
-                        <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [7]: !prevState[7]}))}>
-                            {firebaseArray.length > 0 ? getContent(firebaseArray[7].content, 7) : ''}
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Box>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-            <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
-                <Card elevation={5} style={{flexGrow: 1}}>
-                    <CardContent>
-                        <Typography variant="h5" component="div">
-                            {firebaseArray.length > 0 ? firebaseArray[8].title : ''} 
-                        </Typography>
-                        <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [8]: !prevState[8]}))}>
-                            {firebaseArray.length > 0 ? getContent(firebaseArray[8].content, 8) : ''}
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Box>
-        </Grid>
-    </Grid>
-</Container>
+        <Container disableGutters sx={{ p: '1rem', mt: { xs: '2rem', sm: '2rem', md: 0 }  }}>
+            <Grid container spacing={3}> {/* Lägger till utrymme mellan varje Card */}
+                <Grid item xs={12} sm={6} md={3}>
+                    <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
+                        <Card elevation={5} style={{flexGrow: 1}}>
+                            <CardContent>
+                                <Typography variant="h5" component="div">
+                                    {firebaseArray.length > 0 ? firebaseArray[5].title : ''} 
+                                </Typography>
+                                <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [5]: !prevState[5]}))}>
+                                    {firebaseArray.length > 0 ? getContent(firebaseArray[5].content, 5) : ''}
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Box>
+                </Grid>
+                <Grid item xs={12} sm={6} md={3}>
+                    <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
+                        <Card elevation={5} style={{flexGrow: 1}}>
+                            <CardContent>
+                                <Typography variant="h5" component="div">
+                                    {firebaseArray.length > 0 ? firebaseArray[6].title : ''} 
+                                </Typography>
+                                <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [6]: !prevState[6]}))}>
+                                    {firebaseArray.length > 0 ? getContent(firebaseArray[6].content, 6) : ''}
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Box>
+                </Grid>
+                <Grid item xs={12} sm={6} md={3}>
+                    <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
+                        <Card elevation={5} style={{flexGrow: 1}}>
+                            <CardContent>
+                                <Typography variant="h5" component="div">
+                                    {firebaseArray.length > 0 ? firebaseArray[7].title : ''} 
+                                </Typography>
+                                <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [7]: !prevState[7]}))}>
+                                    {firebaseArray.length > 0 ? getContent(firebaseArray[7].content, 7) : ''}
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Box>
+                </Grid>
+                <Grid item xs={12} sm={6} md={3}>
+                    <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>
+                        <Card elevation={5} style={{flexGrow: 1}}>
+                            <CardContent>
+                                <Typography variant="h5" component="div">
+                                    {firebaseArray.length > 0 ? firebaseArray[8].title : ''} 
+                                </Typography>
+                                <Typography sx={{ mt: 2 }} variant="body2" color="text.secondary" onClick={() => setIsFullContent(prevState => ({...prevState, [8]: !prevState[8]}))}>
+                                    {firebaseArray.length > 0 ? getContent(firebaseArray[8].content, 8) : ''}
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Box>
+                </Grid>
+            </Grid>
+        </Container>
     </Container>
     );
 };

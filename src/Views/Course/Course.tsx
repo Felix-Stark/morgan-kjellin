@@ -223,6 +223,7 @@ type Props = {
                     textAlign: "left", 
                     ml: '2rem', 
                     pt: '2rem',
+                    pr: { xs: '2rem', sm: 0 },
                     fontSize: { xs: '1.25rem', sm: '1.4rem', md: '1.5rem' } // Anpassar storleken på texten för olika skärmstorlekar
                 }}>
                     { firebaseArray.length > 0 ? firebaseArray[17].content : ''}
@@ -262,7 +263,7 @@ type Props = {
                     {firebaseArray.length > 1 ? firebaseArray[24].content : ''}
                 </Typography>
             </Box>
-            <Box className="date" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
+            {/* <Box className="date" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem', borderRight: { md: '1px solid black', xs: 'none'} }}>
                 <CalendarMonthIcon />
                 <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>
                     {firebaseArray.length > 2 ? firebaseArray[22].title : ''}
@@ -270,7 +271,7 @@ type Props = {
                 <Typography variant="h6" sx={{ fontWeight: "normal", textAlign: "center" }}>
                     {firebaseArray.length > 2 ? firebaseArray[22].content : ''}
                 </Typography>
-            </Box>
+            </Box> */}
             <Box className="participants" sx={{width: '18rem', display: 'flex', flexDirection: 'column', alignItems: 'center', pl: '4rem', pr: '4rem', pt: '2rem'  }}>
                 <PaidIcon />
                 <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left", pt: '1rem' }}>
@@ -543,7 +544,7 @@ type Props = {
                         
         </Container>
         {/* Här börjar korten */}
-        <Container disableGutters sx={{ p: '1rem' }}>
+        <Container disableGutters sx={{ p: '1rem', mt: { xs: '2rem', sm: '2rem', md: 0 } }}>
         <Grid container spacing={3}> {/* Lägger till utrymme mellan varje Card */}
             <Grid item xs={12} sm={6} md={3}>
                 <Box width={1} display="flex" flexDirection="column" style={{height: '100%'}}>

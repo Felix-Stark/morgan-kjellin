@@ -137,7 +137,7 @@ function App() {
           <Route path="/contact" element={<Contact  />} />
           <Route path="/arbeta-med-mig" element={<Work firebaseArray={firebaseArray} />} />
           <Route path ="/sorg" element={<Grief firebaseArray={firebaseArray} />}/>
-          <Route path="/kurs" element={<Course firebaseArray={firebaseArray} />} />
+          <Route path="/optimummind" element={<Course firebaseArray={firebaseArray} />} />
           <Route path="/admin" element={<Admin />}>
             <Route path="kalender" element={ <AdminCalendar /> } />
             <Route path="kalender/aktiviteter" element={ <AdminActivities/> } />
